@@ -1,0 +1,55 @@
+#summary How to install NCTUns in Debian/.
+
+= Introduction =
+
+[http://nsl10.cs.nctu.edu.tw/ NCTUns] is a high-fidelity and extensible network simulator. 
+
+This document describes how to install NCTUns (which runs only on Fedora Linux 9) on a Debian/Ubuntu system, using the x86 virtualization machine [http://www.virtualbox.org/ VirtualBox]. 
+
+= Install a virtualized Fedora 9 =
+
+Install the `VirtualBox` Open Edition, its kernel modules and run it:
+
+{{{
+$ sudo apt-get install virtualbox-ose virtualbox-ose-modules-2.6-686
+$ VirtualBox
+}}}
+
+Create a _Fedora 9_ profile and the virtual hard disk image (use dynamic allocation) that will store it. Download the [http://ftp.udl.es/pub/fedora/linux/releases/9/Fedora/i386/iso/Fedora-9-i386-DVD.iso Fedora 9 DVD image] and configure VirtualBox to use it as CD/DVD image. 
+
+Start the created profile, you should seed that the Fedora DVD boots. The first step in the installation process is testing the CD/DVD integrity, skip that step (otherwise the  program will hang). Follow the instructions and install a default Fedora 9 system (you may disable _office and productivity_ and enable _software development_ in packages selection).
+
+= Install NCTUns =
+
+Download the last version [http://nsl10.csie.nctu.edu.tw/products/nctuns/download/download.php here] and uncompress it:
+
+{{{
+wget http://nsl10.csie.nctu.edu.tw/download/NCTUns-allinone-linux-2.6.25.9-f9.20080919-3.tar.gz
+tar xzf NCTUns-allinone-linux-2.6.25.9-f9.20080919-3.tar.gz
+cd NCTUns-5.0
+}}}
+
+Copy the existing _install.conf-example_ to _install.conf_ and nable all variables, including the kernel which is disabled by default: _install_kernel=yes_. Then run the _install_ script as root:
+
+{{{
+sudo ./install.sh -c install.conf
+}}}
+
+You must now configure you shell preferences to include the NCTUns environment variables. Add these lines to the the file _/home/user/.bashrc_:
+
+{{{ 
+export NCTUNSHOME=/usr/local/nctuns
+export NCTUNS_TOOLS=$NCTUNSHOME/tools
+export NCTUNS_BIN=$NCTUNSHOME/bin
+export PATH=${NCTUNS_BIN}:${PATH}
+}}}
+
+Finally, reboot the virtual matchine to load the NCTUns modified kernel.
+
+= Running NCTNs ==
+
+Login the system with the desired user and run the client GUI:
+
+{{{
+$ nctunsclient
+}}}
