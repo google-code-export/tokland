@@ -1,4 +1,5 @@
-#summary How to install NCTUns in Debian/.
+#summary How to install NCTUns in Debian/Ubuntu with VirtualBox.
+#labels Featured
 
 = Introduction =
 
