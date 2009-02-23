@@ -16,7 +16,7 @@ $ sudo apt-get install virtualbox-ose virtualbox-ose-modules-2.6-686
 $ VirtualBox
 }}}
 
-Create a _Fedora 9_ profile and the virtual hard disk image (use dynamic allocation) that will store it. Download the [http://ftp.udl.es/pub/fedora/linux/releases/9/Fedora/i386/iso/Fedora-9-i386-DVD.iso Fedora 9 DVD image] and configure VirtualBox to use it as CD/DVD image. 
+Create a _Fedora 9_ profile and the virtual hard disk image (use dynamic allocation) that will store it. Download the [http://ftp.udl.es/pub/fedora/linux/releases/9/Fedora/i386/iso/Fedora-9-i386-DVD.iso Fedora 9 DVD image] and configure `VirtualBox` to use it as CD/DVD image. 
 
 Start the created profile, you should seed that the Fedora DVD boots. The first step in the installation process is testing the CD/DVD integrity, skip that step (otherwise the  program will hang). Follow the instructions and install a default Fedora 9 system (you may disable _office and productivity_ and enable _software development_ in packages selection).
 
