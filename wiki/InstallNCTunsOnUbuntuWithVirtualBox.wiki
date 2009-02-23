@@ -3,7 +3,7 @@
 
 = Introduction =
 
-[http://nsl10.cs.nctu.edu.tw/ NCTUns] is a high-fidelity and extensible network simulator. 
+The [http://nsl10.cs.nctu.edu.tw/ NCTUns] is a high-fidelity and extensible network simulator and emulator capable of simulating various protocols used in both wired and wireless IP networks. Its core technology is based on the novel kernel re-entering methodology. NCTUns can be used as an emulator, it directly uses the Linux TCP/IP protocol stack to generate high-fidelity simulation results, and it has many other interesting qualities. 
 
 This document describes how to install NCTUns (which runs only with Fedora Linux 9) on a Debian/Ubuntu system, using the x86 virtualization machine [http://www.virtualbox.org/ VirtualBox]. 
 
