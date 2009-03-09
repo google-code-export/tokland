@@ -1,0 +1,32 @@
+= Introduction =
+
+This document explains how to log into a UNIX system (Debian, in the examples) and run X11 applications.
+
+= Server =
+
+You need basic X11 infrastructure and the package _xauth_ installed:
+
+{{{
+$ sudo apt-get install x11-common xauth
+}}}
+
+X11 forwarding must be enabled (restard ssh daemon if needed):
+
+{{
+# /etc/ssh/sshd_config
+X11Forwarding yes
+...
+
+$ sudo /etc/init.d/ssh restart
+}}}
+
+= Usage =
+
+{{{
+$ ssh -X user@host
+...
+$ echo $DISPLAY
+localhost:10.0
+
+$ xcalc
+}}}
