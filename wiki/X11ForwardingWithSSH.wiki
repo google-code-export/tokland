@@ -20,7 +20,9 @@ X11Forwarding yes
 $ sudo /etc/init.d/ssh restart
 }}}
 
-= Usage =
+= Client =
+
+Use the _-X_ option when loggin in with ssh:
 
 {{{
 $ ssh -X user@host
@@ -30,4 +32,11 @@ $ echo $DISPLAY
 localhost:10.0
 
 $ xcalc
+}}}
+
+If you enable X11 forwarding in the configuration you can omit _-X_:
+
+{{{
+# /etc/ssh/ssh_config
+ForwardX11 yes
 }}}
