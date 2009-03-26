@@ -1,3 +1,5 @@
+# How to run X11 apps over SSH connections
+
 = Introduction =
 
 This document explains how to log into a UNIX system (Debian, in the examples) and run X11 applications.
