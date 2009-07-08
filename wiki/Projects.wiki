@@ -23,7 +23,7 @@ The term _phonepatch_ usually refers to the hardware device used to connect a ra
 
 http://www.nongnu.org/asterisk-phpatch
 
-= PyEuler Project =
+= Pyeuler Project =
 
 The http://www.projecteuler.org[Euler Project] proposes some mathematical problems to be solved using any programming language. In this wiki, we see and discuss solutions using Python and functional programming.
 
@@ -102,7 +102,7 @@ Play English words (and cache them) using http://www.thefreedictionary.com/[The 
 
 http://tokland.googlecode.com/svn/trunk/pronounciation/pronounce.sh
 
-= Installing DotProject on Debian =
+= Installing Dotproject on Debian =
 
 http://www.arnau-sanchez.com/other/install-dotproject.html
 
