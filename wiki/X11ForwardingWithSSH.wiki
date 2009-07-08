@@ -1,4 +1,4 @@
-# How to run X11 apps over SSH connections
+#summary How to run X11 apps over SSH connections
 
 = Introduction =
 
