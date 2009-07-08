@@ -5,7 +5,7 @@ Those are some of the projects, scripts and documents that I've developed over t
 
 If you have any comment, email me: tokland AT gmail.com
 
-= Simple subtitles library
+= Simple subtitles library =
 
 Currently it only scales (adjusts fps timing) SRT subtitles:
 
