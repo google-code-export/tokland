@@ -25,7 +25,7 @@ http://www.nongnu.org/asterisk-phpatch
 
 = Pyeuler Project =
 
-The http://www.projecteuler.org[Euler Project] proposes some mathematical problems to be solved using any programming language. In this wiki, we see and discuss solutions using Python and functional programming.
+The [http://www.projecteuler.org Euler Project] proposes some mathematical problems to be solved using any programming language. In this wiki, we see and discuss solutions using Python and functional programming.
 
 http://pyeuler.wikidot.com
 
@@ -38,13 +38,13 @@ http://tokland.googlecode.com/svn/trunk/utm/utm.py
 = Convert FLAC+CUE or APE+CUE to FLAC =
 
 Use this script to convert and split a unique, big APE or FLAC audio file 
-to many http://en.wikipedia.org/wiki/Free_Lossless_Audio_Codec[FLAC] files (CUE file needed):
+to many [http://en.wikipedia.org/wiki/Free_Lossless_Audio_Codec FLAC] files (CUE file needed):
 
 http://tokland.googlecode.com/svn/trunk/flac/ape2flac
  
 = RPN calculator =
 
-A command-line interactive http://en.wikipedia.org/wiki/Reverse_Polish_notation[Reverse Polish notation] calculator:
+A command-line interactive [http://en.wikipedia.org/wiki/Reverse_Polish_notation Reverse Polish notation] calculator:
 
 http://tokland.googlecode.com/svn/trunk/rpn/rpn.py
 
@@ -54,23 +54,23 @@ Sometimes I want to help a friend with her DSL connection and I need to access t
 
 http://tokland.googlecode.com/svn/trunk/dpl/dpl.py
 
-You will also need the http://tokland.googlecode.com/svn/trunk/dpl/dpl.txt[TXT passwords list] and, optionally, the http://tokland.googlecode.com/svn/trunk/dpl/dpl.html[source HTML passwords] (http://www.phenoelit-us.org/dpl/dpl.html[latest version])
+You will also need the [http://tokland.googlecode.com/svn/trunk/dpl/dpl.txt TXT passwords list] and, optionally, the [http://tokland.googlecode.com/svn/trunk/dpl/dpl.html source HTML passwords] ([http://www.phenoelit-us.org/dpl/dpl.html latest version])
  
 = Download XKCD =
 
-Download the great http://xkcd.com[XKCD] cartoons, using the descriptive "alt" image tag for the filename.
+Download the great [http://xkcd.com XKCD] cartoons, using the descriptive "alt" image tag for the filename.
 
 http://tokland.googlecode.com/svn/trunk/xkcd/download_xkcd.py
 
 = Extract audio from a CD =
 
-Extract/rip audio tracks from a CD (people used to do that, before the P2P era) with song titles obtained from http://www.gracenote.com[Gracenote] (formerly CDDB).
+Extract/rip audio tracks from a CD (people used to do that, before the P2P era) with song titles obtained from [http://www.gracenote.com Gracenote] (formerly CDDB).
 
 http://tokland.googlecode.com/svn/trunk/cd2ogg/cd2ogg.py
 
 = Download lyrics =
 
-Download lyrics from http://lyricwiki.org[LyricWiki] (the best lyrics site I know).
+Download lyrics from [http://lyricwiki.org LyricWiki] (the best lyrics site I know).
 
 http://tokland.googlecode.com/svn/trunk/lyrics/lyrics.py
 
@@ -98,7 +98,7 @@ $ python cifras.py 3 7 10 50 100 8 546
 
 = English pronunciation =
 
-Play English words (and cache them) using http://www.thefreedictionary.com/[The Free Dictionary] webpage:
+Play English words (and cache them) using [http://www.thefreedictionary.com/ The Free Dictionary] webpage:
 
 http://tokland.googlecode.com/svn/trunk/pronounciation/pronounce.sh
 
