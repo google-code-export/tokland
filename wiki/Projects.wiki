@@ -1,0 +1,111 @@
+#summary My projects
+#labels Featured
+
+Those are some of the projects, scripts and documents that I've developed over the years. All the software is licensed under the GNU General Public License (GNU-GPL).
+
+If you have any comment, email me: tokland AT gmail.com
+
+= Simple subtitles library
+
+Currently it only scales (adjusts fps timing) SRT subtitles:
+
+http://code.google.com/p/tokland/source/browse/trunk/subtitles
+
+= Hotkeys for the X-Window =
+
+Xhotkeys provides a simple and easily configurable hotkey launcher for the X-Window System, binding keys and mouse buttons to configurable commands. It should work on all desktops (Gnome, KDE, ...) available for the GNU/Linux operating system. Configuration files can be modified manually or using a graphical GTK+ configurator.
+
+http://xhotkeys.googlecode.com
+
+= Asterisk Phonepatch =
+
+The term _phonepatch_ usually refers to the hardware device used to connect a radio transceiver and a phoneline. Asterisk-phonepatch do that task, but it's mainly software, as it uses the Asterisk software PBX.
+
+http://www.nongnu.org/asterisk-phpatch
+
+= PyEuler Project =
+
+The http://www.projecteuler.org[Euler Project] proposes some mathematical problems to be solved using any programming language. In this wiki, we see and discuss solutions using Python and functional programming.
+
+http://pyeuler.wikidot.com
+
+= UTM converter =
+
+Python module to convert UTM to/from Latitude-Longitude coordinates (Datum is configurable).
+
+http://tokland.googlecode.com/svn/trunk/utm/utm.py
+
+= Convert FLAC+CUE or APE+CUE to FLAC =
+
+Use this script to convert and split a unique, big APE or FLAC audio file 
+to many http://en.wikipedia.org/wiki/Free_Lossless_Audio_Codec[FLAC] files (CUE file needed):
+
+http://tokland.googlecode.com/svn/trunk/flac/ape2flac
+ 
+= RPN calculator =
+
+A command-line interactive http://en.wikipedia.org/wiki/Reverse_Polish_notation[Reverse Polish notation] calculator:
+
+http://tokland.googlecode.com/svn/trunk/rpn/rpn.py
+
+= Guess user and password for DSL routers =
+
+Sometimes I want to help a friend with her DSL connection and I need to access the HTTP router management utility. As the ISP usually does not provide the user/password, I created this utility that tries the more commonly used.
+
+http://tokland.googlecode.com/svn/trunk/dpl/dpl.py
+
+You will also need the http://tokland.googlecode.com/svn/trunk/dpl/dpl.txt[TXT passwords list] and, optionally, the http://tokland.googlecode.com/svn/trunk/dpl/dpl.html[source HTML passwords] (http://www.phenoelit-us.org/dpl/dpl.html[latest version])
+ 
+= Download XKCD =
+
+Download the great http://xkcd.com[XKCD] cartoons, using the descriptive "alt" image tag for the filename.
+
+http://tokland.googlecode.com/svn/trunk/xkcd/download_xkcd.py
+
+= Extract audio from a CD =
+
+Extract/rip audio tracks from a CD (people used to do that, before the P2P era) with song titles obtained from http://www.gracenote.com[Gracenote] (formerly CDDB).
+
+http://tokland.googlecode.com/svn/trunk/cd2ogg/cd2ogg.py
+
+= Download lyrics =
+
+Download lyrics from http://lyricwiki.org[LyricWiki] (the best lyrics site I know).
+
+http://tokland.googlecode.com/svn/trunk/lyrics/lyrics.py
+
+= File-sharing downloader/uploader =
+
+http://code.google.com/p/plowshare/
+
+= Automatic SSH backlinks =
+
+The SSH protocol is very useful to create secure port-forwarding between computers. If you need permanent SSH links (typically with some forwarded ports), sshlink may be useful to you.
+
+http://www.nongnu.org/sshlink/
+
+= Simple math game solver =
+
+Given a bunch of numbers, and using the basic operations (+, -, /, 
+*) amongst them, find --or be as close as possible to-- another given number. Spanish readers will recall it from the popular _Cifras y Letras_ TV show.
+
+http://tokland.googlecode.com/svn/trunk/cifras/cifras.py
+
+{{{
+$ python cifras.py 3 7 10 50 100 8 546 
+546 = ((((50+7)*8)-10)+100)
+}}}
+
+= English pronunciation =
+
+Play English words (and cache them) using http://www.thefreedictionary.com/[The Free Dictionary] webpage:
+
+http://tokland.googlecode.com/svn/trunk/pronounciation/pronounce.sh
+
+= Installing DotProject on Debian =
+
+http://www.arnau-sanchez.com/other/install-dotproject.html
+
+= Installing Trac on Debian =
+
+http://www.arnau-sanchez.com/other/install-trac.html
