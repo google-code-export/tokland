@@ -1,9 +1,9 @@
 #summary My projects
 #labels Featured
 
-Those are some of the projects, scripts and documents that I've developed over the years. All the software is licensed under the GNU General Public License (GNU-GPL).
+Those are some of the scripts and documents I've developed over the years. All the software is licensed under the GNU General Public License (GNU-GPL).
 
-If you have any comment, email me: tokland AT gmail.com
+Feedback is appreciated: tokland AT gmail.com
 
 = Simple subtitles library =
 
@@ -25,7 +25,7 @@ http://www.nongnu.org/asterisk-phpatch
 
 = Pyeuler Project =
 
-The [http://www.projecteuler.org Euler Project] proposes some mathematical problems to be solved using any programming language. In this wiki, we see and discuss solutions using Python and functional programming.
+The [http://www.projecteuler.org Euler Project] proposes some mathematical problems to be solved using any programming language. In this wiki, we see and discuss solutions using Python and functional programming. Python is not a functional-language, but it was interesting anyhow:
 
 http://pyeuler.wikidot.com
 
@@ -50,7 +50,7 @@ http://tokland.googlecode.com/svn/trunk/rpn/rpn.py
 
 = Guess user and password for DSL routers =
 
-Sometimes I want to help a friend with her DSL connection and I need to access the HTTP router management utility. As the ISP usually does not provide the user/password, I created this utility that tries the more commonly used.
+Sometimes I am helping a friend with the DSL connection and I need to access the HTTP router management utility (which was forgotten, lost or never known). Therefore I created this utility that tries the more commonly used user/password pairs.
 
 http://tokland.googlecode.com/svn/trunk/dpl/dpl.py
 
@@ -58,7 +58,7 @@ You will also need the [http://tokland.googlecode.com/svn/trunk/dpl/dpl.txt TXT 
  
 = Download XKCD =
 
-Download the great [http://xkcd.com XKCD] cartoons, using the descriptive "alt" image tag for the filename.
+Download the great [http://xkcd.com XKCD] cartoons:
 
 http://tokland.googlecode.com/svn/trunk/xkcd/download_xkcd.py
 
@@ -70,11 +70,13 @@ http://tokland.googlecode.com/svn/trunk/cd2ogg/cd2ogg.py
 
 = Download lyrics =
 
-Download lyrics from [http://lyricwiki.org LyricWiki] (the best lyrics site I know).
+Download lyrics from [http://lyricwiki.org LyricWiki] (the best lyrics site I am aware of).
 
 http://tokland.googlecode.com/svn/trunk/lyrics/lyrics.py
 
 = File-sharing downloader/uploader =
+
+Plowshare is a command-line downloader and uploader for some of the most popular file sharing websites. It works on UNIX-like systems and currently supports Megaupload, Rapidshare, 2Shared, 4Shared, ZShare, Badongo and Mediafire:
 
 http://code.google.com/p/plowshare/
 
@@ -86,8 +88,7 @@ http://www.nongnu.org/sshlink/
 
 = Simple math game solver =
 
-Given a bunch of numbers, and using the basic operations (+, -, /, 
-*) amongst them, find --or be as close as possible to-- another given number. Spanish readers will recall it from the popular _Cifras y Letras_ TV show.
+Given a bunch of numbers, and using the basic operations (add, subtract, multiply, divide) find -or be as close as possible to- another given number. Spanish readers will recall it from the popular *Cifras y Letras* TV quiz show.
 
 http://tokland.googlecode.com/svn/trunk/cifras/cifras.py
 
