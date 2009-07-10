@@ -5,6 +5,10 @@ Those are some of the scripts and documents I've developed over the years. All t
 
 Feedback is appreciated: tokland AT gmail.com
 
+= My snippets on DZone Snippets =
+
+http://snippets.dzone.com/user/tokland
+
 = Simple subtitles library =
 
 Currently it only scales (adjusts fps timing) SRT subtitles:
