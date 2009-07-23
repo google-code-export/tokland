@@ -2,7 +2,7 @@
 
 = Introduction =
 
-DotProject is a web-based, multi-user, multi-language Project Management application. It is an open-source software and free for any uses and is maintained by an open community of volunteer programmers.
+[http://dotproject.org/ DotProject] is a web-based, multi-user, multi-language Project Management application. It is an open-source software and free for any uses and is maintained by an open community of volunteer programmers.
 
 = Install Apache2 + PHP modules =
 
@@ -16,7 +16,7 @@ lrwxrwxrwx 1 /etc/apache2/mods-enabled/php5.load -> ../mods-available/php5.load
 $ /etc/init.d/apache2 start
 }}}
 
-Point your browser to http://localhost, you should see a welcome message.
+Point your browser to [http://localhost localhost], you should see a welcome message.
 
 = Install & Configure Mysql =
 
@@ -47,7 +47,7 @@ Query OK, 0 rows affected (0.00 sec)
 
 = Download and install dotproject =
 
-Download latest stable version from sourceforge and untar on /var/www:
+Download latest stable version from [http://sourceforge.net/project/showfiles.php?group_id=21656 sourceforge] and untar onto /var/www:
 
 {{{
 $ cd /var/www
@@ -98,6 +98,4 @@ $dPconfig['base_url'] = $baseUrl;
 ?>
 }}}
 
-Enter dotproject for the first time: http://localhost/dotproject (admin/passwd)
-
-And that’s it! Now change the admin password and enjoy the work of the dotproject folks!
+Enter dotproject for the first time: http://localhost/dotproject (admin/passwd). And that’s it! Now change the admin password and enjoy the work of the dotproject folks!
