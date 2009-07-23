@@ -1,0 +1,80 @@
+#summary How to install Trac On Debian/Ubuntu
+
+= Introduction =
+
+Here we  will show how to install [http://trac.edgewall.org/ Trac] with Apache2 (using mod_python), basic HTTP authentication, a SVN repository and Sqlite3 database on a Debian or Ubuntu system.
+
+= Dependencies =
+
+{{{
+apt-get install subversion sqlite3 trac apache2 libapache2-mod-python
+}}}
+
+= Subversion =
+
+First, we need to create the SVN repository somewhere:
+
+{{{
+svnadmin create svn-repo
+}}}
+
+= Apache configuration =
+
+Create a site for trac that points to your project. On this example the user is arnau and the trac repository is located at /home/arnau/trac:
+
+{{{
+#/etc/apache2/sites-available/trac
+<Location /trac>
+    # ServerName trac.mycompany.com
+    SetHandler mod_python
+    PythonInterpreter main_interpreter
+    PythonHandler trac.web.modpython_frontend
+    PythonOption TracEnv /home/arnau/trac/myproject/
+    PythonOption TracUriRoot /trac
+    AuthType Basic
+    AuthName "myproject"
+    AuthUserFile /home/arnau/trac/.htpasswd
+    Require valid-user
+</Location>
+}}}
+
+And enable the site:
+
+{{{
+ln -s sites-available/trac sites-enabled/NNN-trac
+}}}
+
+You should also create the password file for basic HTTP authentication and add as many users as needed:
+
+{{{
+htpasswd -c .htpasswd arnau
+}}}
+
+= Configure Trac =
+
+Create your project:
+
+{{{
+cd /home/arnau/trac
+trac-admin myproject initenv
+# select sqlite database
+}}}
+
+Give TRAC_ADMIN permission to the admin user:
+
+{{{
+trac-admin . permission add arnau TRAC_ADMIN
+}}}
+
+You will need to give _write_ rights to group _www-data_:
+
+{{{
+chown root.www-data /home/arnau/trac/db -R
+chmod g+w /home/arnau/trac/db -R
+}}}
+
+= Ubuntu =
+
+If you are using Ubuntu you may want to check this link:
+
+https://bugs.launchpad.net/ubuntu/+source/clearsilver/+bug/86685
