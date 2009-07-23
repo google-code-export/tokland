@@ -5,6 +5,12 @@ Those are some of the scripts and documents I've developed over the years. All t
 
 Feedback is appreciated: tokland AT gmail.com
 
+= File-sharing downloader/uploader =
+
+Plowshare is a command-line downloader and uploader for some of the most popular file sharing websites. It works on UNIX-like systems and currently supports Megaupload, Rapidshare, 2Shared, 4Shared, ZShare, Badongo and Mediafire:
+
+http://code.google.com/p/plowshare/
+
 = My snippets on DZone Snippets =
 
 http://snippets.dzone.com/user/tokland
@@ -77,12 +83,6 @@ http://tokland.googlecode.com/svn/trunk/cd2ogg/cd2ogg.py
 Download lyrics from [http://lyricwiki.org LyricWiki] (the best lyrics site I am aware of).
 
 http://tokland.googlecode.com/svn/trunk/lyrics/lyrics.py
-
-= File-sharing downloader/uploader =
-
-Plowshare is a command-line downloader and uploader for some of the most popular file sharing websites. It works on UNIX-like systems and currently supports Megaupload, Rapidshare, 2Shared, 4Shared, ZShare, Badongo and Mediafire:
-
-http://code.google.com/p/plowshare/
 
 = Automatic SSH backlinks =
 
