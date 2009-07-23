@@ -106,11 +106,3 @@ $ python cifras.py 3 7 10 50 100 8 546
 Play English words (and cache them) using [http://www.thefreedictionary.com/ The Free Dictionary] webpage:
 
 http://tokland.googlecode.com/svn/trunk/pronounciation/pronounce.sh
-
-= Installing Dotproject on Debian =
-
-http://www.arnau-sanchez.com/other/install-dotproject.html
-
-= Installing Trac on Debian =
-
-http://www.arnau-sanchez.com/other/install-trac.html
