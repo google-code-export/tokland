@@ -1,7 +1,7 @@
 #summary My projects
 #labels Featured
 
-Those are some of the scripts and documents I've developed over the years. All the software is licensed under the GNU General Public License (GNU-GPL).
+Those are some of the projects/scripts I've developed over the years. All this software is licensed under the GNU General Public License (GNU-GPL).
 
 Feedback is appreciated: tokland AT gmail.com
 
