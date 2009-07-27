@@ -5,6 +5,12 @@ Those are some of the projects/scripts I've developed over the years. All this s
 
 Feedback is appreciated: tokland AT gmail.com
 
+= Spynner
+
+Programmatic web browser module for Python with Javascript/AJAX support based upon the QtWebKit framework. 
+
+http://code.google.com/p/spynner/
+
 = File-sharing downloader/uploader =
 
 Plowshare is a command-line downloader and uploader for some of the most popular file sharing websites. It works on UNIX-like systems and currently supports Megaupload, Rapidshare, 2Shared, 4Shared, ZShare, Badongo and Mediafire:
