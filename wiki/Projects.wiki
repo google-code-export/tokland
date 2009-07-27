@@ -1,11 +1,9 @@
-#summary My projects
 #labels Featured
-
 Those are some of the projects/scripts I've developed over the years. All this software is licensed under the GNU General Public License (GNU-GPL).
 
 Feedback is appreciated: tokland AT gmail.com
 
-= Spynner
+= Spynner =
 
 Programmatic web browser module for Python with Javascript/AJAX support based upon the QtWebKit framework. 
 
