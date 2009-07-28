@@ -1,5 +1,5 @@
 #labels Featured
-Those are some of the projects/scripts I've developed over the years. All this software is licensed under the GNU General Public License (GNU-GPL).
+Those are some of the projects and scripts I've developed over the years. All this software is licensed under the GNU General Public License (GNU-GPL).
 
 Feedback is appreciated: tokland AT gmail.com
 
@@ -25,15 +25,21 @@ Transform YAML file into CSV and backwards. CSV files contains triplets [path, k
 
 http://github.com/tokland/yaml2csv
 
-= !BicingInfo (website) = 
+= !BicingInfo (Rails website) = 
 
 A email & SMS alarms Rails website for [http://www.bicing.com/ Bicing Barcelona].
 
 http://bicinginfo.no-ip.org/
 
-The Ruby module for BicingBCN occupations is hosted in github:
+The Ruby module for BicingBCN occupations and the gem is hosted in github:
 
 http://github.com/tokland/bicingbcn
+
+{{{
+$ gem sources -a http://gems.github.com # (you only have to do this once)
+$ sudo gem install tokland-bicingbcn
+}}}
+
 
 = Simple subtitles Python library =
 
@@ -135,6 +141,6 @@ http://tokland.googlecode.com/svn/trunk/pronounciation/pronounce.sh
 
 = Python FAQ = 
 
-I mantain the official FAQ page for [http://listas.aditel.org/listinfo/python-es Python-es] list.
+I mantain the official FAQ page for [http://listas.aditel.org/listinfo/python-es Python-es] mail-list.
 
 http://python-es-faq.wikidot.com/
