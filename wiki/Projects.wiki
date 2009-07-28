@@ -5,7 +5,7 @@ Feedback is appreciated: tokland AT gmail.com
 
 = Spynner =
 
-Programmatic web browser module for Python with Javascript/AJAX support based upon the QtWebKit framework. 
+Programmatic web browser module for Python with Javascript/AJAX support based upon the !QtWebKit framework. 
 
 http://code.google.com/p/spynner/
 
