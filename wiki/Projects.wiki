@@ -11,7 +11,7 @@ http://code.google.com/p/spynner/
 
 = File-sharing downloader/uploader =
 
-Plowshare is a command-line downloader and uploader for some of the most popular file sharing websites. It works on UNIX-like systems and currently supports Megaupload, Rapidshare, 2Shared, 4Shared, ZShare, Badongo and Mediafire:
+Plowshare is a Bash command-line downloader and uploader for some of the most popular file sharing websites. It works on UNIX-like systems and currently supports Megaupload, Rapidshare, 2Shared, 4Shared, ZShare, Badongo and Mediafire:
 
 http://code.google.com/p/plowshare/
 
@@ -19,7 +19,7 @@ http://code.google.com/p/plowshare/
 
 http://snippets.dzone.com/user/tokland
 
-= Yaml2csv = 
+= Yaml2csv (Ruby) = 
 
 Transform YAML file into CSV and backwards. CSV files contains triplets [path, key, value].
 
@@ -27,11 +27,11 @@ http://github.com/tokland/yaml2csv
 
 = !BicingInfo (website) = 
 
-A email & SMS alarms system for [http://www.bicing.com/ Bicing Barcelona].
+A email & SMS alarms Rails website for [http://www.bicing.com/ Bicing Barcelona].
 
 http://bicinginfo.no-ip.org/
 
-= Simple subtitles library =
+= Simple subtitles Python library =
 
 Currently it only scales (adjusts fps timing) SRT subtitles:
 
@@ -57,7 +57,7 @@ http://pyeuler.wikidot.com
 
 = Uya Wifi router web interface =
 
-Uya is a OSPF Router Configurator with a web interface. 
+Uya is a OSPF Router Configurator with a web interface (CherryPy)
 
 http://code.google.com/p/uya/
 
@@ -69,14 +69,14 @@ http://tokland.googlecode.com/svn/trunk/utm/utm.py
 
 = Convert FLAC+CUE or APE+CUE to FLAC =
 
-Use this script to convert and split a unique, big APE or FLAC audio file 
+Use this simple shell script to convert and split a unique, big APE or FLAC audio file 
 to many [http://en.wikipedia.org/wiki/Free_Lossless_Audio_Codec FLAC] files (CUE file needed):
 
 http://tokland.googlecode.com/svn/trunk/flac/ape2flac
  
 = RPN calculator =
 
-A command-line interactive [http://en.wikipedia.org/wiki/Reverse_Polish_notation Reverse Polish notation] calculator:
+A Python command-line interactive [http://en.wikipedia.org/wiki/Reverse_Polish_notation Reverse Polish notation] calculator:
 
 http://tokland.googlecode.com/svn/trunk/rpn/rpn.py
 
@@ -90,7 +90,7 @@ You will also need the [http://tokland.googlecode.com/svn/trunk/dpl/dpl.txt TXT 
  
 = Download XKCD =
 
-Download the great [http://xkcd.com XKCD] cartoons:
+Download the great [http://xkcd.com XKCD] cartoons using Python and BeautifulSoup:
 
 http://tokland.googlecode.com/svn/trunk/xkcd/download_xkcd.py
 
@@ -131,6 +131,6 @@ http://tokland.googlecode.com/svn/trunk/pronounciation/pronounce.sh
 
 = Python FAQ = 
 
-I mantain the official FAQ for [http://listas.aditel.org/listinfo/python-es Python-es] list.
+I mantain the official FAQ page for [http://listas.aditel.org/listinfo/python-es Python-es] list.
 
 http://python-es-faq.wikidot.com/
