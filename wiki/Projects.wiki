@@ -19,6 +19,12 @@ http://code.google.com/p/plowshare/
 
 http://snippets.dzone.com/user/tokland
 
+= Yaml2Csv = 
+
+Transform YAML file into CSV and backwards. CSV files contains triplets [path, key, value].
+
+http://github.com/tokland/yaml2csv
+
 = Simple subtitles library =
 
 Currently it only scales (adjusts fps timing) SRT subtitles:
