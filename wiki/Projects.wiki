@@ -128,3 +128,9 @@ $ python cifras.py 3 7 10 50 100 8 546
 Play English words (and cache them) using [http://www.thefreedictionary.com/ The Free Dictionary] webpage:
 
 http://tokland.googlecode.com/svn/trunk/pronounciation/pronounce.sh
+
+= Python FAQ = 
+
+I mantain the official FAQ for [http://listas.aditel.org/listinfo/python-es Python-es] list.
+
+http://python-es-faq.wikidot.com/
