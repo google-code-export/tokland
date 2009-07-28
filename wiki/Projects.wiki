@@ -31,6 +31,10 @@ A email & SMS alarms Rails website for [http://www.bicing.com/ Bicing Barcelona]
 
 http://bicinginfo.no-ip.org/
 
+The Ruby module for BicingBCN occupations is hosted in github:
+
+http://github.com/tokland/bicingbcn
+
 = Simple subtitles Python library =
 
 Currently it only scales (adjusts fps timing) SRT subtitles:
