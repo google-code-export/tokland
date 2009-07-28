@@ -25,6 +25,12 @@ Transform YAML file into CSV and backwards. CSV files contains triplets [path, k
 
 http://github.com/tokland/yaml2csv
 
+= BicingInfo (website) = 
+
+A email & SMS alarms system for [http://www.bicing.com/ Bicing Barcelona].
+
+http://bicinginfo.no-ip.org/
+
 = Simple subtitles library =
 
 Currently it only scales (adjusts fps timing) SRT subtitles:
