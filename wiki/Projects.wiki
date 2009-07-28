@@ -49,6 +49,12 @@ The [http://www.projecteuler.org Euler Project] proposes some mathematical probl
 
 http://pyeuler.wikidot.com
 
+= Uya Wifi router web interface =
+
+Uya is a OSPF Router Configurator with a web interface. 
+
+http://code.google.com/p/uya/
+
 = UTM converter =
 
 Python module to convert UTM to/from Latitude-Longitude coordinates (Datum is configurable).
