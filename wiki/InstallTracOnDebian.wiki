@@ -41,7 +41,7 @@ Create a site for trac that points to your project. On this example the user is 
 And enable the site:
 
 {{{
-ln -s sites-available/trac sites-enabled/NNN-trac
+a2ensite trac
 }}}
 
 You should also create the password file for basic HTTP authentication and add as many users as needed:
