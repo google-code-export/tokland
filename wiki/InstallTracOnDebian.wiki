@@ -10,14 +10,6 @@ Here we  will show how to install [http://trac.edgewall.org/ Trac] with Apache2 
 apt-get install subversion sqlite3 trac apache2 libapache2-mod-python
 }}}
 
-= Subversion =
-
-First, we need to create the SVN repository somewhere:
-
-{{{
-svnadmin create svn-repo
-}}}
-
 = Apache configuration =
 
 Create a site for trac that points to your project. On this example the user is arnau and the trac repository is located at /home/arnau/trac:
