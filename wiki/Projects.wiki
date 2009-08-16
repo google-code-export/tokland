@@ -1,5 +1,5 @@
 #labels Featured
-Those are some of the projects and scripts I've developed over the years. Everything here is licensed under the GNU General Public License (GNU-GPL).
+Those are some of the projects and scripts I've developed over the years. All is licensed under the GNU General Public License (GNU-GPL).
 
 Feedback is appreciated: tokland AT gmail.com
 
@@ -21,7 +21,7 @@ http://snippets.dzone.com/user/tokland
 
 = Yaml2csv (Ruby) = 
 
-Transform YAML file into CSV and backwards (usefor for I18n translations).
+Transform YAML file into CSV and backwards (useful for I18n translations).
 
 http://github.com/tokland/yaml2csv
 
