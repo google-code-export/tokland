@@ -104,7 +104,7 @@ http://python-es-faq.wikidot.com/
 
 = Ruby = 
 
-== Yaml2csv (Ruby) ==
+== Yaml2csv ==
 
 Transform YAML file into CSV and backwards (useful for I18n translations).
 
@@ -133,7 +133,7 @@ http://tokland.googlecode.com/svn/trunk/flac/ape2flac
 
 = Websites =
 
-== !BicingInfo (Rails website) ==
+== !BicingInfo ==
 
 An email & SMS alarms Rails website for [http://www.bicing.com/ Bicing Barcelona].
 
