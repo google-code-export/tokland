@@ -11,23 +11,23 @@ Programmatic web browser module for Python with Javascript/AJAX support based up
 
 http://code.google.com/p/spynner/
 
-= File-sharing downloader/uploader =
+== File-sharing downloader/uploader ==
 
 Bash command-line downloader and uploader for some of the most popular file sharing websites. It works on UNIX-like systems and currently supports Megaupload, Rapidshare, 2Shared, 4Shared, ZShare, Badongo and Mediafire:
 
 http://code.google.com/p/plowshare/
 
-= My snippets on DZone Snippets =
+== My snippets on DZone Snippets ==
 
 http://snippets.dzone.com/user/tokland
 
-= Yaml2csv (Ruby) = 
+== Yaml2csv (Ruby) = =
 
 Transform YAML file into CSV and backwards (useful for I18n translations).
 
 http://github.com/tokland/yaml2csv
 
-= !BicingInfo (Rails website) = 
+== !BicingInfo (Rails website) ==
 
 An email & SMS alarms Rails website for [http://www.bicing.com/ Bicing Barcelona].
 
@@ -42,56 +42,56 @@ $ gem sources -a http://gems.github.com # (you only have to do this once)
 $ sudo gem install tokland-bicingbcn
 }}}
 
-= Simple subtitles Python library =
+== Simple subtitles Python library ==
 
 Currently this module only scales (adjusts fps timing) for SRT subtitles:
 
 http://code.google.com/p/tokland/source/browse/trunk/subtitles
 
-= Hotkeys for the X-Window =
+== Hotkeys for the X-Window ==
 
 Xhotkeys provides a simple and easily configurable hotkey launcher for the X-Window System, binding keys and mouse buttons to configurable commands. It should work on all desktops (Gnome, KDE, ...) available for the GNU/Linux operating system. Configuration files can be modified manually or using a graphical GTK+ configurator.
 
 http://xhotkeys.googlecode.com
 
-= Asterisk Phonepatch =
+== Asterisk Phonepatch ==
 
 The term _phonepatch_ usually refers to the hardware device used to connect a radio transceiver and a phoneline. Asterisk-phonepatch do that task, but it's mainly software, as it uses the Asterisk software PBX.
 
 http://www.nongnu.org/asterisk-phpatch
 
-= Pyeuler Project =
+== Pyeuler Project ==
 
 The [http://www.projecteuler.org Euler Project] proposes some mathematical problems to be solved using any programming language. In this wiki, we see and discuss solutions using Python and functional programming. Python is not a functional-language, but it was interesting anyhow:
 
 http://pyeuler.wikidot.com
 
-= Uya Wifi router web interface =
+== Uya Wifi router web interface ==
 
 OSPF Router Configurator with a web interface developed with CherryPy.
 
 http://code.google.com/p/uya/
 
-= UTM converter =
+== UTM converter ==
 
 Python module to convert UTM to/from Latitude-Longitude coordinates.
 
 http://tokland.googlecode.com/svn/trunk/utm/utm.py
 
-= Convert FLAC+CUE or APE+CUE to FLAC =
+== Convert FLAC+CUE or APE+CUE to FLAC ==
 
 Use this simple shell script to convert and split a unique, big APE or FLAC audio file 
 to many [http://en.wikipedia.org/wiki/Free_Lossless_Audio_Codec FLAC] files (the CUE file needed):
 
 http://tokland.googlecode.com/svn/trunk/flac/ape2flac
  
-= RPN calculator =
+== RPN calculator ==
 
 A Python command-line interactive [http://en.wikipedia.org/wiki/Reverse_Polish_notation Reverse Polish notation] calculator:
 
 http://tokland.googlecode.com/svn/trunk/rpn/rpn.py
 
-= Guess user and password for DSL routers =
+== Guess user and password for DSL routers ==
 
 Sometimes I am helping a friend with the DSL connection and I need to access the HTTP router management utility (which was forgotten, lost, or never known). Thus I created this utility that tries the more common user/password pairs.
 
@@ -99,31 +99,31 @@ http://tokland.googlecode.com/svn/trunk/dpl/dpl.py
 
 You will also need the [http://tokland.googlecode.com/svn/trunk/dpl/dpl.txt TXT passwords list] and, optionally, the [http://tokland.googlecode.com/svn/trunk/dpl/dpl.html source HTML passwords] ([http://www.phenoelit-us.org/dpl/dpl.html latest version])
  
-= Download XKCD =
+== Download XKCD ==
 
 Download the great [http://xkcd.com XKCD] cartoons using Python and BeautifulSoup:
 
 http://tokland.googlecode.com/svn/trunk/xkcd/download_xkcd.py
 
-= Extract audio from a CD =
+== Extract audio from a CD ==
 
 Extract/rip audio tracks from a CD (people used to do that, before the P2P era) with song titles obtained from [http://www.gracenote.com Gracenote] (formerly CDDB).
 
 http://tokland.googlecode.com/svn/trunk/cd2ogg/cd2ogg.py
 
-= Download lyrics =
+== Download lyrics ==
 
 Download lyrics from [http://lyricwiki.org LyricWiki] (the best lyrics site I am aware of).
 
 http://tokland.googlecode.com/svn/trunk/lyrics/lyrics.py
 
-= Automatic SSH backlinks =
+== Automatic SSH backlinks ==
 
 The SSH protocol is very useful to create secure port-forwarding between computers. If you need permanent SSH links (typically with some forwarded ports), sshlink may be useful to you.
 
 http://www.nongnu.org/sshlink/
 
-= Simple math game solver =
+== Simple math game solver ==
 
 Given a bunch of numbers, and using the four basic operations (add, subtract, multiply, divide), find -or be as close as possible to- another given number. Spanish readers will recall it from the popular _Cifras y Letras_ TV quiz show.
 
@@ -134,13 +134,13 @@ $ python cifras.py 3 7 10 50 100 8 546
 546 = ((((50+7)*8)-10)+100)
 }}}
 
-= English pronunciation =
+== English pronunciation ==
 
 Play English words (and cache them) using [http://www.thefreedictionary.com/ The Free Dictionary] webpage:
 
 http://tokland.googlecode.com/svn/trunk/pronounciation/pronounce.sh
 
-= Python FAQ = 
+== Python FAQ ==
 
 I mantain the official FAQ page for [http://listas.aditel.org/listinfo/python-es Python-es] mailing list.
 
