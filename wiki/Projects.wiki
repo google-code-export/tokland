@@ -1,4 +1,6 @@
 #labels Featured
+= Free software projects = 
+
 Those are some of the projects and scripts I've developed over the years. All is licensed under the GNU General Public License (GNU-GPL). Feedback is appreciated: tokland AT gmail.com
 
 <wiki:toc max_depth="2" />
@@ -102,6 +104,14 @@ I mantain the official FAQ page for [http://listas.aditel.org/listinfo/python-es
 
 http://python-es-faq.wikidot.com/
 
+= Ruby = 
+
+== Yaml2csv (Ruby) = =
+
+Transform YAML file into CSV and backwards (useful for I18n translations).
+
+http://github.com/tokland/yaml2csv
+
 = Shell =
 
 == File-sharing downloader/uploader ==
@@ -123,20 +133,6 @@ to many [http://en.wikipedia.org/wiki/Free_Lossless_Audio_Codec FLAC] files (the
 
 http://tokland.googlecode.com/svn/trunk/flac/ape2flac
 
-= Misc = 
-
-== My snippets on DZone Snippets ==
-
-http://snippets.dzone.com/user/tokland
-
-= Ruby = 
-
-== Yaml2csv (Ruby) = =
-
-Transform YAML file into CSV and backwards (useful for I18n translations).
-
-http://github.com/tokland/yaml2csv
-
 = Websites =
 
 == !BicingInfo (Rails website) ==
@@ -153,3 +149,9 @@ http://github.com/tokland/bicingbcn
 $ gem sources -a http://gems.github.com # (you only have to do this once)
 $ sudo gem install tokland-bicingbcn
 }}}
+
+= Miscellaneous = 
+
+== My snippets on DZone Snippets ==
+
+http://snippets.dzone.com/user/tokland
