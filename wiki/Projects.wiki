@@ -5,42 +5,13 @@ Those are some of the projects and scripts I've developed over the years. All is
 
 <wiki:toc max_depth="2" />
 
+= Python =
+
 == Spynner ==
 
 Programmatic web browser module for Python with Javascript/AJAX support based upon the !QtWebKit framework. 
 
 http://code.google.com/p/spynner/
-
-== File-sharing downloader/uploader ==
-
-Bash command-line downloader and uploader for some of the most popular file sharing websites. It works on UNIX-like systems and currently supports Megaupload, Rapidshare, 2Shared, 4Shared, ZShare, Badongo and Mediafire:
-
-http://code.google.com/p/plowshare/
-
-== My snippets on DZone Snippets ==
-
-http://snippets.dzone.com/user/tokland
-
-== Yaml2csv (Ruby) = =
-
-Transform YAML file into CSV and backwards (useful for I18n translations).
-
-http://github.com/tokland/yaml2csv
-
-== !BicingInfo (Rails website) ==
-
-An email & SMS alarms Rails website for [http://www.bicing.com/ Bicing Barcelona].
-
-http://bicinginfo.no-ip.org/
-
-The Ruby module to get Bicing Barcelona occupations is hosted in github:
-
-http://github.com/tokland/bicingbcn
-
-{{{
-$ gem sources -a http://gems.github.com # (you only have to do this once)
-$ sudo gem install tokland-bicingbcn
-}}}
 
 == Simple subtitles Python library ==
 
@@ -60,31 +31,6 @@ The term _phonepatch_ usually refers to the hardware device used to connect a ra
 
 http://www.nongnu.org/asterisk-phpatch
 
-== Pyeuler Project ==
-
-The [http://www.projecteuler.org Euler Project] proposes some mathematical problems to be solved using any programming language. In this wiki, we see and discuss solutions using Python and functional programming. Python is not a functional-language, but it was interesting anyhow:
-
-http://pyeuler.wikidot.com
-
-== Uya Wifi router web interface ==
-
-OSPF Router Configurator with a web interface developed with CherryPy.
-
-http://code.google.com/p/uya/
-
-== UTM converter ==
-
-Python module to convert UTM to/from Latitude-Longitude coordinates.
-
-http://tokland.googlecode.com/svn/trunk/utm/utm.py
-
-== Convert FLAC+CUE or APE+CUE to FLAC ==
-
-Use this simple shell script to convert and split a unique, big APE or FLAC audio file 
-to many [http://en.wikipedia.org/wiki/Free_Lossless_Audio_Codec FLAC] files (the CUE file needed):
-
-http://tokland.googlecode.com/svn/trunk/flac/ape2flac
- 
 == RPN calculator ==
 
 A Python command-line interactive [http://en.wikipedia.org/wiki/Reverse_Polish_notation Reverse Polish notation] calculator:
@@ -134,14 +80,78 @@ $ python cifras.py 3 7 10 50 100 8 546
 546 = ((((50+7)*8)-10)+100)
 }}}
 
-== English pronunciation ==
+== Pyeuler Project ==
 
-Play English words (and cache them) using [http://www.thefreedictionary.com/ The Free Dictionary] webpage:
+The [http://www.projecteuler.org Euler Project] proposes some mathematical problems to be solved using any programming language. In this wiki, we see and discuss solutions using Python and functional programming. Python is not a functional-language, but it was interesting anyhow:
 
-http://tokland.googlecode.com/svn/trunk/pronounciation/pronounce.sh
+http://pyeuler.wikidot.com
+
+== Uya Wifi router web interface ==
+
+OSPF Router Configurator with a web interface developed with CherryPy.
+
+http://code.google.com/p/uya/
+
+== UTM converter ==
+
+Python module to convert UTM to/from Latitude-Longitude coordinates.
+
+http://tokland.googlecode.com/svn/trunk/utm/utm.py
 
 == Python FAQ ==
 
 I mantain the official FAQ page for [http://listas.aditel.org/listinfo/python-es Python-es] mailing list.
 
 http://python-es-faq.wikidot.com/
+
+= Shell =
+
+== File-sharing downloader/uploader ==
+
+Bash command-line downloader and uploader for some of the most popular file sharing websites. It works on UNIX-like systems and currently supports Megaupload, Rapidshare, 2Shared, 4Shared, ZShare, Badongo and Mediafire:
+
+http://code.google.com/p/plowshare/
+
+== English pronunciation ==
+
+Play English words (and cache them) using [http://www.thefreedictionary.com/ The Free Dictionary] webpage:
+
+http://tokland.googlecode.com/svn/trunk/pronounciation/pronounce.sh
+
+== Convert FLAC+CUE or APE+CUE to FLAC ==
+
+Use this simple shell script to convert and split a unique, big APE or FLAC audio file 
+to many [http://en.wikipedia.org/wiki/Free_Lossless_Audio_Codec FLAC] files (the CUE file needed):
+
+http://tokland.googlecode.com/svn/trunk/flac/ape2flac
+
+= Misc = 
+
+== My snippets on DZone Snippets ==
+
+http://snippets.dzone.com/user/tokland
+
+= Ruby = 
+
+== Yaml2csv (Ruby) = =
+
+Transform YAML file into CSV and backwards (useful for I18n translations).
+
+http://github.com/tokland/yaml2csv
+
+= Websites =
+
+== !BicingInfo (Rails website) ==
+
+An email & SMS alarms Rails website for [http://www.bicing.com/ Bicing Barcelona].
+
+http://bicinginfo.no-ip.org/
+
+The Ruby module to get Bicing Barcelona occupations is hosted in github:
+
+http://github.com/tokland/bicingbcn
+
+{{{
+$ gem sources -a http://gems.github.com # (you only have to do this once)
+$ sudo gem install tokland-bicingbcn
+}}}
