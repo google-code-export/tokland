@@ -3,7 +3,7 @@
 
 Those are some of the projects and scripts I've developed over the years. All is licensed under the GNU General Public License (GNU-GPL). Feedback is appreciated: tokland AT gmail.com
 
-<wiki:toc max_depth="1" />
+<wiki:toc max_depth="2" />
 
 == Spynner ==
 
