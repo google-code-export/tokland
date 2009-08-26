@@ -3,6 +3,8 @@ Those are some of the projects and scripts I've developed over the years. All is
 
 Feedback is appreciated: tokland AT gmail.com
 
+<wiki:toc max_depth="1" />
+
 = Spynner =
 
 Programmatic web browser module for Python with Javascript/AJAX support based upon the !QtWebKit framework. 
