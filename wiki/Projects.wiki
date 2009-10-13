@@ -96,6 +96,12 @@ Python module to convert UTM to/from Latitude-Longitude coordinates.
 
 http://tokland.googlecode.com/svn/trunk/utm/utm.py
 
+== Colorize regular expressions in files ==
+
+Simple script to Detect and colorize regular expressions in files or standard input:
+
+http://code.google.com/p/tokland/source/browse/trunk/colorize/colorize.py
+
 == Python FAQ ==
 
 I mantain the official FAQ page for [http://listas.aditel.org/listinfo/python-es Python-es] mailing list.
