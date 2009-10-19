@@ -8,7 +8,7 @@ require 'nokogiri'
 #end
 #indir, outdir = ARGV
 
-indir, outdir = "html", "html"
+indir, outdir = "html", "html2"
 FileUtils.mkdir_p(outdir)
 
 Dir.glob(File.join(indir, "*.html")).sort.each do |path|
