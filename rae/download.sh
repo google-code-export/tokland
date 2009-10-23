@@ -10,7 +10,7 @@ download_html() {
   URL=$2
   DIRECTORY=$3
   
-  mkdir -p "$DIRECTORY"
+  mkdir -p "$DIRECTORY" || return 1
   TOTAL=$(wc -l < "$WORDS_FILE")
   
   cat "$WORDS_FILE" | enumerate | while read INDEX WORD; do
