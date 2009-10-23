@@ -7,7 +7,7 @@ def process_html(indir, outdir)
   Dir.glob(File.join(indir, "*.html")).sort.each do |path|
     doc = Nokogiri::HTML(open(path))  
     unless contents = doc.search("div#definicion div:last").first
-      STDERR.write("Definition not found: #{path}\n")
+      STDERR.write("html does not contain definition: #{path}\n")
       next
     end
     contents.search("a").each do |a|
@@ -17,7 +17,8 @@ def process_html(indir, outdir)
     end
     output_path = File.join(outdir, File.basename(path))
     open(output_path, "w") { |f| f.write(contents.to_s) }
-  end
+    output_path
+  end.size
 end
 
-process_html("html", "html2")
+puts process_html("html", "html2")
