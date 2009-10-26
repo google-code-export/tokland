@@ -9,6 +9,7 @@ extract_words_from_binary() {
     grep -v "^[[:space:]]" |
     sed "s/\.$//; s/,.*$//" |
     grep -v "^[[:space:]]*$" |
+    sed "s/ o /\n/" |    
     sort -u
 }            
            
