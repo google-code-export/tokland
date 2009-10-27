@@ -2,27 +2,29 @@
 
 = Introducción =
 
-En este documento mostraremos cómo descargar el diccionario de la DRAE (si no completo, sí lo más posible). Una de las principales dificultades es que la lista de palabras que contiene el diccionario no está disponible en formato electrónico, y la [[http://buscon.rae.es/draeI/ página web] no permite obtenerlas (algunos otros diccionarios muestran las palabras anteriores y posteriores, con lo cual es sencillo navegar el diccionario por completo).
+En este documento mostraremos cómo descargar el diccionario de la DRAE. Una de las principales dificultades que nos encontraremos es que la lista de palabras que contiene el diccionario no está disponible en formato electrónico (o al menos no la he encontrado). A diferencia de otros diccionarios donde se muestran las palabras anteriores y posteriores a la que estamos consultando, la [[http://buscon.rae.es/draeI/ página web] de la RAE no muestra esa información.
 
-Para ejecutar los scripts necesitarás un sistema UNIX (ya que se usa Bash) y Ruby.
+Para ejecutar los scripts necesitarás un sistema UNIX (ya que usamos scripts Bash) y un intérprete Ruby.
 
 == Proceso ==
 
-Código:
+Obtener código:
 
-http://code.google.com/p/tokland/source/browse/#svn/trunk/rae
+{{{
+svn co http://tokland.googlecode.com/svn/trunk/rae rae
+}}}
 
 Los pasos son:
 
-1. Obtener el fichero binario *data/ixLm/_3son.fdt* que forma parte del CD del DRAE (por cuestions de copyright, ese fichero no se distribuye aquí).
+1. Copiar el fichero binario *data/ixLm/_3son.fdt* que forma parte del CD-ROM del DRAE (por cuestions de copyright, ese fichero no se distribuye aquí).
 
 2. Extraer las palabras (mediante filtrado).
 
-3. Descargar el HTML con la definición de cada palabra
+3. Descargar el HTML con la definición de cada palabra.
 
-4. Procesar el HTML descargado para quedarnos sólo con la definición. También se ajustan los enlaces para que funcionen en local
+4. Procesar el HTML descargado para quedarnos sólo con la definición. También se ajustan los enlaces para que funcionen cuando se consulten en local.
 
-5. Si nos interesa usar las definiciones en alguna base de datos, generamos el SQL (modificándolo a nuestro gusto.
+5. Si queremos usar las definiciones en alguna base de datos, generamos el SQL (modificándolo a nuestro gusto).
 
 {{{
 $ cp cd/data/ixLm/_3son.fdt _3son.fdt
@@ -38,7 +40,7 @@ $ bash generate_sql.sh
 
 == Descarga ==
 
-No es necesario que ejecutes los scripts para obtener el diccionario, los ficheros de salida están también en el repositorio:
+No es necesario ejecutar los scripts para obtener el diccionario (la descarga dura varios días, y tampoco es plan de sobrecargar las webs), ya que los ficheros de salida están también en el repositorio:
 
   * Lista de palabras (86042 entradas): [http://tokland.googlecode.com/svn/trunk/rae/words.txt words.txt]
   * HTML (un fichero por palabra): [http://tokland.googlecode.com/svn/trunk/rae/drae2.2-html.tgz drae2.2-html.tgz]
