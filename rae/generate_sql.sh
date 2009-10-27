@@ -1,12 +1,12 @@
 #!/bin/bash
 set -e
-TABLENAME="drae"
+TABLENAME="words"
 NAME="drae2.2"
 
 generate_sql() {
   TABLE=$1
   DIRECTORY=$2  
-  echo "DROP TABLE $TABLE;"
+  
   echo "CREATE TABLE $TABLE(word varchar(255), definition text);"
   find $DIRECTORY -type f -name '*.html' | while read FILE; do
     WORD=$(basename "$FILE" ".html")
