@@ -2,7 +2,7 @@
 
 = Introducción =
 
-En este documento mostraremos cómo descargar el diccionario de la DRAE. Una de las principales dificultades que nos encontraremos es que la lista de palabras que contiene el diccionario no está disponible en formato electrónico (o al menos no la he encontrado). A diferencia de otros diccionarios donde se muestran las palabras anteriores y posteriores a la que estamos consultando, la [[http://buscon.rae.es/draeI/ página web]] de la RAE no muestra esa información.
+En este documento mostraremos cómo descargar el diccionario de la DRAE. Una de las principales dificultades que nos encontraremos es que la lista de palabras que contiene el diccionario no está disponible en formato electrónico (o al menos no la he encontrado). A diferencia de otros diccionarios donde se muestran las palabras anteriores y posteriores a la que estamos consultando, la [http://buscon.rae.es/draeI/ página web] de la RAE no muestra esa información.
 
 Para ejecutar los scripts necesitarás un sistema UNIX (ya que usamos scripts Bash) y un intérprete Ruby.
 
