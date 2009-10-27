@@ -18,7 +18,7 @@ svn co http://tokland.googlecode.com/svn/trunk/rae rae
 
 Los pasos son:
 
-  # Copiar el fichero binario *data/ixLm/___3son.fdt* que forma parte del CD-ROM del DRAE (por cuestions de copyright, ese fichero no se distribuye aquí). Si no tienes el CD, descarga la lista de palabras del repositiorio y continúa en el tercer paso.
+  # Copiar el fichero binario `data/ixLm/_3son.fdt` que forma parte del CD-ROM del DRAE (por cuestions de copyright, ese fichero no se distribuye aquí). Si no tienes el CD, descarga la lista de palabras del repositiorio y continúa en el tercer paso.
 
 {{{
 $ cp cd/data/ixLm/_3son.fdt _3son.fdt
