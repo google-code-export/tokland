@@ -7,11 +7,13 @@ En este documento mostraremos cómo descargar el diccionario de la DRAE para con
 
 Una de las principales dificultades que nos encontramos es que la lista de palabras que contiene el diccionario no está disponible en formato electrónico. A diferencia de otros diccionarios on-line que muestran las palabras anteriores y posteriores a la que estamos consultando, la [http://buscon.rae.es/draeI/ página web] de la RAE no proporciona esa información.
 
+= Descarga =
+
   * Lista de palabras (86042 entradas): [http://tokland.googlecode.com/svn/trunk/rae/words.txt words.txt]
   * HTML (un fichero por palabra): [http://tokland.googlecode.com/svn/trunk/rae/drae2.2-html.tgz drae2.2-html.tgz]
   * SQL: [http://tokland.googlecode.com/svn/trunk/rae/drae2.2.sql.gz drae2.2.sql.gz]
 
-== ¿Cómo se ha generado? ==
+== Cómo generar el diccionario ==
 
 Para ejecutar los scripts necesitarás un sistema UNIX (ya que usamos scripts Bash), subversión para descargar el código y un intérprete Ruby. Estos son los pasos que debes seguir:
 
