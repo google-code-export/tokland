@@ -45,7 +45,7 @@ $ bash download.sh
   * Procesar el HTML descargado para quedarnos sólo con la definición. También se ajustan los enlaces para que funcionen cuando se consulten en local.
 
 {{{
-$ bash process_html.rb
+$ ruby process_html.rb
 }}}
 
   * Si queremos usar las definiciones en alguna base de datos, generamos el SQL (modificándolo a nuestro gusto).
