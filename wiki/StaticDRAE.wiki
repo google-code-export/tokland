@@ -18,32 +18,32 @@ svn co http://tokland.googlecode.com/svn/trunk/rae rae
 
 Los pasos son:
 
-  # Copiar el fichero binario `data/ixLm/_3son.fdt` que forma parte del CD-ROM del DRAE (por cuestions de copyright, ese fichero no se distribuye aquí). Si no tienes el CD, descarga la lista de palabras del repositiorio y continúa en el tercer paso.
+  * Copiar el fichero binario `data/ixLm/_3son.fdt` que forma parte del CD-ROM del DRAE (por cuestions de copyright, ese fichero no se distribuye aquí). Si no tienes el CD, descarga la lista de palabras del repositiorio y continúa en el tercer paso.
 
 {{{
 $ cp cd/data/ixLm/_3son.fdt _3son.fdt
 }}}
 
-  # Extraer las palabras:
+  * Extraer las palabras:
 
 {{{
 $ bash extract_words.sh
 $ wc -l words.txt # contamos las palabras
 }}}
 
-  # Descargar el HTML con la definición de cada palabra:
+  * Descargar el HTML con la definición de cada palabra:
 
 {{{
 $ bash download.sh
 }}}
 
-  # Procesar el HTML descargado para quedarnos sólo con la definición. También se ajustan los enlaces para que funcionen cuando se consulten en local.
+  * Procesar el HTML descargado para quedarnos sólo con la definición. También se ajustan los enlaces para que funcionen cuando se consulten en local.
 
 {{{
 $ bash process_html.rb
 }}}
 
-  #. Si queremos usar las definiciones en alguna base de datos, generamos el SQL (modificándolo a nuestro gusto).
+  * Si queremos usar las definiciones en alguna base de datos, generamos el SQL (modificándolo a nuestro gusto).
 
 {{{
 $ bash generate_sql.sh
