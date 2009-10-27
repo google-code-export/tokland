@@ -1,0 +1,5 @@
+#summary Static DRAE dictionary
+
+= Introducción =
+
+El objetivo de estos scripts es descargar el diccionario de la DRAE lo más completo posible. 
