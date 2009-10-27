@@ -2,7 +2,9 @@
 
 = Introducción =
 
-En este documento mostraremos cómo descargar el diccionario de la DRAE. Una de las principales dificultades que nos encontraremos es que la lista de palabras que contiene el diccionario no está disponible en formato electrónico (o al menos no la he encontrado). A diferencia de otros diccionarios donde se muestran las palabras anteriores y posteriores a la que estamos consultando, la [http://buscon.rae.es/draeI/ página web] de la RAE no muestra esa información.
+En este documento mostraremos cómo descargar el diccionario de la DRAE para consultarlo localmente. 
+
+Una de las principales dificultades que nos encontraremos es que la lista de palabras que contiene el diccionario no está disponible en formato electrónico. A diferencia de otros diccionarios donde se muestran las palabras anteriores y posteriores a la que estamos consultando, la [http://buscon.rae.es/draeI/ página web] de la RAE no muestra esa información.
 
 Para ejecutar los scripts necesitarás un sistema UNIX (ya que usamos scripts Bash) y un intérprete Ruby.
 
@@ -16,7 +18,7 @@ svn co http://tokland.googlecode.com/svn/trunk/rae rae
 
 Los pasos son:
 
-  # Copiar el fichero binario *data/ixLm/\_3son.fdt* que forma parte del CD-ROM del DRAE (por cuestions de copyright, ese fichero no se distribuye aquí):
+  # Copiar el fichero binario *data/ixLm/\_3son.fdt* que forma parte del CD-ROM del DRAE (por cuestions de copyright, ese fichero no se distribuye aquí). Si no tienes el CD, descarga la lista de palabras del repositiorio y continúa en el tercer paso.
 
 {{{
 $ cp cd/data/ixLm/_3son.fdt _3son.fdt
@@ -49,7 +51,7 @@ $ bash generate_sql.sh
 
 == Descarga ==
 
-Si no tienes un interés especail, no es necesario ejecutar los scripts para obtener el diccionario (la descarga dura varios días, y tampoco es plan de sobrecargar las webs), ya que los ficheros de salida están también en el repositorio:
+No es necesario ejecutar los scripts para obtener el diccionario (la descarga dura varios días, no es plan de sobrecargar la páginas), ya que los ficheros de salida están también en el repositorio:
 
   * Lista de palabras (86042 entradas): [http://tokland.googlecode.com/svn/trunk/rae/words.txt words.txt]
   * HTML (un fichero por palabra): [http://tokland.googlecode.com/svn/trunk/rae/drae2.2-html.tgz drae2.2-html.tgz]
