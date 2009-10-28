@@ -23,19 +23,6 @@ Para ejecutar los scripts necesitarás un sistema UNIX (ya que usamos scripts Ba
 svn co http://tokland.googlecode.com/svn/trunk/rae rae
 }}}
 
-  * Copiar el fichero binario `data/ixLm/_3son.fdt` que forma parte del CD-ROM del DRAE (por cuestions de copyright, ese fichero no se distribuye aquí). Si no tienes el CD, descarga la lista de palabras del repositiorio y sáltate este paso.
-
-{{{
-$ cp cd/data/ixLm/_3son.fdt _3son.fdt
-}}}
-
-  * Extraer las palabras:
-
-{{{
-$ bash extract_words.sh
-$ wc -l words.txt # contamos las palabras
-}}}
-
   * Descargar el HTML con la definición de cada palabra:
 
 {{{
