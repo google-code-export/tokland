@@ -4,7 +4,7 @@ require 'nokogiri'
 
 def process_html(indir, outdir)
   FileUtils.mkdir_p(outdir)
-  Dir.glob(File.join(indir, "*.html")).sort.each do |path|
+  Dir.glob(File.join(indir, "*.html")).sort.map do |path|
     doc = Nokogiri::HTML(open(path))  
     unless contents = doc.search("div#definicion div:last").first
       STDERR.write("html does not contain definition: #{path}\n")
@@ -21,4 +21,4 @@ def process_html(indir, outdir)
   end.size
 end
 
-puts process_html("html", "drae-2.2")
+process_html("html", "drae-2.2")
