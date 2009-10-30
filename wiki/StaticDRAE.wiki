@@ -10,29 +10,24 @@ Una de las principales dificultades que nos encontramos es que la lista de palab
 = Descarga =
 
   * Lista de palabras (86042 entradas): [http://tokland.googlecode.com/svn/trunk/rae/words.txt words.txt]
-  * HTML (un fichero por palabra): [http://tokland.googlecode.com/svn/trunk/rae/drae2.2-html.tgz drae2.2-html.tgz]
-  * SQL: [http://tokland.googlecode.com/svn/trunk/rae/drae2.2.sql.gz drae2.2.sql.gz]
-  * Dictd: [http://tokland.googlecode.com/svn/trunk/rae/drae.index drae.index] y [http://tokland.googlecode.com/svn/trunk/rae/drae.dict.dz drae.dict.dz]
+  * HTML (un fichero por palabra): [http://tokland.googlecode.com/svn/trunk/rae/output/drae2.2-html.tgz drae2.2-html.tgz]
+  * SQL: [http://tokland.googlecode.com/svn/trunk/rae/output/drae2.2.sql.gz drae2.2.sql.gz]
+  * Dictd: [http://tokland.googlecode.com/svn/trunk/rae/output/drae.index drae.index] y [http://tokland.googlecode.com/svn/trunk/rae/output/drae.dict.dz drae.dict.dz]
 
 = Cómo generar el diccionario =
 
-Para ejecutar los scripts necesitarás un sistema UNIX (ya que usamos scripts Bash), subversión para descargar el código y un intérprete Ruby. Estos son los pasos que debes seguir:
-
-  * Obtener código:
+Para ejecutar los scripts necesitarás un sistema UNIX (ya que usamos scripts Bash), subversión para descargar el código y un intérprete Ruby. Primero de todo, deberás obtener el código:
 
 {{{
-svn co http://tokland.googlecode.com/svn/trunk/rae rae
+svn co http://tokland.googlecode.com/svn/trunk/rae
 }}}
 
-  * Descargar el HTML con la definición de cada palabra:
+== HTML ==
+
+Bajamos el HTML y lo procesamos para quedarnos sólo con la definición. También se ajustan los enlaces para que funcionen cuando se consulten en local.
 
 {{{
 $ bash download.sh
-}}}
-
-  * Procesar el HTML descargado para quedarnos sólo con la definición. También se ajustan los enlaces para que funcionen cuando se consulten en local.
-
-{{{
 $ ruby process_html.rb
 }}}
 
