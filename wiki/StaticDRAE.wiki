@@ -12,6 +12,7 @@ Una de las principales dificultades que nos encontramos es que la lista de palab
   * Lista de palabras (86042 entradas): [http://tokland.googlecode.com/svn/trunk/rae/words.txt words.txt]
   * HTML (un fichero por palabra): [http://tokland.googlecode.com/svn/trunk/rae/drae2.2-html.tgz drae2.2-html.tgz]
   * SQL: [http://tokland.googlecode.com/svn/trunk/rae/drae2.2.sql.gz drae2.2.sql.gz]
+  * Dictd: [http://tokland.googlecode.com/svn/trunk/rae/drae.index drae.index] y [http://tokland.googlecode.com/svn/trunk/rae/drae.dict.dz drae.dict.dz]
 
 = Cómo generar el diccionario =
 
@@ -35,8 +36,18 @@ $ bash download.sh
 $ ruby process_html.rb
 }}}
 
-  * Si queremos usar las definiciones en alguna base de datos, generamos el SQL (modificándolo a nuestro gusto).
+== SQL ==
+
+Si queremos usar las definiciones en alguna base de datos, generamos el SQL (modificándolo a nuestro gusto).
 
 {{{
 $ bash generate_sql.sh
+}}}
+
+== Dictd ==
+
+Una forma muy cómoda de acceder a diccionarios es usar dictd. Para generar el par de ficheros necesarios (`.index` y `.dict.dz`):
+
+{{{
+$ bash generate_dictd.sh
 }}}
