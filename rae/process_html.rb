@@ -21,4 +21,4 @@ def process_html(indir, outdir)
   end.size
 end
 
-process_html("html", "drae-2.2")
+process_html("html", "drae2.2")
