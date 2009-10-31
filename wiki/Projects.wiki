@@ -156,6 +156,12 @@ $ sudo gem install tokland-bicingbcn
 
 = Miscellaneous = 
 
+== RAE Spanish dictionary ==
+
+HTML, SQL and Dictd files for [http://buscon.rae.es/draeI/ DRAE].
+
+[Spanish] http://code.google.com/p/tokland/wiki/StaticDRAE
+
 == My snippets on DZone Snippets ==
 
 http://snippets.dzone.com/user/tokland
