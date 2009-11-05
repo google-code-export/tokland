@@ -41,7 +41,7 @@ $ bash generate_sql.sh
 
 == Dictd ==
 
-Una forma muy cómoda de acceder a diccionarios es usar dictd. Para generar el par de ficheros necesarios (`.index` y `.dict.dz`):
+Una forma muy cómoda de acceder a diccionarios es usar `dictd`. Para generar el par de ficheros necesarios (`.index` y `.dict.dz`):
 
 {{{
 $ bash generate_dictd.sh
