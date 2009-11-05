@@ -3,9 +3,9 @@
 
 = Introducción =
 
-En este documento mostraremos cómo descargar el diccionario de la DRAE para consultarlo localmente. 
+En este documento mostraremos cómo descargar el diccionario de la RAE para consultarlo localmente (para mayor comodidad, se dan enlaces a los ficheros resultantes). 
 
-Una de las principales dificultades que nos encontramos es que la lista de palabras que contiene el diccionario no está disponible en formato electrónico. A diferencia de otros diccionarios on-line que muestran las palabras anteriores y posteriores a la que estamos consultando, la [http://buscon.rae.es/draeI/ página web] de la RAE no proporciona esa información.
+Una de las principales dificultades que nos encontraremos es que la lista de palabras que contiene el diccionario no está disponible en formato electrónico, ya que a diferencia de otros diccionarios on-line que muestran las palabras anteriores y posteriores a la que estamos consultando, la [http://buscon.rae.es/draeI/ página web] de la RAE no proporciona esa información.
 
 = Descarga =
 
