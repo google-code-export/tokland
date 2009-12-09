@@ -5,6 +5,12 @@ Those are some of the projects and scripts I've developed over the years. All is
 
 = Python =
 
+== Youtube-upload ==
+
+Upload videos to [http://youtube.com Youtube] from the command-line (splitting the video if necessary):
+
+http://code.google.com/p/youtube-upload
+
 == Spynner ==
 
 Programmatic web browser module for Python with Javascript/AJAX support based upon the !QtWebKit framework. 
