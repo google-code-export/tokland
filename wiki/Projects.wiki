@@ -3,6 +3,14 @@ Those are some of the projects and scripts I've developed over the years. All is
 
 <wiki:toc max_depth="2" />
 
+= Javascript = 
+
+== Type-ahead-find extension for Chrome/Chromium ==
+
+Type-ahead-find is an extremely useful accessibility feature (a core functionality in major browsers like Firefox or Safari) which is not implemented in Chrome (nor planed to be). So, until Chromium developers come to their senses, we will have to use an extension.
+
+http://code.google.com/p/chrome-type-ahead/
+
 = Python =
 
 == Youtube-upload ==
