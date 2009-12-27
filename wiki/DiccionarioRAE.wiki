@@ -5,7 +5,7 @@
 
 En este documento mostraremos cómo descargar el diccionario de la RAE para consultarlo localmente (para mayor comodidad, se dan enlaces a los ficheros resultantes). 
 
-Una de las principales dificultades que nos encontraremos es que la lista de palabras que contiene el diccionario no está disponible en formato electrónico, ya que a diferencia de otros diccionarios on-line que muestran las palabras anteriores y posteriores a la que estamos consultando, la [http://buscon.rae.es/draeI/ página web] de la RAE no proporciona esa información.
+Una de las principales dificultades que nos encontraremos es que la lista de palabras del diccionario no está disponible en formato electrónico, ya que, a diferencia de otros diccionarios on-line que muestran las palabras anteriores y posteriores a la que estamos consultando, la [http://buscon.rae.es/draeI/ página web] de la RAE no proporciona esa información.
 
 = Descarga =
 
@@ -16,7 +16,7 @@ Una de las principales dificultades que nos encontraremos es que la lista de pal
 
 = Cómo generar el diccionario =
 
-Para ejecutar los scripts necesitarás un sistema UNIX (ya que usamos scripts Bash), subversión para descargar el código y un intérprete Ruby. Primero de todo, deberás obtener el código:
+Para ejecutar los scripts necesitarás un sistema UNIX (ya que usamos scripts Bash), subversion para descargar el código y un intérprete Ruby. Primero de todo, deberás obtener el código:
 
 {{{
 svn co http://tokland.googlecode.com/svn/trunk/rae
@@ -24,7 +24,7 @@ svn co http://tokland.googlecode.com/svn/trunk/rae
 
 == HTML ==
 
-Bajamos el HTML y lo procesamos para quedarnos sólo con la definición. También se ajustan los enlaces para que funcionen cuando se consulten en local.
+Bajamos el HTML y lo procesamos para quedarnos sólo con la definición. También se ajustan los enlaces para que funcionen en local.
 
 {{{
 $ bash download.sh
@@ -41,7 +41,7 @@ $ bash generate_sql.sh
 
 == Dictd ==
 
-Una forma muy cómoda de acceder a diccionarios es usar `dictd`. Para generar el par de ficheros necesarios (`.index` y `.dict.dz`):
+Una forma muy cómoda de acceder a un diccionario es usando `dictd`. Para generar el par de ficheros necesarios (`.index` y `.dict.dz`) haremos:
 
 {{{
 $ bash generate_dictd.sh
