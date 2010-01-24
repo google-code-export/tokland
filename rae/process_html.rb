@@ -2,8 +2,8 @@
 require 'rubygems'
 require 'nokogiri'
 
-def process_html(data)
-  doc = Nokogiri::HTML(data)
+def process_html(path)
+  doc = Nokogiri::HTML(open(path))
   divs = doc.search("div#definicion div")
   if divs.empty?
     STDERR.write("html does not contain definition: #{path}\n")
@@ -22,11 +22,11 @@ end
 def process_html_dir(indir, outdir)
   FileUtils.mkdir_p(outdir)
   Dir.glob(File.join(indir, "*.html")).sort.map do |path|
-    outdata = process_html(open(path))
+    outdata = process_html(path)
     output_path = File.join(outdir, File.basename(path))
     open(output_path, "w") { |f| f.write(outdata) }
     output_path
   end.size
 end
 
-process_html("html", "drae2.2")
+process_html_dir("html", "html-defs")
