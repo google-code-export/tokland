@@ -16,7 +16,7 @@ def process_html(path)
       end
     end
     contents.inner_html
-  end.join
+  end.join("\n\n")
 end
 
 def process_html_dir(indir, outdir)
