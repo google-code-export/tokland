@@ -2,7 +2,7 @@
 set -e
 
 remove_html_tags() { sed "s/<[^>]*>//g"; }
-remove_leading_blank_lines() { sed "/./,$!d"; } 
+remove_leading_blank_lines() { sed '/./,$!d'; } 
 
 generate_jargon_input() {
   local DIRECTORY=$1
@@ -20,9 +20,9 @@ generate_dict() {
   local NAME=$2  
   
   generate_jargon_input "$DIRECTORY" | 
-    dictfmt -j --locale "es_ES.utf8" --without-headword -s "$NAME" "$NAME"
+    dictfmt -j --utf8 --without-headword -s "$NAME" "$NAME"
   dictzip $NAME.dict
   echo "$NAME.index $NAME.dict.dz"
 }
 
-generate_dict "drae2.2" "drae"
+generate_dict "html-defs" "drae"
