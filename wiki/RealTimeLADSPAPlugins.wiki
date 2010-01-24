@@ -2,14 +2,12 @@
 
 = Introduction =
 
-Apply real-time LADSPA plugins to your soundcard output using ALSA.
+Apply real-time [http://www.ladspa.org/ LADSPA] plugins to your soundcard output using [http://www.alsa-project.org/main/index.php/Main_Page ALSA].
 
 = Install =
 
   * Install [http://www.thedigitalmachine.net/alsaequal.html alsaequal]. 
-  * Edit your $HOME/.asoundrc to look like this:
-
-Example for introducing delays up to 60 seconds (you'll need [http://www.ladspa.org/cmt/ cmt plugins]):
+  * Edit your _$HOME/.asoundrc_ to set up the _equal_ plug. The following example introduces a line delay up to 60 seconds (you'll need [http://www.ladspa.org/cmt/ cmt plugins] also):
 
 {{{
 ctl.equal {
@@ -42,13 +40,13 @@ pcm.dsp0 {
 
 = Usage =
 
-Instruct your multimedia application to use _equal_ device, for example:
+Instruct your multimedia application to use ALSA and the _equal_ device, for example:
 
 {{{
 $ mplayer -ao alsa:device=equal video.avi 
 }}}
 
-And now modify setting real-time with alsamixer:
+And now you can finally modify setting real-time with alsamixer:
 
 {{{
 $ alsamixer -D equal
