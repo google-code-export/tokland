@@ -12,11 +12,12 @@ En este documento se da el código y los ficheros (en formato dictd) para trabaj
   * Lista de palabras (86042 entradas): [http://tokland.googlecode.com/svn/trunk/rae/words.txt words.txt]
   * Dictd: [http://tokland.googlecode.com/files/drae-2009-1.tgz descarga].
 
-= Instalación = 
+= Instalación de los fichero dictd = 
 
 Instrucciones para sistemas operativos UNIX:
 
 {{{
+$ tar xvzf drae-2009-1.tgz
 $ cp drae.index drae.dict.dz /usr/share/dictd/
 $ /etc/init.d/dictd restart
  (o según la distribución)
