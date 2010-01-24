@@ -17,7 +17,7 @@ En este documento se da el código y los ficheros (en formato dictd) para trabaj
 Instrucciones para sistemas operativos UNIX:
 
 {{{
-$ sudo cp drae.index drae.dict.dz /usr/share/dictd/
+$ cp drae.index drae.dict.dz /usr/share/dictd/
 $ /etc/init.d/dictd restart
  (o según la distribución)
 $ /etc/rc.d/dictd restart
