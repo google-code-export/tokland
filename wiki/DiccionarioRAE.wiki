@@ -3,46 +3,30 @@
 
 = Introducción =
 
-En este documento mostraremos cómo descargar el diccionario de la RAE para consultarlo localmente (para mayor comodidad, se dan enlaces a los ficheros resultantes). 
+El diccionario de la RAE es de libre accesso por [http://buscon.rae.es/draeI/ web], pero las consultas sin conexión sólo está disponible a través de aplicaciones gráficas de uso muy incomodo. Para los que quieren trabajar en línea de comandos o procesar el contenido del diccionario, estas aplicaciones son sencillamente inútiles.
 
-Una de las principales dificultades que nos encontraremos es que la lista de palabras del diccionario no está disponible en formato electrónico, ya que, a diferencia de otros diccionarios on-line que muestran las palabras anteriores y posteriores a la que estamos consultando, la [http://buscon.rae.es/draeI/ página web] de la RAE no proporciona esa información.
+En este documento se da el código y los ficheros (en formato dictd) para trabajar con el diccionario de forma local.
 
 = Descarga =
 
   * Lista de palabras (86042 entradas): [http://tokland.googlecode.com/svn/trunk/rae/words.txt words.txt]
-  * HTML (un fichero por palabra): [http://tokland.googlecode.com/svn/trunk/rae/output/drae2.2-html.tgz drae2.2-html.tgz]
-  * SQL: [http://tokland.googlecode.com/svn/trunk/rae/output/drae2.2.sql.gz drae2.2.sql.gz]
-  * Dictd: [http://tokland.googlecode.com/svn/trunk/rae/output/drae.index drae.index] y [http://tokland.googlecode.com/svn/trunk/rae/output/drae.dict.dz drae.dict.dz]
+  * Dictd: [http://tokland.googlecode.com/files/drae-2009-1.tgz descarga].
 
-= Cómo generar el diccionario =
+= Instalación = 
 
-Para ejecutar los scripts necesitarás un sistema UNIX (ya que usamos scripts Bash), subversion para descargar el código y un intérprete Ruby. Primero de todo, deberás obtener el código:
+Instrucciones para sistemas operativos UNIX:
+
+{{{
+$ sudo cp drae.index drae.dict.dz /usr/share/dictd/
+$ /etc/init.d/dictd restart
+ (o según la distribución)
+$ /etc/rc.d/dictd restart
+}}}
+
+= Fuentes =
+
+Las fuentes están en el repositorio:
 
 {{{
 svn co http://tokland.googlecode.com/svn/trunk/rae
-}}}
-
-== HTML ==
-
-Bajamos el HTML y lo procesamos para quedarnos sólo con la definición. También se ajustan los enlaces para que funcionen en local.
-
-{{{
-$ bash download.sh
-$ ruby process_html.rb
-}}}
-
-== SQL ==
-
-Si queremos usar las definiciones en alguna base de datos, generamos el SQL (modificándolo a nuestro gusto).
-
-{{{
-$ bash generate_sql.sh
-}}}
-
-== Dictd ==
-
-Una forma muy cómoda de acceder a un diccionario es usando `dictd`. Para generar el par de ficheros necesarios (`.index` y `.dict.dz`) haremos:
-
-{{{
-$ bash generate_dictd.sh
-}}}
+}}
