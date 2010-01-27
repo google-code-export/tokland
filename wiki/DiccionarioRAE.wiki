@@ -3,9 +3,9 @@
 
 = Introducción =
 
-Las consultas en el diccionario de la RAE son de libre accesso a través de la [http://buscon.rae.es/draeI/ página web], mientras que sin conexión sólo existen aplicaciones gráficas de uso muy incómodo. Para los que quieren trabajar en línea de comandos o procesar el contenido del diccionario, estas aplicaciones son sencillamente inútiles.
+Las consultas en el diccionario de la RAE son de libre accesso a través de la [http://buscon.rae.es/draeI/ página web], pero si no se dispone de conexión a la red la única alternativa son unas aplicaciones gráficas de uso muy incómodo. Para quienes hagan un uso intensivo, para los que prefieran trabajar en línea de comandos o los que necesiten procesar el contenido del diccionario, estas aplicaciones son sencillamente inútiles.
 
-En este documento se da el código y los ficheros (en formato _dictd_) para trabajar con el diccionario de forma local. Echa un vistazo al repositorio para generar otros formatos (SQL)
+En este documento se da el código y los ficheros (en formato _dictd_) para trabajar con el diccionario de forma local. Echa un vistazo al repositorio para ver cómo generar otros formatos (SQL)
 
 = Descarga =
 
