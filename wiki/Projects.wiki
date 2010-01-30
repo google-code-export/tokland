@@ -140,20 +140,20 @@ http://code.google.com/p/plowshare/
 
 == Download BBC radio episodes ==
 
-Download radio episodes (the use flash) from the BBC website.
+Download radio episodes (they use Adobe flash) from the BBC website.
 
 http://code.google.com/p/tokland/source/browse/trunk/bbc/download_episode.sh
 
 == English pronunciation ==
 
-Play English words (and cache them) using [http://www.thefreedictionary.com/ The Free Dictionary] webpage:
+Play English words (and cache them) using [http://www.thefreedictionary.com/ The Free Dictionary] webpage.
 
 http://tokland.googlecode.com/svn/trunk/pronounciation/pronounce.sh
 
 == Convert FLAC+CUE or APE+CUE to FLAC ==
 
 Use this simple shell script to convert and split a unique, big APE or FLAC audio file 
-to many [http://en.wikipedia.org/wiki/Free_Lossless_Audio_Codec FLAC] files (the CUE file needed):
+to many [http://en.wikipedia.org/wiki/Free_Lossless_Audio_Codec FLAC] files (the CUE file needed).
 
 http://tokland.googlecode.com/svn/trunk/flac/ape2flac
 
