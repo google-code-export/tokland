@@ -138,6 +138,12 @@ Bash command-line downloader and uploader for some of the most popular file shar
 
 http://code.google.com/p/plowshare/
 
+== Download BBC radio episodes ==
+
+Download radio episodes (the use flash) from the BBC website.
+
+http://code.google.com/p/tokland/source/browse/trunk/bbc/download_episode.sh
+
 == English pronunciation ==
 
 Play English words (and cache them) using [http://www.thefreedictionary.com/ The Free Dictionary] webpage:
