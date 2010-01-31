@@ -138,6 +138,12 @@ Bash command-line downloader and uploader for some of the most popular file shar
 
 http://code.google.com/p/plowshare/
 
+== Convert _anything_ to MP3 ==
+
+Well, convert anything that mplayer can handle to Mp3. 
+
+http://tokland.googlecode.com/svn/trunk/mp3/mplayer2mp3
+
 == Download BBC radio episodes ==
 
 Download radio episodes (they use Adobe flash) from the BBC website.
