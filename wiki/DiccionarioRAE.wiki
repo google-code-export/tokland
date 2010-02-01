@@ -3,30 +3,30 @@
 
 = Introducción =
 
-Las consultas en el diccionario de la RAE son de libre accesso a través de la [http://buscon.rae.es/draeI/ página web], pero si no se dispone de conexión a la red la única alternativa son unas aplicaciones gráficas de uso muy incómodo. Para quienes hagan un uso intensivo, para los que prefieran trabajar en línea de comandos o los que necesiten procesar el contenido del diccionario, estas aplicaciones son sencillamente inútiles.
+Las consultas en el diccionario de la RAE a través de la [http://buscon.rae.es/draeI/ página web] es libre, pero cuando no se dispone de conexión a la red la única alternativa son unas aplicaciones gráficas de uso muy incómodo. Para quienes hagan un uso más especializado (por línea de comandos, quienes tengan que procesar su contenido), estas aplicaciones son sencillamente inútiles.
 
-En este documento se da el código y los ficheros (en formato _dictd_) para trabajar con el diccionario de forma local. Echa un vistazo al repositorio para ver cómo generar otros formatos (SQL)
+En este documento se da el código y los ficheros (en formato _dictd_ y _html_) para trabajar con el diccionario de forma local. Echa un vistazo al repositorio para ver cómo generar otros formatos (SQL)
 
 = Descarga =
 
-  * Lista de palabras (86042 entradas): [http://tokland.googlecode.com/svn/trunk/rae/words.txt words.txt]
+  * Lista de palabras (86042 entradas): [http://tokland.googlecode.com/svn/trunk/rae/words.txt 
+words.txt]
+  * HTML: [http://tokland.googlecode.com/files/drae-html-2009-1.tgz descarga].
   * Dictd: [http://tokland.googlecode.com/files/drae-2009-1.tgz descarga].
 
-= Instalación de los fichero dictd = 
+= Instalación de los fichero _dictd_ = 
 
 Instrucciones para sistemas operativos UNIX:
 
 {{{
 $ tar xvzf drae-2009-1.tgz
 $ cp drae.index drae.dict.dz /usr/share/dictd/
-$ /etc/init.d/dictd restart
- (o según la distribución)
-$ /etc/rc.d/dictd restart
+$ /etc/init.d/dictd restart (o /etc/rc.d/dictd restart)
 }}}
 
 = Fuentes =
 
-Las fuentes están en el repositorio:
+El código fuente (scripts en Bash y Ruby) están en el repositorio _subversion_:
 
 {{{
 svn co http://tokland.googlecode.com/svn/trunk/rae
