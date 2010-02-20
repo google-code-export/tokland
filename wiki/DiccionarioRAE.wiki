@@ -9,8 +9,7 @@ En este documento se da el código y los ficheros (en formato _dictd_ y _html_) 
 
 = Descarga =
 
-  * Lista de palabras (86042 entradas): [http://tokland.googlecode.com/svn/trunk/rae/words.txt 
-words.txt]
+  * Lista de palabras (86042 entradas): [http://tokland.googlecode.com/svn/trunk/rae/words.txt words.txt]
   * HTML: [http://tokland.googlecode.com/files/drae-html-2009-1.tgz descarga].
   * Dictd: [http://tokland.googlecode.com/files/drae-2009-1.tgz descarga].
 
