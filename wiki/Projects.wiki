@@ -13,6 +13,12 @@ http://code.google.com/p/chrome-type-ahead/
 
 = Python =
 
+== Pygooks ==
+
+Pygooks downloads a book from Google Books and saves the PNG images for each page. It can be run either from the command-line or using a simple GUI (graphical interface). It should work out-of-the box for Unix systems (GNU/Linux, BSD) and (with minor modifications) for Windows.
+
+http://code.google.com/p/pygooks/
+
 == Youtube-upload ==
 
 Upload videos to [http://youtube.com Youtube] from the command-line (splitting the video if necessary):
