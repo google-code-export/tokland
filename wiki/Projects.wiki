@@ -13,9 +13,9 @@ http://code.google.com/p/chrome-type-ahead/
 
 = Python =
 
-== PySheng ==
+== !PySheng ==
 
-PySheng downloads a book from Google Books and saves the PNG images for each page (and a unique PDF). It can be run either from the command-line or using a simple graphical interface. It should work out-of-the box for Unix systems (GNU/Linux, BSD) and (with minor modifications) for Windows.
+!PySheng downloads a book from Google Books and saves the PNG images for each page (and a unique PDF). It can be run either from the command-line or using a simple graphical interface. It should work out-of-the box for Unix systems (GNU/Linux, BSD) and (with minor modifications) for Windows.
 
 http://code.google.com/p/pysheng
 
