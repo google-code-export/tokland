@@ -212,6 +212,6 @@ Words list and definitions (HTML, SQL and Dictd files).
 
 http://snippets.dzone.com/user/tokland
 
-== My recipes at ActiveState ==
+== My recipes at !ActiveState ==
 
 http://code.activestate.com/recipes/users/4173270/
