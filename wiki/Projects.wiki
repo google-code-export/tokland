@@ -217,5 +217,7 @@ Words list and definitions (HTML, SQL and Dictd files).
 == My snippets ==
 
 http://snippets.dzone.com/user/tokland
+
 http://code.activestate.com/recipes/users/4173270/
+
 http://www.commandlinefu.com/commands/by/tokland
