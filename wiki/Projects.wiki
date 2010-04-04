@@ -200,6 +200,12 @@ $ sudo gem install tokland-bicingbcn
 
 = Miscellaneous = 
 
+== Archlinux AUR == 
+
+My packages at the ArchLinux User Repository:
+
+http://aur.archlinux.org/packages.php?SeB=m&K=tokland
+
 == RAE Spanish dictionary ==
 
 Download and process [http://buscon.rae.es/draeI/ DRAE] contents.
@@ -208,10 +214,8 @@ Words list and definitions (HTML, SQL and Dictd files).
 
 (Spanish page) http://code.google.com/p/tokland/wiki/DiccionarioRAE
 
-== My snippets on DZone Snippets ==
+== My snippets ==
 
 http://snippets.dzone.com/user/tokland
-
-== My recipes at !ActiveState ==
-
 http://code.activestate.com/recipes/users/4173270/
+http://www.commandlinefu.com/commands/by/tokland
