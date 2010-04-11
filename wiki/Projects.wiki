@@ -37,6 +37,12 @@ Currently this module only scales (adjusts fps timing) for SRT subtitles:
 
 http://code.google.com/p/tokland/source/browse/trunk/subtitles
 
+== Sudoku solver ==
+
+Yet another slow sudoku solver, but following Functional Programming paradigm:
+
+http://code.google.com/p/tokland/source/browse/#svn/trunk/sudoku
+
 == Hotkeys for the X-Window ==
 
 Xhotkeys provides a simple and easily configurable hotkey launcher for the X-Window System, binding keys and mouse buttons to configurable commands. It should work on all desktops (Gnome, KDE, ...) available for the GNU/Linux operating system. Configuration files can be modified manually or using a graphical GTK+ configurator.
