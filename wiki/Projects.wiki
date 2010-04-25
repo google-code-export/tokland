@@ -150,6 +150,16 @@ Bash command-line downloader and uploader for some of the most popular file shar
 
 http://code.google.com/p/plowshare/
 
+== Loop over a command ==
+
+This seems to be a hole in the otherwise extremely complete UNIX toolset: a command to loop over commands until they succeed. This is a simple Bash implementation of the tool:
+
+http://code.google.com/p/tokland/source/browse/trunk/tools/loop.sh
+
+$ loop command_that_can fail arg1 arg2
+
+Very useful to make sure that calls to network-tools (rsync, wget, ...) really succeed.
+
 == Download from Google Books ==
 
 Downloads a book (that's it, all the images) of a book in Google Books. 
