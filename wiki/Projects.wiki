@@ -218,7 +218,7 @@ $ sudo gem install tokland-bicingbcn
 
 == Archlinux AUR == 
 
-My packages at the ArchLinux User Repository:
+My packages at the Archlinux User Repository:
 
 http://aur.archlinux.org/packages.php?SeB=m&K=tokland
 
