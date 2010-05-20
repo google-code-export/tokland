@@ -13,6 +13,12 @@ http://code.google.com/p/chrome-type-ahead/
 
 = Python =
 
+== !LangBots ==
+
+LangBots is a framework to make programmable bots fight in a battlefield. The framework itself is written in Python and Pygame, but participants may implement their bots in the programming language they like.
+
+http://code.google.com/p/langbots/
+
 == !PySheng ==
 
 !PySheng downloads a book from Google Books and saves the PNG images for each page (and a unique PDF). It can be run either from the command-line or using a simple graphical interface. It should work out-of-the box for Unix systems (GNU/Linux, BSD) and (with minor modifications) for Windows.
@@ -69,12 +75,6 @@ http://tokland.googlecode.com/svn/trunk/dpl/dpl.py
 
 You will also need the [http://tokland.googlecode.com/svn/trunk/dpl/dpl.txt TXT passwords list] and, optionally, the [http://tokland.googlecode.com/svn/trunk/dpl/dpl.html source HTML passwords] ([http://www.phenoelit-us.org/dpl/dpl.html latest version])
  
-== Download XKCD ==
-
-Download the great [http://xkcd.com XKCD] cartoons using Python and BeautifulSoup:
-
-http://tokland.googlecode.com/svn/trunk/xkcd/download_xkcd.py
-
 == Extract audio from a CD ==
 
 Extract/rip audio tracks from a CD (people used to do that, before the P2P era) with song titles obtained from [http://www.gracenote.com Gracenote] (formerly CDDB).
@@ -180,7 +180,7 @@ http://tokland.googlecode.com/svn/trunk/mp3/mplayer2mp3
 
 == Download BBC radio episodes ==
 
-Download radio episodes (they use Adobe flash) from the BBC website.
+Download radio episodes (they use Adobe Flash) from the BBC website.
 
 http://tokland.googlecode.com/svn/trunk/bbc/download_episode.sh
 
@@ -233,6 +233,8 @@ Words list and definitions (HTML, SQL and Dictd files).
 == My snippets ==
 
 http://snippets.dzone.com/user/tokland
+
+http://gist.github.com/tokland
 
 http://code.activestate.com/recipes/users/4173270/
 
