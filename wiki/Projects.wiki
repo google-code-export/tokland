@@ -67,25 +67,11 @@ A Python command-line interactive [http://en.wikipedia.org/wiki/Reverse_Polish_n
 
 http://tokland.googlecode.com/svn/trunk/rpn/rpn.py
 
-== Guess user and password for DSL routers ==
-
-Sometimes I am helping a friend with the DSL connection and I need to access the HTTP router management utility (which was forgotten, lost, or never known). Thus I created this utility that tries the more common user/password pairs.
-
-http://tokland.googlecode.com/svn/trunk/dpl/dpl.py
-
-You will also need the [http://tokland.googlecode.com/svn/trunk/dpl/dpl.txt TXT passwords list] and, optionally, the [http://tokland.googlecode.com/svn/trunk/dpl/dpl.html source HTML passwords] ([http://www.phenoelit-us.org/dpl/dpl.html latest version])
- 
 == Extract audio from a CD ==
 
 Extract/rip audio tracks from a CD (people used to do that, before the P2P era) with song titles obtained from [http://www.gracenote.com Gracenote] (formerly CDDB).
 
 http://tokland.googlecode.com/svn/trunk/cd2ogg/cd2ogg.py
-
-== Download lyrics ==
-
-Download lyrics from [http://lyricwiki.org LyricWiki] (the best lyrics site I am aware of).
-
-http://tokland.googlecode.com/svn/trunk/lyrics/lyrics.py
 
 == Automatic SSH backlinks ==
 
@@ -156,8 +142,6 @@ This seems to be a hole in the otherwise extremely complete UNIX toolset: a comm
 
 http://code.google.com/p/tokland/source/browse/trunk/tools/loop.sh
 
-$ loop command_that_can fail arg1 arg2
-
 Very useful to make sure that calls to network-tools (rsync, wget, ...) really succeed.
 
 == Download from Google Books ==
@@ -198,6 +182,12 @@ to many [http://en.wikipedia.org/wiki/Free_Lossless_Audio_Codec FLAC] files (the
 http://tokland.googlecode.com/svn/trunk/flac/ape2flac
 
 = Websites =
+
+== !EnWebstas == 
+
+Spanish site for paid online surveys developed in Rails.
+
+http://www.enwebstas.com/
 
 == !BicingInfo ==
 
