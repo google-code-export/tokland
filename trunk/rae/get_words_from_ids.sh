@@ -7,4 +7,4 @@ extract() {
     cut -d">" -f3 | cut -d"<" -f1
 }
 
-extract "html" | sort > words.txt
+extract "html" > words.txt
