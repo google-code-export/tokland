@@ -6,8 +6,9 @@ enumerate() { cat -n; }
          
 download_words_html() {
   local WORDS_FILE=$1
-  local URL=$2
-  local DIRECTORY=$3
+  local DIRECTORY=$2
+
+  URL="http://buscon.rae.es/draeI/SrvltGUIBusUsual"
   
   mkdir -p "$DIRECTORY" || return 1
   local TOTAL=$(wc -l < "$WORDS_FILE")
@@ -18,10 +19,10 @@ download_words_html() {
     if test -e "$OUTPUT" -a -s "$OUTPUT"; then
       debug "already exists"
     else
-      wget -o /dev/null -O "$OUTPUT" "$URL/$WORD" && 
+      wget -o /dev/null -O "$OUTPUT" "$URL?LEMA=$WORD" && 
         debug "done" || debug "error"
     fi
   done
 }
     
-download_words_html "words.txt" "http://drae2.es" "html"
+download_words_html "words.txt" "html2"
