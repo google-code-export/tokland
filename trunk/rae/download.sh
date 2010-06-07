@@ -19,7 +19,7 @@ download_words_html() {
     if test -e "$OUTPUT" -a -s "$OUTPUT"; then
       debug "already exists"
     else
-      wget -o /dev/null -O "$OUTPUT" "$URL?LEMA=$WORD" && 
+      curl -s "$URL?LEMA=$WORD" > $OUTPUT && 
         debug "done" || debug "error"
     fi
   done
