@@ -1,337 +1,3 @@
--able
--aca
--acanto
--acha
--acho
--achuelo
--achón
--ación
--aco
--ada
--adero
--ado
--ador
--adura
--aico
--aja
--aje
--ajo
--ajón
--al
--ales
--algia
--alla
--ambre
--amen
--amento
--amiento
--ana
--anca
--ancia
--anco
--anga
--ango
--ano
--ante
--anza
--ar
--aracha
--aracho
--arada
--arajo
--araz
--arda
--ardo
--areda
--aria
--ario
--arraco
--arrada
--arrajo
--arro
--arrón
--asa
--asco
--asis
--astra
--astre
--astro
--astrón
--ata
--atario
--ate
--ativo
--ato
--atorio
--ava
--avo
--aza
--azgo
--azo
--azón
--aña
--año
--bara
--baro
--bilidad
--bilísimo
--bio
--ble
--cardio
--cefalia
--cer
--cete
--cico
--cida
--cidio
--cillo
--cito
--ción
--cola
--cracia
--crata
--cultura
--céfala
--céfalo
--dad
--dera
--dermia
--dermo
--dero
--dor
--dura
--dáctilo
--e
--ea
--ear
--ececico
--ececillo
--ececito
--ecer
--ecezuelo
--ecico
--ecillo
--ecito
--ectomía
--eda
--edad
--edal
--edero
--edo
--edor
--edura
--ego
--eja
--ejo
--ejón
--ela
--elo
--ema
--emia
--ena
--enca
--encia
--enco
--enga
--engo
--eno
--ense
--enta
--ente
--ento
--eo
--era
--erio
--ero
--ería
--esa
--esco
--esino
--esis
--eta
--ete
--eto
--etón
--ez
--eza
--ezno
--ezuelo
--eña
--eño
--fagia
--fago
--fero
--ficar
--fico
--filia
--filo
--fito
--fobo
--fono
--forme
--foro
--fugo
--gamia
--gamo
--genia
--geno
--gono
--grado
--grafo
--grafía
--grama
--génesis
--génita
--génito
--huelo
--hídrico
--ia
--iano
--iatría
--ible
--ica
--ichuelo
--icio
--ición
--ico
--icón
--ida
--idad
--idero
--ido
--idor
--idura
--iego
--iense
--iente
--iento
--ija
--ijo
--ijón
--il
--illa
--illo
--ilo
--imento
--imiento
--ina
--inga
--ingo
--ino
--io
--iondo
--isco
--ismo
--ista
--ita
--itis
--itivo
--ito
--itorio
--iva
--ivo
--iza
--izar
--izco
--izo
--landia
--latría
--lisis
--lito
--logo
--logía
--ma
--mancia
--mancía
--mano
--manía
--menta
--mente
--mento
--metro
--metría
--miento
--morfa
--morfo
--ncia
--nomía
--nte
--oide
--oideo
--oides
--ol
--oma
--or
--orrio
--orro
--osa
--osis
--oso
--ote
--paro
--patía
--pedo
--plastia
--podo
--ptero
--rragia
--rrea
--rro
--sco
--scopia
--scopio
--sis
--stato
--strajo
--stático
--tana
--tano
--teca
--tecnia
--terapia
--terma
--termia
--termo
--tico
--toma
--tomo
--tomía
--tor
--toria
--torio
--triz
--trofia
--trofo
--ucho
--uco
--udo
--uelo
--ura
--uria
--uro
--usco
--uzco
--valente
--voro
--zoo
--zuelo
--ácea
--áceo
--án
--ánea
--áneo
--átil
--és
--ésimo
--ía
--ín
--ínea
--íneo
--ío
--ísimo
--ístico
--ón
--ónimo
 ABS
 ADN
 ADSL
@@ -599,7 +265,6 @@ a quo
 a radice
 a sensu contrario
 a símili
-a-
 aaronita
 aarónico
 ab aeterno
@@ -871,6 +536,7 @@ ablanero
 ablano
 ablativo
 ablatorio
+able
 ablegado
 ablentador
 ablentar
@@ -1324,7 +990,6 @@ acantilar
 acantinflado
 acantio
 acanto
-acanto-
 acantocito
 acantocitosis
 acantocéfalo
@@ -1616,6 +1281,7 @@ acezo
 acezoso
 aceña
 aceñero
+acha
 achabacanamiento
 achabacanar
 achacable
@@ -1696,6 +1362,7 @@ achirlar
 achispar
 achitabla
 achivarse
+acho
 achocadura
 achocar
 achocharse
@@ -1719,6 +1386,7 @@ achucharse
 achuchón
 achucuyar
 achuela
+achuelo
 achulado
 achulapado
 achulaparse
@@ -1736,6 +1404,7 @@ achusemado
 achí
 achín
 achís
+achón
 aciago
 acial
 aciano
@@ -1821,6 +1490,7 @@ aclorhidria
 aclorhídrico
 acmé
 acné
+aco
 acobambino
 acobardado
 acobardamiento
@@ -2086,7 +1756,7 @@ acristalar
 acristianado
 acristianar
 acritud
-acro-
+acro
 acroamático
 acrobacia
 acrobatismo
@@ -2303,7 +1973,7 @@ ad referéndum
 ad tempus
 ad valórem
 ad ínterim
-ad-
+ada
 adacilla
 adafina
 adagial
@@ -2384,12 +2054,12 @@ ademprio
 ademprío
 ademán
 además
-aden-
+aden
 adenda
 adenia
 adenina
 adenitis
-adeno-
+adeno
 adenoideo
 adenoides
 adenología
@@ -2408,6 +2078,7 @@ aderezado
 aderezamiento
 aderezar
 aderezo
+adero
 aderra
 aderredor
 adestrado
@@ -2525,6 +2196,7 @@ adnado
 adnata
 adnato
 adnominal
+ado
 adoba
 adobado
 adobador
@@ -2687,6 +2359,7 @@ adunco
 adundado
 adundarse
 adunia
+adura
 adurir
 aduro
 adustez
@@ -2742,7 +2415,7 @@ aeda
 aedo
 aeración
 aeriforme
-aero-
+aero
 aerobic
 aerobio
 aerobiosis
@@ -3047,7 +2720,6 @@ afrikáans
 afrikáner
 afrisonado
 afro
-afro-
 afroamericano
 afroantillano
 afroasiático
@@ -3389,7 +3061,6 @@ agrisar
 agrisetado
 agrión
 agro
-agro-
 agroalimentación
 agroalimentario
 agroforestal
@@ -3767,6 +3438,7 @@ ahína
 ahínco
 ahíto
 ahó
+aico
 aiguaste
 aijada
 aikido
@@ -3937,6 +3609,7 @@ ajustón
 ajá
 ají
 ajó
+ajón
 akalché
 al
 ala
@@ -4662,6 +4335,7 @@ alertear
 alerto
 alerzal
 alerón
+ales
 alesna
 alesnado
 aleta
@@ -4845,6 +4519,7 @@ algebraico
 algebrista
 algecireño
 algente
+algia
 algidez
 algo
 algodonal
@@ -5127,6 +4802,7 @@ aljáfana
 aljébana
 aljófar
 alkermes
+alla
 allanabarrancos
 allanador
 allanamiento
@@ -5415,7 +5091,7 @@ alnado
 alnafe
 alnedo
 alno
-alo-
+alo
 aloaria
 alobadado
 alobado
@@ -5591,7 +5267,7 @@ altero
 alteroso
 alteza
 alteño
-alti-
+alti
 altibajo
 altillo
 altilocuencia
@@ -5991,6 +5667,7 @@ ambliope
 ambliopía
 ambo
 ambos
+ambre
 ambrolla
 ambrollar
 ambrosiano
@@ -6031,6 +5708,7 @@ amelocotonado
 amelonado
 amelía
 amembrillado
+amen
 amenaza
 amenazador
 amenazante
@@ -6123,7 +5801,6 @@ amimia
 amina
 aminar
 amino
-amino-
 aminoración
 aminorar
 aminoácido
@@ -6380,9 +6057,8 @@ amílico
 amín
 amínico
 amónico
-an-
+an
 ana
-ana-
 anabaptismo
 anabaptista
 anabatista
@@ -6486,7 +6162,6 @@ anaquelería
 anaranjado
 anaranjear
 anarco
-anarco-
 anarcosindicalismo
 anarcosindicalista
 anarquismo
@@ -6541,6 +6216,7 @@ anchoveta
 anchura
 anchuroso
 anchurón
+ancia
 ancianamente
 ancianato
 ancianidad
@@ -6556,6 +6232,7 @@ anclaje
 anclar
 anclear
 anclote
+anco
 anconada
 anconitano
 ancorada
@@ -6686,7 +6363,7 @@ anejir
 anejo
 aneldo
 anemia
-anemo-
+anemo
 anemocordio
 anemografía
 anemográfico
@@ -6721,7 +6398,7 @@ anfesibena
 anfeta
 anfetamina
 anfetamínico
-anfi-
+anfi
 anfibio
 anfibol
 anfibolita
@@ -6746,6 +6423,7 @@ anfígeno
 anfímacro
 anfípodo
 anfótero
+anga
 anganillas
 angaria
 angarilla
@@ -6769,7 +6447,7 @@ angelón
 angevino
 angina
 anginoso
-angio-
+angio
 angiografía
 angiográfico
 angiogénesis
@@ -6808,6 +6486,7 @@ anglófilo
 anglófobo
 anglófono
 anglómano
+ango
 angoja
 angojoso
 angoleño
@@ -6921,7 +6600,7 @@ anisado
 anisal
 anisar
 anisete
-aniso-
+aniso
 anisodonte
 anisofilo
 anisopétalo
@@ -7037,7 +6716,6 @@ antañón
 ante
 ante díem
 ante merídiem
-ante-
 anteado
 antealtar
 anteanoche
@@ -7146,7 +6824,6 @@ antevocálico
 antevíspera
 anteón
 anti
-anti-
 antia
 antiabortista
 antiacadémico
@@ -7459,7 +7136,7 @@ antozoo
 antracita
 antracosis
 antro
-antropo-
+antropo
 antropocentrismo
 antropocéntrico
 antropofagia
@@ -7548,6 +7225,7 @@ anuo
 anuria
 anuro
 anverso
+anza
 anzoateguiense
 anzoatiguense
 anzolar
@@ -7893,7 +7571,7 @@ apiastro
 apical
 apicararse
 apichonado
-apico-
+apico
 apicultor
 apicultura
 apilada
@@ -8385,6 +8063,8 @@ arable
 arabo
 arabí
 arabía
+aracha
+aracho
 arachán
 aracnoides
 aracnología
@@ -8403,6 +8083,7 @@ araguato
 aragüeño
 aragüirá
 arahuaco
+arajo
 aralia
 araliáceo
 arambel
@@ -8433,6 +8114,7 @@ araucano
 araucaria
 arauja
 aravico
+araz
 arazá
 araña
 arañada
@@ -8480,7 +8162,7 @@ arborecer
 arborescencia
 arborescente
 arboreto
-arbori-
+arbori
 arboricida
 arboricultor
 arboricultura
@@ -8522,7 +8204,6 @@ arcazón
 arcaísmo
 arcaísta
 arce
-arce-
 arcea
 arcedianato
 arcedianazgo
@@ -8531,7 +8212,7 @@ arcedo
 arcense
 archa
 archero
-archi-
+archi
 archibebe
 archibribón
 archibruto
@@ -8563,7 +8244,7 @@ archivística
 archivístico
 archivólogo
 archí
-arci-
+arci
 arcial
 arcidriche
 arcifinio
@@ -8618,6 +8299,7 @@ ardimiento
 ardiondo
 ardita
 ardite
+ardo
 ardor
 ardora
 ardorada
@@ -8632,6 +8314,7 @@ ardínculo
 areca
 arecer
 arecibeño
+areda
 arefacción
 aregüense
 aregüeño
@@ -8948,7 +8631,7 @@ arqueta
 arquetipo
 arquetípico
 arqueólogo
-arqui-
+arqui
 arquibanco
 arquidiócesis
 arquiepiscopal
@@ -8979,6 +8662,8 @@ arrachera
 arracimado
 arracimarse
 arraclán
+arraco
+arrada
 arraezar
 arrafiz
 arragocés
@@ -8989,6 +8674,7 @@ arraigamiento
 arraigar
 arraigo
 arraiján
+arrajo
 arralar
 arramblar
 arramplar
@@ -9238,6 +8924,7 @@ arritmia
 arritranca
 arrizar
 arriñonado
+arro
 arroaz
 arroba
 arrobadera
@@ -9359,6 +9046,7 @@ arrutinar
 arruí
 arráez
 arrítmico
+arrón
 arsafraga
 arsenal
 arsenalero
@@ -9480,7 +9168,7 @@ arvejona
 arvejote
 arvejón
 arvense
-arz-
+arz
 arzobispado
 arzobispal
 arzobispo
@@ -9741,6 +9429,7 @@ asiriano
 asirio
 asiriología
 asiriólogo
+asis
 asistemático
 asistencia
 asistencial
@@ -9911,10 +9600,12 @@ astillazo
 astillero
 astilloso
 astorgano
+astra
 astracanada
 astracán
 astrago
 astral
+astre
 astreñir
 astricción
 astrictivo
@@ -9945,6 +9636,7 @@ astrágalo
 astrífero
 astrógrafo
 astrólogo
+astrón
 astrónomo
 astucia
 astucioso
@@ -9993,6 +9685,7 @@ asíndeton
 asíntota
 asísmico
 asómate
+ata
 atabaca
 atabacado
 atabal
@@ -10097,6 +9790,7 @@ atardecida
 atarea
 atarear
 atarfe
+atario
 atarjea
 atarquinar
 atarraga
@@ -10268,6 +9962,7 @@ atisbar
 atisbo
 atisbón
 atisuado
+ativo
 atizacandiles
 atizadero
 atizador
@@ -10287,6 +9982,7 @@ atlántico
 atlético
 atmosférico
 atmósfera
+ato
 atoar
 atoba
 atobar
@@ -10341,6 +10037,7 @@ atorar
 atorcer
 atordecer
 atorgar
+atorio
 atormentador
 atormentar
 atornasolado
@@ -10468,7 +10165,7 @@ atrás
 atríaca
 atrípedo
 atrófico
-atto-
+atto
 atuendo
 atufadamente
 atufado
@@ -10523,7 +10220,6 @@ audición
 audiencia
 audienciero
 audio
-audio-
 audiofrecuencia
 audiograma
 audiometría
@@ -10635,7 +10331,6 @@ autillo
 autismo
 autista
 auto
-auto-
 autoadhesivo
 autoafirmación
 autobaño
@@ -10792,6 +10487,7 @@ auxiliaría
 auxilio
 auxina
 auyama
+ava
 avadar
 avahado
 aval
@@ -11086,6 +10782,7 @@ ayustar
 ayuste
 ayáu
 ayúa
+aza
 azabachado
 azabache
 azabachero
@@ -11155,6 +10852,7 @@ azerbaijano
 azerbaiyano
 azerí
 azeuxis
+azgo
 azimut
 azimutal
 aznacho
@@ -11277,6 +10975,7 @@ azuzar
 azálea
 azándar
 azófar
+azón
 azúcar
 azúmbar
 aéreo
@@ -11948,6 +11647,7 @@ baquiano
 baquio
 baquía
 bar
+bara
 baraca
 baracaldés
 barahonero
@@ -12148,7 +11848,6 @@ barnizador
 barnizadura
 barnizar
 baro
-baro-
 barojiano
 barométrico
 baronesa
@@ -12933,7 +12632,7 @@ bezoárdico
 bezoárico
 bezudo
 bezón
-bi-
+bi
 biajaca
 biajaiba
 biangular
@@ -12948,7 +12647,7 @@ bibelot
 biberón
 bibijagua
 biblia
-biblio-
+biblio
 bibliobús
 bibliofilia
 bibliografía
@@ -13108,6 +12807,7 @@ bilbaíno
 bilbilitano
 biliar
 biliario
+bilidad
 bilimbique
 bilingüe
 bilingüismo
@@ -13141,6 +12841,7 @@ bilocular
 bilogía
 bilongo
 bilé
+bilísimo
 bilítero
 bimano
 bimba
@@ -13170,7 +12871,7 @@ binocular
 binomio
 binza
 binóculo
-bio-
+bio
 biocenosis
 biochip
 biocompatibilidad
@@ -13266,7 +12967,6 @@ biruje
 biruji
 biruégano
 bis
-bis-
 bisabuelo
 bisagra
 bisalta
@@ -13349,7 +13049,7 @@ bixáceo
 bixíneo
 biyección
 biyectivo
-biz-
+biz
 biza
 bizantinismo
 bizantino
@@ -14199,7 +13899,7 @@ bracista
 bracmán
 braco
 bractéola
-bradi-
+bradi
 bradicardia
 bradilalia
 bradipepsia
@@ -17372,7 +17072,7 @@ cardimuelle
 cardinal
 cardinas
 cardinche
-cardio-
+cardio
 cardiocirugía
 cardiocirujano
 cardiografía
@@ -18203,7 +17903,6 @@ casuística
 casuístico
 casón
 cata
-cata-
 catabejas
 catabolismo
 catabre
@@ -18819,6 +18518,7 @@ cedulario
 cedulón
 cefalalgia
 cefalea
+cefalia
 cefalitis
 cefalorraquídeo
 cefalotórax
@@ -19105,7 +18805,7 @@ centenilla
 centeno
 centenoso
 centesimal
-centi-
+centi
 centigramo
 centilitro
 centillero
@@ -19203,6 +18903,7 @@ cequia
 cequiaje
 cequión
 cequí
+cer
 cera
 ceracate
 cerafolio
@@ -19503,6 +19204,7 @@ cesáreo
 cetano
 cetaria
 cetario
+cete
 cetil
 cetilo
 cetina
@@ -21138,12 +20840,11 @@ chúcaro
 ciaboga
 ciabogar
 cian
-cian-
 cianato
 cianea
 cianhídrico
 cianita
-ciano-
+ciano
 cianosis
 cianuro
 cianí
@@ -21160,7 +20861,7 @@ cibdad
 cibdadano
 cibeleo
 cibelina
-ciber-
+ciber
 cibera
 ciberespacio
 cibernauta
@@ -21227,6 +20928,7 @@ ciclópeo
 ciclópico
 ciclóstoma
 ciclóstomo
+cico
 ciconiforme
 cicoria
 cicuta
@@ -21235,7 +20937,9 @@ cicádeo
 cicádido
 cicércula
 cid
+cida
 cidiano
+cidio
 cidra
 cidrada
 cidral
@@ -21346,6 +21050,7 @@ cilleriza
 cillerizo
 cillero
 cillería
+cillo
 cilíndrico
 cima
 cimacio
@@ -21558,11 +21263,11 @@ circular
 circularidad
 circularmente
 circulatorio
-circum-
+circum
 circumcirca
 circumincesión
 circumpolar
-circun-
+circun
 circuncidar
 circuncisión
 circunciso
@@ -21621,7 +21326,7 @@ ciruelo
 cirugía
 cirujano
 cirílico
-cis-
+cis
 cisalpino
 cisandino
 cisca
@@ -21670,7 +21375,6 @@ citatorio
 citereo
 citerior
 cito
-cito-
 citocinesis
 citocromo
 citodiagnosis
@@ -21726,6 +21430,7 @@ ciénago
 ciénega
 ciénego
 ciñuela
+ción
 clac
 clachique
 claco
@@ -21998,7 +21703,7 @@ clórico
 clóset
 cneoráceo
 cnidario
-co-
+co
 coa
 coaccionar
 coacción
@@ -22780,7 +22485,7 @@ colérico
 colín
 colón
 colúbrido
-com-
+com
 coma
 comadrazgo
 comadre
@@ -23264,7 +22969,6 @@ comís
 común
 comúnmente
 con
-con-
 conacaste
 conacho
 conana
@@ -25727,6 +25431,7 @@ coño
 coñón
 crabrón
 crac
+cracia
 cracoviana
 cracoviano
 cramponado
@@ -25754,6 +25459,7 @@ crasiento
 crasitud
 craso
 crasuláceo
+crata
 crateriforme
 cratícula
 crayola
@@ -25907,7 +25613,7 @@ crineja
 crinera
 crinito
 crinolina
-crio-
+crio
 criobiología
 criocauterio
 criocirugía
@@ -26030,7 +25736,6 @@ cromatismo
 cromatografía
 cromatógrafo
 cromo
-cromo-
 cromolitografiar
 cromolitografía
 cromolitográfico
@@ -26053,7 +25758,6 @@ cronificación
 cronificar
 cronista
 crono
-crono-
 cronoescalada
 cronografía
 cronograma
@@ -26193,7 +25897,7 @@ cuadranura
 cuadrar
 cuadratura
 cuadratín
-cuadri-
+cuadri
 cuadricenal
 cuadriculación
 cuadricular
@@ -26226,7 +25930,7 @@ cuadrivista
 cuadriyugo
 cuadro
 cuadropea
-cuadru-
+cuadru
 cuadrumano
 cuadrupedal
 cuadrupedante
@@ -26367,7 +26071,7 @@ cuatratuo
 cuatrerismo
 cuatrero
 cuatreño
-cuatri-
+cuatri
 cuatricromía
 cuatriduano
 cuatrienal
@@ -27160,6 +26864,7 @@ cáñamo
 cécubo
 cédride
 cédula
+céfala
 céfalo
 céfiro
 célebre
@@ -27291,7 +26996,7 @@ dactilar
 dactiliforme
 dactiliología
 dactilión
-dactilo-
+dactilo
 dactilografiar
 dactilografía
 dactilograma
@@ -27304,6 +27009,7 @@ dactiloscópico
 dactilógrafo
 dactílico
 dacá
+dad
 dadaísmo
 dadaísta
 dadero
@@ -27457,7 +27163,6 @@ de profundis
 de verbo ad vérbum
 de visu
 de vita et móribus
-de-
 dea
 deal
 deambulación
@@ -27497,7 +27202,7 @@ debut
 debutante
 debutar
 debó
-deca-
+deca
 decadencia
 decadente
 decadentismo
@@ -27568,7 +27273,7 @@ decesado
 decesión
 deceso
 dechado
-deci-
+deci
 decibel
 decibelio
 decibelímetro
@@ -28032,7 +27737,6 @@ demisión
 demiurgo
 demiúrgico
 demo
-demo-
 democracia
 democratacristiano
 democratización
@@ -28164,7 +27868,7 @@ dentellear
 dentellón
 dentera
 dentezuelo
-denti-
+denti
 denticina
 dentición
 denticonejuno
@@ -28176,7 +27880,7 @@ dentirrostro
 dentista
 dentistería
 dentivano
-dento-
+dento
 dentoalveolar
 dentorno
 dentrambos
@@ -28284,6 +27988,7 @@ depósito
 deque
 dequeísmo
 dequeísta
+dera
 derbi
 derecera
 derecha
@@ -28315,24 +28020,26 @@ derivado
 derivar
 derivativo
 derivo
-derm-
+derm
 dermalgia
-dermat-
+dermat
 dermatitis
-dermato-
+dermato
 dermatoesqueleto
 dermatología
 dermatológico
 dermatosis
 dermatólogo
 dermesto
+dermia
 dermis
 dermitis
-dermo-
+dermo
 dermofarmacia
 dermofarmacéutico
 dermoprotección
 dermoprotector
+dero
 derogable
 derogación
 derogador
@@ -28410,7 +28117,6 @@ derrumbe
 derrumbo
 derviche
 des
-des-
 desabarrancar
 desabastecer
 desabastecimiento
@@ -31433,8 +31139,8 @@ deísmo
 deísta
 deíxis
 deñar
-di-
-dia-
+di
+dia
 diabasa
 diabetes
 diabeto
@@ -31973,7 +31679,7 @@ dirigista
 dirimente
 dirimible
 dirimir
-dis-
+dis
 disacárido
 disantero
 disanto
@@ -32657,6 +32363,7 @@ dopar
 doquier
 doquiera
 doquiere
+dor
 dorace
 dorada
 doradilla
@@ -33037,8 +32744,8 @@ dúplex
 dúplica
 dúplice
 e
-e-
 ea
+ear
 easonense
 ebanista
 ebanistería
@@ -33065,8 +32772,13 @@ eccematoso
 ecdisis
 ecdótica
 ecdótico
+ececico
+ececillo
+ececito
 ecepto
 eceptuar
+ecer
+ecezuelo
 echacantos
 echacorvear
 echacorvería
@@ -33088,7 +32800,10 @@ echazón
 echo
 echona
 echonería
+ecico
 ecijano
+ecillo
+ecito
 eclampsia
 eclecticismo
 eclesial
@@ -33106,7 +32821,6 @@ eclímetro
 eclíptico
 eclógico
 eco
-eco-
 ecocardiografía
 ecografía
 ecográfico
@@ -33137,9 +32851,10 @@ ecotoxicología
 ecoturismo
 ectasia
 ectima
-ecto-
+ecto
 ectodermo
 ectodérmico
+ectomía
 ectoparásito
 ectopia
 ectoplasma
@@ -33175,13 +32890,16 @@ ecónomo
 ecúleo
 ecúmene
 ecúmeno
+eda
 edad
 edafología
 edafológico
 edafólogo
+edal
 edecán
 edema
 edematoso
+edero
 edetano
 edición
 edicto
@@ -33203,6 +32921,8 @@ editorial
 editorialista
 editorializar
 editorialmente
+edo
+edor
 edrar
 edredón
 edrisí
@@ -33222,6 +32942,7 @@ edulcorado
 edulcoramiento
 edulcorante
 edulcorar
+edura
 edáfico
 edén
 edénico
@@ -33331,6 +33052,7 @@ eidetismo
 eidético
 einstenio
 eirá
+eja
 ejabrir
 ejarbe
 eje
@@ -33370,9 +33092,12 @@ ejidal
 ejidatario
 ejido
 ejión
+ejo
 ejote
 ejército
+ejón
 el
+ela
 elaborable
 elaboración
 elaborado
@@ -33414,7 +33139,6 @@ electrizador
 electrizante
 electrizar
 electro
-electro-
 electroacústica
 electroacústico
 electrobiología
@@ -33570,6 +33294,7 @@ elle
 ello
 ellos
 elmete
+elo
 elocución
 elocuencia
 elocuente
@@ -33610,7 +33335,8 @@ elípticamente
 elíptico
 elíseo
 elíxir
-em-
+em
+ema
 emaciación
 emanación
 emanadero
@@ -33977,6 +33703,7 @@ emeritense
 emersión
 emesis
 emetina
+emia
 emidosaurio
 emienda
 emigración
@@ -34405,7 +34132,7 @@ emétrope
 emídido
 emú
 en
-en-
+ena
 enaceitar
 enacerar
 enaciado
@@ -34471,6 +34198,7 @@ enastilar
 enatieza
 enatíamente
 enatío
+enca
 encabalgamiento
 encabalgar
 encaballado
@@ -34844,6 +34572,7 @@ enchuletar
 enchumbar
 enchutar
 enchute
+encia
 enciclopedia
 enciclopedismo
 enciclopedista
@@ -34883,6 +34612,7 @@ enclochar
 encloquecer
 encluecar
 enclítico
+enco
 encobador
 encobar
 encobertado
@@ -35076,7 +34806,7 @@ ende
 endeble
 endeblez
 endeblucho
-endeca-
+endeca
 endecasilábico
 endecasílabo
 endecha
@@ -35125,7 +34855,7 @@ endiosar
 enditarse
 endivia
 endiñar
-endo-
+endo
 endoblado
 endoblar
 endoble
@@ -35205,7 +34935,6 @@ endógeno
 endósmosis
 ene
 enea
-enea-
 eneal
 eneasílabo
 enebral
@@ -35377,6 +35106,7 @@ enfusir
 enfuñarse
 enfáticamente
 enfático
+enga
 engabanado
 engace
 engafar
@@ -35487,6 +35217,7 @@ englantado
 englobar
 englutativo
 englutir
+engo
 engobe
 engocetar
 engolado
@@ -35867,6 +35598,7 @@ ennoblecer
 ennoblecimiento
 ennoviarse
 ennudecer
+eno
 enodio
 enodrido
 enojada
@@ -36056,6 +35788,7 @@ ensayístico
 ensañado
 ensañamiento
 ensañar
+ense
 ensebado
 ensebar
 ensecar
@@ -36222,7 +35955,6 @@ enternecer
 enternecidamente
 enternecimiento
 entero
-entero-
 enterocolitis
 enteropatía
 enterostomía
@@ -36260,6 +35992,7 @@ entisar
 entitativo
 entizar
 entiznar
+ento
 entoladora
 entolar
 entoldado
@@ -36338,7 +36071,6 @@ entrañar
 entrañizar
 entraño
 entre
-entre-
 entreabierto
 entreabrir
 entreacto
@@ -36712,6 +36444,7 @@ enérgicamente
 enérgico
 enésimo
 enólogo
+eo
 eoceno
 eocénico
 eolio
@@ -36733,7 +36466,7 @@ epazote
 epentético
 eperlano
 eperlán
-epi-
+epi
 epicanto
 epicarpio
 epicedio
@@ -36860,7 +36593,7 @@ epítrito
 epítrope
 epónimo
 equeco
-equi-
+equi
 equidad
 equidiferencia
 equidistancia
@@ -36967,13 +36700,14 @@ ericáceo
 erigir
 erina
 eringe
+erio
 eriotecnia
 erisipela
 erisipelar
 erisipelatoso
 eritema
 eritreo
-eritro-
+eritro
 eritroblastosis
 eritrocito
 eritropoyesis
@@ -37058,7 +36792,8 @@ erístico
 erógeno
 erótica
 erótico
-es-
+es
+esa
 esbajeradora
 esbajerar
 esbarar
@@ -37429,7 +37164,7 @@ esclavo
 esclavonio
 esclavonía
 esclavón
-esclero-
+esclero
 esclerodermia
 escleroproteína
 esclerosado
@@ -37444,6 +37179,7 @@ esclerótica
 esclerótico
 esclisiado
 esclusa
+esco
 escoa
 escoba
 escobada
@@ -37873,6 +37609,8 @@ esguilo
 esguince
 esguín
 esguízaro
+esino
+esis
 eslabonador
 eslabonamiento
 eslabonar
@@ -38757,7 +38495,7 @@ estercolizo
 estercuelo
 esterculiáceo
 estercóreo
-estereo-
+estereo
 estereocomparador
 estereofonía
 estereofónico
@@ -39256,6 +38994,7 @@ etapa
 etario
 etarra
 etcétera
+ete
 eterismo
 eterización
 eterizar
@@ -39294,7 +39033,7 @@ etmoidal
 etmoides
 etneo
 etnia
-etno-
+etno
 etnocentrismo
 etnocéntrico
 etnografía
@@ -39304,6 +39043,7 @@ etnología
 etnológico
 etnógrafo
 etnólogo
+eto
 etolio
 etolo
 etología
@@ -39315,6 +39055,7 @@ etéreo
 etílico
 etíope
 etólogo
+etón
 eubeo
 euboico
 eubolia
@@ -39355,7 +39096,6 @@ eureka
 euripo
 euritmia
 euro
-euro-
 euroasiático
 eurocentrismo
 eurocomunismo
@@ -39471,8 +39211,7 @@ ex cátedra
 ex cáthedra
 ex libris
 ex profeso
-ex-
-exa-
+exa
 exabrupto
 exacción
 exacerbación
@@ -39948,7 +39687,6 @@ extorsionista
 extorsivo
 extorsión
 extra
-extra-
 extracción
 extracomunitario
 extracorpóreo
@@ -40074,9 +39812,15 @@ eyección
 eyectable
 eyectar
 eyector
+ez
+eza
+ezno
 ezquerdear
 ezquite
+ezuelo
+eña
 eñe
+eño
 eólico
 eón
 f
@@ -40201,8 +39945,8 @@ faenar
 faenero
 faetón
 fafarachero
+fagia
 fago
-fago-
 fagocitar
 fagocito
 fagocitosis
@@ -40784,7 +40528,7 @@ feminista
 feminización
 feminoide
 femoral
-femto-
+femto
 femtogramo
 femíneo
 fenal
@@ -40854,11 +40598,12 @@ fermoso
 fermosura
 fernandina
 fernandino
+fero
 ferocidad
 ferodo
 feroz
 ferozmente
-ferr-
+ferr
 ferra
 ferrada
 ferrado
@@ -40882,7 +40627,6 @@ ferrificarse
 ferrita
 ferrizo
 ferro
-ferro-
 ferrobús
 ferrocarril
 ferrocarrilero
@@ -41002,6 +40746,7 @@ ficha
 fichaje
 fichar
 fichero
+fico
 ficoideo
 ficticio
 fictivo
@@ -41178,7 +40923,6 @@ filmográfico
 filmología
 filmoteca
 filo
-filo-
 filodio
 filogenia
 filogenético
@@ -41337,7 +41081,6 @@ fisicoquímica
 fisicoquímico
 fisiculturismo
 fisio
-fisio-
 fisiocracia
 fisiognomía
 fisiognómica
@@ -41382,7 +41125,6 @@ fisípedo
 fisónomo
 fisóstomo
 fito
-fito-
 fitocromático
 fitoftirio
 fitografía
@@ -41667,6 +41409,7 @@ flósculo
 flúor
 fo
 fobia
+fobo
 foca
 focal
 focalización
@@ -41788,7 +41531,6 @@ fonil
 fonio
 fonje
 fono
-fono-
 fonocaptor
 fonografía
 fonograma
@@ -41893,6 +41635,7 @@ formateo
 formativo
 formato
 formatriz
+forme
 formenterano
 formero
 formiato
@@ -42026,7 +41769,6 @@ fosquera
 fosura
 fotiniano
 foto
-foto-
 fotoalergia
 fotoalérgico
 fotobiología
@@ -42191,7 +41933,6 @@ francmasonería
 francmasón
 francmasónico
 franco
-franco-
 francocanadiense
 francocuartel
 francofilia
@@ -42603,6 +42344,7 @@ fugazmente
 fugible
 fugir
 fugitivo
+fugo
 fuguillas
 fuidizo
 fuimiento
@@ -42994,7 +42736,7 @@ galabardera
 galacho
 galactita
 galactites
-galacto-
+galacto
 galactocele
 galactosa
 galactófago
@@ -43173,7 +42915,6 @@ gallundera
 gallístico
 gallón
 galo
-galo-
 galocha
 galochero
 galocho
@@ -43275,6 +43016,7 @@ gameto
 gametofito
 gametófito
 gamezno
+gamia
 gamillón
 gamitadera
 gamitar
@@ -43283,7 +43025,6 @@ gamma
 gammaglobulina
 gammagrafía
 gamo
-gamo-
 gamonal
 gamonalismo
 gamonita
@@ -43632,17 +43373,17 @@ gastado
 gastador
 gastamiento
 gastar
-gastero-
+gastero
 gasterópodo
 gastivo
 gastizo
 gasto
 gastoso
-gastr-
+gastr
 gastralgia
 gastrectomía
 gastritis
-gastro-
+gastro
 gastroenteritis
 gastroenterología
 gastroenterológico
@@ -43839,6 +43580,7 @@ genetliaco
 genetlíaca
 genetlíaco
 geneático
+genia
 genial
 genialidad
 genialmente
@@ -43892,7 +43634,6 @@ genética
 genético
 genízaro
 geo
-geo-
 geobotánica
 geobotánico
 geocentrismo
@@ -43966,7 +43707,6 @@ germanista
 germanización
 germanizar
 germano
-germano-
 germanofilia
 germanofobia
 germanía
@@ -43982,7 +43722,7 @@ germinativo
 germinicida
 germán
 germánico
-geronto-
+geronto
 gerontocracia
 gerontología
 gerontológico
@@ -44039,7 +43779,6 @@ gibraltareño
 gibón
 giennense
 giga
-giga-
 giganta
 gigante
 gigantea
@@ -44083,7 +43822,7 @@ ginebrada
 ginebrino
 ginebrés
 gineceo
-gineco-
+gineco
 ginecocracia
 ginecología
 ginecológico
@@ -44230,11 +43969,11 @@ glotonería
 glotonía
 glotón
 gloxínea
-gluc-
+gluc
 glucemia
 glucina
 glucinio
-gluco-
+gluco
 glucosa
 glucosuria
 glucógeno
@@ -44406,6 +44145,7 @@ gongorismo
 gongorista
 gongorizar
 goniómetro
+gono
 gonococia
 gonococo
 gonocócico
@@ -44569,7 +44309,6 @@ grafista
 grafiti
 grafito
 grafo
-grafo-
 grafología
 grafológico
 grafomanía
@@ -45700,6 +45439,8 @@ gémino
 género
 génesis
 génico
+génita
+génito
 gépido
 gético
 gétulo
@@ -45910,7 +45651,6 @@ hallulla
 hallullero
 hallullo
 halo
-halo-
 haloideo
 haloque
 halotecnia
@@ -46111,7 +45851,7 @@ hechor
 hechura
 heciento
 hectiquez
-hecto-
+hecto
 hectogramo
 hectolitro
 hectárea
@@ -46168,7 +45908,7 @@ helgado
 helgadura
 heliaco
 heliasta
-helico-
+helico
 helicoidal
 helicoide
 helicona
@@ -46177,7 +45917,6 @@ helicón
 helicónides
 helicóptero
 helio
-helio-
 heliocentrismo
 heliocéntrico
 heliofísica
@@ -46213,14 +45952,14 @@ helvecio
 helvético
 helénico
 helíaco
-hema-
+hema
 hemacrimo
 hemangioma
-hemat-
+hemat
 hematemesis
 hematermo
 hematites
-hemato-
+hemato
 hematocrito
 hematología
 hematológico
@@ -46247,7 +45986,7 @@ hemencioso
 hemeralopía
 hemeroteca
 hemerálope
-hemi-
+hemi
 hemiciclo
 hemicránea
 hemina
@@ -46258,7 +45997,7 @@ hemisferio
 hemisfero
 hemisférico
 hemistiquio
-hemo-
+hemo
 hemoaglutinación
 hemocianina
 hemocromatosis
@@ -46327,13 +46066,13 @@ heparinización
 heparinizar
 hepatitis
 hepatización
-hepato-
+hepato
 hepatocito
 hepatología
 hepatológico
 hepatomegalia
 hepatólogo
-hepta-
+hepta
 heptacordo
 heptaedro
 heptagonal
@@ -46534,7 +46273,7 @@ hespérido
 hetaira
 heteo
 hetera
-hetero-
+hetero
 heterocerca
 heterociclo
 heterocigótico
@@ -46572,7 +46311,7 @@ heurístico
 hevea
 hevicultivo
 hevicultor
-hexa-
+hexa
 hexacoralario
 hexacordo
 hexaedro
@@ -46633,7 +46372,7 @@ hidratante
 hidratar
 hidrato
 hidria
-hidro-
+hidro
 hidroavión
 hidrobiología
 hidrocarburo
@@ -46764,7 +46503,7 @@ higienización
 higienizar
 higiénico
 higo
-higro-
+higro
 higroma
 higrometría
 higrométrico
@@ -46874,7 +46613,7 @@ hiogloso
 hioideo
 hioides
 hipar
-hiper-
+hiper
 hiperactividad
 hiperactivo
 hiperbolizar
@@ -46947,7 +46686,6 @@ hipnotizador
 hipnotizar
 hipnótico
 hipo
-hipo-
 hipoalergénico
 hipoalérgico
 hipocalcemia
@@ -47069,7 +46807,6 @@ hispanización
 hispanizante
 hispanizar
 hispano
-hispano-
 hispanoamericanismo
 hispanoamericano
 hispanofilia
@@ -47089,7 +46826,7 @@ histerectomía
 histeria
 histerismo
 histerología
-histo-
+histo
 histocompatibilidad
 histograma
 histología
@@ -47209,7 +46946,7 @@ hollejudo
 holliniento
 hollín
 holmio
-holo-
+holo
 holocausto
 holoceno
 holografía
@@ -47242,7 +46979,7 @@ homecillo
 homenaje
 homenajeado
 homenajear
-homeo-
+homeo
 homeopatía
 homeopáticamente
 homeopático
@@ -47262,7 +46999,7 @@ homiliario
 homilía
 hominal
 hominicaco
-homo-
+homo
 homocerca
 homocigótico
 homoclamídeo
@@ -47646,6 +47383,7 @@ huelguista
 huelguístico
 huella
 huello
+huelo
 huelveño
 huemul
 huera
@@ -47928,32 +47666,39 @@ húmilmente
 húngaro
 húsar
 i
-i-
+ia
+iano
 iatrogénico
+iatría
 ibaguereño
 ibarreño
 iberio
 iberismo
 ibero
-ibero-
 iberoamericano
 iberorromance
 iberorrománico
 ibicenco
 ibis
+ible
 ibérico
 ibídem
 ibón
+ica
 icaco
 icario
 iceberg
 ichal
 icho
 ichu
+ichuelo
+icio
+ición
 icneumón
 icnografía
 icnográfico
 icnología
+ico
 icono
 iconoclasia
 iconoclasta
@@ -47985,8 +47730,10 @@ ictérido
 ictíneo
 icáreo
 icástico
+icón
 icónico
 ida
+idad
 idalio
 idea
 ideación
@@ -48020,6 +47767,7 @@ ideologizar
 ideología
 ideológico
 ideoso
+idero
 ideático
 ideólogo
 idilio
@@ -48041,14 +47789,20 @@ idolología
 idolopeya
 idolátrico
 idoneidad
+idor
 idos
 idumeo
+idura
 idus
 idénticamente
 idéntico
 idílico
 idólatra
 idóneo
+iego
+iense
+iente
+iento
 iglesia
 iglesiario
 iglesiero
@@ -48103,15 +47857,19 @@ iguar
 iguaria
 iguánido
 igüedo
+ija
 ijada
 ijadear
 ijar
 ijillo
 ijiyo
+ijo
 ijujú
+ijón
 ikastola
 ikebana
 ikurriña
+il
 ilación
 ilapso
 ilativo
@@ -48152,7 +47910,10 @@ ilirio
 iliterario
 iliterato
 iliturgitano
+illa
 illapelino
+illo
+ilo
 ilocalizable
 ilota
 ilotismo
@@ -48189,7 +47950,7 @@ ilícito
 ilíquido
 ilírico
 ilógico
-im-
+im
 imada
 imagen
 imagenería
@@ -48231,6 +47992,8 @@ imbunche
 imbécil
 imbécilmente
 imela
+imento
+imiento
 imilla
 imitable
 imitación
@@ -48588,7 +48351,7 @@ in utroque jure
 in vitro
 in ánima vili
 in íntegrum
-in-
+ina
 inabarcable
 inabordable
 inacabable
@@ -49517,7 +49280,7 @@ infortunado
 infortunio
 infortuno
 infosura
-infra-
+infra
 infracción
 infracto
 infractor
@@ -49594,6 +49357,7 @@ inglete
 ingletear
 inglosable
 inglés
+ingo
 ingobernabilidad
 ingobernable
 ingratamente
@@ -49788,7 +49552,7 @@ inmunización
 inmunizador
 inmunizante
 inmunizar
-inmuno-
+inmuno
 inmunodeficiencia
 inmunodeficiente
 inmunodepresión
@@ -49839,6 +49603,7 @@ innumerable
 innumerablemente
 innumeridad
 innúmero
+ino
 inobediencia
 inobediente
 inobjetable
@@ -50209,7 +49974,7 @@ intenso
 intentar
 intento
 intentona
-inter-
+inter
 interaccionar
 interacción
 interactividad
@@ -50452,7 +50217,7 @@ intolerante
 intonso
 intoxicación
 intoxicar
-intra-
+intra
 intracelular
 intraducibilidad
 intraducible
@@ -50692,9 +50457,11 @@ inédito
 inóculo
 inútil
 inútilmente
+io
 iodo
 ioduro
 ion
+iondo
 ionización
 ionizador
 ionizante
@@ -50878,6 +50645,7 @@ isagógico
 isaloterma
 isalóbara
 isba
+isco
 isiaco
 isidoriano
 isidro
@@ -50899,7 +50667,8 @@ islámico
 islán
 islándico
 ismaelita
-iso-
+ismo
+iso
 isobara
 isobaro
 isobárico
@@ -50940,6 +50709,7 @@ isquémico
 israelita
 israelí
 israelítico
+ista
 istmeño
 istmo
 istulte
@@ -50959,6 +50729,7 @@ isósceles
 isótera
 isótopo
 isótropo
+ita
 itacate
 italianismo
 italianista
@@ -50967,7 +50738,7 @@ italianizar
 italiano
 italianófilo
 italicense
-italo-
+italo
 italorromance
 italorrománico
 itapuense
@@ -50980,21 +50751,29 @@ itericia
 itifálico
 itinerante
 itinerario
+itis
+itivo
+ito
+itorio
 itria
 itrio
 itzaj
 itálica
 itálico
+iva
 ivernar
 ivierno
+ivo
 ixil
 iza
 izada
 izado
 izamiento
 izar
+izco
 izgonce
 izgonzar
+izo
 izote
 izquierda
 izquierdear
@@ -51968,11 +51747,10 @@ keroseno
 kibutz
 kif
 kiko
-kili-
+kili
 kilim
 kiliárea
 kilo
-kilo-
 kilocaloría
 kilociclo
 kilogramo
@@ -52405,6 +52183,7 @@ landa
 lande
 landgrave
 landgraviato
+landia
 landra
 landre
 landrecilla
@@ -53106,10 +52885,9 @@ letura
 letárgico
 letífico
 letón
-leuc-
+leuc
 leucemia
 leuco
-leuco-
 leucocitaria
 leucocito
 leucocitosis
@@ -53531,11 +53309,11 @@ lineamento
 lineamiento
 linear
 linero
-linf-
+linf
 linfa
 linfangitis
 linfatismo
-linfo-
+linfo
 linfocito
 linfocitosis
 linfoide
@@ -53591,7 +53369,7 @@ lipidia
 lipidiar
 lipiria
 lipis
-lipo-
+lipo
 lipodistrofia
 lipodistrófico
 lipograma
@@ -53694,7 +53472,7 @@ litisconsorte
 litisexpensas
 litispendencia
 litiásico
-lito-
+lito
 litoclasa
 litocola
 litocálamo
@@ -53977,6 +53755,7 @@ logical
 logicismo
 logis
 logista
+logo
 logogrifo
 logogrífico
 logomaquia
@@ -53993,6 +53772,7 @@ logro
 logroñés
 loguer
 loguero
+logía
 logística
 logístico
 loica
@@ -54432,6 +54212,7 @@ lústrico
 lútea
 lúteo
 m
+ma
 mable
 mabolo
 mabí
@@ -54583,7 +54364,6 @@ macondo
 macopa
 macramé
 macro
-macro-
 macrobiótica
 macrobiótico
 macrocefalia
@@ -54776,7 +54556,6 @@ magnetización
 magnetizador
 magnetizar
 magneto
-magneto-
 magnetocalórico
 magnetoeléctrico
 magnetofón
@@ -55343,6 +55122,7 @@ manchego
 manchoso
 manchón
 manchú
+mancia
 mancilla
 mancilladero
 mancillado
@@ -55363,6 +55143,7 @@ mancuerda
 mancuerna
 mancuernillas
 mancuncho
+mancía
 manda
 mandación
 mandadero
@@ -56233,7 +56014,6 @@ mastigar
 mastique
 mastitis
 masto
-masto-
 mastodonte
 mastodóntico
 mastoideo
@@ -56435,7 +56215,7 @@ mausoleo
 mavacure
 mavita
 mavorcio
-maxi-
+maxi
 maxilar
 maxilofacial
 maximalismo
@@ -56727,7 +56507,7 @@ medusa
 meduseo
 mefistofélico
 mefítico
-mega-
+mega
 megaciclo
 megafonía
 megahercio
@@ -57092,6 +56872,7 @@ mentirijillas
 mentirillas
 mentirosamente
 mentiroso
+mento
 mentol
 mentolado
 mentolato
@@ -57271,7 +57052,7 @@ mesmo
 mesnada
 mesnadero
 mesnadería
-meso-
+meso
 mesoamericano
 mesocarpio
 mesocefalia
@@ -57320,7 +57101,6 @@ mesías
 mesón
 mesósfera
 meta
-meta-
 metabolismo
 metabolito
 metabólico
@@ -57454,6 +57234,7 @@ metro
 metrología
 metropolitano
 metrorragia
+metría
 metrónomo
 metrópoli
 metrópolis
@@ -57535,7 +57316,6 @@ micosis
 micra
 micrero
 micro
-micro-
 microbiano
 microbicida
 microbio
@@ -57621,6 +57401,7 @@ mielínico
 mielítico
 miembro
 miente
+miento
 mientra
 mientras
 mientre
@@ -57683,7 +57464,6 @@ milhoja
 milhojas
 milhombres
 mili
-mili-
 miliamperio
 miliar
 miliario
@@ -57803,7 +57583,7 @@ mingar
 mingitorio
 mingo
 minguero
-mini-
+mini
 miniado
 miniar
 miniatura
@@ -57875,7 +57655,6 @@ minué
 minúscula
 minúsculo
 mio
-mio-
 miocardio
 miocarditis
 mioceno
@@ -57918,7 +57697,7 @@ mirandino
 mirandés
 mirar
 mirasol
-miria-
+miria
 mirificar
 mirilla
 miristicáceo
@@ -58507,7 +58286,6 @@ monjita
 monjía
 monjío
 mono
-mono-
 monoaural
 monocarril
 monocasco
@@ -58831,7 +58609,6 @@ morfinismo
 morfinomanía
 morfinómano
 morfo
-morfo-
 morfofonología
 morfofonológico
 morfología
@@ -59063,7 +58840,6 @@ motivador
 motivar
 motivo
 moto
-moto-
 motocarro
 motocicleta
 motociclismo
@@ -59158,7 +58934,6 @@ muchín
 mucilaginoso
 mucilago
 muco
-muco-
 mucolítico
 mucosa
 mucosidad
@@ -59292,7 +59067,7 @@ mulquía
 mulso
 multa
 multar
-multi-
+multi
 multicaule
 multicolor
 multicopiado
@@ -59789,7 +59564,7 @@ nancite
 nandaimeño
 nanear
 nanita
-nano-
+nano
 nanotecnología
 nanquín
 nansa
@@ -59829,7 +59604,6 @@ narcisismo
 narcisista
 narciso
 narco
-narco-
 narcodólar
 narcolepsia
 narcosala
@@ -59977,6 +59751,7 @@ nazarí
 nazi
 nazismo
 naíf
+ncia
 ne
 ne quid nimis
 nea
@@ -60014,7 +59789,7 @@ necesitado
 necesitar
 neciamente
 necio
-necro-
+necro
 necrodactilar
 necrofagia
 necrofilia
@@ -60053,10 +59828,10 @@ nefelismo
 nefelometría
 nefelómetro
 nefología
-nefr-
+nefr
 nefrectomía
 nefritis
-nefro-
+nefro
 nefrología
 nefrológico
 nefropatía
@@ -60156,7 +59931,6 @@ neneque
 nenia
 nenúfar
 neo
-neo-
 neocatolicismo
 neocatólico
 neoclasicismo
@@ -60263,7 +60037,7 @@ netezuelo
 neto
 netáceo
 neuma
-neumo-
+neumo
 neumococo
 neumoconiosis
 neumogástrico
@@ -60286,7 +60060,7 @@ neurasténico
 neurisma
 neurita
 neuritis
-neuro-
+neuro
 neuroanatomista
 neuroanatomía
 neuroanatómico
@@ -60480,7 +60254,6 @@ nitrato
 nitrería
 nitrito
 nitro
-nitro-
 nitrobenceno
 nitrobencina
 nitrocelulosa
@@ -60614,6 +60387,7 @@ nomograma
 nomon
 nomparell
 nomás
+nomía
 nomónica
 nomónico
 non
@@ -60641,7 +60415,7 @@ nopalito
 noque
 noquear
 noquero
-nor-
+nor
 nora en tal
 nora tal
 norabuena
@@ -60649,7 +60423,7 @@ noradrenalina
 noramala
 noray
 norcoreano
-nord-
+nord
 nordestal
 nordeste
 nordestear
@@ -60797,6 +60571,7 @@ noyó
 noético
 noósfera
 noúmeno
+nte
 nubada
 nubado
 nubarrada
@@ -61368,6 +61143,9 @@ oh
 ohm
 ohmio
 ohmímetro
+oide
+oideo
+oides
 oidor
 oidoría
 oimiento
@@ -61420,6 +61198,7 @@ ojuelos
 ojén
 ojímetro
 okapi
+ol
 ola
 olaje
 olambre
@@ -61462,7 +61241,7 @@ olifante
 oligarca
 oligarquía
 oligisto
-oligo-
+oligo
 oligoceno
 oligoelemento
 oligofrenia
@@ -61541,6 +61320,7 @@ olíbano
 olímpicamente
 olímpico
 ológrafo
+oma
 omagua
 omaguaca
 omaní
@@ -61595,7 +61375,7 @@ oncemil
 onceno
 oncijera
 oncita
-onco-
+onco
 oncocercosis
 oncogén
 oncogénesis
@@ -61770,6 +61550,7 @@ oque
 oquedad
 oquedal
 oqueruela
+or
 ora
 oracional
 oracionero
@@ -62006,13 +61787,14 @@ orquidáceo
 orquitis
 orquídea
 orquídeo
+orrio
+orro
 ortega
 orteguiano
 ortiga
 ortigal
 ortivo
 orto
-orto-
 ortocentro
 ortodoncia
 ortodoxia
@@ -62098,6 +61880,7 @@ osezno
 osezuelo
 osificación
 osificarse
+osis
 osiánico
 osmanlí
 osmazomo
@@ -62170,6 +61953,7 @@ otatal
 otate
 otatera
 otavaleño
+ote
 oteador
 otear
 otero
@@ -62602,7 +62386,7 @@ palenquear
 palense
 palente
 palentino
-paleo-
+paleo
 paleoceno
 paleocristiano
 paleofitopatología
@@ -62820,7 +62604,6 @@ pampsiquismo
 pampón
 pamue
 pan
-pan-
 pana
 panacea
 panaché
@@ -63162,7 +62945,6 @@ paquistaní
 paquín
 par
 para
-para-
 paraba
 parabién
 parabolano
@@ -63921,7 +63703,6 @@ patituerto
 patiza
 patizambo
 pato
-pato-
 patochada
 patogenia
 patognomónico
@@ -63995,6 +63776,7 @@ paté
 patéticamente
 patético
 patí
+patía
 patíbulo
 patín
 patógeno
@@ -64668,7 +64450,7 @@ pensionar
 pensionario
 pensionista
 pensión
-penta-
+penta
 pentacampeón
 pentacordio
 pentadecágono
@@ -64747,10 +64529,10 @@ pequeñoburgués
 pequinés
 pequén
 pequín
+per
 per cápita
 per se
 per ístam
-per-
 pera
 perada
 peragrar
@@ -64937,7 +64719,6 @@ pergenio
 pergeñar
 pergeño
 peri
-peri-
 periambo
 periantio
 perianto
@@ -65375,7 +65156,7 @@ pestífero
 pesudo
 pesuña
 pesuño
-peta-
+peta
 petaca
 petaco
 petacudo
@@ -65634,7 +65415,6 @@ pichón
 picia
 picnómetro
 pico
-pico-
 picodecera
 picofeo
 picola
@@ -66075,7 +65855,6 @@ piriñaca
 pirla
 pirlitero
 piro
-piro-
 pirobolista
 piroelectricidad
 piroeléctrico
@@ -66679,7 +66458,7 @@ pluralidad
 pluralismo
 pluralista
 pluralizar
-pluri-
+pluri
 plurianual
 pluricelular
 pluridimensional
@@ -66804,7 +66583,6 @@ poderío
 podiatra
 podio
 podo
-podo-
 podología
 podre
 podrecer
@@ -66870,7 +66648,7 @@ polenta
 poleo
 polera
 poleví
-poli-
+poli
 poliadelfos
 polialcohol
 poliamida
@@ -67278,7 +67056,6 @@ porráceo
 porrón
 porsiacaso
 porta
-porta-
 portaalmizcle
 portaaviones
 portabandera
@@ -67390,7 +67167,6 @@ porvenireño
 porvida
 porífero
 pos
-pos-
 posa
 posada
 posaderas
@@ -67471,10 +67247,10 @@ pospretérito
 pospuesto
 posromanticismo
 posromántico
+post
 post merídiem
 post mórtem
 post scríptum
-post-
 posta
 postación
 postaje
@@ -67669,7 +67445,6 @@ pravo
 praxis
 praza
 pre
-pre-
 prea
 preacuerdo
 preadamita
@@ -68367,7 +68142,6 @@ pro rata
 pro rata parte
 pro tribunali
 pro témpore
-pro-
 proa
 proal
 probabilidad
@@ -68840,7 +68614,7 @@ proteína
 proteínico
 protio
 protista
-proto-
+proto
 protoalbeiterato
 protoalbéitar
 protocloruro
@@ -69005,12 +68779,12 @@ próvido
 próximamente
 próximo
 prúsico
-pseudo-
+pseudo
 psi
 psicagogia
 psicastenia
 psicasténico
-psico-
+psico
 psicoactivo
 psicoanalista
 psicoanalizar
@@ -69075,7 +68849,7 @@ psitácida
 psoriasis
 psíquico
 pteridofito
-ptero-
+ptero
 pterodáctilo
 ptialina
 ptolemaico
@@ -69873,7 +69647,7 @@ quilatar
 quilate
 quilatera
 quilete
-quili-
+quili
 quilico
 quilificación
 quilificar
@@ -69891,7 +69665,6 @@ quillotro
 quilma
 quilmay
 quilo
-quilo-
 quilogramo
 quilográmetro
 quilolitro
@@ -69919,7 +69692,6 @@ quimerizar
 quimificación
 quimificar
 quimio
-quimio-
 quimioterapia
 quimo
 quimono
@@ -70039,7 +69811,7 @@ quipu
 quique
 quiquiriquí
 quiquisque
-quir-
+quir
 quiragra
 quirate
 quirguiz
@@ -70050,7 +69822,7 @@ quirina
 quirinal
 quiritario
 quirite
-quiro-
+quiro
 quirografario
 quiromancia
 quiromancía
@@ -70245,12 +70017,11 @@ ración
 raco
 racor
 rad
-rad-
 rada
 radal
 radar
 radarista
-radi-
+radi
 radiación
 radiactividad
 radiactivo
@@ -70275,7 +70046,6 @@ radicícola
 radiestesia
 radiestesista
 radio
-radio-
 radioactividad
 radioactivo
 radioaficionado
@@ -70809,7 +70579,6 @@ raíz
 raña
 raño
 re
-re-
 rea
 reabierto
 reabrir
@@ -72723,7 +72492,7 @@ requerimiento
 requerir
 requesonero
 requesón
-requete-
+requete
 requetebién
 requeté
 requiebro
@@ -72741,7 +72510,6 @@ requisitorio
 requive
 requiéscat in pace
 res
-res-
 resaber
 resabiado
 resabiar
@@ -73119,7 +72887,7 @@ retasación
 retasar
 retazar
 retazo
-rete-
+rete
 retejado
 retejador
 retejar
@@ -73249,7 +73017,6 @@ retributivo
 retril
 retrillar
 retro
-retro-
 retroacción
 retroactividad
 retroactivo
@@ -73639,7 +73406,7 @@ ringlera
 ringlero
 ringorrango
 rinitis
-rino-
+rino
 rinoceronte
 rinofaringe
 rinología
@@ -73722,7 +73489,6 @@ rizador
 rizal
 rizar
 rizo
-rizo-
 rizofito
 rizoforáceo
 rizofóreo
@@ -74248,6 +74014,9 @@ roñica
 roñosería
 roñoso
 roñía
+rragia
+rrea
+rro
 ruan
 ruana
 ruandés
@@ -75507,7 +75276,7 @@ saraviado
 sarazo
 sarcasmo
 sarcia
-sarco-
+sarco
 sarcocarpio
 sarcocele
 sarcocola
@@ -75711,6 +75480,9 @@ sañudamente
 sañudo
 saó
 saúco
+sco
+scopia
+scopio
 se
 sebado
 sebastiano
@@ -75951,12 +75723,12 @@ selectividad
 selectivo
 selecto
 selector
-selen-
+selen
 selenio
 selenita
 selenitoso
 seleniuro
-seleno-
+seleno
 selenografía
 selenosis
 selenógrafo
@@ -76022,7 +75794,7 @@ sementino
 semestral
 semestralmente
 semestre
-semi-
+semi
 semiabierto
 semianalfabeto
 semiautomático
@@ -76344,7 +76116,7 @@ sermoneo
 sermonero
 sermón
 serna
-sero-
+sero
 serodiagnóstico
 seroja
 serojo
@@ -76434,7 +76206,6 @@ servir
 servita
 servitud
 servo
-servo-
 servodirección
 servofreno
 servomecanismo
@@ -76470,7 +76241,7 @@ sesma
 sesmero
 sesmo
 seso
-sesqui-
+sesqui
 sesquicentenario
 sesquimodio
 sesquipedal
@@ -76511,7 +76282,7 @@ setiembre
 seto
 setuní
 setura
-seudo-
+seudo
 seudocientífico
 seudohermafrodita
 seudohermafroditismo
@@ -76902,7 +76673,6 @@ simétrico
 simón
 simún
 sin
-sin-
 sinabafa
 sinagoga
 sinalagmático
@@ -77107,6 +76877,7 @@ sirviente
 sirvinacu
 siríaco
 sirín
+sis
 sisa
 sisador
 sisal
@@ -77160,7 +76931,6 @@ siutiquería
 sizigia
 siútico
 so
-so-
 soalzar
 soasar
 soba
@@ -77239,7 +77009,6 @@ sobrasar
 sobrazano
 sobrazar
 sobre
-sobre-
 sobreabundancia
 sobreabundantemente
 sobreabundar
@@ -77492,7 +77261,6 @@ societario
 socinianismo
 sociniano
 socio
-socio-
 sociobiología
 sociocultural
 sociolingüística
@@ -77810,7 +77578,6 @@ sompopo
 somático
 somético
 son
-son-
 sonable
 sonada
 sonadera
@@ -78018,7 +77785,7 @@ sortijón
 sortilegio
 sortílego
 sorullo
-sos-
+sos
 sosa
 sosacador
 sosacar
@@ -78059,7 +77826,6 @@ sostenimiento
 sostituir
 sostén
 sota
-sota-
 sotabanco
 sotabarba
 sotacola
@@ -78093,7 +77859,6 @@ sotil
 sotileza
 sotilidad
 soto
-soto-
 sotobosque
 sotol
 sotoministro
@@ -78117,12 +77882,14 @@ soñolencia
 soñolento
 soñolientamente
 soñoliento
+stato
 statu quo
+strajo
 stricto sensu
 stábat
 stábat máter
+stático
 su
-su-
 suabo
 suadir
 suajili
@@ -78142,9 +77909,9 @@ suavizador
 suavizante
 suavizar
 suazi
+sub
 sub iúdice
 sub júdice
-sub-
 suba
 subacetato
 subacuático
@@ -78436,7 +78203,6 @@ sucunán
 sucursal
 sucusumucu
 sud
-sud-
 sudaca
 sudación
 sudadera
@@ -78631,7 +78397,7 @@ suní
 supeditación
 supeditar
 supedáneo
-super-
+super
 superable
 superabundancia
 superabundante
@@ -78764,7 +78530,6 @@ supositicio
 supositivo
 supositorio
 supra
-supra-
 supraclavicular
 supranacional
 suprarrealismo
@@ -78791,7 +78556,6 @@ suputar
 supérstite
 suquinay
 sur
-sur-
 sura
 surada
 surafricano
@@ -78840,7 +78604,6 @@ surumpe
 suruví
 surá
 sus
-sus-
 susano
 suscepción
 susceptancia
@@ -79472,13 +79235,14 @@ tamujo
 tamul
 tamínea
 tan
+tana
 tanaceto
 tanador
 tanagra
 tanate
 tanateada
 tanatear
-tanato-
+tanato
 tanatofobia
 tanatología
 tanatológico
@@ -79733,7 +79497,6 @@ tardecica
 tardecita
 tardinero
 tardo
-tardo-
 tardofranquismo
 tardomedieval
 tardomedievo
@@ -79987,13 +79750,14 @@ tecleño
 teclista
 teclo
 tecnecio
+tecnia
 tecnicatura
 tecnicidad
 tecnicismo
 tecnicolor
 tecnificación
 tecnificar
-tecno-
+tecno
 tecnocracia
 tecnocrático
 tecnografía
@@ -80077,7 +79841,6 @@ telar
 telaraña
 telarañoso
 tele
-tele-
 teleadicto
 telebanco
 telebasura
@@ -80480,7 +80243,7 @@ tequilería
 tequio
 tequioso
 ter
-tera-
+tera
 terapeada
 terapear
 terapeuta
@@ -80585,7 +80348,6 @@ termitera
 termitero
 termiónico
 termo
-termo-
 termocauterio
 termocéfalo
 termodinámica
@@ -80817,7 +80579,7 @@ teticoja
 tetilla
 tetina
 tetona
-tetra-
+tetra
 tetrabranquial
 tetracampeón
 tetracordio
@@ -81523,6 +81285,7 @@ tomista
 tomiza
 tomo
 tomografía
+tomía
 tomín
 tomón
 ton
@@ -81645,6 +81408,7 @@ toqueteo
 toqui
 toquido
 toquilla
+tor
 tora
 toracoplastia
 torada
@@ -81686,6 +81450,7 @@ torete
 torga
 torgado
 torgo
+toria
 toril
 torillo
 torio
@@ -82163,7 +81928,7 @@ tranquillo
 tranquillón
 tranquilo
 tranquiza
-trans-
+trans
 transa
 transaccional
 transacción
@@ -82383,7 +82148,6 @@ traquita
 trarigüe
 traro
 tras
-tras-
 trasabuelo
 trasalcoba
 trasalpino
@@ -82855,7 +82619,7 @@ tretero
 trezavo
 trezna
 treílla
-tri-
+tri
 triaca
 triacal
 triache
@@ -82875,7 +82639,7 @@ tribada
 tribadismo
 tribal
 tribalismo
-tribo-
+tribo
 triboelectricidad
 tribología
 triboluminiscencia
@@ -83130,6 +82894,7 @@ trivialización
 trivializar
 trivialmente
 trivio
+triz
 triza
 trizar
 triádico
@@ -83160,6 +82925,8 @@ troco
 trocoide
 trocánter
 trofeo
+trofia
+trofo
 trofología
 trofólogo
 troglodita
@@ -83618,7 +83385,6 @@ turbioso
 turbit
 turbión
 turbo
-turbo-
 turboalternador
 turbobomba
 turbocompresor
@@ -83866,16 +83632,20 @@ ucase
 ucayalino
 uced
 ucencia
+ucho
 uchu
 uci
+uco
 ucraniano
 ucranio
 ucronía
 ucrónico
 ucubitano
 ucé
+udo
 udómetro
 uebos
+uelo
 uf
 ufa
 ufanamente
@@ -83921,7 +83691,6 @@ ultimato
 ultimidad
 ultimátum
 ultra
-ultra-
 ultracorrección
 ultraderecha
 ultraderechista
@@ -84141,6 +83910,7 @@ urgencia
 urgente
 urgentemente
 urgir
+uria
 uricotélico
 urinal
 urinario
@@ -84190,6 +83960,7 @@ usanza
 usar
 usarced
 usarcé
+usco
 uscoque
 usencia
 useñoría
@@ -84274,6 +84045,7 @@ uxoricida
 uxoricidio
 uyunense
 uzbeko
+uzco
 uzo
 uña
 uñada
@@ -84417,6 +84189,7 @@ valenciana
 valencianidad
 valencianismo
 valenciano
+valente
 valentiniano
 valentino
 valentona
@@ -85322,7 +85095,7 @@ vez
 veza
 vezar
 vezo
-vi-
+vi
 viabilidad
 viable
 viacheño
@@ -85366,7 +85139,7 @@ vicariante
 vicariato
 vicario
 vicaría
-vice-
+vice
 vicealmiranta
 vicealmirantazgo
 vicealmirante
@@ -85435,7 +85208,6 @@ vide
 videncia
 vidente
 video
-video-
 videoaficionado
 videocinta
 videoclip
@@ -85887,7 +85659,7 @@ vivífico
 vivíparo
 vivón
 viyela
-viz-
+viz
 vizcacha
 vizcachera
 vizcainada
@@ -86073,6 +85845,7 @@ vorahúnda
 voraz
 vorazmente
 vormela
+voro
 vortiginoso
 vorágine
 vos
@@ -86216,12 +85989,12 @@ xantoma
 xeca
 xecudo
 xenismo
-xeno-
+xeno
 xenofobia
 xenoglosia
 xenófobo
 xenón
-xero-
+xero
 xerocopia
 xerocopiar
 xeroftalmia
@@ -86239,7 +86012,7 @@ xicaque
 xifoideo
 xifoides
 xilema
-xilo-
+xilo
 xilofonista
 xilofón
 xilografía
@@ -87031,7 +86804,6 @@ zonzoreco
 zonzorrión
 zonzorro
 zoo
-zoo-
 zoofilia
 zooftirio
 zoogeografía
@@ -87122,6 +86894,7 @@ zuda
 zueca
 zueco
 zuela
+zuelo
 zuindá
 zuiza
 zuizón
@@ -87256,6 +87029,8 @@ zúa
 ábsit
 ácana
 ácaro
+ácea
+áceo
 ácere
 ácido
 ácigos
@@ -87301,9 +87076,12 @@ zúa
 ámbito
 ámel
 ámpula
+án
 ánade
 áncora
 ándito
+ánea
+áneo
 ánfora
 ángaro
 ángel
@@ -87352,6 +87130,7 @@ zúa
 áspide
 ástato
 ático
+átil
 átomo
 átono
 áulico
@@ -87388,7 +87167,9 @@ zúa
 épsilon
 équido
 équite
+és
 ésbate
+ésimo
 éster
 ésula
 éter
@@ -87403,6 +87184,7 @@ zúa
 éxplicit
 éxtasi
 éxtasis
+ía
 íbero
 íbice
 ícono
@@ -87414,6 +87196,7 @@ zúa
 ímpeto
 ímpetu
 ímprobo
+ín
 íncipit
 ínclito
 íncola
@@ -87423,6 +87206,8 @@ zúa
 índico
 índigo
 índole
+ínea
+íneo
 ínfero
 ínfimo
 ínfula
@@ -87439,11 +87224,14 @@ zúa
 íntimamente
 íntimo
 ínvido
+ío
 ípsilon
 íride
 írritamente
 írrito
 ísatis
+ísimo
+ístico
 ístmico
 ítalo
 ítem
@@ -87539,7 +87327,9 @@ zúa
 óleo
 ómicron
 ómnibus
+ón
 ónice
+ónimo
 ónique
 ónix
 óntico
