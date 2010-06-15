@@ -183,9 +183,9 @@ http://tokland.googlecode.com/svn/trunk/flac/ape2flac
 
 = Websites =
 
-== Rae2 ==
+== Rae3 ==
 
-Gateway to DRAE (Diccionario Real Academia de la Lengua)
+Simple but functional gateway to DRAE (Diccionario Real Academia de la Lengua)
 
 http://rae3.es/
 
