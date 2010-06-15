@@ -183,6 +183,12 @@ http://tokland.googlecode.com/svn/trunk/flac/ape2flac
 
 = Websites =
 
+== Rae2 ==
+
+Gateway to DRAE (Diccionario Real Academia de la Lengua)
+
+http://rae3.es/
+
 == !EnWebstas == 
 
 Spanish site for paid online surveys developed in Rails.
