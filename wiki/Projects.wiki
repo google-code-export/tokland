@@ -90,6 +90,10 @@ $ python cifras.py 3 7 10 50 100 8 546
 546 = ((((50+7)*8)-10)+100)
 }}}
 
+Also, a Haskell implementation:
+
+http://tokland.googlecode.com/svn/trunk/cifras/cifras.hs
+
 == Pyeuler Project ==
 
 The [http://www.projecteuler.org Euler Project] proposes some mathematical problems to be solved using any programming language. In this wiki, we see and discuss solutions using Python and functional programming. Python is not a functional-language, but it was interesting anyhow:
