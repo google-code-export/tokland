@@ -8,7 +8,9 @@ generate_sql() {
   local TABLE=$1
   local DIRECTORY=$2  
   
-  echo "CREATE TABLE $TABLE(word varchar(255), html text, text text);"
+  # This works for MySql, change if needed
+  echo "CREATE TABLE $TABLE(word varchar(255), html text, text text) 
+        CHARACTER SET utf8 COLLATE utf8_bin;"
   find $DIRECTORY -type f -name '*.html' | while read FILE; do
     WORD=$(basename "$FILE" ".html")
     HTML=$(< "$FILE" escape_sql)
@@ -18,5 +20,6 @@ generate_sql() {
   echo "CREATE INDEX word_index ON words (word);"
 }
 
-generate_sql "words" "html2" #| gzip > "drae-2009.sql.gz"
-# tee | sqlite3 drae-2009.sqlite3 |
+generate_sql "words" "html2" 
+# | gzip > "drae-2009.sql.gz"
+# | sqlite3 drae-2009.sqlite3 
