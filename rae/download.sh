@@ -19,8 +19,11 @@ download_words_html() {
     if test -e "$OUTPUT" -a -s "$OUTPUT"; then
       debug "already exists"
     else
-      curl -s "$URL?LEMA=$WORD" > $OUTPUT && 
-        debug "done" || debug "error"
+      curl -m60 -s -d "LEMA=$(echo $WORD | recode ..iso8859-15)" "$URL" > "$OUTPUT" ||
+        { debug "timeout"; return 1; }
+      grep -i -l "no est. en el diccionario" &>/dev/null && 
+        { debug "said not found"; return 2; }
+      debug "done" 
     fi
   done
 }
