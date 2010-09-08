@@ -100,6 +100,8 @@ The [http://www.projecteuler.org Euler Project] proposes some mathematical probl
 
 http://pyeuler.wikidot.com
 
+http://github.com/tokland/pyeuler/blob/master/pyeuler/problems.py
+
 == Uya Wifi router web interface ==
 
 OSPF Router Configurator with a web interface developed with CherryPy.
