@@ -100,7 +100,7 @@ The [http://www.projecteuler.org Euler Project] proposes some mathematical probl
 
 http://pyeuler.wikidot.com
 
-http://github.com/tokland/pyeuler/blob/master/pyeuler/problems.py
+http://github.com/tokland/pyeuler
 
 == Uya Wifi router web interface ==
 
