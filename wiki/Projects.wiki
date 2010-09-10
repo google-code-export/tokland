@@ -234,6 +234,8 @@ Words list and definitions (HTML, SQL and Dictd files).
 
 == My snippets ==
 
+http://stackoverflow.com/users/188031?tab=reputationhistory#tab-top
+
 http://snippets.dzone.com/user/tokland
 
 http://gist.github.com/tokland
