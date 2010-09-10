@@ -232,9 +232,9 @@ Words list and definitions (HTML, SQL and Dictd files).
 
 (Spanish page) http://code.google.com/p/tokland/wiki/DiccionarioRAE
 
-== My snippets ==
+== My 2-cents in social programming sites ==
 
-http://stackoverflow.com/users/188031?tab=reputationhistory#tab-top
+http://stackoverflow.com/users/188031
 
 http://snippets.dzone.com/user/tokland
 
