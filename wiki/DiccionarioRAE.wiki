@@ -5,13 +5,11 @@
 
 La consulta del diccionario de la RAE a través de su [http://buscon.rae.es/draeI/ página web] es libre, pero este servicio no es siempre suficiente. Puedes necesitar acceder al diccionario cuando no estás conectado, o quizá hacer algún tipo de estudio de su contenido. 
 
-En este documento se ofrece el código (licencia GPL) y los ficheros (en formato _dictd_ y _html_) para trabajar con el diccionario localmente. Echa un vistazo al repositorio para ver cómo generar otros formatos (SQL).
+En este documento se ofrece el código (licencia GPL) para trabajar con el diccionario localmente. Echa un vistazo al repositorio para ver cómo generar otros formatos (dictd, SQL).
 
 = Descarga =
 
   * Lista de palabras (86042 entradas): [http://tokland.googlecode.com/svn/trunk/rae/words.txt words.txt]
-  * HTML: [http://tokland.googlecode.com/files/drae-html-2009-1.tgz descarga].
-  * Dictd: [http://tokland.googlecode.com/files/drae-2009-1.tgz descarga].
 
 = Instalación de los fichero _dictd_ = 
 
