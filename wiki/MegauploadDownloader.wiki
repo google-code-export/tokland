@@ -1,0 +1,39 @@
+#summary Bash script to download files from Megaupload
+#labels megaupload
+
+= Introduction =
+
+{{{megaupload-dl}}} is a Bash script to download a file from Megaupload (free download, no account required) with automatic captcha recognition. 
+
+Dependencies: bash, curl, imagemagick, tesseract-ocr (optional: recode, aview)
+License: GNU/GPL3: http://www.gnu.org/licenses/gpl-3.0-standalone.html
+
+= Install
+
+{{{
+$ cp megaupload-dl.sh /usr/local/bin/megaupload-dl
+$ chmod +x /usr/local/bin/megaupload-dl
+}}}
+
+= Usage examples =
+
+* Download a single file:
+ 
+{{{
+$ megaupload-dl http://megaupload.com/?d=710JVG89
+03.Crazy Man Michael.mp3
+}}}
+
+* Download a list of files:
+
+{{{
+$ xargs -n1 megaupload-dl < file_with_one_link_per_line.txt
+some_file
+another_file
+...
+}}}
+
+= Feedback =
+
+Author: Arnau Sanchez <tokland@gmail.com>.
+Report bugs: http://code.google.com/p/tokland/issues/list
