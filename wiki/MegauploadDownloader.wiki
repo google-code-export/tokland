@@ -5,10 +5,12 @@
 
 {{{megaupload-dl}}} is a Bash script to download a file from Megaupload (free download, no account required) with automatic captcha recognition. 
 
-Dependencies: bash, curl, imagemagick, tesseract-ocr (optional: recode, aview)
-License: GNU/GPL3: http://www.gnu.org/licenses/gpl-3.0-standalone.html
+ * Dependencies: _bash_, _curl_, _imagemagick_, -tesseract-ocr_ (optional: _recode_, _aview_)
+ * License: GNU/GPL3: http://www.gnu.org/licenses/gpl-3.0-standalone.html
 
-= Install
+Download: [http://tokland.googlecode.com/svn/trunk/filesharing/megaupload-dl.sh megaupload-dl.sh] ([http://code.google.com/p/tokland/source/browse/trunk/filesharing/megaupload-dl.sh details])
+
+= Install =
 
 {{{
 $ cp megaupload-dl.sh /usr/local/bin/megaupload-dl
@@ -35,5 +37,5 @@ another_file
 
 = Feedback =
 
-Author: Arnau Sanchez <tokland@gmail.com>.
-Report bugs: http://code.google.com/p/tokland/issues/list
+ * Email: Arnau Sanchez <tokland@gmail.com>.
+ * Report bugs: http://code.google.com/p/tokland/issues/list
