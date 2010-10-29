@@ -3,7 +3,7 @@
 
 = Introduction =
 
-{{{megaupload-dl}}} is a Bash script that downloads files from Megaupload (free download, no account required) with automatic captcha recognition. 
+{{{megaupload-dl}}} is a shell script that downloads files from Megaupload (free download, no account required) with automatic captcha recognition. 
 
  * Dependencies: _bash_, _curl_, _imagemagick_, _tesseract-ocr_ (optional: _recode_, _aview_)
  * License: [http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU/GPL3] 
@@ -39,5 +39,5 @@ another_file
 
 = Feedback =
 
- * Email: Arnau Sanchez <tokland@gmail.com>.
+ * Email: Arnau Sanchez <tokland AT gmail.com>
  * Report bugs: http://code.google.com/p/tokland/issues/list
