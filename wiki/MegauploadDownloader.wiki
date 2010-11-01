@@ -41,7 +41,9 @@ another_file
 
 Download and install thouse two generic tools: [http://code.google.com/p/tokland/source/browse/trunk/tools/worker.sh worker] and [http://code.google.com/p/tokland/source/browse/trunk/tools/loop.sh loop]:
 
+{{{
 $ loop -c -b 2 worker megaupload-dl 6 file_with_one_link_per_line.txt
+}}}
 
 = Feedback =
 
