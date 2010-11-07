@@ -28,6 +28,13 @@ $ megaupload-dl http://megaupload.com/?d=710JVG89
 03.Crazy Man Michael.mp3
 }}}
 
+* Download a password-protected file:
+ 
+{{{
+$ megaupload-dl http://megaupload.com/?d=110JVG89@password
+file.rar
+}}}
+
 * Download a list of files:
 
 {{{
