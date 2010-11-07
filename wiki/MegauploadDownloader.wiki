@@ -3,7 +3,7 @@
 
 = Introduction =
 
-{{{megaupload-dl}}} downloads files from Megaupload (free download, no account required) with automatic captcha recognition. It is a shell script, so you will need a UNIX-like operating system (GNU/Linux, BSD, OSX, Cygwin, ...).
+{{{megaupload-dl}}} downloads files from Megaupload (free download, no account required) with automatic captcha recognition. It is a shell (Bash) script, so you will need a UNIX-like operating system (GNU/Linux, BSD, OSX, Cygwin, ...).
 
  * Dependencies: _bash_, _curl_, _imagemagick_, _tesseract-ocr_ (optional: _recode_, _aview_)
  * License: [http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU/GPL3] 
@@ -43,9 +43,10 @@ Download these two generic tools: [http://code.google.com/p/tokland/source/brows
 
 {{{
 $ loop -c -b 2 worker megaupload-dl "100 101" file_with_one_link_per_line.txt
+...
 }}}
 
-{{{worker}}} marks downloaded (or non-retryable errors) commenting them out with a _#_, and loop makes sure all links are downloaded.
+{{{worker}}} marks downloaded (or non-retryable errors) commenting them out with a _#_, and {{{loop}}} makes sure all links are downloaded.
 
 = Feedback =
 
