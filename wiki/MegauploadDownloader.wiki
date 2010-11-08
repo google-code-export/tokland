@@ -56,7 +56,7 @@ another_file
 Download these two generic tools: [http://code.google.com/p/tokland/source/browse/trunk/tools/worker.sh worker] and [http://code.google.com/p/tokland/source/browse/trunk/tools/loop.sh loop]:
 
 {{{
-$ loop -w 5m -c -b 2 worker megaupload-dl "$(echo {100..110})" file_with_one_link_per_line.txt
+$ loop -w 5m -c -b 2 worker megaupload-dl "{100..110}" file_with_one_link_per_line.txt
 ...
 }}}
 
