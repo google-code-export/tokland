@@ -142,9 +142,9 @@ Bash command-line downloader and uploader for some of the most popular file shar
 
 http://code.google.com/p/plowshare/
 
-== Modular megaupload downloader (free-download only) ==
+== Megaupload downloader (free-download only) ==
 
-Use two generic tools ([http://code.google.com/p/tokland/source/browse/trunk/tools/worker.sh worker] and [http://code.google.com/p/tokland/source/browse/trunk/tools/loop.sh loop]) to build a simple queue downloader:
+Standalone script to download from Megaupload (no account required).
 
 http://code.google.com/p/tokland/wiki/MegauploadDownloader
 
