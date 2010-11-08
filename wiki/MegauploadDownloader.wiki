@@ -56,11 +56,11 @@ another_file
 Download these two generic tools: [http://code.google.com/p/tokland/source/browse/trunk/tools/worker.sh worker] and [http://code.google.com/p/tokland/source/browse/trunk/tools/loop.sh loop]:
 
 {{{
-$ loop -w 5m -c -b 2 worker megaupload-dl "$(echo {100..110})" file_with_one_link_per_line.txt
+$ loop -w 5m -c -b 2 worker megaupload-dl 10. file_with_one_link_per_line.txt
 ...
 }}}
 
-{{{worker}}} marks links in file commenting them out with a character _#_, and {{{loop}}} makes sure the worker succeeds (that's it, that all links in file are downloaded or marked with a non-retryable error)
+{{{worker}}} marks links in file commenting them out with a character _#_, and {{{loop}}} makes sure the worker succeeds (that's it, that all links in file are downloaded or marked with a non-retryable error).
 
 = Feedback =
 
