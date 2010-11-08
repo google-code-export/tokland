@@ -142,6 +142,12 @@ Bash command-line downloader and uploader for some of the most popular file shar
 
 http://code.google.com/p/plowshare/
 
+== Modular megaupload downloader (free-download only) ==
+
+Use two generic tools ([http://code.google.com/p/tokland/source/browse/trunk/tools/worker.sh worker] and [http://code.google.com/p/tokland/source/browse/trunk/tools/loop.sh loop]) to build a simple queue downloader:
+
+http://code.google.com/p/tokland/wiki/MegauploadDownloader
+
 == Loop over a command ==
 
 This seems to be a hole in the otherwise extremely complete UNIX toolset: a command to loop over commands until they succeed. This is a simple Bash implementation of the tool:
