@@ -15,11 +15,9 @@ You will need _bash_, _curl_, _imagemagick_, _tesseract-ocr_, and optionally _re
 $ apt-get install tesseract-ocr tesseract-ocr-eng curl imagemagick recode aview
 }}}
 
-= Download = 
+= Download & Install ==
 
 [http://tokland.googlecode.com/svn/trunk/filesharing/megaupload-dl.sh megaupload-dl.sh] ([http://code.google.com/p/tokland/source/browse/trunk/filesharing/megaupload-dl.sh details])
-
-= Install =
 
 {{{
 $ cp megaupload-dl.sh /usr/local/bin/megaupload-dl
@@ -39,16 +37,12 @@ $ megaupload-dl http://megaupload.com/?d=710JVG89
  
 {{{
 $ megaupload-dl http://megaupload.com/?d=110JVG89@password
-file.rar
 }}}
 
 * Download a list of files:
 
 {{{
-$ xargs -n1 megaupload-dl < file_with_one_link_per_line.txt
-some_file.zip
-another_file.rar
-...
+$ cat file_with_one_link_per_line.txt | xargs -n1 megaupload-dl
 }}}
 
 * Simple queue downloader of a list of files:
@@ -57,10 +51,9 @@ Download these two generic tools: [http://tokland.googlecode.com/svn/trunk/tools
 
 {{{
 $ loop -w 5m -c -b 2 worker megaupload-dl "{100..110}" file_with_one_link_per_line.txt
-...
 }}}
 
-{{{worker}}} marks links in file commenting them out with _#_, and {{{loop}}} makes sure {{{worker}}} succeeds (that's it, that all links in file are downloaded or marked with a non-retryable error). 
+{{{worker}}} marks links in file commenting them out with _#_, and {{{loop}}} makes sure {{{worker}}} succeeds (that's it, all links in file will be downloaded or marked with a non-retryable error). 
 
 = Feedback =
 
