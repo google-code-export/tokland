@@ -9,7 +9,7 @@ License: [http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU/GPL3]
 
 = Dependencies =
 
-You will need _bash_, _curl_, _imagemagick_, _tesseract-ocr_ (optional: _recode_, _aview_). On a Debian-based OS this should suffice:
+You will need _bash_, _curl_, _imagemagick_, _tesseract-ocr_, and optionally _recode_ and _aview_. On a Debian-based distro this should suffice:
 
 {{{
 $ apt-get install tesseract-ocr tesseract-ocr-eng curl imagemagick recode aview
@@ -46,21 +46,21 @@ file.rar
 
 {{{
 $ xargs -n1 megaupload-dl < file_with_one_link_per_line.txt
-some_file
-another_file
+some_file.zip
+another_file.rar
 ...
 }}}
 
 * Simple queue downloader of a list of files:
 
-Download these two generic tools: [http://code.google.com/p/tokland/source/browse/trunk/tools/worker.sh worker] and [http://code.google.com/p/tokland/source/browse/trunk/tools/loop.sh loop]:
+Download these two generic tools: [http://tokland.googlecode.com/svn/trunk/tools/worker.sh worker] and [http://tokland.googlecode.com/svn/trunk/tools/loop.sh loop]:
 
 {{{
 $ loop -w 5m -c -b 2 worker megaupload-dl "{100..110}" file_with_one_link_per_line.txt
 ...
 }}}
 
-{{{worker}}} marks links in file commenting them out with a character _#_, and {{{loop}}} makes sure the worker succeeds (that's it, that all links in file are downloaded or marked with a non-retryable error). 
+{{{worker}}} marks links in file commenting them out with _#_, and {{{loop}}} makes sure {{{worker}}} succeeds (that's it, that all links in file are downloaded or marked with a non-retryable error). 
 
 = Feedback =
 
