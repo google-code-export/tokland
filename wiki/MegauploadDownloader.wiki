@@ -20,8 +20,7 @@ $ apt-get install tesseract-ocr tesseract-ocr-eng curl imagemagick recode aview
 [http://tokland.googlecode.com/svn/trunk/filesharing/megaupload-dl.sh megaupload-dl.sh] ([http://code.google.com/p/tokland/source/browse/trunk/filesharing/megaupload-dl.sh details])
 
 {{{
-$ cp megaupload-dl.sh /usr/local/bin/megaupload-dl
-$ chmod +x /usr/local/bin/megaupload-dl
+$ install megaupload-dl.sh /usr/local/bin/megaupload-dl
 }}}
 
 = Usage examples =
@@ -36,7 +35,7 @@ $ megaupload-dl http://megaupload.com/?d=710JVG89
 * Download a password-protected file:
  
 {{{
-$ megaupload-dl http://megaupload.com/?d=110JVG89@password
+$ megaupload-dl http://megaupload.com/?d=110JVG89@somepassword
 }}}
 
 * Download a list of files:
@@ -47,7 +46,7 @@ $ cat file_with_one_link_per_line.txt | xargs -n1 megaupload-dl
 
 * Simple queue downloader of a list of files:
 
-Download these two generic tools: [http://tokland.googlecode.com/svn/trunk/tools/worker.sh worker] and [http://tokland.googlecode.com/svn/trunk/tools/loop.sh loop]:
+Download these two generic tools,  [http://tokland.googlecode.com/svn/trunk/tools/worker.sh worker] and [http://tokland.googlecode.com/svn/trunk/tools/loop.sh loop], and write something like this:
 
 {{{
 $ loop -w 5m -c -b 2 worker megaupload-dl "{100..110}" file_with_one_link_per_line.txt
