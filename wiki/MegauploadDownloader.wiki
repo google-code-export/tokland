@@ -52,7 +52,7 @@ Download and install these three scripts: [http://tokland.googlecode.com/svn/tru
 $ megaupload-dl-batch file_with_links.txt
 }}}
 
-How it works: {{{worker}}} marks links in {{{file_with_links.txt}} commenting them out with a _#error code_, and {{{loop}}} makes sure that {{{worker}}} succeeds, that's it, that all links in {{{file_with_links.txt}} have been downloaded or marked with a non-retryable error.
+How it works: {{{worker}}} marks links in {{{file_with_links.txt}}} commenting them out with a _#error code_, and {{{loop}}} makes sure that {{{worker}}} succeeds, that's it, that all links in {{{file_with_links.txt}}} have been downloaded or marked with a non-retryable error.
 
 = Feedback =
 
