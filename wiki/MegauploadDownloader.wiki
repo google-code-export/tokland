@@ -46,13 +46,17 @@ $ cat file_with_one_link_per_line.txt | xargs -n1 megaupload-dl
 
 * Simple queue downloader of a list of files:
 
-Download these two generic tools,  [http://tokland.googlecode.com/svn/trunk/tools/worker.sh worker] and [http://tokland.googlecode.com/svn/trunk/tools/loop.sh loop], and write something like this:
+Download and install as usual this three scripts:
+
+ * [http://tokland.googlecode.com/svn/trunk/tools/worker.sh worker]    * 
+ * [http://tokland.googlecode.com/svn/trunk/tools/loop.sh loop]
+ * [[http://tokland.googlecode.com/svn/trunk/filesharing/megaupload-dl.sh megaupload-dl-batch.sh megaupload-dl-batch]
 
 {{{
-$ loop -w 5m -c -b 2 worker megaupload-dl "{100..110}" file_with_one_link_per_line.txt
+$ megaupload-dl-batch file_with_links.txt
 }}}
 
-{{{worker}}} marks links in file commenting them out with _#_, and {{{loop}}} makes sure {{{worker}}} succeeds (that's it, all links in file will be downloaded or marked with a non-retryable error). 
+How it works: {{{worker}}} marks links in {{{file_with_links.txt}} commenting them out with a _#error code_, and {{{loop}}} makes sure that {{{worker}}} succeeds, that's it, that all links in {{{file_with_links.txt}} have been downloaded or marked with a non-retryable error. 
 
 = Feedback =
 
