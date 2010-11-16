@@ -58,4 +58,4 @@ How it works: {{{worker}}} marks links in {{{file_with_links.txt}}} commenting t
  * Email: Arnau Sanchez <tokland AT gmail.com>
  * Report bugs: http://code.google.com/p/tokland/issues/list
  
-= Status
+= Status =
