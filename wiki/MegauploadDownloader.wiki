@@ -1,6 +1,6 @@
 {{{
 system:
-  date: Tue, 16 Nov 2010 18:18:13 +0000
+  date: Tue, 16 Nov 2010 18:36:29 +0000
   kernel: 2.6.18.8-linode22 i686 GNU/Linux
   
   imagemagick: 6.3.7
@@ -12,7 +12,7 @@ system:
 megaupload-dl:
   test_0syntax_error: ok
   test_0wrong_link: ok
-  test_dead_link: ok
+  test_dead_link: failed
   test_download: failed
   test_download_with_resume: failed
   test_link_with_password: failed
@@ -20,4 +20,5 @@ megaupload-dl:
   test_link_with_password_but_wrong_password: failed
 
 megaupload-dl-batch:
+  test_batch_download: ok
 }}}
