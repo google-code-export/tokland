@@ -19,6 +19,7 @@ $ apt-get install tesseract-ocr tesseract-ocr-eng curl imagemagick recode aview
 [http://tokland.googlecode.com/svn/trunk/filesharing/megaupload-dl.sh megaupload-dl.sh] ([http://code.google.com/p/tokland/source/browse/trunk/filesharing/megaupload-dl.sh details])
 
 {{{
+$ wget http://tokland.googlecode.com/svn/trunk/filesharing/megaupload-dl.sh
 $ install megaupload-dl.sh /usr/local/bin/megaupload-dl
 }}}
 
@@ -51,7 +52,7 @@ Download and install these three scripts: [http://tokland.googlecode.com/svn/tru
 $ megaupload-dl-batch file_with_links.txt
 }}}
 
-How it works: {{{worker}}} marks links in {{{file_with_links.txt}}} commenting them out with a _#error code_, and {{{loop}}} makes sure that {{{worker}}} succeeds. This way, all links in {{{file_with_links.txt}}} will be eventually either downloaded or marked with a non-retryable error.
+How it works: {{{worker}}} comments out links in {{{file_with_links.txt}}} with _#_ (if successful) or _#error_ (unsuccessful), while {{{loop}}} makes sure that {{{worker}}} succeeds. This way all links in {{{file_with_links.txt}}} will be eventually downloaded or marked with a non-retryable error.
 
 = Feedback =
 
