@@ -61,9 +61,10 @@ How it works: {{{worker}}} comments out links in {{{file_with_links.txt}}} with 
  
 = Status =
 
+
 {{{
 system:
-  date: Wed, 17 Nov 2010 07:58:08 +0000
+  date: Thu, 18 Nov 2010 07:45:03 +0000
   kernel: 2.6.18.8-linode22 i686 GNU/Linux
   
   imagemagick: 6.3.7
