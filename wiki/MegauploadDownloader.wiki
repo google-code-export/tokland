@@ -2,16 +2,16 @@
 
 = Introduction =
 
-{{{megaupload-dl}}} downloads files from Megaupload (free download, no account required) with automatic captcha recognition. It is a shell (Bash) script, so you will need a UNIX-like operating system (GNU/Linux, BSD, OSX, Cygwin, ...).
+{{{megaupload-dl}}} downloads files from Megaupload (free download, no account required) with automatic captcha recognition. It is a shell script, so you will need a UNIX-like operating system (GNU/Linux, BSD, OSX, Cygwin, ...).
 
 License: [http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU/GPL3]
 
 = Dependencies =
 
-You will need _bash_, _curl_, _imagemagick_, _tesseract-ocr_, and optionally _recode_ and _aview_. On a Debian-based distro this should suffice:
+You will need _bash_ (>= 3), _curl_, _imagemagick_, _tesseract-ocr_, and optionally _recode_ and _aview_. On a Debian-based distro this should suffice:
 
 {{{
-$ apt-get install tesseract-ocr tesseract-ocr-eng curl imagemagick recode aview
+# apt-get install tesseract-ocr tesseract-ocr-eng curl imagemagick recode aview
 }}}
 
 = Download & Install ==
@@ -44,7 +44,7 @@ $ megaupload-dl http://megaupload.com/?d=110JVG89@somepassword
 $ cat file_with_one_link_per_line.txt | xargs -n1 megaupload-dl
 }}}
 
-= How to build a queue downloader =
+= Build a safe queue downloader =
 
 Download and install these three scripts: [http://tokland.googlecode.com/svn/trunk/tools/worker.sh worker], [http://tokland.googlecode.com/svn/trunk/tools/loop.sh loop] and [http://tokland.googlecode.com/svn/trunk/filesharing/megaupload-dl-batch.sh megaupload-dl-batch].
 
@@ -52,7 +52,7 @@ Download and install these three scripts: [http://tokland.googlecode.com/svn/tru
 $ megaupload-dl-batch file_with_links.txt
 }}}
 
-How it works: {{{worker}}} comments out links in {{{file_with_links.txt}}} with _#_ (if successful) or _#error_ (unsuccessful), while {{{loop}}} makes sure that {{{worker}}} succeeds. This way all links in {{{file_with_links.txt}}} will be eventually downloaded or marked with a non-retryable error.
+How it works: {{{worker}}} comments out links in {{{file_with_links.txt}}} with _#_ (if successful) or _#error_ (if unsuccessful), while {{{loop}}} executes {{{worker}}} until it succeeds. This way all links in {{{file_with_links.txt}}} will be eventually downloaded or marked with a non-retryable error.
 
 = Feedback =
 
@@ -60,7 +60,6 @@ How it works: {{{worker}}} comments out links in {{{file_with_links.txt}}} with 
  * Report bugs: http://code.google.com/p/tokland/issues/list
  
 = Status =
-
 
 {{{
 system:
