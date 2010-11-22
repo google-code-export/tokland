@@ -4,7 +4,7 @@
 
 {{{megaupload-dl}}} downloads files from Megaupload (free download, no account required) with automatic captcha recognition. It is a shell script, so you will need a UNIX-like operating system (GNU/Linux, BSD, OSX, Cygwin, ...).
 
-License: [http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU/GPL3]
+This code is licensed under the [http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU/GPL3].
 
 = Dependencies =
 
@@ -59,32 +59,6 @@ How it works: {{{worker}}} comments out links in {{{file_with_links.txt}}} with 
  * Email: Arnau Sanchez <tokland AT gmail.com>
  * Report bugs: http://code.google.com/p/tokland/issues/list
 
-= Example = 
-
-{{{
-$ megaupload-dl http://megaupload.com/?d=710JVG89
---- GET http://megaupload.com/?d=710JVG89
---- GET http://wwwq34.megaupload.com/gencap.php?01fa90ac4a8597b4.gif
---- ]mQQQQmmywwwaa_ssawwgmQQQL  $QQQm       _i,.  <wwmmQmgs
---- "???T9VHBWWWWijWWWWBBUT??"  ]$QQQc.   _yQQWDLmQWBTT$QQWQ/
---- _mQQQwmQQW           ]$QQm>  jQQQQ(]mQQF'   ]$WQmc
---- <dQQQ@  QQQQi           ]QQQmaWQQQ? :jQQQ[     )WQQm
---- _yQQQW!'  4QQQgaaawymL    -VQQQQQWP"   ]QQQgc  _<wWQQW
---- .aQQWQT-    jQQQQQWWUTT!    <QQQQQQL;    -]QQQQQQQQWWQQQ
---- .jmWQQP'      )$QQQ(        jmQQQF4QQQL;     -"??T?"~ nQQQ
---- _yQWQH"`       -3QQQ[      _wWQQT" -QQQQL             _mQQ@
---- vQQQQWwaas__,.   ]QQQka_awar--4QP    lQQQQ.          _ayQQ@[
---- ^THHWQWWWWQQQQQ  =3QQQQQQWga._-'      *QQQW_   -QQQQQQQQH!
-Tesseract Open Source OCR Engine
---- POST http://megaupload.com/?d=710JVG89 (captcha=ZEX9)
---- Waiting 46 seconds before starting download
---- GET http://www664.megaupload.com/files/3e11d0c0afd69aadd28543611a2d2ea7/03.Crazy Man Michael.mp3
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 12.0M  100 12.0M    0     0  1097k      0  0:00:11  0:00:11 --:--:-- 2136k
-03.Crazy Man Michael.mp3
-}}}
- 
 = Status =
 
 {{{
