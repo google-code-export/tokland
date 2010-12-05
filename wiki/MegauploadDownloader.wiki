@@ -1,70 +1,8 @@
-#summary Bash script to download files from Megaupload
-
-= Introduction =
-
-{{{megaupload-dl}}} downloads files from Megaupload (free download, no account required) with automatic captcha recognition. It is a shell script, so you will need a UNIX-like operating system (GNU/Linux, BSD, OSX, Cygwin, ...).
-
-This code is licensed under the [http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU/GPL3].
-
-= Dependencies =
-
-You will need _bash_ (>= 3), _curl_, _imagemagick_, _tesseract-ocr_, and optionally _recode_ and _aview_. On a Debian-based distro this should suffice:
-
-{{{
-# apt-get install tesseract-ocr tesseract-ocr-eng curl imagemagick recode aview
-}}}
-
-= Download & Install ==
-
-[http://tokland.googlecode.com/svn/trunk/filesharing/megaupload-dl.sh megaupload-dl.sh] ([http://code.google.com/p/tokland/source/browse/trunk/filesharing/megaupload-dl.sh details])
-
-{{{
-$ wget http://tokland.googlecode.com/svn/trunk/filesharing/megaupload-dl.sh
-$ install megaupload-dl.sh /usr/local/bin/megaupload-dl
-}}}
-
-= Usage examples =
-
-* Download a single file:
- 
-{{{
-$ megaupload-dl http://megaupload.com/?d=710JVG89
-03.Crazy Man Michael.mp3
-}}}
-
-* Download a password-protected file:
- 
-{{{
-$ megaupload-dl http://megaupload.com/?d=110JVG89@somepassword
-}}}
-
-* Download a list of files:
-
-{{{
-$ cat file_with_one_link_per_line.txt | xargs -n1 megaupload-dl
-}}}
-
-= Build a safe queue downloader =
-
-Download and install these three scripts: [http://tokland.googlecode.com/svn/trunk/tools/worker.sh worker], [http://tokland.googlecode.com/svn/trunk/tools/loop.sh loop] and [http://tokland.googlecode.com/svn/trunk/filesharing/megaupload-dl-batch.sh megaupload-dl-batch].
-
-{{{
-$ megaupload-dl-batch file_with_links.txt
-}}}
-
-How it works: {{{worker}}} comments out links in {{{file_with_links.txt}}} with _#_ (if successful) or _#error_ (if unsuccessful), while {{{loop}}} executes {{{worker}}} until it succeeds. This way all links in {{{file_with_links.txt}}} will be eventually downloaded or marked with a non-retryable error.
-
-= Feedback =
-
- * Email: Arnau Sanchez <tokland AT gmail.com>
- * Report bugs: http://code.google.com/p/tokland/issues/list
-
-= Status =
 
 
 {{{
 system:
-  date: Fri, 03 Dec 2010 05:00:06 +0000
+  date: Sun, 05 Dec 2010 05:00:05 +0000
   kernel: 2.6.18.8-linode22 i686 GNU/Linux
   
   imagemagick: 6.3.7
