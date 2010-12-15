@@ -3,9 +3,9 @@
 
 = Introducción =
 
-La consulta del diccionario de la RAE a través de su [http://buscon.rae.es/draeI/ página web] es libre, pero este servicio no es siempre suficiente. Puedes necesitar acceder al diccionario cuando no estás conectado, o quizá hacer algún tipo de estudio de su contenido. 
+La consulta del diccionario de la RAE a través de su [http://buscon.rae.es/draeI/ página web] es libre, pero este servicio no es siempre suficiente; en primer lugar por qué te obliga a estar conectado a Internet para hacer consultas, y en segundo porque el acceso a los datos en bruto (en forma de ficheros, base de datos o lo que sea) permite ejecutar análisis automatizados que de otra forma son tediosos o simplemente imposibles.
 
-En este documento se ofrece el código (licencia GPL) para trabajar con el diccionario localmente. Echa un vistazo al repositorio para ver cómo generar otros formatos (dictd, SQL).
+En este documento se ofrecen los scripts (bajo licencia GPL) para generar el diccionario localmente. Echa un vistazo al repositorio para ver cómo generar otros formatos (dictd, SQL). 
 
 = Descarga =
 
@@ -23,7 +23,7 @@ $ /etc/init.d/dictd restart (o /etc/rc.d/dictd restart)
 
 = Fuentes =
 
-El código fuente (scripts en Bash y Ruby) están en el repositorio _subversion_:
+El código fuente (scripts en _Bash_ y _Ruby_) están en el repositorio:
 
 {{{
 svn co http://tokland.googlecode.com/svn/trunk/rae
