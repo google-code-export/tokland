@@ -18,6 +18,7 @@ Instrucciones para sistemas operativos UNIX:
 {{{
 $ tar xvzf drae-2009-1.tgz
 $ cp drae.index drae.dict.dz /usr/share/dictd/
+$ dictdconfig # según me comentan, esto es necesario en Debian (y quizá en otras distros)
 $ /etc/init.d/dictd restart (o /etc/rc.d/dictd restart)
 }}}
 
