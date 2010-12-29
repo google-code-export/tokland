@@ -64,7 +64,7 @@ How it works: {{{worker}}} comments out links in {{{file_with_links.txt}}} with 
 
 {{{
 system:
-  date: Tue, 28 Dec 2010 05:00:15 +0000
+  date: Wed, 29 Dec 2010 05:00:17 +0000
   kernel: 2.6.18.8-linode22 i686 GNU/Linux
   
   imagemagick: 6.3.7
