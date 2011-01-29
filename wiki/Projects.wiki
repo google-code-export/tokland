@@ -39,9 +39,14 @@ http://code.google.com/p/spynner/
 
 == Simple subtitles Python library ==
 
-Currently this module only scales (adjusts fps timing) for SRT subtitles:
+Currently this module only scales (adjusts fps timing) for SRT subtitles. Useful for those subtitles that do not sync with video due to different frames-per-second. For example, to convert a 23.976fps subtitle to a 25fps video:
+
+{{{
+$ python subtitles.py 25/23.976 file.srt
+}}}
 
 http://code.google.com/p/tokland/source/browse/trunk/subtitles
+
 
 == Sudoku solver ==
 
