@@ -56,9 +56,9 @@ How it works: {{{worker}}} comments out links in {{{file_with_links.txt}}} with 
 
 = Plowshare =
 
-If your only interest is in automatic downloading (or even uploading) from file-sharing sites, you should check http://code.google.com/p/plowshare/ plowshare]. I am not involved in the project at this moment, but it's still maintained and supports lots of sites, and has much more options.
+If your only interest is in automatic downloading (or even uploading) from file-sharing sites, you should check http://code.google.com/p/plowshare/ plowshare]. I am not involved in the project at this moment, but it's still maintained, supports lots of sites, and has much more options.
 
-The goal of this script, on the other hand, is writing a minimal script to download from MU, with very modular, and (hopefully) clean code. If you feel it does not fulfil the goal in any aspect, feel free to contact me!
+The goal of this script, on the other hand, is writing a minimal shell script to download from MU, with modular, and (hopefully) clean code. If you feel it does not fulfil the goal in any aspect, feel free to contact me!
 
 = Feedback =
 
