@@ -70,7 +70,7 @@ The goal of this script, on the other hand, is about programming: how to write a
 
 {{{
 system:
-  date: Mon, 07 Feb 2011 05:00:06 +0000
+  date: Tue, 08 Feb 2011 05:00:06 +0000
   kernel: 2.6.18.8-linode22 i686 GNU/Linux
   
   imagemagick: 6.3.7
@@ -80,7 +80,6 @@ system:
   aview: 1.3.0
 
 megaupload-dl:
-  test_0syntax_error: ok
   test_0wrong_link: ok
   test_dead_link: ok
   test_download: ok
