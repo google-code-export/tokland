@@ -1,7 +1,5 @@
 #summary Ruby conventions and idioms
 
-= Introduction =
-
 I've programmed with Ruby for some years now, and after this time I've come up with a collection of idioms (some common and accepted by the whole community, some personal). This documents succinctly shows them. 
 
 = Community-accepted idioms =
@@ -265,8 +263,8 @@ Use inject:
 
 {{{
 def get_result_from_array(input)
-  input.map(&:process).inject(0) do |acc, partial|
-    acc + partial
+  input.map(&:process).inject(0) do |acc, item|
+    acc + item
   end
 end
 }}}
@@ -313,7 +311,7 @@ Not bad, but it kind of breaks the natural writing directionality of object-orie
 When I write in a OOP language I expect to write from left to right:
 
 {{{
-[1,2,3].map { |x| x * 2 }.select(&:even?)
+[1, 2, 3].map { |x| x * 2 }.select(&:even?)
 [2, 4, 6]
 }}}  
 
