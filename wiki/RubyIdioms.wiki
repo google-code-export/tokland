@@ -30,7 +30,7 @@ But use spaces to write blocks:
 [1, 2, 3].map { |x| 2 * x }
 }}}
 
-Note: some programmers *do* put spaces after "[" ({{{[ 1, 2, 3 ]}}}) and "{" ({{{{ :a => 1 }}}}). Maybe it's my Python background, but I just wish my eyes were removed every time I see this. So I cannot but break this convention.  
+Note: some programmers *do* put spaces after "[" {{{[ 1, 2, 3 ]}}} and "{" {{{{ :a => 1 }}}}. Maybe it's my Python background, but I just wish my eyes were removed every time I see this. So I cannot but break this convention (if any such exists).  
 
 === Naming ===
 
@@ -141,7 +141,7 @@ Yes:
   end
 }}}
 
-Ruby's objects are always _true_ (in boolean terms) except for {{{nil}}} and {{{false}}, so the only valid reason to write {{{object.nil?}}} would be telling {{{nil}}} from {{{false}}} (something hardly needed).
+Ruby's objects are always _true_ (in boolean terms) except for {{{nil}}} and {{{false}}}, so the only valid reason to write {{{object.nil?}}} would be telling {{{nil}}} from {{{false}}} (something hardly needed).
 
 == Method arguments ==
 
@@ -317,7 +317,7 @@ When I write in a OOP language I expect to write from left to right:
 [2, 4, 6]
 }}}  
 
-So we'd like to something similar to build a hash. The {{Hash}} constructor has an additional problem: you first have to map your input to pairs and then transform them; it would be nice (and faster) to do it in a single step. What we need is a method in Enumerable that create a hash from their _key/value_ pairs. [https://github.com/rubyworks/facets Facets] call it Enumerable#mash:
+So we'd like to something similar to build a hash. The {{{Hash}}} constructor has an additional problem: you first have to map your input to pairs and then transform them; it would be nice (and faster) to do it in a single step. What we need is a method in Enumerable that creates a hash from their _key/value_ pairs. [https://github.com/rubyworks/facets Facets] call it Enumerable#mash:
 
 {{{
 def process_array(input)
@@ -476,6 +476,24 @@ This is an extremely common pattern: use block as high-level wrappers.
 To sum up some of the patterns seen:
 
 {{{
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'trollop'
+
+# Simple implementation of common UNIX tools
+module UnixTools
+  # Grep lines in input that match regular expression.
+  #
+  # Options:
+  #   :invert_match: Return lines that do NOT match.
+  def self.grep(regexp, input, options = {})
+    input.select do |line|
+      line.match(regexp)
+    end
+  end  
+end
+
+
 if __FILE__ == $0
   options = Trollop::options do
     banner "grep.rb REGEXP [FILE]"
@@ -485,6 +503,7 @@ if __FILE__ == $0
     Trollop::die "Need regular expression as first argument"
     exit 1
   end 
+  
   regexp = Regexp.new(ARGV[0])
   input = ARGV[1] ? File.open(ARGV[1]) : $stdin
   UnixTools.grep(regexp, input, options).each do |line|
@@ -508,12 +527,12 @@ $ ruby grep.rb traversal /etc/services
 
 = Conclusion =  
 
- * Write beautiful code. This is valid for any language, problem is some of them just keep getting on your way. That's not the case with Ruby.
+ * Write beautiful code. This is valid for any language, but some of them just keep getting in your way. That's not the case with Ruby.
  
  * Ruby is not a functional language, and this is fine, but don't use it imperatively when there is no valid reason for it. State of the root of all evil, keep it to a minimum. 
  
  * Ruby developers can't forecast all your needs, don't resign yourself to the existing toolbox, build your own. 
  
- * Programming is about building abstractions. Your personal toolbox should be growing and growing with each project you write.
+ * Programming is about building abstractions. Your personal toolbox should be growing with each project you write.
  
 Exploit the language so you can write more beautiful, compact, clear and semantically meaningful code. There are few languages as suited as Ruby to achieve this goal, don't waste the opportunity.
