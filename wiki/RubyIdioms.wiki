@@ -34,8 +34,8 @@ Note: some programmers *do* put spaces after "[" ({{{[ 1, 2, 3 ]}}}) and "{" ({{
 
 === Naming ===
 
-* {{{StudlyCaps}}} for classes and modules.
-* {{{lower_undercase}}} for methods and attributes.
+ * {{{StudlyCaps}}} for classes and modules.
+ * {{{lower_undercase}}} for methods and attributes.
 
 === Blank lines ===
 
@@ -69,6 +69,45 @@ module MyModule
 end
 }}}
 
+== Blocks == 
+
+Single line blocks are written with brackets:
+
+{{{
+obj.method { |foo| ... }
+}}}
+
+Multi-line blocks are written with _do/end_:
+
+{{{
+obj.method do |foo|
+  ...
+  ...
+end
+}}}
+
+== Use of parenthesis ==
+
+Parenthesis are sometimes optional:
+
+{{{
+def fun arg1 args
+end
+}}}
+
+My advice is: don't use it when defining functions. And use them sparingly when calling methods. It's a subjective rule; for example it's valid for DSL-like calls:
+
+{{{
+class Post < ActiveRecord::Base
+  belongs_to :blog
+end
+}}}
+
+But use parenthesis on _normal_ calls:
+
+{{{
+Post.new(:title => "title", :contents => "contents")
+}}}
 
 == Method name qualifiers ==
 
@@ -84,26 +123,7 @@ If your method does does something "dangerous" (an in-place operation, it may ra
 database.destroy!
 }}} 
 
-= Style conventions =
-
-== Blocks == 
-
-Single line blocks are written with brackets:
-
-{{{
-obj.method { |foo| ... }
-}}}
-
-Multi-line blocks are written with _do/end_:
-
-{{{
-  obj.method do |foo|
-    ...
-    ...
-  end
-}}}
-
-== Testing for truth values
+== Testing for truth values ==
 
 No:
 
@@ -194,10 +214,11 @@ Yes:
 
 {{{
 head, *tail = array
-}}}  
+}}}
+  
 = My personal idioms =
 
-As already stated: those are idioms that I've found useful and use in all my projects.  
+Those are idioms that I've found useful and use in all my projects.   
 
 = Functional Ruby ==
 
@@ -220,11 +241,11 @@ end
 The functional approach (map/collect) is shorter and clearer:
 
 {{{
-  def do_something_with_array(input)
-    input.map do |item|
-      process(item) 
-    end
+def do_something_with_array(input)
+  input.map do |item|
+    process(item) 
   end
+end
 }}}
 
 === each vs inject ===
@@ -244,19 +265,19 @@ end
 Use inject:
 
 {{{
-  def get_result_from_array(input)
-    input.map(&:process).inject(0) do |acc, partial|
-      acc + partial
-    end
+def get_result_from_array(input)
+  input.map(&:process).inject(0) do |acc, partial|
+    acc + partial
   end
+end
 }}}
 
 Note that in this particular case you could simply write:
 
 {{{
-  def get_result_from_array(input)
-    input.inject(0, :+)
-  end
+def get_result_from_array(input)
+  input.inject(0, :+)
+end
 }}}
 
 === How to create hashes from enumerables ===
@@ -273,7 +294,7 @@ def process_array(input)
 end
 }}}
 
-This is hideous. Period. But there is something better at hand: the old {{{Hash}} constructor used to take a flatten collection of consecutive _key/value_ (not such a great idea). Fortunately, latest versions of Ruby take _key/value_ pairs, which makes much more sense; now you can write:
+This is hideous. Period. But there is something better at hand: the old {{{Hash}}} constructor used to take a flatten collection of consecutive _key/value_ (not such a great idea). Fortunately, latest versions of Ruby take _key/value_ pairs, which makes much more sense; now you can write:
 
 {{{
 def process_array(input)
@@ -352,7 +373,7 @@ You have find a lost dog and you want to know its owner's address. You'll write:
 
 {{{
 dog_address = dog.owner.address
-}}}}
+}}}
 
 But hey, there are street dogs who have no owners. Then you should be careful and write this instead:
 
