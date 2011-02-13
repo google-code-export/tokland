@@ -213,10 +213,6 @@ Yes:
 head, *tail = array
 }}}
   
-= My personal idioms =
-
-Those are idioms that I've found useful and use in all my projects.   
-
 = Functional Ruby ==
 
 Ruby is not a functional language. In fact, being an OOP language it tacitly promotes state changes on object. But, at the same time, Ruby comes with great functional capabilities, know them and use them.
@@ -276,6 +272,12 @@ def get_result_from_array(input)
   input.inject(0, :+)
 end
 }}}
+  
+= My personal idioms =
+
+Those are idioms that I've found useful and use in all my projects.   
+
+== Functional Ruby ==
 
 === How to create hashes from enumerables ===
 
