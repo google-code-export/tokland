@@ -158,7 +158,6 @@ Yes:
 {{{
 def method(arg1, arg2, options = {})
   arg3 = options[:arg3] || default_value_for_arg3 
-  # caveat: don't do it with booleans (false will be override)
   ...
 end
 }}}
@@ -390,14 +389,14 @@ dog_address_city = dog_owner ? dog_owner.address.city : nil
 
 See? each level adds more and more verbose and repetitive code. There are (at least) three approaches to solve this:
 
-1) Use a wrapper: Rails's Object#try.
+ * Use a wrapper: Rails's Object#try.
 
 {{{
 require 'active_support/core_ext/object/try'
 dog_owner_street = dog.owner.try(:address).try(:street)
 }}}
 
-2) Use a proxied object: Ick's Object#maybe.
+ * Use a proxied object: Ick's Object#maybe.
 
 Rails's try is not bad, but some programmers don't like seeing that the usual object.method turned into object.wrapper(:method). Ick's maybe (or andand, it's the same idea) takes the proxy approach, you simple intersperse maybe on method calls:
 
@@ -405,7 +404,7 @@ Rails's try is not bad, but some programmers don't like seeing that the usual ob
 dog_owner_street = dog.owner.maybe.address.maybe.street
 }}}
 
-3) Use a block. Ick's Object#maybe also supports this pattern:
+ * Use a block. Ick's Object#maybe also supports this pattern:
 
 {{{
 dog_owner_street = dog.owner.maybe { |owner| owner.address.street}
@@ -413,7 +412,7 @@ dog_owner_street = dog.owner.maybe { |owner| owner.address.street}
   
 I'd recommend the second, the {{{maybe}}} proxy approach: explicit yet compact.
   
-== Use an script both as library or executable
+== Use an script both as library or executable ==
 
 {{{
 if __FILE__ == $0
@@ -423,7 +422,7 @@ end
 
 == Create your own (growing) generic toolbox ==
 
-=== Example1: Object#in? ===
+=== Example1: Extend the existing classes and modules ===
 
 So you have a dog named Scooby and want to know if it's in your list of selected dogs. You would probably write:
 
@@ -431,10 +430,10 @@ So you have a dog named Scooby and want to know if it's in your list of selected
 ["rantanplan", "milu"].include?("scooby")
 }}}
 
-Notice how the code reverse the phrasing of our specification. Why don't we create our own construction to reflect how we think about the problem? 
+Notice how the code reverse the phrasing of our specification. Why don't we create a construction to reflect how we think about the problem? 
 
 {{{
-module Object
+class Object
   def in?(enumerable)
     enumerable.include?(self)
   end
@@ -462,7 +461,7 @@ loop do
 end
 }}}
   
-Look at it the relevant code is literally buried in a jumble of infrastructure.  Abstract you own construction that goes to the point:
+Look at it the relevant code, it's literally buried in a jumble of infrastructure!  Abstract you own construction that goes to the point:
 
 {{{
 retry_on_exceptions([Exception1, Exception2], :max_retries => 5) do
@@ -472,24 +471,9 @@ end
   
 This is an extremely common pattern: use block as high-level wrappers.
 
-#!/usr/bin/env ruby
-require 'rubygems'
-require 'trollop'
-
-# Simple implementation of common UNIX tools
-module UnixTools
-  # Grep lines in input that match regular expression.
-  #
-  # Options:
-  #   :invert_match: Return lines that do NOT match.
-  def self.grep(regexp, input, options = {})
-    input.select do |line|
-      line.match(regexp)
-    end
-  end  
-end
-
 = All-in-one example =
+
+To sum up some of the patterns seen:
 
 {{{
 if __FILE__ == $0
