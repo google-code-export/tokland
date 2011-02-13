@@ -1,284 +1,514 @@
-#summary Ruby idioms and patterns
+#summary Ruby conventions and idioms
 
 = Introduction =
 
-I've programmed with Ruby for some years now, and after that time I've come up with a collection of idioms (some common to the whole community, some personal).
+I've programmed with Ruby for some years now, and after this time I've come up with a collection of idioms (some common and accepted by the whole community, some personal). This documents succinctly shows them. 
 
 = Community-accepted idioms =
+
+== Formatting ==
+
+This is not particular of Ruby: you have to choose a formatting style in any language you program and stick with it. Novice programmers tend to overlook the importance of code look, but don't forget SICP's quote: "Programs must be written for people to read, and only incidentally for machines to execute". Be *extremely* careful with the looks of the code you write.
+
+=== Indentation ===
+
+Use 2 spaces, don't use tabs, never ever mix spaces and tabs. Keep your code at a maximum indetion (80 may be a bit restrictive, but it's still a sound limit. But don't write over a hundred chars!)
+
+=== Whitespaces ===
+
+Leave an space after commas. No spaces after or before (, [ or { (when used to build a hash):
+
+{{{
+array = [1, 2, 3]
+hash = {:a => 1, :b => 2}
+def fun(arg1, arg2, arg3); end
+}}}
+
+But use spaces to write blocks:
+
+{{{
+[1, 2, 3].map { |x| 2 * x }
+}}}
+
+Note: some programmers *do* put spaces after "[" ({{{[ 1, 2, 3 ]}}}) and "{" ({{{{ :a => 1 }}}}). Maybe it's my Python background, but I just wish my eyes were removed every time I see this. So I cannot but break this convention.  
+
+=== Naming ===
+
+* {{{StudlyCaps}}} for classes and modules.
+* {{{lower_undercase}}} for methods and attributes.
+
+=== Blank lines ===
+
+My personal rules are:
+
+  * Don't add empty lines between different levels, only between definitions (module, class, def, ...) in the same level. The indentation itself serves as visual hint.
+  
+  * In a given level insert blank lines, sparingly, to distinguish logic blocks.
+
+Example:
+
+{{{
+module MyModule
+  class Dog
+    attr_accessor :name
+    attr_accessor :color
+    
+    def initialize(name, color)
+      self.name = name
+      self.color = color
+    end
+    
+    def bark
+      "bark, bark"
+    end
+  end
+  
+  class Cat
+    ....
+  end
+end
+}}}
+
 
 == Method name qualifiers ==
 
 If your method returns a boolean, end it with _?_:
 
 {{{
-  dog.hungry?
+dog.hungry?
 }}}
   
-If your method does does something "dangerous" (in-place operation, may raise exceptions on errors, it's destructive, etc), end it with !:
+If your method does does something "dangerous" (an in-place operation, it may raise an exception on errors, it's destructive, etc), end it with _!_:
 
-  Database.destroy! 
+{{{
+database.destroy!
+}}} 
 
-= Style conventions
+= Style conventions =
 
-== Blocks 
+== Blocks == 
 
-Single line blocks are written with bracets:
+Single line blocks are written with brackets:
 
-  obj.method { |foo| ... }
+{{{
+obj.method { |foo| ... }
+}}}
 
-Multiline blocks are written with do/end:
+Multi-line blocks are written with _do/end_:
 
+{{{
   obj.method do |foo|
     ...
     ...
   end
+}}}
 
-== Checking for nil
+== Testing for truth values
 
-Don't do that:
+No:
 
+{{{
   if some_object.nil?
     ..
   end
+}}}
 
-Do that:
+Yes:
 
+{{{
   if some_object
     ...
   end
+}}}
 
-Ruby's objects are always true (in boolean terms) except for nil and false. So the only valid reason to write object.nil? is to tell nil from false (which is hardly needed).
+Ruby's objects are always _true_ (in boolean terms) except for {{{nil}}} and {{{false}}, so the only valid reason to write {{{object.nil?}}} would be telling {{{nil}}} from {{{false}}} (something hardly needed).
 
-== Method arguments
+== Method arguments ==
 
-Don't do this:
+No:
 
-  def method(arg1, arg2, arg3=nil, arg4=nil, arg5=nil)
-    ...
-  end
+{{{
+def method(arg1, arg2, arg3=nil, arg4=nil, arg5=nil)
+  ...
+end
+}}}
 
-Do this:
+Yes:
 
-  def method(arg1, arg2, options = {})
-    arg3 = options[:arg3] || default_value_for_arg3 # caveat: don't do that with booleans
-    ...
-  end
+{{{
+def method(arg1, arg2, options = {})
+  arg3 = options[:arg3] || default_value_for_arg3 
+  # caveat: don't do it with booleans (false will be override)
+  ...
+end
+}}}
   
-Advantages: 1) it separates clearly compulsory arguments from optional. 2) The method has a cleaner signature. Downside: the options available are not explicit, so make sure you document them.
+Advantages:
 
-== Formatting
+  * It separates clearly compulsory arguments from optional.
+  * You don't have to write intermediate arguments to specify a right-argument. 
+  * The method has a shorted (and cleaner) signature. Long signatures are a nightmare to read. 
 
-Don't add empty lines between diferent levels, only between definitions (module, class, def, ...) in the same level. In a given level insert blank lines, sparsingly, to distinguish logic blocks.
-
-  module MyModule
-    class Dog
-      attr_accessor :name
-      attr_accessor :color
-      
-      def initialize(name, color)
-        self.name = name
-        self.color = color
-      end
-      
-      def bark
-        "bark, bark"
-      end
-    end
-    
-    class Cat
-      ....
-    end
-  end
-
-= Use Ruby's functional capabilities
-
-= They tried to make me use each and I said 'no, no, no' 
-
-This imperative pattern is ugly, verbose, and convoluted:
+Downside:
  
-  def do_something_with_array(input)
-    array = []
-    input.each do |item|
-      array << process(item)
-    end
-    array
+  * Available options are not explicit, so make sure you document them.
+  * You must be careful with default values on boolean options.
+  
+== Expand enumerables in block arguments ==
+
+No:
+
+{{{
+[[1, 2], [3, 4]].each do |array|
+  array[0] - array[1]
+end
+}}}
+
+Yes:
+
+{{{
+[[1, 2], [3, 4]].each do |v1, v2|
+  v1 - v2
+end
+}}}
+  
+Note that you can expand as nested levels as we want:
+
+{{{
+[["hello", [2, 3.3]], ["bye", [4, 1.1]]].each do |string, (integer, float)|
+  ...
+end
+}}}
+
+== Take head/tail from enumerables ==
+
+No:
+
+{{{
+array = [1, 2, 3, 4]
+head = array.first
+tail = array[1..-1]
+}}}
+
+Yes:
+
+{{{
+head, *tail = array
+}}}  
+= My personal idioms =
+
+As already stated: those are idioms that I've found useful and use in all my projects.  
+
+= Functional Ruby ==
+
+Ruby is not a functional language. In fact, being an OOP language it tacitly promotes state changes on object. But, at the same time, Ruby comes with great functional capabilities, know them and use them.
+
+=== each vs map ===
+
+They tried to make me use each and I said 'no, no, no'. This imperative pattern is ugly, verbose, and convoluted:
+ 
+{{{
+def do_something_with_array(input)
+  array = []
+  input.each do |item|
+    array << process(item)
   end
+  array
+end
+}}}
 
 The functional approach (map/collect) is shorter and clearer:
 
+{{{
   def do_something_with_array(input)
     input.map do |item|
       process(item) 
     end
   end
+}}}
 
-== Create hash from enumerables easily
+=== each vs inject ===
 
-Vanilla Ruby has no direct translation from enumerable to hash (a sad flaw, in my opinion). That's why people keeps writing this ugly pattern:
-
-  def process_array(input)
-    hash = {}
-    input.each do |item|
-      hash[item] = process(item)
-    end
-    hash
+Another common usage of each is to accumulate results:
+ 
+{{{
+def get_result_from_array(input)
+  result = 0
+  input.each do |item|
+    result + = item
   end
+  result
+end
+}}}
 
-The old Hash constructor used to take a flatten collection of consecutive key/values (not a great idea). Latest versions of Ruby take pairs of key/value, which makes much more sense, so you can now write:
+Use inject:
 
-  def process_array(input)
-    Hash[input.map do |item|
-      [item, process(item)]
-    end]
-  end
-
-While this is not bad, it kind of breaks the natural left-to-right order of Object-oriented programming. Also, you have first to map your input to pairs and then transform them to a hash; it would be nice (and faster) to do it in a single step. What we need is a method in Enumerable that create a hash from their pairs key/value. Facets call it Enumerabl#mash:
-
-  def process_array(input)
-    input.mash do |item|
-      [item, process(item)]
+{{{
+  def get_result_from_array(input)
+    input.map(&:process).inject(0) do |acc, partial|
+      acc + partial
     end
   end
+}}}
+
+Note that in this particular case you could simply write:
+
+{{{
+  def get_result_from_array(input)
+    input.inject(0, :+)
+  end
+}}}
+
+=== How to create hashes from enumerables ===
+
+Vanilla Ruby has no direct translation from an enumerable to a hash (a serious flaw, in my opinion). That's why novices keep writing this pattern (and how can you blame them):
+
+{{{
+def process_array(input)
+  hash = {}
+  input.each do |item|
+    hash[item] = process(item)
+  end
+  hash
+end
+}}}
+
+This is hideous. Period. But there is something better at hand: the old {{{Hash}} constructor used to take a flatten collection of consecutive _key/value_ (not such a great idea). Fortunately, latest versions of Ruby take _key/value_ pairs, which makes much more sense; now you can write:
+
+{{{
+def process_array(input)
+  Hash[input.map do |item|
+    [item, process(item)]
+  end]
+end
+}}}
+
+Not bad, but it kind of breaks the natural writing directionality of object-oriented programming. When you write in a functional language, you expect to write from right to left: 
+
+{{{
+> filter even (map (*2) [1,2,3])
+[2,4,6]
+}}}  
+
+When I write in a OOP language I expect to write from left to right:
+
+{{{
+[1,2,3].map { |x| x * 2 }.select(&:even?)
+[2, 4, 6]
+}}}  
+
+So we'd like to something similar to build a hash. The {{Hash}} constructor has an additional problem: you first have to map your input to pairs and then transform them; it would be nice (and faster) to do it in a single step. What we need is a method in Enumerable that create a hash from their _key/value_ pairs. [https://github.com/rubyworks/facets Facets] call it Enumerable#mash:
+
+{{{
+def process_array(input)
+  input.mash do |item|
+    [item, process(item)]
+  end
+end
+}}}
   
-Let's hope Ruby some day adds this method and show the people the right way to do it. Having Enumerable#mash in a (relatively) obscure extension library is not enough.
+Let's hope Ruby adds this method and show the people the right way to do it.
 
-== Accumulate values
+=== Using each methods in a functional way ===
 
-Don't do this:
+Ruby's enumerable have quite a number of handy {{{each_xyz}}} methods, but as we have seen, each loops promote imperative style (appending to arrays and other stateful patterns). Fortunately Ruby 1.9 (and Ruby 1.8 with backports) now return an Enumerator when these methods are called without a block, so we can now use these collection of methods in a functional way. 
 
-  output = []
-  output << 1
-  output << 2 if i_have_to_add_two
-  output << 3
+Example 1: use {{{Enumerable#each_cons}}} to return the pairwise combinations:
 
-Do this: 
+{{{
+>> [1, 2, 3, 4].each_cons(2).to_a
+=> [[1, 2], [2, 3], [3, 4]]
+}}}
 
-  output = [1, (2 if i_have_to_add_two), 3].compact
+Example 2: use {{{Enumerable#each_with_index}}} to return an enumeration:
 
-Why is appending so bad about appending, you may think? first, the variable name is repeated over and over. But the real problem (inherent to imperative programming): it expands the scope of the variable to the whole method (if it's a instance variable, it's expanded to *the whole class*). When the variable is used afterwards you have to check the whole scope to see how it was updated. Ugh. Ruby is not a funcional language, and this is fine, but don't use it imperatively when there is no serious reason for it.
+{{{
+>> ["a", "b", "c"].each_with_index.map(&:reverse)
+=> [[0, "a"], [1, "b"], [3, "c"]]
+}}}
 
-== Using each methods in a functional way
+=== How to accumulate values ===
 
-Ruby's enumerable have quite a number of handy each_xyz methods, but as we have seen, each loops promote imperative style (appending to arrays and other stateful nasty patterns). Fortunately Ruby 1.9 (and Ruby 1.8 with backports) now return an Enumerator, so we can these collection of methods in a functional way. Example: use Enumerable#each_cons to return the pairwise combinations:
+No:
 
-  >> [1, 2, 3, 4].each_cons(2).to_a
-  => [[1, 2], [2, 3], [3, 4]]
+{{{
+output = []
+output << 1
+output << 2 if i_have_to_add_two
+output << 3
+}}}
 
-= Don't repeat yourself
+Yes: 
 
-== Managing nil's
+{{{
+output = [1, (2 if i_have_to_add_two), 3].compact
+}}}
+
+What is so bad about appending, you may think? It's not only that the variable name is repeated over and over (not DRY), the real problem (inherent to imperative programming) is that it expands the scope of the variable to the *whole method* (if it's a instance variable, it's expanded to *the whole class*). When the variable is used after-wards you must check the complete scope to see if it was updated and how. Ugh. 
+
+== Managing nil's. The Maybe pattern ==
 
 You have find a lost dog and you want to know its owner's address. You'll write:
 
-  dog_address = dog.owner.address
+{{{
+dog_address = dog.owner.address
+}}}}
 
-But hey, there are street dogs who have no owners. Then you should be careful and write:
+But hey, there are street dogs who have no owners. Then you should be careful and write this instead:
 
-  dog_address = dog.owner ? dog.owner.address : nil  
+{{{
+dog_address = dog.owner ? dog.owner.address : nil
+}}}  
 
-Not nice, but we can live with it. But what if the chain continues? let's say you want to know where the dog comes from:
+Not nice, but we can live with it. But what happens if the chain continues? let's say we want to know which city the dog comes from:
 
-  dog_address = dog.owner ? dog.owner.address : nil
-  dog_address_city = dog_owner ? dog_owner.address.city : nil
+{{{
+dog_address = dog.owner ? dog.owner.address : nil
+dog_address_city = dog_owner ? dog_owner.address.city : nil
+}}}
 
-Each level adds more and more verbose and repetitive code. There are (at least) three approaches to solve this:
+See? each level adds more and more verbose and repetitive code. There are (at least) three approaches to solve this:
 
-1) Wrapper: Rails's Object#try.
+1) Use a wrapper: Rails's Object#try.
 
-  require 'active_support/core_ext/object/try'
-  dog_owner_street = dog.owner.try(:address).try(:street)
+{{{
+require 'active_support/core_ext/object/try'
+dog_owner_street = dog.owner.try(:address).try(:street)
+}}}
 
-2) Proxy: Ick's Object#maybe.
+2) Use a proxied object: Ick's Object#maybe.
 
 Rails's try is not bad, but some programmers don't like seeing that the usual object.method turned into object.wrapper(:method). Ick's maybe (or andand, it's the same idea) takes the proxy approach, you simple intersperse maybe on method calls:
 
-  dog_owner_street = dog.owner.maybe.address.maybe.street
+{{{
+dog_owner_street = dog.owner.maybe.address.maybe.street
+}}}
 
-3) Block. Ick's Object#maybe also supports this pattern:
+3) Use a block. Ick's Object#maybe also supports this pattern:
 
-  dog_owner_street = dog.owner.maybe { |owner| owner.address.street}
+{{{
+dog_owner_street = dog.owner.maybe { |owner| owner.address.street}
+}}}
   
-I'd recommend the second, the maybe' proxy approach: explicit yet compact.
+I'd recommend the second, the {{{maybe}}} proxy approach: explicit yet compact.
   
 == Use an script both as library or executable
 
-  if __FILE__ == $0
-    # this script was not imported but executed, do something here
-  end
+{{{
+if __FILE__ == $0
+  # this script was not imported but executed, do something interesting here
+end
+}}}
 
-== Take head/tail
+== Create your own (growing) generic toolbox ==
 
-Don't do that:
+=== Example1: Object#in? ===
 
-  array = [1, 2, 3, 4]
-  head = array.first
-  tail = array[1..-1]
+So you have a dog named Scooby and want to know if it's in your list of selected dogs. You would probably write:
 
-Do that:
-
-  head, *tail = array
-
-= Create your own (growing) generic toolbox
-
-== Example1: Object#in?
-
-So you have a dog named Scooby and want to know if it's in your list of selected named. You would probably write:
-
+{{{
 ["rantanplan", "milu"].include?("scooby")
+}}}
 
-Notice how the code reverse the phrasing of the specification. Why don't we create our own construction to reflect how we think about the problem? 
+Notice how the code reverse the phrasing of our specification. Why don't we create our own construction to reflect how we think about the problem? 
 
-  module Object
-    def in?(enumerable)
-      enumerable.include?(self)
-    end
+{{{
+module Object
+  def in?(enumerable)
+    enumerable.include?(self)
   end
+end
+}}}
 
-  "scooby".in?(["rantanplan", "milu"])
+{{{
+"scooby".in?(["rantanplan", "milu"])
+}}}
   
-This is a very simple example, but you apply it eveywhere. Moral: 
+=== Example2: Using blocks as wrappers ===
 
-1. The Ruby developers can't forecast all your needs; don't resign yourself to the existing toolbox. 
-2. Write your own extensions that enable you to write compact, DRY and semantically meaningful code. 
-3. There are few languages as good as Ruby to achieve this goal.
+Never did this?
 
-== Example2: Using blocks as wrappers
-
-You may need this pattern some times in your code:
-
-  tries = 0
-  loop do 
-    begin
-      # relevant code
-    rescue Exception1, Exception2 => error
-      tries += 1
-      retry unless tries > 5
-      nil
-    end
+{{{
+tries = 0
+loop do 
+  begin
+    # relevant code
+  rescue Exception1, Exception2 => error
+    tries += 1
+    retry unless tries > 5
+    nil
   end
+end
+}}}
   
-But even if you use only once, look at it. The relevant code is buried in a mess of infrastructure. Write you own construction that goes to the point:
+Look at it the relevant code is literally buried in a jumble of infrastructure.  Abstract you own construction that goes to the point:
 
-  retry_on_exceptions([Exception1, Exception2], :max_retries => 5) do
-    # some code
+{{{
+retry_on_exceptions([Exception1, Exception2], :max_retries => 5) do
+  # relevant code
+end
+}}}
+  
+This is an extremely common pattern: use block as high-level wrappers.
+
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'trollop'
+
+# Simple implementation of common UNIX tools
+module UnixTools
+  # Grep lines in input that match regular expression.
+  #
+  # Options:
+  #   :invert_match: Return lines that do NOT match.
+  def self.grep(regexp, input, options = {})
+    input.select do |line|
+      line.match(regexp)
+    end
+  end  
+end
+
+= All-in-one example =
+
+{{{
+if __FILE__ == $0
+  options = Trollop::options do
+    banner "grep.rb REGEXP [FILE]"
+    opt :invert_match, "Invert match", :short => "v"
   end
+  unless ARGV.length >= 1
+    Trollop::die "Need regular expression as first argument"
+    exit 1
+  end 
+  regexp = Regexp.new(ARGV[0])
+  input = ARGV[1] ? File.open(ARGV[1]) : $stdin
+  UnixTools.grep(regexp, input, options).each do |line|
+    puts line
+  end
+end
+}}}
+
+To be imported from another Ruby script:
+
+{{{
+require 'grep'
+UnixTools.grep(...)
+}}}
+
+Or to be run from console:
+
+{{{
+$ ruby grep.rb traversal /etc/services
+}}}
+
+= Conclusion =  
+
+ * Write beautiful code. This is valid for any language, problem is some of them just keep getting on your way. That's not the case with Ruby.
  
-= Expand enumerables in block arguments
-
-Don't do this:
-
-  [[1, 2], [3, 4]].each do |array|
-    array[0] - array[1]
-  end
-
-Do this:
-
-  [[1, 2], [3, 4]].each do |v1, v2|
-    v1 - v2
-  end
-  
-Note that you can expand as nested levels as we want:
-
-  [["hello", [2, 3.3]], ["bye", [4, 1.1]]].each do |string, (integer, float)|
-    ...
-  end
+ * Ruby is not a functional language, and this is fine, but don't use it imperatively when there is no valid reason for it. State of the root of all evil, keep it to a minimum. 
+ 
+ * Ruby developers can't forecast all your needs, don't resign yourself to the existing toolbox, build your own. 
+ 
+ * Programming is about building abstractions. Your personal toolbox should be growing and growing with each project you write.
+ 
+Exploit the language so you can write more beautiful, compact, clear and semantically meaningful code. There are few languages as suited as Ruby to achieve this goal, don't waste the opportunity.
