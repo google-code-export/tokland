@@ -28,7 +28,7 @@ But use spaces to let the blocks "breath":
 [1, 2, 3].map { |x| 2 * x }
 }}}
 
-Note: some Ruby programmers *do* put spaces after "[" {{{[ 1, 2, 3 ]}}} and "{" {{{{ :a => 1 }}}}. You'll see this style in Rails code, for example. Maybe it's my Python background, but I just wish my eyes were gouged away every time I see it. So I cannot but break this convention (if any such exists).  
+Note: some Ruby programmers *do* put spaces after "[" {{{[ 1, 2, 3 ]}}} and "{" {{{{ :a => 1 }}}}. You'll see this style in Rails code, for example. Maybe it's my Python background, but I just wish my eyes were gouged away every time I see it. So I cannot but break this convention (if any such exists, at least IRB don't follow it).  
 
 === Naming ===
 
