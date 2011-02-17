@@ -1,0 +1,15 @@
+#summary One-sentence summary of this page.
+
+= Catalunya =
+
+Divisions provincials, comarcals i municipals de Catalunya en format KML: [http://tokland.googlecode.com/files/catalunya-kml.tgz descarrega TGZ].
+
+Fonts:
+
+ * KML de divisions comarcals i municipals a partir dels KML de [http://blocs.mesvilaweb.cat/marcbel/cat/1539/page/3 Marc Belzunces].
+
+ *  KML de divisions comarcals obtingut a partir de les dades de [http://www.diva-gis.org/Data DIVA-GIS]. 
+
+= Convert DIVA-GIS data to KML =
+
+Files downloadable in DIVA-GIS are in SHP format, I used [http://www.gvsig.com/ gvSIG] to convert them to KML.
