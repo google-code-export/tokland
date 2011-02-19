@@ -1,6 +1,6 @@
 #summary Ruby conventions and idioms
 
-Small recopilation of Ruby conventions, idioms and patterns (some common, accepted by the whole community, some personal). Work in progress, email if you have any suggestions.  
+Recopilation of Ruby conventions, idioms and patterns (some common, accepted by the whole community, some personal). Work in progress, email if you have any suggestions.  
 
 = Community-accepted idioms =
 
