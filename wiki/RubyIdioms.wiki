@@ -99,7 +99,7 @@ end
 fun 1 2 #=> 3
 }}}
 
-But my personal advice is: write them. On the other hand, it's common (and looks good) to ommit when writing DSL-style calls. The best known example is Rails classmethods: 
+But my personal advice is: write them. On the other hand, it's common (and looks good) to ommit when writing DSL-style calls. The best known example are Rails class-methods: 
 
 {{{
 class Post < ActiveRecord::Base
