@@ -213,7 +213,7 @@ Yes:
 head, *tail = array
 }}}
   
-= Functional Ruby ==
+== Functional Ruby ===
 
 Ruby is not a functional language. In fact, being a classic OOP language it tacitly promotes state changes in objects. But, at the same time, Ruby comes with great functional capabilities, know when to use them.
 
