@@ -363,13 +363,13 @@ So this is a another general advice: don't reuse variable names nor modify them 
 
 == Managing nil's. The Maybe pattern ==
 
-You have find a lost dog and you want to know its address from its owner. You'll write:
+You have find a lost dog and you want to know its address. You'll write:
 
 {{{
 dog_address = dog.owner.address
 }}}
 
-But hey, there are street dogs with no owners. Then you should be careful and write this instead:
+But hey, there are street dogs with no owners. Then you should be careful and do this instead:
 
 {{{
 dog_address = dog.owner ? dog.owner.address : nil
