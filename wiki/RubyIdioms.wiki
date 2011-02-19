@@ -2,6 +2,8 @@
 
 Recopilation of Ruby conventions, idioms and patterns (some common, accepted by the whole community, some personal). Work in progress, email if you have any suggestions.  
 
+<wiki:toc max_depth="2" />
+
 = Community-accepted idioms =
 
 == Formatting ==
