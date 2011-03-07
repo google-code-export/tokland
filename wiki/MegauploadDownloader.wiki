@@ -70,7 +70,7 @@ The goal of this script, on the other hand, is about programming: how to write a
 
 {{{
 system:
-  date: Sun, 06 Mar 2011 05:00:06 +0000
+  date: Mon, 07 Mar 2011 05:00:08 +0000
   kernel: 2.6.18.8-linode22 i686 GNU/Linux
   
   imagemagick: 6.3.7
