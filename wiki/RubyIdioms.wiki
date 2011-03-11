@@ -1,6 +1,6 @@
 #summary Ruby conventions and idioms
 
-Recopilation of Ruby conventions, idioms and patterns (some common, accepted by the whole community, some personal). Work in progress, email if you have any suggestions.  
+This is a recopilation of Ruby conventions, idioms and abstractions (some of them accepted by the whole community, some of them personal). This is a work in progress, feel free to email me if you have any suggestion.  
 
 <wiki:toc max_depth="2" />
 
@@ -259,7 +259,7 @@ Use {{{inject}}} instead:
 
 {{{
 def get_result_from_array(input)
-  input.map(&:process).inject(0) do |acc, item|
+  input.inject(0) do |acc, item|
     acc + item
   end
 end
