@@ -1,0 +1,79 @@
+#summary How to build Abstract Data Types in Ruby
+
+= Introduction =
+
+There is a turning point when you are first exposed to Abstract Data Constructions, specially with the compactness of Haskell:
+
+http://mousely.com/wiki_image/d/df/Binary_tree.png
+
+data Tree a = Empty | Leaf a | Node a (Tree a) (Tree a)
+
+But while it's impossible to match this in Ruby, we can use the same idea, let's see how.
+
+= A first approach =
+
+We can use the standard multiple-constructor approach:
+
+{{{
+class Tree
+  def initialize(type, value = nil, left_tree = nil, right_tree = nil)
+    @type = type
+    @value = value
+    @left_tree = left_tree
+    @right_tree = right_tree
+  end
+  
+  def self.empty
+    Tree.new(:empty)    
+  end
+
+  def self.leaf(value)
+    Tree.new(:leaf, value)
+  end 
+
+  def self.node(value, left_tree, right_tree)
+    Tree.new(:node, value, left_tree, right_tree)
+  end 
+end
+}}}
+
+To be used this way:
+
+{{{
+tree = Tree.node(
+  1, Tree.leaf(2), 
+     Tree.node(3, Tree.empty, 
+                  Tree.leaf(4)))
+
+p tree.weight #=> 4
+}}}
+
+Full code:
+
+http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/manual.rb
+
+= Abstracting a library = 
+
+We clearly see that there is some boilerplate here that we could abstract. How about that?
+
+class Tree
+  include ADT
+  constructor :empty
+  constructor :leaf => :value
+  constructor :node => [:value, :left_tree, :right_tree]
+  
+  # Return weight of tree (total number of non-empty nodes)
+  def weight
+    case @type
+    when :empty then 0
+    when :leaf then 1
+    when :node then 1 + @left_tree.weight + @right_tree.weight
+    end  
+  end 
+end
+
+Granted, it's has not the beauty of the Haskell definition but looks nice. As usual with Ruby, no type-checking is done (though it could be added easily)
+
+Full code: 
+
+http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/adt.rb
