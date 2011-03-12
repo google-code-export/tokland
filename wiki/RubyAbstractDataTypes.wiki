@@ -91,3 +91,5 @@ Granted, it has not the beauty of Haskell, but it looks pretty idiomatic and cle
 Full code (implements methods {{{Tree#weight}}}, {{{Tree#values}}}, {{{Tree#inspect}}}, and {{{Tree#fmap}}} as demonstration): 
 
 http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/adt.rb
+http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/adt_tree.rb
+http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/adt_tree_test.rb
