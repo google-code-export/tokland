@@ -2,15 +2,15 @@
 
 = Introduction =
 
-There is a turning point when you are first exposed to Abstract Data Constructions, specially with the compactness of Haskell:
+There is a turning point when you are first exposed to Abstract-Data-Type constructions, specially if you learn them in the compactness of Haskell. Let's an example of a binary tree:
 
 {{{
 data Tree a = Empty | Leaf a | Node a (Tree a) (Tree a)
 }}}
 
-An example:
-
 http://mousely.com/wiki_image/d/df/Binary_tree.png
+
+The previous tree could be describe this way using the previous definition:
 
 {{{
 Tree 2 (Node 7 (Leaf 2) 
@@ -21,9 +21,7 @@ Tree 2 (Node 7 (Leaf 2)
                        Empty))
 }}}
 
-Let's see how to do something similar with Ruby.
-
-= A first approach =
+= A first approach in Ruby =
 
 We can employ the standard multiple-constructor approach (using class methods):
 
@@ -53,10 +51,11 @@ end
 To be used this way:
 
 {{{
-tree = Tree.node(
-  1, Tree.leaf(2), 
-     Tree.node(3, Tree.empty, 
-                  Tree.leaf(4)))
+tree = 
+  Tree.node(
+    1, Tree.leaf(2), 
+       Tree.node(3, Tree.empty, 
+                    Tree.leaf(4)))
 
 p tree.weight #=> 4
 }}}
@@ -67,7 +66,7 @@ http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/manual.rb
 
 = Abstracting = 
 
-The previous code is too verbose, there is clearly some boilerplate could abstract. It's easy to create a module that allows us to write that:
+The previous code is too verbose, and there is clearly some boilerplate we could abstract. The best I've come up with is this:
 
 {{{
 class Tree
@@ -87,7 +86,7 @@ class Tree
 end
 }}}
 
-Granted, it has not the beauty of Haskell, but still it looks nice and clear. As usual with Ruby, no type-checking is done (though it could be added easily)
+Granted, it has not the beauty of Haskell, but it looks (more or less) idiomatic and clear. As usual with Ruby, no type-checking is performed (though it could be easily added)
 
 Full code: 
 
