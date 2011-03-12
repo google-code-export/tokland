@@ -60,11 +60,9 @@ end
 To be used this way:
 
 {{{
-tree = 
-  Tree.node(
-    1, Tree.leaf(2), 
-       Tree.node(3, Tree.empty, 
-                    Tree.leaf(4)))
+tree = Tree.node(1, Tree.leaf(2), 
+                    Tree.node(3, Tree.empty, 
+                                 Tree.leaf(4)))
 
 p tree.weight #=> 4
 }}}
