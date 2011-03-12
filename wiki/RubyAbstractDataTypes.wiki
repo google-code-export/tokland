@@ -2,15 +2,13 @@
 
 = Introduction =
 
-There is a turning point in every programmer the first time is exposed to abstract data type constructions, specially if learnt with the compactnesss of Haskell. Let's see an example of a binary tree:
+One of the many cool things about functional languages are the compact way they describe abstract data types. Let's see, for example, how can we define a binary tree type in Haskell:
 
 {{{
 data Tree a = Empty | Leaf a | Node a (Tree a) (Tree a)
 }}}
 
 http://mousely.com/wiki_image/d/df/Binary_tree.png
-
-The previous tree is then written:
 
 {{{
 Noe 2 (Node 7 (Leaf 2) 
@@ -21,9 +19,11 @@ Noe 2 (Node 7 (Leaf 2)
                       Empty))
 }}}
 
-= A first approach in Ruby =
+Wouldn't it be cool to make something similar with Rub?
 
-Let's use a multiple-constructor class to implement a Tree:
+= A first approach =
+
+Let's use a multiple-constructor class to implement a {{{Tree}}} with an example {{{Tree#weight}}} method:
 
 {{{
 class Tree
@@ -75,7 +75,7 @@ http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/manual.rb
 
 = Abstracting = 
 
-The previous code is too verbose, and there is clearly some boilerplate we could abstract. The best I've come up with is this:
+The previous code is too verbose, and there is clearly some boilerplate we could abstract. That's the best I was able to came up with:
 
 {{{
 class Tree
@@ -86,8 +86,8 @@ class Tree
 end
 }}}
 
-Granted, it has not the beauty of Haskell, but it looks (more or less) idiomatic and clear. As usual with Ruby, no type-checking is performed (though it could be easily added)
+Granted, it has not the beauty of Haskell, but it looks pretty idiomatic and clear. As usual with Ruby, no type-checking is performed (though it could be easily added)
 
-Full code (implements methods {{{Tree#weight}}}, {{{Tree#values}}}, {{{Tree#insoect}}} and {{{Tree#fmap}}} as demonstration): 
+Full code (implements methods {{{Tree#weight}}}, {{{Tree#values}}}, {{{Tree#inspect}}}, and {{{Tree#fmap}}} as demonstration): 
 
 http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/adt.rb
