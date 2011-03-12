@@ -14,11 +14,11 @@ The previous tree is then written:
 
 {{{
 Noe 2 (Node 7 (Leaf 2) 
-               (Node 6 (Leaf 5) 
-                       (Leaf 11))) 
-       (Node 5 Empty 
-               (Node 9 (Leaf 4) 
-                       Empty))
+              (Node 6 (Leaf 5) 
+                      (Leaf 11))) 
+      (Node 5 Empty 
+              (Node 9 (Leaf 4) 
+                      Empty))
 }}}
 
 = A first approach in Ruby =
