@@ -1,4 +1,6 @@
+#summary My personal projects
 #labels Featured
+
 Those are some of the projects and scripts I've developed over the years. Unless specified all this software is licensed under the GNU General Public License (GNU-GPL) v3. Feedback is appreciated: tokland AT gmail.com
 
 <wiki:toc max_depth="2" />
