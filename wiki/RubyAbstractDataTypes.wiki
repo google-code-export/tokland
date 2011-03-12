@@ -69,9 +69,7 @@ tree =
 p tree.weight #=> 4
 }}}
 
-Full code:
-
-http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/manual.rb
+Full code: [http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/manual.rb manual.rb]
 
 = Abstracting = 
 
@@ -88,8 +86,4 @@ end
 
 Granted, it has not the beauty of Haskell, but it looks pretty idiomatic and clear. As usual with Ruby, no type-checking is performed (though it could be easily added)
 
-Full code (implements methods {{{Tree#weight}}}, {{{Tree#values}}}, {{{Tree#inspect}}}, and {{{Tree#fmap}}} as demonstration): 
-
-http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/adt.rb
-http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/adt_tree.rb
-http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/adt_tree_test.rb
+Full code:  http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/adt.rb adt.rb], [http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/adt_tree.rb adt_tree.rb], [http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/adt_tree_test.rb adt_tree_test.rb]
