@@ -45,6 +45,15 @@ class Tree
   def self.node(value, left_tree, right_tree)
     Tree.new(:node, value, left_tree, right_tree)
   end 
+
+  # Return weight of tree (total number of non-empty nodes)
+  def weight
+    case @type
+    when :empty then 0
+    when :leaf then 1
+    when :node then 1 + @left_tree.weight + @right_tree.weight
+    end  
+  end 
 end
 }}}
 
@@ -73,21 +82,12 @@ class Tree
   include ADT
   constructor :empty
   constructor :leaf => :value
-  constructor :node => [:value, :left_tree, :right_tree]
-  
-  # Return weight of tree (total number of non-empty nodes)
-  def weight
-    case @type
-    when :empty then 0
-    when :leaf then 1
-    when :node then 1 + @left_tree.weight + @right_tree.weight
-    end  
-  end 
+  constructor :node => [:value, :left_tree, :right_tree]  
 end
 }}}
 
 Granted, it has not the beauty of Haskell, but it looks (more or less) idiomatic and clear. As usual with Ruby, no type-checking is performed (though it could be easily added)
 
-Full code: 
+Full code (implements methods {{{Tree#weight}}}, {{{Tree#values}}} and {{{Tree#fmap}}} as demonstration): 
 
 http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/adt.rb
