@@ -2,7 +2,7 @@
 
 = Introduction =
 
-There is a turning point when you are first exposed to Abstract-Data-Type constructions, specially if you learn them in the compactness of Haskell. Let's an example of a binary tree:
+There is a turning point in every programmer the first time is exposed to abstract data type constructions, specially if learnt with the compactnesss of Haskell. Let's see an example of a binary tree:
 
 {{{
 data Tree a = Empty | Leaf a | Node a (Tree a) (Tree a)
@@ -10,10 +10,10 @@ data Tree a = Empty | Leaf a | Node a (Tree a) (Tree a)
 
 http://mousely.com/wiki_image/d/df/Binary_tree.png
 
-The previous tree could be describe this way using the previous definition:
+The previous tree is then written:
 
 {{{
-Tree 2 (Node 7 (Leaf 2) 
+Noe 2 (Node 7 (Leaf 2) 
                (Node 6 (Leaf 5) 
                        (Leaf 11))) 
        (Node 5 Empty 
@@ -23,7 +23,7 @@ Tree 2 (Node 7 (Leaf 2)
 
 = A first approach in Ruby =
 
-We can employ the standard multiple-constructor approach (using class methods):
+Let's use a multiple-constructor class to implement a Tree:
 
 {{{
 class Tree
@@ -88,6 +88,6 @@ end
 
 Granted, it has not the beauty of Haskell, but it looks (more or less) idiomatic and clear. As usual with Ruby, no type-checking is performed (though it could be easily added)
 
-Full code (implements methods {{{Tree#weight}}}, {{{Tree#values}}} and {{{Tree#fmap}}} as demonstration): 
+Full code (implements methods {{{Tree#weight}}}, {{{Tree#values}}}, {{{Tree#insoect}}} and {{{Tree#fmap}}} as demonstration): 
 
 http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/adt.rb
