@@ -128,7 +128,7 @@ database.destroy!
 No:
 
 {{{
-  if some_object.nil?
+  if !some_object.nil?
     ..
   end
 }}}
