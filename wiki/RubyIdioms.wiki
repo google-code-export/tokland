@@ -1,6 +1,6 @@
 #summary Ruby conventions and idioms
 
-This document shows some Ruby conventions, idioms and pattern (some of them accepted by the community, some of them personal). This is a work in progress, feel free to email me if you have any suggestion (tokland AT gmail.com).  
+This document shows some Ruby idioms, conventions and patterns (some of them accepted by the community, some of them personal). This is a work in progress, feel free to email me if you have any suggestion (tokland AT gmail.com).  
 
 <wiki:toc max_depth="2" />
 
@@ -8,7 +8,7 @@ This document shows some Ruby conventions, idioms and pattern (some of them acce
 
 == Formatting ==
 
-This applies when programming in any language: choose a sound formatting style in any language you program (goal: legibility) and stick with it knowing when to break the rules (as Waldo Emerson said: "A foolish consistency is the hobgoblin of little minds"). 
+This applies when programming in any language: choose a sound formatting style (main goal: legibility) and stick with it, knowing when to break the rules (Waldo Emerson: "A foolish consistency is the hobgoblin of little minds"). 
 
 Novice programmers tend to overlook the importance of code looks, but as SICP's authors remarked, programs must be written for people to read, and only *incidentally* for machines to execute. Be *extremely* careful with the code you write.
 
@@ -18,7 +18,7 @@ Use 2 spaces, no tabs, and never ever mix spaces and tabs. Keep your code under 
 
 === Whitespaces ===
 
-Leave an space after commas. No spaces after or before _(_, _[_ or _{_ (when used to build a hash, not in a block):
+Leave an space after commas. No spaces after or before a _(_, _[_ or _{_ (when used to build a hash, not in a block):
 
 {{{
 array = [1, 2, 3]
@@ -32,19 +32,19 @@ But use spaces to let the blocks breathe:
 [1, 2, 3].map { |x| 2 * x }
 }}}
 
-Note: some Ruby programmers *do* put spaces after "[" {{{[ 1, 2, 3 ]}}} and "{" {{{{ :a => 1 }}}}. You'll see this style throughout Rails code, for example. Maybe it's my Python background, but I'd wish my eyes were gouged away every time I see this. 
+Note that some Ruby programmers *do* put spaces after "[" {{{[ 1, 2, 3 ]}}} and "{" {{{{ :a => 1 }}}}. You'll see this style throughout Rails code, for example. Maybe it's my Python background, but I'd wish my eyes were gouged away every time I see it. 
 
 === Naming ===
 
  * {{{StudlyCaps}}} for classes and modules.
- * {{{ALL_LOWER_UNDERCASE}}} for constants.
- * {{{lower_undercase}}} for methods, attributes and local variables.
+ * {{{ALL_LOWER_UNDERCASE}}} for constants (but also {{{StudlyCaps}}}).
+ * {{{lower_undercase}}} for everything elese: methods, attributes, local variables, ...
 
 === Blank lines ===
 
 My personal rules are:
 
-  * Don't add empty lines between different indentation levels, only between definitions ({{{module}}}, {{{class}}}, {{{def}}}, ...) on the same level. The indentation itself should serve as visual hint. 
+  * Don't insert empty lines between different indentation levels, only *between* definitions ({{{module}}}, {{{class}}}, {{{def}}}, ...) on the same level. The indentation itself should serve as visual hint. 
   
   * In a given level insert blank lines, sparingly, to separate logic blocks.  
 
@@ -125,7 +125,7 @@ database.destroy!
 
 == Testing for truth values ==
 
-No:
+No, no, no:
 
 {{{
   if !some_object.nil?
@@ -165,7 +165,7 @@ end
 Why:
 
   * It separates clearly required from optional arguments.
-  * You don't have to write intermediate arguments to get to the argument your want. 
+  * You don't have to write intermediate arguments to reach the argument your want. 
   * You'll get a shorted (and cleaner) method signature. Long signatures are a nightmare both to read and call. 
 
 Downside:
@@ -199,29 +199,13 @@ Note that you can expand as nested levels as you need to:
 end
 }}}
 
-== Take head/tail from enumerables ==
-
-No:
-
-{{{
-array = [1, 2, 3, 4]
-head = array[0]
-tail = array[1..-1]
-}}}
-
-Yes:
-
-{{{
-head, *tail = array
-}}}
-  
 == Functional Ruby ===
 
 Ruby is not a functional language. In fact, being a classic OOP language it promotes changes in the state of objects. But, at the same time, Ruby comes with great functional capabilities, let's see when to use them.
 
 === each vs map ===
 
-This is the classic example. Never use this imperative pattern (ugly, verbose, and convoluted):
+This is the classic example. Under no circumstance use this imperative pattern:
  
 {{{
 def do_something_with_array(input)
@@ -245,7 +229,7 @@ end
 
 === each vs inject ===
 
-Another common usage of {{{each}}} is to fold/reduce/accumulate results:
+Another common usage of {{{Enumerable#each}}} is to fold/reduce/accumulate results:
  
 No:
 
@@ -273,7 +257,7 @@ Note that in this particular case we could simply write:
 
 {{{
 def get_result_from_array(input)
-  input.inject(0, :+)
+  input.inject(0, :+) # input.sum in Rails
 end
 }}}
   
@@ -295,7 +279,7 @@ def process_array(input)
 end
 }}}
 
-This is hideous. Period. But there is something better at hand indeed, the old {{{Hash}}} constructor, but the problem is that it required a flatten collection of consecutive _key/value_ (ugh, a flatten array to describe a mapping?). Fortunately, latest versions of Ruby take _key/value_ pairs, which makes much more sense (it's the reverse operation of {{{hash.to_a}}}), and now you can write:
+This is hideous. Period. Is there anything better at hand? on the past the {{{Hash}}} constructor required a flatten collection of consecutive _key/value_ (ugh, a flatten array to describe a mapping?). Fortunately, latest versions of Ruby also take _key/value_ pairs, which makes much more sense (as it's the reverse operation of {{{hash.to_a}}}), and now you can write:
 
 {{{
 def process_array(input)
@@ -305,14 +289,14 @@ def process_array(input)
 end
 }}}
 
-Not bad, but it kind of breaks the natural writing directionality of object-oriented programming. In a classical functional language you know you will be writing from right to left: 
+Not bad, but it kind of breaks the natural writing directionality. In a classical functional language you know you will be writing from right to left: 
 
 {{{
 > filter even (map (*2) [1,2,3])
 [2,4,6]
 }}}  
 
-And in a OOP language you expect to write from left to right. If we used {{{Hash}}} we'd have to go back. The constructor has an additional problem: you first have to map your input to pairs and then call the constructor; it would be better to do it in a single step. 
+And in a OOP language you'd expect to write from left to right. If we used {{{Hash}}} we'd have to go back. The constructor has an additional problem: you first have to map your input to pairs and then call the constructor; it would be better to do it in a single step. 
 
 What we need is a method in Enumerable that creates a hash from their _key/value_ pairs. [https://github.com/rubyworks/facets Facets] call it Enumerable#mash:
 
@@ -321,7 +305,7 @@ What we need is a method in Enumerable that creates a hash from their _key/value
 => {"rules"=>5, "programming"=>11, "functional"=>10}
 }}}
 
-Or in a single step:
+Or in a single step using mash with the block:
 
 {{{
 >> [["functional", "programming", "rules"].mash { |s| [s, s.length] }]
@@ -330,7 +314,7 @@ Or in a single step:
 
 === Using each methods in a functional way ===
 
-Ruby's {{{Enumerable}}} has quite a number of handy {{{each_xyz}}} methods, but as we already saw, {{{each}}} loops promote imperative style (appending to arrays and other stateful patterns). Fortunately, modern versions of Ruby return an Enumerator when these methods are called without a block, so we can now use them in a functional style. 
+Ruby's {{{Enumerable}}} has quite a number of handy {{{each_xyz}}} methods, but as we already saw, {{{each}}} loops are imperative. Fortunately, modern versions of Ruby return an Enumerator when these methods are called without a block, so we can now use them in a functional style. 
 
 Example 1: use {{{Enumerable#each_cons}}} to return the pairwise combinations of {{{1..4}}}:
 
@@ -363,9 +347,9 @@ Yes:
 output = [1, (2 if i_have_to_add_two), 3].compact
 }}}
 
-But what is so bad about appending, you may think. It's not only that the variable name is repeated over and over (not really DRY, isn't it?), the real problem -inherent to imperative programming- is that it expands the scope of the variable to the *whole method* (if it's a instance variable, it's expanded to *the whole class*). If you modify variables in-place, you'll have to look through the whole method (at least) to see where the variable was updated and how. Ugh.
+'What is so bad about appending?' you may think. It's not only that the variable name is repeated over and over (not really DRY, isn't it?), the real problem -inherent to imperative programming- is that it expands the scope of variables to the *whole method* (if it's a instance variable, it's expanded to *the whole class*). If you modify variables in-place, you'll have to look throughout the whole method (at least) to see where the variable was updated and how. Ugh.
 
-So this is a another general advice: don't reuse variable names nor modify them in-place. {{{x = x + 1}}}? really? 
+So this is a another general advice: don't reuse variable, don't update them inplace. {{{x = x + 1}}}? really? which is this magical {{{x}}}?
 
 == Managing nil's. The Maybe pattern ==
 
@@ -411,7 +395,7 @@ dog_owner_street = dog.owner.maybe.address.maybe.street
 dog_owner_street = dog.owner.maybe { |owner| owner.address.street }
 }}}
   
-I'd recommend the second one, the {{{maybe}}} proxy approach without blocks: explicit yet compact.
+I'd recommend the second one, the {{{maybe}}} proxy approach without blocks:  compact yet explicit.
   
 == Use an script both as library or executable ==
 
@@ -431,7 +415,7 @@ So you have a dog named Scooby and want to know if it's in your list of selected
 ["rantanplan", "milu"].include?("scooby") #=> false
 }}}
 
-Notice how the code reverse the phrasing. Why don't we create a construction that reflects how we think about the problem? 
+Notice how the code reversed our phrasing. Why don't we create a construction that reflects how we think about the problem? 
 
 {{{
 class Object
@@ -447,13 +431,13 @@ end
   
 === Example2: Use blocks as wrappers ===
 
-Sooner or later you end up writing something like this:
+Never wrote something similar to this?
 
 {{{
 tries = 0
 loop do 
   begin
-    # relevant code
+    process
   rescue Exception1, Exception2 => error
     tries += 1
     retry unless tries > 5
@@ -462,19 +446,19 @@ loop do
 end
 }}}
   
-There is nothing wrong with that, but look at the relevant code, it's literally buried in a jumble of infrastructure!  Let's abstract the construction, so both we simplify the code and leave a method to be reused in other projects:
+There is nothing fundamentally wrong, but look at the relevant code: it's literally buried in a jumble of infrastructure!  Let's abstract the construction so 1) we simplify the code, 2) leave a method to be reused in other projects:
 
 {{{
 retry_on_exceptions([Exception1, Exception2], :max_retries => 5) do
-  # relevant code
+  process
 end
 }}}
 
-In this second version you see in a glance what it's going on. This example presents a useful pattern: using blocks as high-level abstraction wrappers.
+In this second version you see in a glance what it's going on. This example presents a useful pattern: use blocks as high-level abstraction wrappers.
 
 = All-in-one example =
 
-To sum up some of the patterns seen:
+To sum up some of the patterns we've seen:
 
 {{{
 #!/usr/bin/env ruby
@@ -530,8 +514,8 @@ $ ruby grep.rb traversal /etc/services
 
  * Write beautiful code. This is valid for any language, but while some of them just keep getting in your way no matter how hard you try, that's not the case with Ruby.
  
- * Ruby is not a functional language, and this is fine, but don't use it imperatively when there is no valid reason for it. Blocks provide a powerful mechanism for functional programming. "State of the root of all evil", keep it to a minimum. 
+ * Ruby is not a functional language, and that's fine, but don't use it imperatively when there is no reason for it. Blocks provide a powerful mechanism for functional programming. "State of the root of all evil", keep it to a minimum. 
  
- * Ruby core developers can't forecast all your needs, don't resign yourself to the existing toolbox. *Programming is about building abstractions*, your personal toolbox should be growing with each project you write. Reuse them amongst projects to progressively improve them.
+ * Ruby core developers can't forecast all your needs, don't resign yourself to the existing toolbox. *Programming is about building abstractions*, your personal toolbox should be growing with each project you write. Reuse them amongst projects and progressively improve them.
  
-Exploit the language so you can write beautiful, compact, clear and semantically meaningful code. There are few languages as suited as Ruby to achieve this goal, don't waste the opportunity.
+In a nutshell: Exploit the language so you can write beautiful, compact, clear and semantically meaningful code. There are few languages as suited as Ruby to achieve this goal, don't waste the opportunity.
