@@ -173,6 +173,24 @@ Downside:
   * Available options are not explicit, so make sure you document them.
   * You must be careful with default values on boolean options.
   
+== Calling functions with key arguments ==
+
+It's not necessary to use explicit {} to indicate it's a hash:
+
+{{{
+dog.bark(:volumen => 10, :duration => 5)
+}}}
+
+However, if there are lots of options and must be multilined I recommend this:
+
+{{{
+dog.bark({
+  :volumen => 10, 
+  :duration => 5,
+  :direction => :ne,
+})
+}}}
+
 == Unpack enumerables in block arguments ==
 
 No:
