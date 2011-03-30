@@ -101,10 +101,10 @@ array = [
 ]
 }}}
 
-Note the comma even in the last element. This is syntically correct and very handy because you have not to worry if you are writing the last line or no, they are all the same (and you can reorder with re-editing). The same for arrays, nested or not:
+Note the comma even in the last element. This is syntically correct and very handy because you have not to worry if you are writing the last line or no, they are all the same (and you can reorder without more editing). The same for hashes:
 
 {{{
-my_array = {
+hash = {
   :a => 1,
   :b => { 
     :b1 => "11",
