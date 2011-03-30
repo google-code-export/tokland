@@ -89,6 +89,28 @@ obj.method do |foo|
 end
 }}}
 
+== Multi-line array/hashes
+
+There are many ways of writing multi-line array or hashes. I recommend this one:
+
+array = [
+  1,
+  2,
+  3,
+]
+
+Note the comma even in the last element. This is syntically correct and very handy because you have not to worry if you are writing the last line or no, they are all the same (and you can reorder with re-editing). The same for arrays, nested or not:
+
+my_array = {
+  :a => 1,
+  :b => { 
+    :b1 => "11",
+    :b2 => "12",
+  },
+  :c => 3,
+}
+
+
 == Use of parenthesis ==
 
 Parenthesis are (usually) optional in Ruby:
