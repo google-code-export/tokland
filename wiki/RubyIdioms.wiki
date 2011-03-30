@@ -4,6 +4,8 @@ This document shows some Ruby idioms, conventions and patterns (some of them acc
 
 <wiki:toc max_depth="2" />
 
+== Idioms ==
+
 == Formatting ==
 
 This applies when programming in any language: choose a sound formatting style (main goal: legibility) and stick with it, knowing when to break the rules (Waldo Emerson: "A foolish consistency is the hobgoblin of little minds"). 
