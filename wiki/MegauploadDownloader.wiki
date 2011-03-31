@@ -35,7 +35,13 @@ $ megaupload-dl http://megaupload.com/?d=710JVG89
 * Download a password-protected file:
  
 {{{
-$ megaupload-dl http://megaupload.com/?d=110JVG89@somepassword
+$ megaupload-dl -p somepassword http://megaupload.com/?d=110JVG89
+}}}
+
+* Check if a link is alive:
+ 
+{{{
+$ megaupload-dl -c http://megaupload.com/?d=110JVG89
 }}}
 
 * Download a list of files:
