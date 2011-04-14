@@ -11,12 +11,12 @@ data Tree a = Empty | Leaf a | Node a (Tree a) (Tree a)
 http://mousely.com/wiki_image/d/df/Binary_tree.png
 
 {{{
-Noe 2 (Node 7 (Leaf 2) 
-              (Node 6 (Leaf 5) 
-                      (Leaf 11))) 
-      (Node 5 Empty 
-              (Node 9 (Leaf 4) 
-                      Empty))
+Node 2 (Node 7 (Leaf 2) 
+               (Node 6 (Leaf 5) 
+                       (Leaf 11))) 
+       (Node 5 Empty 
+               (Node 9 (Leaf 4) 
+                       Empty))
 }}}
 
 Wouldn't it be cool to make something similar with Rub?
