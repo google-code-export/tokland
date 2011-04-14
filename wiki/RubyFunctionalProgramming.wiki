@@ -1,0 +1,384 @@
+#summary Functional programming with Ruby
+
+<wiki:toc max_depth="2" />
+
+= Introduction =
+
+{{{x = x + 1}}}
+
+What would have happened if one day in school we had seen this written? we would be, with would reasson, have wondered which magical *x* is this that can be added one and yet remain unchanged. Somehow, we started programming and we forgot it.   
+ 
+Well, we may think, that's not serious issue, programming is about getting real business done and there's no need to quibble over mathematic purity (let the goofy bearded guys in universities deal with it). But it turns out we were wrong, we were paying a high price, only that we didn't know it. 
+
+= The theory = 
+
+From the Wikipedia: "Functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutable data". In other words, functional programming promotoes code with no side effects, no change of variables (which we may call now "symbols"). It oposes to imperative programming, which enfatizes change of state.
+
+Surprisingly, that's all there is to it. So what are the advantages? 
+
+1. Clarity: "variables" are not modified once defined, so we don't have to follow the change of state to comprehend what a function does.
+ 
+2. Referencial transparency: whenever we encounter a variable/function call we can replace it by its value and the program. If we call a function with the same parameters, we know for sure the output will be the same (there is no state anywhere that would change it). This opens the gate to nice things as parellallation and memoization. 
+
+Einstein defined _insanity_ as "doing the same thing over and over again and expecting different results". Let is serve as the FP motto.
+
+3. Modularization: We have no state that pervades the whole code, so we build our project with small, black boxes that we tie together (bottom-up programming).
+
+4. Ease of debugging. Functions are isolated, they only depend on their input and their output, so they are very easy to debug.
+
+= Functional programming in Ruby =
+
+This is all great, but how can I apply it to my daily-programming in Ruby (which is not a functional language)? FP is, in its general sense, a style, it may be used in any language. Of course, it will be the more natural way on languages specially designed for the paradigm, but to some extend, it can be applied to any language.
+
+Important note: this guide does not pretend to promote bizarre style just to adhere to theoretical functional purity. On the contrary, the point is to use FP whenever it increases the quality of code, otherwise it simply a bad solution.
+
+== Don't update variables ==
+
+Really, don't update them, just create new ones.
+
+=== Don't append to arrays or strings === 
+
+No:
+
+{{{
+indexes = [1, 2, 3]
+indexes << 4
+indexes # [1, 2, 3, 4]
+}}}
+
+Yes:
+
+{{{
+indexes = [1, 2, 3]
+all_indexes = indexes + [4] # [1, 2, 3, 4]
+}}} 
+
+=== Don't update hashes === 
+
+No:
+
+{{{
+hash = {:a => 1, :b => 2}
+hash[:c] = 3
+hash
+}}}
+
+Yes:
+
+{{{
+hash = {:a => 1, :b => 2}
+new_hash = hash.merge(:c => 3) 
+}}} 
+
+=== Don't use bang methods which modify in-place ===
+
+No:
+
+{{{
+string = "hello"
+string.gsub!(/l/, 'z')
+string # "lezzo"
+}}}
+
+Yes:
+
+{{{
+string = "hello"
+new_string =  string.gsub(/l/, 'z') # "lezzo"
+}}}
+
+== Higher order functions ==
+
+If a language is to be used functionally we need higher-order functions. That's it, functions what can be passed around as parameters, the same way we pass variables. 
+
+Ruby is a special language in this regard, because the facility is built-in in the language: blocks. A block is an anonymous piece of code you can pass around and execute at will. Let's see typical usage of blocks to build functional constructions.
+
+=== init-empty + each + push = map ===
+
+No: 
+
+{{{
+dogs = []
+["milu", "rantanplan"].each do |name|
+  dogs << name.upcase
+end
+dogs # => ["MILU", "RANTANPLAN"]
+}}}
+
+Yes:
+
+{{{
+dogs = ["milu", "rantanplan"].map do |name|
+  Dog.get_by_name(name)
+end # => ["milu", "rantanplan"]
+}}}
+
+== init-empty + each + conditional push -> select/reject ==
+
+No:
+
+{{{
+dogs = []
+["milu", "rantanplan"].each do |name|
+  if name.size == 4
+    dogs << name
+  end
+end
+dogs # => ["milu"]
+}}}
+
+Yes:
+
+{{{
+dogs = ["milu", "rantanplan"].select do |name|
+  name.size == 4
+end # => ["milu"]
+}}}
+
+== initialize + each + accumulate -> inject ==
+
+No:
+
+{{{
+total_length = 0
+["milu", "rantanplan"].each do |dog_name|
+  total_length += dog_name.length
+end
+total_length # => 15
+}}}
+
+Yes:
+
+{{{
+total_length = ["milu", "rantanplan"].inject(0) do |accumulator, dog_name|
+  accumulator + dog_name.length
+end # => 15
+}}}
+
+In this particular case, when there is a simple operation between accumulator and element, we don't need to write the block, just pass the operation symbol:
+
+{{{
+total_length = ["milu", "rantanplan"].inject(0, :+) # 15
+}}}
+
+=== empty + each + accumulate + push -> scan ===
+
+Imagine you don't want only the final result of a fold (the inject we saw before) but also the partial values. In imperative code you'd write:
+
+{{{
+lengths = []
+total_length = 0
+["milu", "rantanplan"].each do |dog_name|
+  lengths << total_length
+  total_length += dog_name.length
+end
+lengths # [0, 4, 15]
+}}}
+
+Haskell call this operation [http://zvon.org/other/haskell/Outputprelude/scanl_f.html scan]. But don't you think it's an academic tool, C++ has also this function ([http://www.cplusplus.com/reference/std/numeric/partial_sum/ partial_sum]. Ruby (surprisingly) has no such function, but we don't have to resign to the methods the core developers graciously wrote, do we? How about that:
+
+{{{
+lengths = ["milu", "rantanplan"].partial_inject(0) do |dog_name|
+  dog_name.length
+end # [0, 4, 15]
+}}}
+
+{{{Enumerable#partial_inject}}} can be written:
+
+{{{
+module Enumerable
+  def partial_inject(initial_value, &block)
+    self.inject([initial_value, [initial_value]]) do |(accumulated, output), element|
+      new_value = yield(accumulated, element)
+      [new_value, output + [new_value]]
+    end         
+  end
+end
+}}}
+
+The details of the implementation are not important, what matters is that when we identify a abtractable pattern, we write it down in a separate library, document it, test it, and use it in your code (and all our projects), and let real needs refine it.
+ 
+=== How to create a hash from an enumerable ===
+
+Vanilla Ruby has no direct translation from Enumerable to Hash (a sad flaw, in my opinion). That's why novices keep writing this terrible pattern (and how can you blame them?):
+
+{{{
+hash = {}
+input.each do |item|
+  hash[item] = process(item)
+end
+hash
+}}}
+
+This is hideous. Period. But is there anything better at hand? on the past the {{{Hash}}} constructor required a flatten collection of consecutive _key/value_ (ugh, a flatten array to describe a mapping?). Fortunately, latest versions of Ruby also take _key/value_ pairs, which makes much more sense (as the reverse operation of {{{hash.to_a}}}), and now you can write:
+
+{{{
+Hash[input.map do |item|
+  [item, process(item)]
+end]
+}}}
+
+Not bad, but it kind of breaks the natural writing directionality. In Ruby we expect to write from left to right, calling methods for objects. If we used {{{Hash}}} we would have to go back. The {{{Hash}}} constructor has an additional problem: you must first map the input to pairs and then call the constructor; it would more efficient to do it in a single step. 
+
+What we need is a method in Enumerable that creates a hash from their _key/value_ pairs (with an optional block). [https://github.com/rubyworks/facets Facets] call it {{{Enumerable#mash}}}:
+
+{{{
+["functional", "programming", "rules"].map { |s| [s, s.length] }.mash
+# {"rules"=>5, "programming"=>11, "functional"=>10}
+}}}
+
+Or in a single step using mash with the block:
+
+{{{
+[["functional", "programming", "rules"].mash { |s| [s, s.length] }]
+# {"rules"=>5, "programming"=>11, "functional"=>10}
+}}}
+
+== Narrowing down the scope ==
+
+Joe Armstrong, the creator of Erlang, discussed briefly in "Coders At work" the reusability myth of Object-Oriented programming: 
+
+"I think the lack of reusability comes in object-oriented languages, not in functional languages. Because the problem with object-oriented languages is they’ve got all this implicit environment that they carry around with them. You wanted a banana but what you got was a gorilla holding the banana and the entire jungle."
+
+This one of the most important advantages of Functional programming, the one that allows programmers to write modular, solid code. You write black-boxes where only their input and output matters. This isolation makes it way easier to develop, test and debug code. 
+
+On the other hand, if variables are being modified in-place, how do you know what's the value you get at a certain point? you don't. You have to follow all the code to see where and how the variable was modified. This is the source of bugs and uncountable hours of painful debugging.
+
+== Recursion ==
+
+Functional languages, having no state, use recursion a lot. To avoid infite stacks, functional languages have a mechanism called tail-recursion optimization (TCO). Ruby 1.9 has this mechanism coded but it's disabled by default, so you can't use it if you expect your code to work everywhere.
+
+The alternative to recursion is using abstractions (inject, partial_inject) whenever you can. An example with a state machine:
+
+{{{
+def process_state_machine
+  state = :off
+  while true
+    state = case get_action
+    when :turn_on
+      :on
+    when :turn_off
+      :off
+    en  
+  end
+end
+}}} 
+
+You see that state is being changed on each iteration. But we can easily abstract it ({{{Object#state_loop}}}):
+
+{{{
+def process_state_machine
+  state_loop(:off) do |state|
+    case get_action
+    when :turn_on
+      :on
+    when :turn_off
+      :off
+    en  
+  end
+end 
+}}}
+
+== Lazy enumerators ==
+
+Lazy evaluation delays the evaluation of the expression untils it's needed, as opposed to eager evaluation, where expression are calculated when a variable is assigned, a function called, etc. Laziness is not a requise for functional programming, but it's a strategy that fits nicely on the paradigm (Haskell is probably the best example, laziness pervades the language). 
+
+Ruby, basically, has eager evaluation (but as many other languages it short-circuits operators &&, ||, etc). However, as any language with high-order function, delayed evaluation is supported implicitly because you decide when blocks are going to be called. Let's see how to exploit lazy evaluation in Ruby:
+
+Enumerators are available in Ruby 1.9 (as an extension in 1.8). The classical example is:
+
+{{{
+require 'backports' # only for 1.8
+natural_numbers = Enumerator.new do |yielder|
+  number = 1
+  loop do
+    yielder.yield number
+    number += 1
+  end
+end
+}}}
+
+That we could re-write in the functional spirit:
+
+{{{
+natural_numbers = Enumerator.new do |yielder|
+  (1..1.0/0).each do |number|
+    yielder.yield number
+  end
+end
+}}}
+ 
+And now use it:
+
+{{{
+natural_numbers.take(10)
+# [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}}}
+
+Now, what would happen if we try a {{{map}}} on {{{natural_numbers}}}? it would never end. The reason is simple: standard enumerable methods (map, select) are strict, so it will first try to convert the object to an array, do the map and return the result array. This won't work if the input is an infinite streams. The solution is to extend with the methods we are familiar with the class {{{Enumerator}}. For example, {{{Enumerator#map}}}:
+
+{{{
+class Enumerator
+  def map(&block)
+    Enumerator.new do |yielder|
+      self.each do |value|
+        yielder.yield(block.call(value))
+      end
+    end
+  end
+end
+}}}
+
+And now we can do a map:
+
+{{{
+natural_numbers.map { |x| 2*x }.take(10)
+# [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+}}}
+
+=== Advantages of lazy evaluation ===
+
+1. You don't build and store complete structures if you don't need to (both CPU and memory efficient). Why read a complete file in memory when we are going to work line by line on it?
+
+2. Lazy evaluation makes possible more agnostic code. Let's see an example: you wrote a solver of some kind that yields infinite number of solutions, but at some point you only want the first 10. You'd write something like:
+
+{{{
+solver(input, :max => 10) 
+}}}
+
+On ther other hand, when you are working with lazy structures, there is no need to say when to stop. The caller decides how many values he wants. The code becomes simplier and the responsability goes where it should be, to the caller:
+
+{{{
+solver(input).take(10)
+}}}
+
+== A practical example ==
+
+Exercise: "How many natural numbers you must take before the accumulative sum of them does not exceed 100?". 
+
+A functional approach could be (requires methods: {{{Enumerator#partial_inject}}}, {{{Enumerator#take_while}}}, {{{Enumerator#enumerate}}}, {{{Enumerator#last}}}):
+ 
+{{{
+natural_numbers.partial_inject(0, :+).take_while { |x| x < 100 }.enumerate.last
+# [13, 91] (correct: 1 + .. + 13 = 91, 1 + .. + 14 = 105)
+}}}
+
+Let's compare it with the equivalent imperative version: 
+
+{{{
+n = 1
+acc = n
+while acc + n < 100
+  n += 1
+  acc += n
+end
+[n, acc] # [13, 91] 
+}}}
+
+This example helps us to verify practical advantages of FP over imperative:
+
+1. Compactness: You'll write less code. Functional code deals with expressions, and expressions are chainable; imperative code deals with variable modifications (statements), they are not chainable. You can argue that we are hiding a lot of code here ({{{partial_inject}}}, {{{take_while}}}, ...), and I am glad you brought it up because that's exactly what we are doing. To hide generic, reusable code, that's what abstraction is about. On the end we are not really happy because we write less lines (we may have written more characters), but because we reduced code complexity by identifying reusable patterns.
+
+2. Be declarative, my friend: Look at the imperative version, it's an amorph bunch of code that at first glance -not being commented- you have absolute no idea what it may be doing. You say: 'well, let's start here, jot down the values for n and acc, do some loops, see how n and acc evolve, look at the last iteration' and so on.  The functional version on the other hand needs no comment: it builds bottom-up from small, generic, simple tools programmers are already familiar with. It describes, it declares what it's doing, not how it's doing it.
+
+In other words: "Functional programming is like describing your problem to a mathematician. Imperative programming is like giving instructions to an idiot" (arcus, #scheme on Freenode).
