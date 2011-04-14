@@ -208,7 +208,7 @@ end
 lengths # [0, 4, 15]
 }}}
 
-Haskell call this operation [http://zvon.org/other/haskell/Outputprelude/scanl_f.html scan]. But don't you think it's an academic tool, C++ has also this function ([http://www.cplusplus.com/reference/std/numeric/partial_sum/ partial_sum]. Ruby (surprisingly) has no such function, but we don't have to resign to the methods the core developers graciously wrote, do we? How about that:
+Haskell calls it [http://zvon.org/other/haskell/Outputprelude/scanl_f.html scan], C++ calls it [http://www.cplusplus.com/reference/std/numeric/partial_sum/ partial_sum], Clojure calls it [http://clojuredocs.org/clojure_core/clojure.core/reductions reductions]. Ruby, surprisingly, has no such function, let's write our own. How about that:
 
 {{{
 lengths = ["milu", "rantanplan"].partial_inject(0) do |dog_name|
@@ -284,9 +284,9 @@ Joe Armstrong, the creator of Erlang, discussed briefly in "Coders At work" the 
 
 "I think the lack of reusability comes in object-oriented languages, not in functional languages. Because the problem with object-oriented languages is they’ve got all this implicit environment that they carry around with them. You wanted a banana but what you got was a gorilla holding the banana and the entire jungle."
 
-This one of the most important advantages of Functional programming, the one that allows programmers to write modular, solid code. You write black-boxes where only their input and output matters. This isolation makes it way easier to develop, test and debug code. 
+In Functional Programming functions are black-boxes where only their input and output matters. This isolation makes it way easier to develop, test and debug code. 
 
-On the other hand, if variables are being modified in-place, how do you know what's the value you get at a certain point? you don't. You have to follow all the code to see where and how the variable was modified. This is the source of bugs and uncountable hours of painful debugging.
+Moreover, if variables are being modified in-place, how do you know what's the value you have at a certain point? you don't. You have to follow all the code to see where and how the variable was modified. This is the source of bugs and uncountable hours of painful debugging.
 
 == Recursion ==
 
