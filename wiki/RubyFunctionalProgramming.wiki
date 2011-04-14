@@ -6,9 +6,9 @@
 
 {{{x = x + 1}}}
 
-What would have happened if one day in school we had seen this written? we would be, with would reasson, have wondered which magical *x* is this that can be added one and yet remain unchanged. Somehow, we started programming and we forgot it.   
+What would have happened if one day in school we had seen this written? we would have wondered which magical *x* is this that can be added one and yet remain unchanged. Somehow, we started programming and we forgot it.
  
-Well, we may think, that's not serious issue, programming is about getting real business done and there's no need to quibble over mathematic purity (let the goofy bearded guys in universities deal with it). But it turns out we were wrong, we were paying a high price, only that we didn't know it. 
+Well, we may think, that's not serious issue, programming is about getting real business done and there's no need to quibble over mathematic purity (let the goofy bearded guys in universities deal with it). But it turns out we were wrong, we were paying a high price, only that we didn't know it. But why was that? was the dark side stronger? no, no, no. Only quicker, easier, more seductive.
 
 = The theory = 
 
