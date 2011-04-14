@@ -254,6 +254,17 @@ Not bad, but it kind of breaks the natural writing directionality. In Ruby we ex
 What we need is a method in Enumerable that creates a hash from their _key/value_ pairs (with an optional block). [https://github.com/rubyworks/facets Facets] call it {{{Enumerable#mash}}}:
 
 {{{
+module Enumerable
+  def mash(&block)
+    self.inject({}) do |output, item|
+      key, value = block_given? ? yield(item) : item
+      output.merge(key => value)
+    end
+  end
+end
+}}}
+  
+{{{
 ["functional", "programming", "rules"].map { |s| [s, s.length] }.mash
 # {"rules"=>5, "programming"=>11, "functional"=>10}
 }}}
