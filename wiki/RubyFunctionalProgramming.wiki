@@ -16,21 +16,29 @@ From the [http://en.wikipedia.org/wiki/Functional_programming Wikipedia]: "Funct
 
 Surprisingly, that's all there is to it. So what are the advantages? 
 
- 1. Clarity: "variables" are not modified once defined, so we don't have to follow the change of state to comprehend what a function does.
+== Code more clear
 
- 2. Referencial transparency: Expressions can be replaced by its values. If we call a function with the same parameters, we know for sure the output will be the same (there is no state anywhere that would change it). This opens the gate to nice things like: 
- 
+"Variables" are not modified once defined, so we don't have to follow the change of state to comprehend what a function does.
+
+== Referencial transparency ==
+
+Expressions can be replaced by its values. If we call a function with the same parameters, we know for sure the output will be the same (there is no state anywhere that would change it). This opens the gate to nice things like: 
+
  - Parallelization: If calls to functions are independent, they may be executed in different processes, machines, whatever, without race-condition issues.
  
  - Memoization. A function call is equivalent to its return value, so output may be cached for later calls.  
  
 Einstein defined _insanity_ as "doing the same thing over and over again and expecting different results". Let is serve as the FP motto.
 
- 3. Modularization: We have no state that pervades the whole code, so we build our project with small, black boxes that we tie together (bottom-up programming).
+== Modularization ==
 
- 4. Ease of debugging. Functions are isolated, they only depend on their input and their output, so they are very easy to debug.
+We have no state that pervades the whole code, so we build our project with small, black boxes that we tie together (bottom-up programming).
 
-This can be summed up as: "Mutable state is the root of all evil". 
+== Ease of debugging == 
+
+Functions are isolated, they only depend on their input and their output, so they are very easy to debug.
+
+All this can be summed up as: "Mutable state is the root of all evil". 
 
 = Functional programming in Ruby =
 
@@ -132,8 +140,8 @@ Yes:
 
 {{{
 dogs = ["milu", "rantanplan"].map do |name|
-  Dog.get_by_name(name)
-end # => ["milu", "rantanplan"]
+  name.upcase
+end # => ["MILU", "RANTANPLAN"]
 }}}
 
 === init-empty + each + conditional push -> select/reject ===
@@ -163,17 +171,17 @@ end # => ["milu"]
 No:
 
 {{{
-total_length = 0
+length = 0
 ["milu", "rantanplan"].each do |dog_name|
-  total_length += dog_name.length
+  length += dog_name.length
 end
-total_length # => 15
+length # => 15
 }}}
 
 Yes:
 
 {{{
-total_length = ["milu", "rantanplan"].inject(0) do |accumulator, dog_name|
+length = ["milu", "rantanplan"].inject(0) do |accumulator, dog_name|
   accumulator + dog_name.length
 end # => 15
 }}}
@@ -181,7 +189,7 @@ end # => 15
 In this particular case, when there is a simple operation between accumulator and element, we don't need to write the block, just pass the operation symbol:
 
 {{{
-total_length = ["milu", "rantanplan"].inject(0, :+) # 15
+length = ["milu", "rantanplan"].inject(0, :+) # 15
 }}}
 
 === empty + each + accumulate + push -> scan ===
