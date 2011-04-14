@@ -1,8 +1,8 @@
-#summary How to build Abstract Data Types in Ruby
+#summary How to build Algebraic Data Types in Ruby
 
 = Introduction =
 
-One of the many cool things about functional languages are the compact way they describe abstract data types. Let's see, for example, how can we define a binary tree type in Haskell:
+One of the many cool things about functional languages are the compact way they describe abstract algebraic types. Let's see, for example, how can we define a binary tree type in Haskell:
 
 {{{
 data Tree a = Empty | Leaf a | Node a (Tree a) (Tree a)
