@@ -18,7 +18,7 @@ Surprisingly, that's all there is to it. So what are the advantages?
  
 2. Referencial transparency: whenever we encounter a variable/function call we can replace it by its value and the program. If we call a function with the same parameters, we know for sure the output will be the same (there is no state anywhere that would change it). This opens the gate to nice things as parellallation and memoization. 
 
-Einstein defined *insanity* as "doing the same thing over and over again and expecting different results". Let is serve as the FP motto.
+Einstein defined _insanity_ as "doing the same thing over and over again and expecting different results". Let is serve as the FP motto.
 
 3. Modularization: We have no state that pervades the whole code, so we build our project with small, black boxes that we tie together (bottom-up programming).
 
@@ -34,7 +34,7 @@ Important note: this guide does not pretend to promote bizarre style just to adh
 
 Really, don't update them, just create new ones.
 
-=== Dont't append to arrays or strings === 
+=== Don't append to arrays or strings === 
 
 No:
 
@@ -181,7 +181,7 @@ lengths = ["milu", "rantanplan"].partial_inject(0) do |dog_name|
 end # [0, 4, 15]
 }}}
 
-Enumerable#partial_inject can be written:
+{{{Enumerable#partial_inject}}} can be written:
 
 {{{
 module Enumerable
@@ -218,7 +218,7 @@ end]
 
 Not bad, but it kind of breaks the natural writing directionality. In Ruby we expect to write from left to right, calling methods for objects. If we used {{{Hash}}} we would have to go back. The {{{Hash}}} constructor has an additional problem: you must first map the input to pairs and then call the constructor; it would more efficient to do it in a single step. 
 
-What we need is a method in Enumerable that creates a hash from their _key/value_ pairs (with an optional block). [https://github.com/rubyworks/facets Facets] call it Enumerable#mash:
+What we need is a method in Enumerable that creates a hash from their _key/value_ pairs (with an optional block). [https://github.com/rubyworks/facets Facets] call it {{{Enumerable#mash}}}:
 
 {{{
 ["functional", "programming", "rules"].map { |s| [s, s.length] }.mash
@@ -354,7 +354,7 @@ solver(input).take(10)
 
 Exercise: "How many natural numbers you must take before the accumulative sum of them does not exceed 100?". 
 
-A functional approach could be (requires methods: Enumerator#partial_inject, Enumerator#take_while, Enumerator#enumerate, Enumerator#last):
+A functional approach could be (requires methods: {{{Enumerator#partial_inject}}}, {{{Enumerator#take_while}}}, {{{Enumerator#enumerate}}}, {{{Enumerator#last}}}):
  
 {{{
 natural_numbers.partial_inject(0, :+).take_while { |x| x < 100 }.enumerate.last
@@ -375,7 +375,7 @@ end
 
 This example helps us to verify practical advantages of FP over imperative:
 
-1. Compactness: You'll write less code. Fnctional code deals with expressions, and expressions are chainable; imperative code deals with variable modifications (statements), they are not chainable. You can argue that we are hiding a lot of code here ({{{partial_inject}}}, {{{take_while}}}, ...), and I am glad you brought it up because that's exactly what we are doing. To hide generic, reusable code, that's what abstraction is about. On the end we are not really happy because we write less lines, but because we reduced complexity by identifying reusable patterns.
+1. Compactness: You'll write less code. Functional code deals with expressions, and expressions are chainable; imperative code deals with variable modifications (statements), they are not chainable. You can argue that we are hiding a lot of code here ({{{partial_inject}}}, {{{take_while}}}, ...), and I am glad you brought it up because that's exactly what we are doing. To hide generic, reusable code, that's what abstraction is about. On the end we are not really happy because we write less lines (we may have written more characters), but because we reduced code complexity by identifying reusable patterns.
 
 2. Be declarative, my friend: Look at the imperative version, it's an amorph bunch of code that at first glance -not being commented- you have absolute no idea what it may be doing. You say: 'well, let's start here, jot down the values for n and acc, do some loops, see how n and acc evolve, look at the last iteration' and so on.  The functional version on the other hand needs no comment: it builds bottom-up from small, generic, simple tools programmers are already familiar with. It describes, it declares what it's doing, not how it's doing it.
 
