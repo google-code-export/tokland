@@ -292,7 +292,9 @@ Moreover, if variables are being modified in-place, how do you know what's the v
 
 Functional languages, having no state, use recursion a lot. To avoid infite stacks, functional languages have a mechanism called tail-recursion optimization (TCO). Ruby 1.9 has this mechanism coded but it's disabled by default, so you can't use it if you expect your code to work everywhere.
 
-The alternative to recursion is using abstractions (inject, partial_inject) whenever you can. An example with a state machine:
+However, in certain circumstances recursion is still valid and usable. Note also that some functional tools (specially inject) are recursive structures in disguise. It's sometimes possible to build your own functional construct (even if internally it's implemented as imperative).
+
+Let's see an example, a loop with a state-machine that uses an infinite while-loop + a state variable can be turned into a pure functional:
 
 {{{
 def process_state_machine
