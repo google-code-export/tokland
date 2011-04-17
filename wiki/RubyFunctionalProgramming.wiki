@@ -1,6 +1,6 @@
 #summary Functional programming with Ruby
 
-<wiki:toc max_depth="3" />
+<wiki:toc max_depth="2" />
 
 = Introduction =
 
@@ -251,9 +251,15 @@ Hash[input.map do |item|
 end]
 }}}
 
-Not bad, but it kind of breaks the natural writing directionality. In Ruby we expect to write from left to right, calling methods for objects. If we used {{{Hash}}} we would have to go back. The {{{Hash}}} constructor has an additional problem: you must first map the input to pairs and then call the constructor; it would more efficient to do it in a single step. 
+Not bad, but it kind of breaks the natural writing directionality. In Ruby we expect to write from left to right, calling methods for objects. If we used {{{Hash}}} we would have to go back. The "good" functional way is to use inject:
 
-What we need is a method in Enumerable that creates a hash from their _key/value_ pairs (with an optional block). [https://github.com/rubyworks/facets Facets] call it {{{Enumerable#mash}}}:
+{{{
+input.inject({}) do |hash, item|
+  hash.merge(item => process(item))
+end
+}}}
+
+As we agree this is too verbose, we better move it as an enumerable method, which is exactly what [https://github.com/rubyworks/facets Facets] guys do, calling the method {{{Enumerable#mash}}} and adding an optional block:
 
 {{{
 module Enumerable
@@ -271,7 +277,7 @@ end
 # {"rules"=>5, "programming"=>11, "functional"=>10}
 }}}
 
-Or in a single step using mash with the block:
+Or in a single step using mash using the optional block:
 
 {{{
 [["functional", "programming", "rules"].mash { |s| [s, s.length] }]
@@ -280,9 +286,11 @@ Or in a single step using mash with the block:
 
 == Narrowing down the scope ==
 
-Joe Armstrong, the creator of Erlang, discussed briefly in "Coders At work" the reusability myth of Object-Oriented programming: 
+Joe Armstrong (the creator of Erlang) talked in "Coders At work" of the reusability myth of Object-Oriented Programming: 
 
 "I think the lack of reusability comes in object-oriented languages, not in functional languages. Because the problem with object-oriented languages is they’ve got all this implicit environment that they carry around with them. You wanted a banana but what you got was a gorilla holding the banana and the entire jungle."
+
+To be fair, it's not an intrinsic problems of OOP. Reusability comes when you focus on building generic tools, which functional programming does enfatize. 
 
 In Functional Programming functions are black-boxes where only their input and output matters. This isolation makes it way easier to develop, test and debug code. 
 
@@ -290,11 +298,11 @@ Moreover, if variables are being modified in-place, how do you know what's the v
 
 == Recursion ==
 
-Functional languages, having no state, use recursion a lot. To avoid infite stacks, functional languages have a mechanism called tail-recursion optimization (TCO). Ruby 1.9 has this mechanism coded but it's disabled by default, so you can't use it if you expect your code to work everywhere.
+Pure functional languages, having no state, use recursion a lot. To avoid infite stacks, functional languages have a mechanism called tail-recursion optimization (TCO). Ruby 1.9 has this mechanism coded but it's disabled by default, so you can't use it if you expect your code to work everywhere.
 
-However, in certain circumstances recursion is still valid and usable. Note also that some functional tools (specially inject) are recursive structures in disguise. It's sometimes possible to build your own functional construct (even if internally it's implemented as imperative).
+However, in certain circumstances recursion is still valid and usable, even if a new stack is created on each recursion. Note also that some functional tools (specially foldings like inject) are recursive structures in disguise. It's sometimes advisable to build your own functional construction (even if internally they implemented imperatively).
 
-Let's see an example, a loop with a state-machine that uses an infinite while-loop + a state variable can be turned into a pure functional:
+Let's see an example, a loop with a state-machine that uses an infinite while-loop + a state variable can be turned into a pure functional one:
 
 {{{
 def process_state_machine
@@ -427,7 +435,7 @@ This example helps us to verify practical advantages of FP over imperative:
 
  1. Compactness: You'll write less code. Functional code deals with expressions, and expressions are chainable; imperative code deals with variable modifications (statements), they are not chainable. You can argue that we are hiding a lot of code here ({{{partial_inject}}}, {{{take_while}}}, ...), and I am glad you brought it up because that's exactly what we are doing. To hide generic, reusable code, that's what abstraction is about. On the end we are not really happy because we write less lines (we may have written more characters), but because we reduced code complexity by identifying reusable patterns.
 
- 2. Be declarative, my friend: Look at the imperative version, it's an amorph bunch of code that at first glance -not being commented- you have absolute no idea what it may be doing. You say: 'well, let's start here, jot down the values for n and acc, do some loops, see how n and acc evolve, look at the last iteration' and so on.  The functional version on the other hand needs no comment: it builds bottom-up from small, generic, simple tools programmers are already familiar with. It describes, it declares what it's doing, not how it's doing it.
+ 2. Declarative: Look at the imperative version, it's an amorph bunch of code that at first glance -not being commented- you have absolute no idea what it may be doing. You say: 'well, let's start here, jot down the values for n and acc, do some loops, see how n and acc evolve, look at the last iteration' and so on.  The functional version on the other hand needs no comment: it builds bottom-up from small, generic, simple tools programmers are already familiar with. It describes, it declares what it's doing, not how it's doing it.
 
 In other words: "Functional programming is like describing your problem to a mathematician. Imperative programming is like giving instructions to an idiot" (arcus, #scheme on Freenode).
 
