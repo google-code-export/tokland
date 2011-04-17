@@ -18,9 +18,9 @@ From the [http://en.wikipedia.org/wiki/Functional_programming Wikipedia]: "Funct
 
 Surprisingly, that's all there is to it. So what are the advantages? 
 
-== Code more clear ==
+== Clear code ==
 
-"Variables" are not modified once defined, so we don't have to follow the change of state to comprehend what a function does.
+"Variables" are not modified once defined, so we don't have to follow the change of state to comprehend what a function/method/class does.
 
 == Referencial transparency ==
 
