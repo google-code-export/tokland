@@ -449,7 +449,7 @@ http://en.wikipedia.org/wiki/Functional_programming
 
 http://www.defmacro.org/ramblings/fp.html
 
-http://www.math.chalmers.se/~rjmh/Papers/whyfp.html
+http://www.cse.chalmers.se/~rjmh/Papers/whyfp.html
 
 http://www.khelll.com/blog/ruby/ruby-and-functional-programming/
 
