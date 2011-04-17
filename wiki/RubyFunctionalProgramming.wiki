@@ -6,11 +6,11 @@
 
 {{{x = x + 1}}}
 
-What would have happened if one day in school we had seen this written? we would have wondered which magical *x* is this that can be added one and yet remain unchanged. Somehow, we started programming and we forgot about it.
+In the good old days, when we were in school, we probably would have puzzled at which magical *x* is this that can be added one and yet remain unchanged. Somehow, we started programming and we forgot about it.
  
-Well, we may think, that's not serious issue, programming is about getting real business done and there's no need to quibble over mathematic purity (let the loony bearded guys in universities deal with it). But it turns out we were wrong, we were paying a high price, only that we didn't know it. 
+Well, we may think, that's not serious issue, programming is about getting real business done and there's no need to quibble over mathematic purity (let the loony bearded guys in universities deal with it). But it turns out that we were wrong, we were paying a high price, only that we didn't know it. 
 
-But why was that? was the imperative programming stronger? no, no, no. Only quicker, easier, more seductive.
+_Is the imperative programming stronger? no, no, no. Only quicker, easier, more seductive_.
 
 = The theory = 
 
@@ -359,7 +359,7 @@ natural_numbers.take(10)
 # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 }}}
 
-Now, what would happen if we try a {{{map}}} on {{{natural_numbers}}}? it would never end. The reason is simple: standard enumerable methods (map, select) are strict, so it will first try to convert the object to an array, do the map and return the result array. This won't work if the input is an infinite streams. The solution is to extend with the methods we are familiar with the class {{{Enumerator}}. For example, {{{Enumerator#map}}}:
+Now, what would happen if we try a {{{map}}} on {{{natural_numbers}}}? it would never end. The reason is simple: standard enumerable methods (map, select) are strict, so it will first try to convert the object to an array, do the map and return the result array. This won't work if the input is an infinite streams. The solution is to extend with the methods we are familiar with the class {{{Enumerator}}}. For example, {{{Enumerator#map}}}:
 
 {{{
 class Enumerator
@@ -380,19 +380,19 @@ natural_numbers.map { |x| 2*x }.take(10)
 # [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 }}}
 
-Take a look at Facets' [http://rdoc.info/github/rubyworks/facets/master/Denumerable denumerables].
+If you find this stuff interesting, take a look at Facets' [http://rdoc.info/github/rubyworks/facets/master/Denumerable denumerables].
 
 === Advantages of lazy evaluation ===
 
-# You don't build and store complete structures if you don't need to (both CPU and memory efficient). Why read a complete file in memory when we are going to work line by line on it?
+1. You don't build and store complete structures if you don't need to (both CPU and memory efficient). Why read a complete file in memory when we are going to work line by line on it?
 
-# Lazy evaluation makes possible more agnostic code. Let's see an example: you wrote a solver of some kind that yields infinite number of solutions, but at some point you only want the first 10. You'd write something like:
+2. Lazy evaluation makes possible more agnostic code. Let's see an example: you wrote a solver of some kind that yields infinite number of solutions, but at some point you only want the first 10. You'd write something like:
 
 {{{
 solver(input, :max => 10) 
 }}}
 
-On ther other hand, when you are working with lazy structures, there is no need to say when to stop. The caller decides how many values he wants. The code becomes simplier and the responsability goes where it should be, to the caller:
+On ther other hand, when you are working with lazy structures, there is no need to say when to stop. The caller decides how many values he wants. The code becomes simplier and the responsibility goes where it should be, to the caller:
 
 {{{
 solver(input).take(10)
@@ -428,6 +428,10 @@ This example helps us to verify practical advantages of FP over imperative:
  2. Be declarative, my friend: Look at the imperative version, it's an amorph bunch of code that at first glance -not being commented- you have absolute no idea what it may be doing. You say: 'well, let's start here, jot down the values for n and acc, do some loops, see how n and acc evolve, look at the last iteration' and so on.  The functional version on the other hand needs no comment: it builds bottom-up from small, generic, simple tools programmers are already familiar with. It describes, it declares what it's doing, not how it's doing it.
 
 In other words: "Functional programming is like describing your problem to a mathematician. Imperative programming is like giving instructions to an idiot" (arcus, #scheme on Freenode).
+
+= Conclusion =
+
+A better understanding of functional programming principles will help us to write more clear, reusable and compact code. Ruby is an imperative language with great functional capabilities, know when and how to use them. Also, keep state (and in-place modifications) to a minimum.
 
 = Further reading =
 
