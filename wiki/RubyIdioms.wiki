@@ -89,7 +89,7 @@ obj.method do |foo|
 end
 }}}
 
-== Multi-line array/hashes
+== Multi-line array/hashes ==
 
 There are many ways of writing multi-line array or hashes. I recommend this one:
 
