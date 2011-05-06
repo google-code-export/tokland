@@ -293,11 +293,37 @@ To be fair, in my opinion it's not an intrinsic problems of OOP. You can write O
 
 The point is that FP is a collection of black-boxes where only their input and output matters, they can be studied in isolation. And not only the collection of functions, but also the functions themselves: when variables are modified in-place, you have to follow all the code to see where and how the variable was modified. This is the source of bugs and uncountable hours of painful debugging.
 
+== In Ruby everything is an expression ==
+
+You may write this:
+
+{{{
+if found_dog == our_dog 
+  name = found_dog.name
+  message = "We found our dog #{name}!"
+else
+  message = "No luck"
+end
+}}}
+
+But control-structures like {{{if}}}, {{{while}}}, {{{case}}} and so on also return an expression in Ruby, so there is no reason we use not only as branching with imperative commands but functionally, as code that returns something: 
+
+{{{
+message = if found_dog == my_dog
+  name = found_dog.name
+  "We found our dog #{name}!"
+else
+  "No luck"
+end
+}}}
+
+It's not only that we don't repeat the variable name {{{message}}, what it's really imporant is that the intent is a lot more clear: there is a bunch of code which may be large, but we can concentrate on what it returns ({{{message}}}). 
+
 == Recursion ==
 
-Pure functional languages, having no state, use recursion a lot. To avoid infite stacks, functional languages have a mechanism called tail-recursion optimization (TCO). Ruby 1.9 has this mechanism coded but it's disabled by default, so you can't use it if you expect your code to work everywhere.
+Pure functional languages, having no implicit state, use recursion a lot. To avoid infite stacks, functional languages have a mechanism called tail-recursion optimization (TCO). Ruby 1.9 has this mechanism coded but it's disabled by default, so you don't use it if you expect your code to work everywhere.
 
-However, in certain circumstances recursion is still valid and usable, even if a new stack is created on each recursion. Note also that some functional tools (specially foldings like inject) are recursive loops in disguise. 
+However, in certain circumstances recursion is still valid and usable, even if a new stack is created on each recursion. Note also that some functional tools (specially foldings like {{{Enumerable#inject}}}) are recursive loops in disguise. 
 
 It's sometimes advisable to build your own functional construction (even if internally they implemented imperatively). Let's see an example: how to convert an imperative loop with state to functional:
 
@@ -332,9 +358,11 @@ end
 
 == Lazy enumerators ==
 
-Lazy evaluation delays the evaluation of the expression untils it's needed, as opposed to eager evaluation, where expression are calculated when a variable is assigned, a function called, etc. Laziness is not a requisite for FP, but it's a strategy that fits nicely on the paradigm (Haskell is probably the best example, laziness pervades the language). 
+Lazy evaluation delays the evaluation of the expression untils it's needed, as opposed to eager evaluation, where expression are calculated when a variable is assigned, a function called, etc, even if it's not used later anywhere. Laziness is not a requisite for FP, but it's a strategy that fits nicely on the paradigm (Haskell is probably the best example, laziness pervades the language). 
 
-Ruby, basically, has eager evaluation (even though, as many other languages, it certainly short-circuits boolean operators &&, ||, etc). However, as any language with high-order function, delayed evaluation is supported implicitly because the programmer decide when blocks are going to be called. Enumerators are available in Ruby 1.9 (as an extension in 1.8). The classical example is to build the natural numbers enumerator:
+Ruby uses, basically, eager evaluation (though as many other languages, it does not evaluate expressions on conditionals if not reached, it short-circuits boolean operators &&, ||, etc). However, as any language with high-order function, delayed evaluation is supported implicitly because the programmer decide when blocks are going to be called.
+
+Aslo, enumerators are available from Ruby 1.9 (also as an extension in 1.8) and they provide a clean interface for defining lazy enumerables. The classical example is to build a numerator that returns _all_ the natural numbers:
 
 {{{
 require 'backports' # needed only for 1.8
@@ -347,7 +375,7 @@ natural_numbers = Enumerator.new do |yielder|
 end
 }}}
 
-That could be re-written in the functional spirit like this:
+Which could be re-written in a more functional spirit:
 
 {{{
 natural_numbers = Enumerator.new do |yielder|
@@ -362,7 +390,7 @@ natural_numbers.take(10)
 # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 }}}
 
-Now, try to do a {{{map}}} on {{{natural_numbers}}}, what happens? it never ends: standard enumerable methods (map, select, etc) are strict, so they will first try to convert the enumerable object to an array, do the map and return the result (also, an array). This obviously won't work if the input is an infinite stream. Let's then extend the {{{Enumerator}}} class, for example with a {{{Enumerator#map}}}:
+Now, try to do a {{{map}}} on {{{natural_numbers}}}, what happens? it never ends. Standard enumerable methods (map, select, etc) are strict, so they will first try to convert the enumerable object to an array, do the map and return the result (also, an array). This obviously won't work if the input is an infinite stream. Let's extend the {{{Enumerator}}} class, for example with a {{{Enumerator#map}}}:
 
 {{{
 class Enumerator
@@ -383,13 +411,13 @@ natural_numbers.map { |x| 2*x }.take(10)
 # [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 }}}
 
-If you find this stuff interesting, you should take a look at Facets' [http://rdoc.info/github/rubyworks/facets/master/Denumerable denumerables].
+This is just the basic of it, if you find this stuff interesting, you should take a look at Facets' [http://rdoc.info/github/rubyworks/facets/master/Denumerable denumerables] and see all the cool things you can do with Ruby enumerators.
 
 === Advantages of lazy evaluation ===
 
-1. You don't build and store complete structures if you don't need to (which may be efficient in CPU, memory, or both). 
+1. The obvious: you don't build and store complete structures if you don't need to (which may be efficient in CPU, memory, or both). 
 
-2. Lazy evaluation makes possible to write code which we can call _agnostic_. Let's see an example: you wrote a solver of some kind that yields infinite number of solutions, but at some point you only want the first 10. You'd write something like:
+2. Not so obvious: Lazy evaluation makes possible to write code that does not know (not want to know) more that it needs to. Let's see an example: you wrote a solver of some kind that yields infinite number of solutions, but at some point you only want the first 10. You'd write something like:
 
 {{{
 solver(input, :max => 10) 
@@ -426,15 +454,15 @@ n # 13
 
 I hope this example shows some of the advantages we discussed in this document:
 
- 1. Compactness: You'll write less code. Functional code deals with expressions, and expressions are chainable; imperative code deals with variable modifications (statements), they are not chainable. You can argue that we are hiding a lot of code here ({{{partial_inject}}}, {{{take_while}}}, ...), and I am glad you brought it up because that's exactly what we are doing. Hiding generic, reusable code, that's what programming is about, about writing abstractions. We are not really happy because we write less lines of code, but because we reduced code complexity by identifying reusable patterns.
+ 1. Compactness: You'll write less code. Functional code deals with expressions, and expressions are chainable; imperative code deals with variable modifications (statements), which are not chainable. You can argue that we are hiding a lot of code here ({{{partial_inject}}}, {{{take_while}}}, ...), and I am glad you brought it up because that's exactly what we are doing. Hiding generic, reusable code, that's what all programming -but specially functional programming- is about, about writing abstractions. We are not really happy because we write less lines of code, but because we reduced the complexity of our code by identifying reusable patterns.
 
- 2. More declarative: Look at the imperative version, it's an amorph bunch of code that at first glance -not being commented- you have absolute no idea what it may be doing. You may say: 'well, let's start here, jot down the values for n and acc, do some loops, see how n and acc evolve, look at the last iteration' and so on.  The functional version on the other hand needs no comment: it builds bottom-up with small, generic, simple tools programmers are already familiar with. It describes, it declares what it's doing, not how it's doing it.
+ 2. More declarative: Look at the imperative version, it's an amorph bunch of code that at first glance -not being commented- you have absolute no idea what it may be doing. You may say: 'well, let's start here, jot down the values for {{{n}}} and {{{acc}}}, do some loops, see how they evolve, look at the last iteration' and so on.  The functional version on the other hand needs no comment: it builds bottom-up with small, generic, simple tools programmers are already familiar with. It describes, it declares what it's doing, not how it's doing it.
 
 In other words: "Functional programming is like describing your problem to a mathematician. Imperative programming is like giving instructions to an idiot" (arcus, #scheme on Freenode).
 
 = Conclusion =
 
-A better understanding of the principles of Functional Programming will help us to write more clear, reusable and compact code. Ruby is an imperative language, but it also has great functional capabilities, know when and how to use them. Also, keep always in mind that "state is the root of all evil", avoid it whenever possible.
+A better understanding of the principles of Functional Programming will help us to write more clear, reusable and compact code. Ruby is basically an imperative language, but it also has great functional capabilities, know when and how to use them (and when not to). Be your motto "state is the root of all evil" and avoid it whenever possible.
 
 = Further reading =
 
