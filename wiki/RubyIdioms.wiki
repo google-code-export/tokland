@@ -1,6 +1,6 @@
 #summary Ruby conventions and idioms
 
-This document shows some Ruby idioms, conventions and patterns (some of them accepted by the community, some of them personal). This is a work in progress, feel free to email me if you have any suggestion (tokland AT gmail.com).  
+This document gathers together a bunch Ruby idioms, conventions and patterns (some of them accepted by the community, some of them personal). This is a work in progress, feel free to email me if you have any suggestion (tokland AT gmail.com).  
 
 <wiki:toc max_depth="2" />
 
@@ -8,7 +8,7 @@ This document shows some Ruby idioms, conventions and patterns (some of them acc
 
 == General formatting ==
 
-This applies when programming in any language: choose a sound formatting style (main goal: legibility) and stick with it, knowing when to break the rules (Waldo Emerson: "A foolish consistency is the hobgoblin of little minds"). 
+Choose a sound formatting style (your first goal should be legibility) and stick with it, knowing when to break the rules (Waldo Emerson: "A foolish consistency is the hobgoblin of little minds"). 
 
 Novice programmers tend to overlook the importance of code looks, but as SICP's authors remarked, programs must be written for people to read, and only *incidentally* for machines to execute. Be *extremely* careful with the code you write.
 
@@ -32,7 +32,7 @@ But use spaces to let the blocks breathe:
 [1, 2, 3].map { |x| 2 * x }
 }}}
 
-Note that some Ruby programmers *do* put spaces after "[" {{{[ 1, 2, 3 ]}}} and "{" {{{{ :a => 1 }}}}. You'll see this style throughout Rails code, for example. Maybe it's my Python background, but I'd wish my eyes were gouged away every time I see it. 
+Note that some programmers *do* put spaces after "[" {{{[ 1, 2, 3 ]}}} and "{" {{{{ :a => 1 }}}}. You'll see this style throughout Rails code, for example. Maybe it's my Python background, but I'd wish my eyes were gouged away every time I see it. 
 
 === Naming ===
 
@@ -247,7 +247,7 @@ end
 
 Ruby is not a functional language. In fact, being a classic OOP language it promotes changes in the state of objects. But, at the same time, Ruby comes with great functional capabilities.
 
-This section has moved to its own page: [[RubyFunctionalProgramming]]
+This section has moved to its own page: [RubyFunctionalProgramming]
 
 == Managing nil's. The Maybe pattern ==
 
@@ -270,7 +270,7 @@ dog_address = dog.owner ? dog.owner.address : nil
 dog_address_city = dog_address ? dog_address.city : nil
 }}}
 
-See? each level adds more verbose and repetitive code. There are (at least) three approaches to solve this:
+We shouldn't be ok with this, each level adds more verbose and repetitive code. There are (at least) three approaches to solve this:
 
  * Use a wrapper: Activesupport's Object#try.
 
@@ -303,9 +303,9 @@ if __FILE__ == $0
 end
 }}}
 
-== Create your own (growing) generic toolbox ==
+== Build your own toolbox ==
 
-=== Example 1: Extend the existing classes and modules ===
+=== Example 1: Extend the existing classes/modules with generic functions  ===
 
 So you have a dog named Scooby and want to know if it's in your list of selected dogs. You would probably write:
 
@@ -344,7 +344,7 @@ loop do
 end
 }}}
   
-There is nothing fundamentally wrong, but look at the relevant code: it's literally buried in a jumble of infrastructure!  Let's abstract the construction so 1) we simplify the code, 2) leave a method to be reused in other projects:
+There is nothing fundamentally wrong with this, but look at the relevant code: it's literally buried in a jumble of infrastructure! Let's abstract the high-level construction so 1) we simplify the code, 2) leave a method to be reused in other projects:
 
 {{{
 retry_on_exceptions([Exception1, Exception2], :max_retries => 5) do
@@ -352,7 +352,7 @@ retry_on_exceptions([Exception1, Exception2], :max_retries => 5) do
 end
 }}}
 
-In this second version you see in a glance what it's going on. This example presents a useful pattern: use blocks as high-level abstraction wrappers.
+In this second version you see right away what it's going on. This example presents a useful pattern: use blocks as high-level abstraction wrappers. The more generic the pattern is, the more reason you should abstract it.
 
 = All-in-one example =
 
@@ -414,6 +414,6 @@ $ ruby grep.rb traversal /etc/services
  
  * Ruby is not a functional language, and that's fine, but don't use it imperatively when there is no reason for it. Blocks provide a powerful mechanism for functional programming. "State of the root of all evil", keep it to a minimum. 
  
- * Ruby core developers can't forecast all your needs, don't resign yourself to the existing toolbox. *Programming is about building abstractions*, your personal toolbox should be growing with each project you write. Reuse them amongst projects and progressively improve them.
+ * Ruby core developers can't forecast all your needs, but don't resign yourself to the existing toolbox. *Programming is about building abstractions*, your personal toolbox should be growing with each project you write. Reuse and progressively improve them.
  
 In a nutshell: Exploit the language so you can write beautiful, compact, clear and semantically meaningful code. There are few languages as suited as Ruby to achieve this goal, don't waste the opportunity.
