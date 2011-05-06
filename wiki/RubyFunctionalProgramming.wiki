@@ -4,14 +4,16 @@
 
 = Introduction =
 
+{{{
+- Is the imperative programming stronger?
+- No, no, no. Only quicker, easier, more seductive
+}}}
+
 {{{x = x + 1}}}
 
 In the good old days when we were in school we probably would have been puzzled by this line. Which magical *x* is this that can be added one and yet remain unchanged. Somehow, we started programming and we didn't mind anymore.
  
 Well, we thought, that's not a serious issue; programming is about getting real business done and there's no need to quibble over mathematic purity (let the loony bearded guys in universities deal with it). But it turns out we were wrong, we were paying a high price, only that we didn't know it. 
-
-- _Is the imperative programming stronger?_
-- No, no, no. Only quicker, easier, more seductive_
 
 = The theory = 
 
