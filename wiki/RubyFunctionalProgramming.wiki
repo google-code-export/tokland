@@ -293,7 +293,7 @@ To be fair, in my opinion it's not an intrinsic problems of OOP. You can write O
 
 The point is that FP is a collection of black-boxes where only their input and output matters, they can be studied in isolation. And not only the collection of functions, but also the functions themselves: when variables are modified in-place, you have to follow all the code to see where and how the variable was modified. This is the source of bugs and uncountable hours of painful debugging.
 
-== In Ruby everything is an expression ==
+== Everything is an expression ==
 
 You may write this:
 
@@ -306,7 +306,7 @@ else
 end
 }}}
 
-But control-structures like {{{if}}}, {{{while}}}, {{{case}}} and so on also return an expression in Ruby, so there is no reason we use not only as branching with imperative commands but functionally, as code that returns something: 
+But control-structures ({{{if}}}, {{{while}}}, {{{case}}} and so on) also return an expression, so let's just write:
 
 {{{
 message = if found_dog == my_dog
@@ -317,7 +317,7 @@ else
 end
 }}}
 
-It's not only that we don't repeat the variable name {{{message}}, what it's really imporant is that the intent is a lot more clear: there is a bunch of code which may be large, but we can concentrate on what it returns ({{{message}}}). 
+It's not only that we don't repeat the variable name {{{message}}}, also the intent is much more clear: while there is a bunch of code which may be large (and using a lot of variables we don't really care), we can concentrate on what it does. Again, we are narrowing down the scope of our code.
 
 == Recursion ==
 
