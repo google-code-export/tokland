@@ -243,6 +243,14 @@ Note that you can expand as nested levels as you need to:
 end
 }}}
 
+== Use an script both as library or executable ==
+
+{{{
+if __FILE__ == $0
+  # this script was not imported but executed, do something interesting here
+end
+}}}
+
 = Functional Ruby ==
 
 Ruby is not a functional language. In fact, being a classic OOP language it promotes changes in the state of objects. But, at the same time, Ruby comes with great functional capabilities.
@@ -348,17 +356,9 @@ dog_owner_street = dog.owner.maybe { |owner| owner.address.street }
   
 I'd recommend the second one, the {{{maybe}}} proxy approach without blocks:  compact yet explicit.
   
-== Use an script both as library or executable ==
-
-{{{
-if __FILE__ == $0
-  # this script was not imported but executed, do something interesting here
-end
-}}}
-
 === Enumerable#map_select ===
 
-Mathematics notations are known to be exact but terse. Haskell uses an expression called list-comprehension to build easily lists. For example, the square of the odd numbers between 1 and 10:
+Haskell has a cool construction called list-comprehension to build lists. For example, the square of the odd numbers between 1 and 10:
 
 {{{
 [x^2 | x <- [1..10], odd x]
@@ -370,13 +370,13 @@ Python borrowed it:
 [x**2 for x in range(1, 10+1) if x % 2 == 1]
 }}}
 
-But, alas, Ruby has no such construction. But we can build our poor man's version of a list-comprehension, as long as we accept the value (usually nil) which is not to be accepted in the output. That's how it looks:
+But, alas, Ruby has no such construction. However, we can build our poor man's version of a list-comprehension, as long as we accept the value (usually nil) which is not to be accepted in the output. That's how it looks:
 
 {{{
 (1..10).map_select { |x| x**2 if x.odd? }
 }}}
 
-Granted, it does not look terrific, but you see the intent. Also, note that list-comprehensions are much more powerful, as they allow nested iterations. Here is a possible implementation:
+Note that real list-comprehensions are more powerful, as they allow nested iterations. Here is a possible implementation:
 
 {{{
 module Enumerable
@@ -439,19 +439,25 @@ end
 
 === Object#or_else ===
 
-First an intro: Operators in other languages are methods in Ruby. When you write 2 + 3 this is sintantic sugar for 2.+(3). This is cool, you can override all these methods and write nicer code. But && and || are special in Ruby, you can override them, they are operators that must be managed by the interpreter because they deal with short-circuited evalution ({{{false || nil || 1 || "hello"}}} returns 1 without "hello" being evaluated).
+First an intro: operators in other languages are usually methods in Ruby. When you write {{{2 + 3}}} this is nothing more than sintantic sugar for {{{2.+(3)}}}. This is cool, because you can override all these methods. But && and || are special in Ruby, you cannot override them because they deal with short-circuited evaluation (and Ruby has no such feature for methods).
 
-Ok, now consider this case where an expression in a short-circuit cannot be written in a single expression, you need more than one:
+Ok, now consider this case where an expression in a short-circuit cannot be written in a single expression ({{{expr1 || expr2}}}), you need more:
 
 {{{
-result = expr1 || {expr2a; expr2b; ...; expr2final} # not runnable
+result = expr1 || { expr2a; expr2b; ...; expr2final } # not valid Ruby
 }}}
 
-The previous code is not valid, you cannot build blocks of code with {...}. We've seen that {{{||}}} is not overridable so we cannot just make it accept a block, we must write or own "or". Let's call it or_else:
+The previous code is not valid, you cannot build blocks of code with {...}. We've seen that {{{||}}} is not overridable so we cannot make it accept a block, we must write or own "or" method. Let's call it {{{or_else}}}:
 
-results = expr1.or_else {expr2a; expr2b; ...; expr2final}
+{{{
+results = expr1.or_else do 
+  expr2a
+  expr2b
+  expr2final
+end
+}}}
 
-And that's it, we've got still a lazy behaviour, as block won't be called unless it's really needed. The implementation is as simple as it gets:
+And that's it, the same short-circuited expressions using blocks. The implementation is as simple as it gets:
 
 {{{
 class Object
@@ -461,24 +467,30 @@ class Object
 end
 }}}
 
-Of course, when if you find {{{Object#or_else}}} useful, you may probably want to use {{{Object#and_also}}}.
+Of course, if you find {{{Object#or_else}}} useful you may probably want to write {{{Object#and_also}}}.
 
 == Object#as ==
 
 Look at this code:
 
-area = info[0] * info[1]
+{{{
+result = info[0] * info[1]
+}}}
 
-At first glance it's not clear what he is doing, isn't this more clear:
+At first glance it's not clear what it is doing. What about:
 
+{{{
 width, height = info
 area = width * height
+}}}
 
-It's really good to name things before using. Nothing wrong here, but we needed an extra line to unpack the array. How about that:
+Now this is better, we are getting the area of a rectangle. It's really good to name things before using. Well, there is nothing wrong now, but we needed an extra line to unpack the array. How about that?:
 
+{{{
 area = info.as { |width, height| width * height }
+}}}
 
-It's a matter of taste, but I think this is pretty clear. Note that you can use this construction to "name" things in a chain:
+It's a matter of taste, but I think this is also pretty clear. Note that you can use this construction to "name" things in a chain as "documentation":
 
 {{{
 document.css("a")[3].href
@@ -490,16 +502,18 @@ But which is the third link in this document?
 document.css("a")[3].as { |link_to_main_page| link_to_main_page.href }
 }}} 
 
-Oh, ok, the third link is the link to the main page.
-
-Also, see how to use it to build an expression that reuses multiple times the previous one:
+Oh, ok, the third link is the link to the main page. Also, see how to use it to build an expression that reuses multiple times an existing one:
 
 {{{
 y = x**2
-result = [y, y+1]
+pair = [y, y+1]
 }}}
 
-(x**2).as { |y| [y, y+1] }
+Can be written as:
+
+{{{
+pair = (x**2).as { |y| [y, y+1] }
+}}}
 
 The implementation of Object#as is straighforward:
 
@@ -514,10 +528,10 @@ class Object
 
  * Write beautiful code. This is valid for any language, but while some of them just keep getting in your way no matter how hard you try, that's not the case with Ruby.
 
- * Don't worry about performance too soon: Maintenance of code is very important. Write simple code that works (this does not mean bad code). Profile it to see where the bootle-necks are, and only there, refactor. You know, "premature optimization is the root of all evil".
+ * Don't worry about performance too soon: Maintenance of code is very, very important. Write simple code that works (caveat: this does not mean ill-conceived code with the wrong algorithms). Profile it to see where the bootle-necks are and refactor. You know, "premature optimization is the root of all evil".
  
- * Ruby is not a functional language, and that's fine, but don't use it imperatively when there is no reason for it. Blocks provide a powerful mechanism for functional programming. 
+ * Ruby is not a functional language, and that's fine, but don't use it imperatively when there is no reason for it. Keep state to a minimum. 
  
  * Ruby core developers can't forecast all your needs, but don't resign yourself to the existing toolbox. *Programming is about building abstractions*, your personal toolbox should be growing with each project you write. Reuse and progressively improve them.
  
-In a nutshell: Tweak the language to fit your needs so you can write maintainable, beautiful, compact, semantically meaningful code (incidentally, it would be great if it also works as expected!).
+In a nutshell: tweak the language to fit your needs and write maintainable, beautiful, compact, semantically meaningful code (incidentally, it would be great if it also works as expected! write tests!!).
