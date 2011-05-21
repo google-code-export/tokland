@@ -354,59 +354,42 @@ end
 
 In this second version you see right away what it's going on. This example presents a useful pattern: use blocks as high-level abstraction wrappers. The more generic the pattern is, the more reason you should abstract it.
 
-= All-in-one example =
+= Some abstractions =
 
-To sum up some of the patterns we've seen:
+== Enumerable#map_detect ==
 
-{{{
-#!/usr/bin/env ruby
-require 'rubygems'
-require 'trollop'
+Simple exercise: fid the first element in a list with a square greater than 10 and return this same value. How to do it:
 
-# Simple implementation of common UNIX tools
-module UnixTools
-  # Grep lines in input that match regular expression.
-  #
-  # Options:
-  #   :invert_match: Return lines that do NOT match.
-  def self.grep(regexp, input, options = {})
-    input.select do |line|
-      line.match(regexp) ^ options[:invert_match]
-    end
-  end  
-end
-
-
-if __FILE__ == $0
-  options = Trollop::options do
-    banner "grep.rb REGEXP [FILE]"
-    opt :invert_match, "Invert match", :short => "v"
-  end
-  unless ARGV.length >= 1
-    Trollop::die "Need regular expression as first argument"
-    exit 1
-  end 
-  
-  regexp = Regexp.new(ARGV[0])
-  input = ARGV[1] ? File.open(ARGV[1]) : $stdin
-  UnixTools.grep(regexp, input, options).each do |line|
-    puts line
-  end
-end
-}}}
-
-To be imported from another Ruby script:
+1) Simple, detect + operation:
 
 {{{
-require 'grep'
-UnixTools.grep(...)
+n = [1,2,3,4].detect { |x| x**2 > 10 }
+result = n ? n**2 : nil # 16
 }}}
 
-Or to be executed in a console:
+Booh, we need to repeat the operation for the matching value and we also need to control that it's not nil. Ugly.
+
+2) It seems we want a map, but also a detect, don't we?:
 
 {{{
-$ ruby grep.rb traversal /etc/services
+result = [1,2,3,4].map do |x| 
+  square = x**2
+  square if square > 10
+end.compact.first # 16
+}}} 
+
+Conceptually ok in a lazy language, but Ruby maps the whole input array, so terrible performance.
+
+3) New abstracion Enumerable#map_detect:
+
+{{{
+result = [1,2,3,4].map_detect do |x| 
+  square = x**2
+  square if square > 10 
+end # 16
 }}}
+
+So our map_detect is in fact a lazy version of the second example (map+compact+first).
 
 = Conclusion =  
 
