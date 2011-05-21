@@ -458,9 +458,9 @@ I hope this example shows some of the advantages we discussed in this document:
 
  1. Compactness: You'll write less code. Functional code deals with expressions, and expressions are chainable; imperative code deals with variable modifications (statements), which are not chainable. You can argue that we are hiding a lot of code here ({{{partial_inject}}}, {{{take_while}}}, ...), and I am glad you brought it up because that's exactly what we are doing. Hiding generic, reusable code, that's what all programming -but specially functional programming- is about, about writing abstractions. We are not really happy because we write less lines of code, but because we reduced the complexity of our code by identifying reusable patterns.
 
- 2. More declarative: Look at the imperative version, it's an amorph bunch of code that at first glance -not being commented- you have absolute no idea what it may be doing. You may say: 'well, let's start here, jot down the values for {{{n}}} and {{{acc}}}, do some loops, see how they evolve, look at the last iteration' and so on.  The functional version on the other hand needs no comment: it builds bottom-up with small, generic, simple tools programmers are already familiar with. It describes, it declares what it's doing, not how it's doing it.
+ 2. More declarative: Look at the imperative version, it's an amorph bunch of code that at first glance -not being commented- you have absolute no idea what it may be doing. You may say: 'well, let's start here, jot down the values for {{{n}}} and {{{acc}}}, do some loops, see how they evolve, look at the last iteration' and so on.  The functional version on the other hand is self-explanatory, it describes, it declares what it's doing, not how it's doing it.
 
-In other words: "Functional programming is like describing your problem to a mathematician. Imperative programming is like giving instructions to an idiot" (arcus, #scheme on Freenode).
+"Functional programming is like describing your problem to a mathematician. Imperative programming is like giving instructions to an idiot" (arcus, #scheme on Freenode).
 
 = Conclusion =
 
