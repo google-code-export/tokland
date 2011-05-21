@@ -356,6 +356,38 @@ In this second version you see right away what it's going on. This example prese
 
 = Some abstractions =
 
+== Enumerable#map_select ==
+
+Mathematics notations are known to be exact but terse. Haskell uses an expression called list-comprehension to build easily lists. For example, the square of the odd numbers between 1 and 10:
+
+{{{
+[x^2 | x <- [1..10], odd x]
+}}}
+
+Python borrowed it:
+
+{{{
+[x**2 for x in range(1, 10+1) if x % 2 == 1]
+}}}
+
+But, alas, Ruby has no such construction. But we can build our poor man's version of a list-comprehension, as long as we accept the value (usually nil) which is not to be accepted in the output. That's how it looks:
+
+{{{
+(1..10).map_select { |x| x**2 if x.odd? }
+}}}
+
+Granted, it does not look terrific, but you see the intent. Also, note that list-comprehensions are much more powerful, as they allow nested iterations. Here is a possible implementation:
+
+{{{
+module Enumerable
+  def map_select(value_for_skip = nil)
+    self.inject([]) do |acc, item|
+      value = yield(item)
+      value == value_for_skip ? acc : acc << value
+    end
+  end
+end
+}}}
 == Enumerable#map_detect ==
 
 Simple exercise: fid the first element in a list with a square greater than 10 and return this same value. How to do it:
@@ -389,14 +421,53 @@ result = [1,2,3,4].map_detect do |x|
 end # 16
 }}}
 
-So our map_detect is in fact a lazy version of the second example (map+compact+first).
+So our map_detect is in fact a lazy version of the second example (map+compact+first). A possible implementation:
+
+{{{
+module Enumerable
+  def map_detect(value_for_no_matching = nil)
+    self.each do |member|
+      if result = yield(member)
+        return result
+      end
+    end
+    value_for_no_matching
+  end
+end
+}}}
+
+== Object#or_else ==
+
+First an intro: Operators in other languages are methods in Ruby. When you write 2 + 3 this is sintantic sugar for 2.+(3). This is cool, you can override all these methods and write nicer code. But && and || are special in Ruby, you can override them, they are operators that must be managed by the interpreter because they deal with short-circuited evalution ({{{false || nil || 1 || "hello"}}} returns 1 without "hello" being evaluated).
+
+Ok, now consider this case where an expression in a short-circuit cannot be written in a single expression, you need more than one:
+
+{{{
+result = expr1 || {expr2a; expr2b; ...; expr2final} # not runnable
+}}}
+
+The previous code is not valid, you cannot build blocks of code with {...}. We've seen that {{{||}}} is not overridable so we cannot just make it accept a block, we must write or own "or". Let's call it or_else:
+
+results = expr1.or_else {expr2a; expr2b; ...; expr2final}
+
+And that's it, we've got still a lazy behaviour, as block won't be called unless it's really needed. The implementation is as simple as it gets:
+
+{{{
+class Object
+  def or_else(&block)
+    self || yield  
+  end
+end
+}}}
 
 = Conclusion =  
 
  * Write beautiful code. This is valid for any language, but while some of them just keep getting in your way no matter how hard you try, that's not the case with Ruby.
+
+ * Don't worry about performance too soon: Maintenance of code is very important. Write simple code that works (this does not mean bad code). Profile it to see where the bootle-necks are, and only there, refactor. You know, "premature optimization is the root of all evil".
  
- * Ruby is not a functional language, and that's fine, but don't use it imperatively when there is no reason for it. Blocks provide a powerful mechanism for functional programming. "State of the root of all evil", keep it to a minimum. 
+ * Ruby is not a functional language, and that's fine, but don't use it imperatively when there is no reason for it. Blocks provide a powerful mechanism for functional programming. 
  
  * Ruby core developers can't forecast all your needs, but don't resign yourself to the existing toolbox. *Programming is about building abstractions*, your personal toolbox should be growing with each project you write. Reuse and progressively improve them.
  
-In a nutshell: Exploit the language so you can write beautiful, compact, clear and semantically meaningful code. There are few languages as suited as Ruby to achieve this goal, don't waste the opportunity.
+In a nutshell: Tweak the language to fit your needs so you can write maintainable, beautiful, compact, semantically meaningful code (incidentally, it would be great if it also works as expected!).
