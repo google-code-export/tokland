@@ -243,13 +243,66 @@ Note that you can expand as nested levels as you need to:
 end
 }}}
 
-== Functional Ruby ===
+= Functional Ruby ==
 
 Ruby is not a functional language. In fact, being a classic OOP language it promotes changes in the state of objects. But, at the same time, Ruby comes with great functional capabilities.
 
-This section has moved to its own page: [RubyFunctionalProgramming]
+This section was getting pretty long, so I moved to its own page: [RubyFunctionalProgramming]
 
-== Managing nil's. The Maybe pattern ==
+= Build your own toolbox =
+
+== Extend with generic functions ==
+
+So you have a dog named Scooby and want to know if it's in your list of selected dogs. You would probably write:
+
+{{{
+["rantanplan", "milu"].include?("scooby") #=> false
+}}}
+
+Notice how the code reversed our phrasing. Why don't we create a construction that reflects how we think about the problem? 
+
+{{{
+class Object
+  def in?(enumerable)
+    enumerable.include?(self)
+  end
+end
+}}}
+
+{{{
+"scooby".in?(["rantanplan", "milu"]) #=> false
+}}}
+  
+== Use blocks as wrappers ==
+
+Never wrote something similar to this?
+
+{{{
+tries = 0
+loop do 
+  begin
+    process
+  rescue Exception1, Exception2 => error
+    tries += 1
+    retry unless tries > 5
+    nil
+  end
+end
+}}}
+  
+There is nothing really wrong with this, but look at the relevant code: it's literally buried in a jumble of infrastructure! Let's abstract the high-level construction so we achieve two goals: 1) we simplify the code, and 2) leave a method to be reused in other projects:
+
+{{{
+retry_on_exceptions([Exception1, Exception2], :max_retries => 5) do
+  process
+end
+}}}
+
+In this second version you see right away what it's going on. This example presents a useful pattern: use blocks as high-level abstraction wrappers. The more generic the pattern is, the more reason you should abstract it. This is nothing new, wrappers with callbacks are used everywhere, the difference with Ruby is that blocks make it a easy and beautiful solution to a myriad of scenarios. 
+
+== Some abstractions ==
+
+=== Managing nil's. The Maybe pattern ===
 
 You have find a lost dog and you want to know where he lives. You'll write:
 
@@ -303,60 +356,7 @@ if __FILE__ == $0
 end
 }}}
 
-== Build your own toolbox ==
-
-=== Example 1: Extend the existing classes/modules with generic functions  ===
-
-So you have a dog named Scooby and want to know if it's in your list of selected dogs. You would probably write:
-
-{{{
-["rantanplan", "milu"].include?("scooby") #=> false
-}}}
-
-Notice how the code reversed our phrasing. Why don't we create a construction that reflects how we think about the problem? 
-
-{{{
-class Object
-  def in?(enumerable)
-    enumerable.include?(self)
-  end
-end
-}}}
-
-{{{
-"scooby".in?(["rantanplan", "milu"]) #=> false
-}}}
-  
-=== Example2: Use blocks as wrappers ===
-
-Never wrote something similar to this?
-
-{{{
-tries = 0
-loop do 
-  begin
-    process
-  rescue Exception1, Exception2 => error
-    tries += 1
-    retry unless tries > 5
-    nil
-  end
-end
-}}}
-  
-There is nothing fundamentally wrong with this, but look at the relevant code: it's literally buried in a jumble of infrastructure! Let's abstract the high-level construction so 1) we simplify the code, 2) leave a method to be reused in other projects:
-
-{{{
-retry_on_exceptions([Exception1, Exception2], :max_retries => 5) do
-  process
-end
-}}}
-
-In this second version you see right away what it's going on. This example presents a useful pattern: use blocks as high-level abstraction wrappers. The more generic the pattern is, the more reason you should abstract it.
-
-= Some abstractions =
-
-== Enumerable#map_select ==
+=== Enumerable#map_select ===
 
 Mathematics notations are known to be exact but terse. Haskell uses an expression called list-comprehension to build easily lists. For example, the square of the odd numbers between 1 and 10:
 
@@ -388,7 +388,8 @@ module Enumerable
   end
 end
 }}}
-== Enumerable#map_detect ==
+
+=== Enumerable#map_detect ===
 
 Simple exercise: fid the first element in a list with a square greater than 10 and return this same value. How to do it:
 
@@ -436,7 +437,7 @@ module Enumerable
 end
 }}}
 
-== Object#or_else ==
+=== Object#or_else ===
 
 First an intro: Operators in other languages are methods in Ruby. When you write 2 + 3 this is sintantic sugar for 2.+(3). This is cool, you can override all these methods and write nicer code. But && and || are special in Ruby, you can override them, they are operators that must be managed by the interpreter because they deal with short-circuited evalution ({{{false || nil || 1 || "hello"}}} returns 1 without "hello" being evaluated).
 
@@ -458,6 +459,55 @@ class Object
     self || yield  
   end
 end
+}}}
+
+Of course, when if you find {{{Object#or_else}}} useful, you may probably want to use {{{Object#and_also}}}.
+
+== Object#as ==
+
+Look at this code:
+
+area = info[0] * info[1]
+
+At first glance it's not clear what he is doing, isn't this more clear:
+
+width, height = info
+area = width * height
+
+It's really good to name things before using. Nothing wrong here, but we needed an extra line to unpack the array. How about that:
+
+area = info.as { |width, height| width * height }
+
+It's a matter of taste, but I think this is pretty clear. Note that you can use this construction to "name" things in a chain:
+
+{{{
+document.css("a")[3].href
+}}}
+
+But which is the third link in this document?
+
+{{{
+document.css("a")[3].as { |link_to_main_page| link_to_main_page.href }
+}}} 
+
+Oh, ok, the third link is the link to the main page.
+
+Also, see how to use it to build an expression that reuses multiple times the previous one:
+
+{{{
+y = x**2
+result = [y, y+1]
+}}}
+
+(x**2).as { |y| [y, y+1] }
+
+The implementation of Object#as is straighforward:
+
+{{{
+class Object
+  def as(&block)
+    yield self
+  end
 }}}
 
 = Conclusion =  
