@@ -91,7 +91,7 @@ end
 
 == Multi-line array/hashes ==
 
-There are many ways of writing multi-line array or hashes. I recommend this one:
+There are many ways of writing multi-line array or hashes. I recommend this style:
 
 {{{
 array = [
@@ -207,7 +207,7 @@ It's not necessary to use explicit {} to indicate it's a hash:
 dog.bark(:volumen => 10, :duration => 5)
 }}}
 
-However, if there are lots of options and must be multilined I recommend this:
+However, if there are lots of options and the line is too long, I recommend this multi-line style:
 
 {{{
 dog.bark({
@@ -222,23 +222,23 @@ dog.bark({
 No:
 
 {{{
-[[1, 2], [3, 4]].each do |array|
-  array[0] - array[1]
-end
+[[1, 2], [3, 5]].map do |array|
+  array[1] - array[2]
+end # [1, 2]
 }}}
 
 Yes:
 
 {{{
-[[1, 2], [3, 4]].each do |v1, v2|
-  v1 - v2
-end
+[[1, 2], [3, 5]].map do |v1, v2|
+  v2 - v1
+end # [1, 2]
 }}}
   
-Note that you can expand as nested levels as you need to:
+Note that you can expand as nested levels as you need to using parenthesis:
 
 {{{
-[["hello", [2, 3.3]], ["bye", [4, 1.1]]].each do |string, (integer, float)|
+[["hello", [2, 3.3]], ["bye", [4, 1.1]]].map do |string, (integer, float)|
   ...
 end
 }}}
@@ -255,7 +255,7 @@ end
 
 Ruby is not a functional language. In fact, being a classic OOP language it promotes changes in the state of objects. But, at the same time, Ruby comes with great functional capabilities.
 
-This section was getting pretty long, so I moved to its own page: [RubyFunctionalProgramming]
+This section was getting pretty long, so I moved it to its own page: [RubyFunctionalProgramming]
 
 = Build your own toolbox =
 
@@ -267,7 +267,7 @@ So you have a dog named Scooby and want to know if it's in your list of selected
 ["rantanplan", "milu"].include?("scooby") #=> false
 }}}
 
-Notice how the code reversed our phrasing. Why don't we create a construction that reflects how we think about the problem? 
+Notice how the code reversed the phrasing. Why don't we create a construction that reflects how we think about the problem? 
 
 {{{
 class Object
@@ -298,7 +298,7 @@ loop do
 end
 }}}
   
-There is nothing really wrong with this, but look at the relevant code: it's literally buried in a jumble of infrastructure! Let's abstract the high-level construction so we achieve two goals: 1) we simplify the code, and 2) leave a method to be reused in other projects:
+There is nothing really wrong with this snippet, but look at the relevant code: it's literally buried in a jumble of infrastructure. Let's abstract the high-level construction so we achieve two goals: 1) we simplify the code, and 2) leave a method to be reused in other projects:
 
 {{{
 retry_on_exceptions([Exception1, Exception2], :max_retries => 5) do
@@ -306,7 +306,7 @@ retry_on_exceptions([Exception1, Exception2], :max_retries => 5) do
 end
 }}}
 
-In this second version you see right away what it's going on. This example presents a useful pattern: use blocks as high-level abstraction wrappers. The more generic the pattern is, the more reason you should abstract it. This is nothing new, wrappers with callbacks are used everywhere, the difference with Ruby is that blocks make it a easy and beautiful solution to a myriad of scenarios. 
+In this second version you see right away what it's going on. This example presents an extremely useful pattern: use blocks as high-level wrappers. The more generic the pattern is, the more reason you should abstract it. This is nothing new, wrappers with callbacks are used in many languages, but the difference with Ruby is that blocks make it a easy and beautiful solution to a myriad of scenarios. 
 
 == Some abstractions ==
 
@@ -358,25 +358,25 @@ I'd recommend the second one, the {{{maybe}}} proxy approach without blocks:  co
   
 === Enumerable#map_select ===
 
-Haskell has a cool construction called list-comprehension to build lists. For example, the square of the odd numbers between 1 and 10:
+Haskell introduced a very cool construction called _list comprehension_ to build lists. For example, to find out the squares of the first odd natural numbers between 1 and 10:
 
 {{{
 [x^2 | x <- [1..10], odd x]
 }}}
 
-Python borrowed it:
+Python smartly borrowed it:
 
 {{{
 [x**2 for x in range(1, 10+1) if x % 2 == 1]
 }}}
 
-But, alas, Ruby has no such construction. However, we can build our poor man's version of a list-comprehension, as long as we accept the value (usually nil) which is not to be accepted in the output. That's how it looks:
+But, alas, Ruby has no such construction. However, we can build our poor man's list comprehension, as long as we define which value (usually nil) is to be filtered from the output. That's how it looks:
 
 {{{
 (1..10).map_select { |x| x**2 if x.odd? }
 }}}
 
-Note that real list-comprehensions are more powerful, as they allow nested iterations. Here is a possible implementation:
+Note that real list-comprehensions are more powerful, as they allow nested iterations.
 
 {{{
 module Enumerable
@@ -391,7 +391,7 @@ end
 
 === Enumerable#map_detect ===
 
-Simple exercise: fid the first element in a list with a square greater than 10 and return this same value. How to do it:
+Simple exercise: find the first element in a list with a square greater than 10 and return this same value. How to do it:
 
 1) Simple, detect + operation:
 
@@ -400,9 +400,9 @@ n = [1,2,3,4].detect { |x| x**2 > 10 }
 result = n ? n**2 : nil # 16
 }}}
 
-Booh, we need to repeat the operation for the matching value and we also need to control that it's not nil. Ugly.
+Booh, we needed to repeat the operation for the matching value and we also need to control that it's not nil. Ugly.
 
-2) It seems we want a map, but also a detect, don't we?:
+2) It seems we want a map, but also a detect, don't we?
 
 {{{
 result = [1,2,3,4].map do |x| 
@@ -411,9 +411,9 @@ result = [1,2,3,4].map do |x|
 end.compact.first # 16
 }}} 
 
-Conceptually ok in a lazy language, but Ruby maps the whole input array, so terrible performance.
+Conceptually ok in a lazy language, but Ruby maps the whole input array, so bad performance.
 
-3) New abstracion Enumerable#map_detect:
+3) Our new abstracion Enumerable#map_detect:
 
 {{{
 result = [1,2,3,4].map_detect do |x| 
@@ -447,7 +447,7 @@ Ok, now consider this case where an expression in a short-circuit cannot be writ
 result = expr1 || { expr2a; expr2b; ...; expr2final } # not valid Ruby
 }}}
 
-The previous code is not valid, you cannot build blocks of code with {...}. We've seen that {{{||}}} is not overridable so we cannot make it accept a block, we must write or own "or" method. Let's call it {{{or_else}}}:
+The previous code is not valid, you cannot build blocks of code with {...} (this is not Bash). We've seen that {{{||}}} is not overridable so we cannot make it accept a block, we must write or own "or" method. Let's call it {{{or_else}}}:
 
 {{{
 results = expr1.or_else do 
@@ -457,7 +457,7 @@ results = expr1.or_else do
 end
 }}}
 
-And that's it, the same short-circuited expressions using blocks. The implementation is as simple as it gets:
+And that's it, the same short-circuited expressions but now using blocks. The implementation is as simple as it gets:
 
 {{{
 class Object
@@ -490,7 +490,7 @@ Now this is better, we are getting the area of a rectangle. It's really good to 
 area = info.as { |width, height| width * height }
 }}}
 
-It's a matter of taste, but I think this is also pretty clear. Note that you can use this construction to "name" things in a chain as "documentation":
+It's a matter of taste, but I think this is also pretty clear. Note that you can use this construction to "name" things in a chain as documentation:
 
 {{{
 document.css("a")[3].href
@@ -530,8 +530,8 @@ class Object
 
  * Don't worry about performance too soon: Maintenance of code is very, very important. Write simple code that works (caveat: this does not mean ill-conceived code with the wrong algorithms). Profile it to see where the bootle-necks are and refactor. You know, "premature optimization is the root of all evil".
  
- * Ruby is not a functional language, and that's fine, but don't use it imperatively when there is no reason for it. Keep state to a minimum. 
+ * Ruby is not a functional language, and that's fine, but don't use it imperatively unless there is a good reason. Keep state to a minimum. 
  
  * Ruby core developers can't forecast all your needs, but don't resign yourself to the existing toolbox. *Programming is about building abstractions*, your personal toolbox should be growing with each project you write. Reuse and progressively improve them.
  
-In a nutshell: tweak the language to fit your needs and write maintainable, beautiful, compact, semantically meaningful code (incidentally, it would be great if it also works as expected! write tests!!).
+In a nutshell: tweak the language to fit your needs and write maintainable, beautiful, compact, semantically meaningful code (incidentally, it would be great if it also works as expected... write tests!!).
