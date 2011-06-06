@@ -1,6 +1,6 @@
 #summary Ruby conventions and idioms
 
-This document gathers together a bunch Ruby idioms, conventions and patterns (some of them accepted by the community, some of them personal). This is a work in progress, feel free to email me if you have any suggestion (tokland AT gmail.com).  
+This document show some Ruby idioms, conventions and patterns (some of them accepted by the community, some of them personal). This is a work in progress, feel free to email me if you have any suggestion (tokland AT gmail.com).  
 
 <wiki:toc max_depth="2" />
 
