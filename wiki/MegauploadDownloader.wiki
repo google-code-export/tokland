@@ -73,19 +73,16 @@ The goal of this script, on the other hand, is about programming: how to write a
 
 = Status =
 
-
 {{{
 system:
-  date: Sun, 05 Jun 2011 05:00:06 +0200
-  kernel: 2.6.18.8-linode22 i686 GNU/Linux
+  date: Tue, 07 Jun 2011 22:31:19 +0200
+  kernel: 2.6.32-lts x86_64 GNU/Linux
   
-  imagemagick: 6.3.7
-  tesseract: 2.03
-  curl: 7.18.2
+  bash: 4.2.8(2)-release
+  curl: 7.21.4
   recode: 3.6
-  aview: 1.3.0
 
-megaupload-dl:
+megaupload-dl (r669):
   test_0wrong_link: ok
   test_dead_link: ok
   test_download: ok
@@ -94,6 +91,6 @@ megaupload-dl:
   test_link_with_password_but_no_password_provided: ok
   test_link_with_password_but_wrong_password: ok
 
-megaupload-dl-batch:
+megaupload-dl-batch (r669):
   test_batch_download: ok
 }}}
