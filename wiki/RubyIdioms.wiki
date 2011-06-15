@@ -447,10 +447,16 @@ Ok, now consider this case where an expression in a short-circuit cannot be writ
 result = expr1 || { expr2a; expr2b; ...; expr2final } # not valid Ruby
 }}}
 
-The previous code is not valid, you cannot build blocks of code with {...} (this is not Bash). We've seen that {{{||}}} is not overridable so we cannot make it accept a block, we must write or own "or" method. Let's call it {{{or_else}}}:
+But this is valid:
 
 {{{
-results = expr1.or_else do 
+result = expr1 || begin expr2a; expr2b; ...; expr2final end
+}}}
+
+But what if we want to use blocks for that? we've seen that {{{||}}} is not overridable so we cannot make it accept a block, we must write or own "or" method. Let's call it {{{or_else}}}:
+
+{{{
+result = expr1.or_else do 
   expr2a
   expr2b
   expr2final
@@ -467,7 +473,11 @@ class Object
 end
 }}}
 
-Of course, if you find {{{Object#or_else}}} useful you may probably want to write {{{Object#and_also}}}.
+Of course, if you find {{{Object#or_else}}} useful you may probably want to write {{{Object#and_also}}}. Now you can expand these methods with the options yous see fit. For example, it may be nice to decide what is a *false* value: 
+
+{{{
+result = expr1.or_else(:if => :blank?) { alternative }
+}}}
 
 == Object#as ==
 
