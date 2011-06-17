@@ -377,6 +377,8 @@ natural_numbers.map { |x| 2*x }.take(10)
 
 This is just the basic of it, if you find this stuff interesting, you should take a look at Facets' [http://rdoc.info/github/rubyworks/facets/master/Denumerable denumerables] and see all the cool things you can do with Ruby enumerators.
 
+Also, check [http://flori.github.com/lazylist/ Lazylist].
+
 === Advantages of lazy evaluation ===
 
 1. The obvious: you don't build and store complete structures if you don't need to (which may be efficient in CPU, memory, or both). 
