@@ -2,7 +2,7 @@
 
 = Introduction =
 
-When I first learnt Haskell I was deeply impressed at the compact way abstract algebraic types can be defined. For example:
+When I first learnt Haskell I was deeply impressed by the compact way abstract algebraic types can be defined. For example, a binary tree:
 
 {{{
 data Tree a = Empty | Leaf a | Node a (Tree a) (Tree a)
@@ -19,7 +19,7 @@ Node 2 (Node 7 (Leaf 2)
                        Empty))
 }}}
 
-Wouldn't it be nice to make something similar with Ruby? 
+Wouldn't it be nice to make something similar with (idiomatic) Ruby?
 
 = A first approach =
 
