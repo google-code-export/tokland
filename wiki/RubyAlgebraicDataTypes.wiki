@@ -2,7 +2,7 @@
 
 = Introduction =
 
-One of the many cool things about functional languages are the compact way they describe abstract algebraic types. Let's see, for example, how can we define a binary tree type in Haskell:
+When I first learnt Haskell I was deeply impressed at the compact way abstract algebraic types can be defined. For example:
 
 {{{
 data Tree a = Empty | Leaf a | Node a (Tree a) (Tree a)
@@ -19,7 +19,7 @@ Node 2 (Node 7 (Leaf 2)
                        Empty))
 }}}
 
-Wouldn't it be cool to make something similar with Rub?
+Wouldn't it be nice to make something similar with Ruby? 
 
 = A first approach =
 
