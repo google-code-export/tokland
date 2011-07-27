@@ -432,6 +432,10 @@ I hope this example shows some of the advantages we discussed in this document:
 
 A better understanding of the principles of Functional Programming will help us to write more clear, reusable and compact code. Ruby is basically an imperative language, but it also has great functional capabilities, know when and how to use them (and when not to). Be your motto "state is the root of all evil" and avoid it whenever possible.
 
+= Presentations =
+
+* I did a presentation+workshop in [http://conferenciarails.org/ Conferencia Rails 2011]: [http://public.arnau-sanchez.com/ruby-functional/ Functional Programming with Ruby].
+
 = Further reading =
 
 http://en.wikipedia.org/wiki/Functional_programming
