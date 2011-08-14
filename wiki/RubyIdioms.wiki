@@ -183,7 +183,7 @@ Yes:
 
 {{{
 def method(arg1, arg2, options = {})
-  options.reverse_update!(
+  options.reverse_update(
     :arg3 => default_value_for_arg3,
     :arg4 => default_value_for_arg4,
     :arg5 => default_value_for_arg5,
@@ -201,7 +201,7 @@ Why:
 Downside:
  
   * Available options are explicit in code but not in documentation.
-  * Hash#reverse_update is, of course, non-functional. If you prefer FP purity use two different names and use {{{reverse_merge}}}. Note: these functions are found in Activesupport.
+  * {{{Hash#reverse_update}}} is, of course, non-functional. If you choose FP purity, use two different variables and call {{{reverse_merge}}}. Note: these two functions are found in Activesupport.
   
 == Calling functions with key arguments ==
 
@@ -227,7 +227,7 @@ No:
 
 {{{
 [[1, 2], [3, 5]].map do |array|
-  array[1] - array[2]
+  array[0] - array[1]
 end # [1, 2]
 }}}
 
