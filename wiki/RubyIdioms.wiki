@@ -183,7 +183,11 @@ Yes:
 
 {{{
 def method(arg1, arg2, options = {})
-  arg3 = options[:arg3] || default_value_for_arg3 
+  options.reverse_update!(
+    :arg3 => default_value_for_arg3,
+    :arg4 => default_value_for_arg4,
+    :arg5 => default_value_for_arg5,
+  })
   ...
 end
 }}}
@@ -196,8 +200,8 @@ Why:
 
 Downside:
  
-  * Available options are not explicit, so make sure you document them.
-  * You must be careful with default values on boolean options.
+  * Available options are explicit in code but not in documentation.
+  * Hash#reverse_update is, of course, non-functional. If you prefer FP purity use two different names and use {{{reverse_merge}}}. Note: these functions are found in Activesupport.
   
 == Calling functions with key arguments ==
 
