@@ -202,18 +202,6 @@ http://tokland.googlecode.com/svn/trunk/flac/ape2flac
 
 = Websites =
 
-== Rae3 ==
-
-Simple but functional gateway to DRAE (Diccionario Real Academia de la Lengua)
-
-http://rae3.es/
-
-== !EnWebstas == 
-
-Spanish site for paid online surveys developed in Rails.
-
-http://www.enwebstas.com/
-
 == !BicingInfo ==
 
 An email & SMS alarms Rails website for [http://www.bicing.com/ Bicing Barcelona].
