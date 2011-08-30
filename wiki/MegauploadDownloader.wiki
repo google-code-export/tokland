@@ -42,6 +42,7 @@ $ megaupload-dl -p somepassword http://megaupload.com/?d=110JVG89
  
 {{{
 $ megaupload-dl -c http://megaupload.com/?d=110JVG89
+$ test $? -eq 3 && echo "link is dead, for sure"
 }}}
 
 * Download a list of files:
