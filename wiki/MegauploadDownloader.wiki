@@ -42,7 +42,6 @@ $ megaupload-dl -p somepassword http://megaupload.com/?d=110JVG89
  
 {{{
 $ megaupload-dl -c http://megaupload.com/?d=110JVG89
-$ test $? -eq 3 && echo "link is dead, for sure"
 }}}
 
 * Download a list of files:
@@ -63,9 +62,9 @@ How it works: {{{worker}}} comments out links in {{{file_with_links.txt}}} with 
 
 = Motivation =
 
-The goal of this script is about programming: how to write a minimal shell script with modular, compact and clean code. If you feel the script does not fulfill this goal in any aspect, feel free to contact me.
+This script is about programming: how to write a minimal shell script downloader with modular, compact and clean code. If you feel the script does not fulfill this goal in any aspect, feel free to contact me.
 
-If your only interest is how to automatic download from file-sharing sites you should check [http://code.google.com/p/plowshare/ plowshare], as it supports  lots of sites, and it's extremely configurable.
+If you only want to automatically download from file-sharing sites you should check [http://code.google.com/p/plowshare/ plowshare], as it supports  lots of sites and it's very configurable.
 
 = Feedback =
 
@@ -73,7 +72,6 @@ If your only interest is how to automatic download from file-sharing sites you s
  * Report bugs/suggestions: http://code.google.com/p/tokland/issues/list
 
 = Status =
-
 
 {{{
 revision: r711
