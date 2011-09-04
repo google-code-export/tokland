@@ -73,9 +73,10 @@ If you only want to automatically download from file-sharing sites you should ch
 
 = Status =
 
+
 {{{
-revision: r711
-date: Tue, 30 Aug 2011 12:31:56 +0200
+revision: r718
+date: Sun, 04 Sep 2011 05:00:10 +0200
 
 packages:
   bash: 3.2.39(1)-release
@@ -83,7 +84,6 @@ packages:
   recode: 3.6
 
 megaupload-dl:
-  test_0wrong_link: ok
   test_dead_link: ok
   test_download: ok
   test_download_with_resume: ok
