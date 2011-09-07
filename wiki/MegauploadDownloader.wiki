@@ -28,8 +28,8 @@ $ install megaupload-dl.sh /usr/local/bin/megaupload-dl
 * Download a single file:
  
 {{{
-$ megaupload-dl http://megaupload.com/?d=710JVG89
-03.Crazy Man Michael.mp3
+$ megaupload-dl http://www.megaupload.com/?d=S9BJRU17
+lao_tzu-the_tao_te_ching.pdf
 }}}
 
 * Download a password-protected file:
@@ -38,10 +38,17 @@ $ megaupload-dl http://megaupload.com/?d=710JVG89
 $ megaupload-dl -p somepassword http://megaupload.com/?d=110JVG89
 }}}
 
+* Download a file using extra curl options:
+ 
+{{{
+$ megaupload-dl -o "--limit-rate 50K" http://www.megaupload.com/?d=S9BJRU17
+lao_tzu-the_tao_te_ching.pdf
+}}}
+
 * Check if a link is alive:
  
 {{{
-$ megaupload-dl -c http://megaupload.com/?d=110JVG89
+$ megaupload-dl -c http://www.megaupload.com/?d=S9BJRU17
 }}}
 
 * Download a list of files:
@@ -64,7 +71,7 @@ How it works: {{{worker}}} comments out links in {{{file_with_links.txt}}} with 
 
 This script is about programming: how to write a minimal shell script downloader with modular, compact and clean code. If you feel the script does not fulfill this goal in any aspect, feel free to contact me.
 
-If you only want to automatically download from file-sharing sites you should check [http://code.google.com/p/plowshare/ plowshare], as it supports  lots of sites and it's very configurable.
+If you only want to automatically download from file-sharing sites you should check [http://code.google.com/p/plowshare/ plowshare], it supports  lots of sites and it's highly configurable.
 
 = Feedback =
 
