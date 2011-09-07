@@ -35,7 +35,8 @@ lao_tzu-the_tao_te_ching.pdf
 * Download a password-protected file:
  
 {{{
-$ megaupload-dl -p somepassword http://megaupload.com/?d=110JVG89
+$ megaupload-dl -p tokland http://www.megaupload.com/?d=FDPAE94B
+xkcd2.jpg
 }}}
 
 * Download a file using extra curl options:
