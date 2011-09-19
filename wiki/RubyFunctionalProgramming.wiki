@@ -284,7 +284,12 @@ Joe Armstrong (the creator of Erlang) discussed in "Coders At work" about the re
 
 "I think the lack of reusability comes in object-oriented languages, not in functional languages. Because the problem with object-oriented languages is they’ve got all this implicit environment that they carry around with them. You wanted a banana but what you got was a gorilla holding the banana and the entire jungle."
 
-To be fair, in my opinion it's not an intrinsic problems of OOP. You can write OOP code which is also functional, but standard OOP certainly promotes extreme coupling between code.
+To be fair, in my opinion it's not an intrinsic problems of OOP. You can write OOP code which is also functional, but certainly:
+
+ * Typical OOP tends to emphasize change of state in objects.
+ * Typical OOP tends to impose tight coupling between layers (which hinders modularization).
+ * Typical OOP mixes the concepts of identity and state.
+ * Mixture of data and code raises both conceptual and practical problems.
 
 The point is that FP is a collection of black-boxes where only their input and output matters, they can be studied in isolation. And not only the collection of functions, but also the functions themselves: when variables are modified in-place, you have to follow all the code to see where and how the variable was modified. This is the source of bugs and uncountable hours of painful debugging.
 
@@ -314,11 +319,55 @@ end
 
 It's not only that we don't repeat the variable name {{{message}}}, also the intent is much more clear: while there is a bunch of code which may be large (and using a lot of other variables we don't really care about), we can concentrate on what it does (return a message). Again, we are narrowing down the scope of our code.
 
+Another advantage, FP code, being expressions, can be used to build data:
+
+{{{
+{
+  :name => "M.Cassatt",
+  :paintings => paintings.select { |p| p.author == "M.Cassatt" },
+  :birth => painters.detect { |p| p.name == "M.Cassatt" }.birth.year,
+  ...
+}
+}}}
+
 == Recursion ==
 
 Pure functional languages, having no implicit state, use recursion a lot. To avoid infite stacks, functional languages have a mechanism called tail-recursion optimization (TCO). Ruby 1.9 has this mechanism coded but it's disabled by default, so you don't use it if you expect your code to work everywhere.
 
 However, in certain circumstances recursion is still valid and usable, even if a new stack is created on each recursion. Note that some usages of recursion may be achieved with foldings (like {{{Enumerable#inject}}}).
+
+To enable TCO in MRI-1.9:
+
+{{{
+RubyVM::InstructionSequence.compile_option = {
+  :tailcall_optimization => true,
+  :trace_instruction => false,
+}
+}}}
+
+Simple example:
+
+{{{
+module Math
+  def self.factorial_tco(n, acc=1)
+    n < 1 ? acc : factorial_tco(n-1, n*acc)
+  end
+end
+}}}
+
+You still can use it when the recursion-depth is very unlikely to be large:
+
+{{{
+class Node
+  has_many :children, :class_name => "Node"
+
+  def all_children
+    self.children.flat_map do |child|
+      [child] + child.all_children
+    end
+  end
+end
+}}}
 
 == Lazy enumerators ==
 
@@ -397,34 +446,33 @@ solver(input).take(10)
 
 == A practical example ==
 
-Exercise: "What's the first accumulative sum of natural numbers that exceeds 100?". 
-
-A functional approach could be (requires methods: {{{Enumerator#partial_inject}}}, {{{Enumerator#take_while}}},  {{{Enumerator#first}}}):
+Exercise: "What's the sum of the first 10 natural number whose square value is divisible by 5?". 
  
 {{{
-natural_numbers.partial_inject(0, :+).drop_while { |x| x <= 100 }.first
-# 105 (correct: 1 + .. + 13 = 91, 1 + .. + 14 = 105)
+Integer::natural.select { |x| x**2 % 5 == 0 }.take(10).inject(:+) #=> 275
 }}}
 
 Let's compare it with the equivalent imperative version: 
 
 {{{
-n = 1
-acc = n
-while acc <= 100
+n, num_elements, sum = 1, 0, 0
+while num_elements < 10
+  if n**2 % 5 == 0
+    sum += n
+    num_elements += 1
+  end
   n += 1
-  acc += n
 end
-acc # 105
+sum #=> 275
 }}}
 
 I hope this example shows some of the advantages we discussed in this document:
 
  1. Compactness: You'll write less code. Functional code deals with expressions, and expressions are chainable; imperative code deals with variable modifications (statements), which are not chainable. 
 
- 2. Abstraction: You can argue that we are hiding a lot of code here ({{{partial_inject}}}, {{{take_while}}}, ...), and I am glad you brought it up because that's exactly what we are doing. Hiding generic, reusable code, that's what all programming -but specially functional programming- is about, about writing abstractions. We are not happy because we write less lines of code, we are happy because we reduced the complexity of our code by identifying reusable patterns.
+ 2. Abstraction: You can argue that we are hiding a lot of code when using {{{select}}}, {{{inject}}}, ...), and so on, and I am glad you brought it up because that's exactly what we are doing. Hiding generic, reusable code, that's what all programming -but specially functional programming- is about, about writing abstractions. We are not happy because we write less lines of code, we are happy because we reduced the complexity of our code by identifying reusable patterns.
 
- 3. More declarative: Look at the imperative version, it's an amorph bunch of code that at first glance -not being commented- you have absolute no idea what it may be doing. You may say: 'well, let's start here, jot down the values for {{{n}}} and {{{acc}}}, do some loops, see how they evolve, look at the last iteration' and so on.  The functional version on the other hand is self-explanatory, it describes, it declares what it's doing, not how it's doing it.
+ 3. More declarative: Look at the imperative version, it's an amorph bunch of code that at first glance -not being commented- you have absolute no idea what it may be doing. You may say: 'well, let's start here, jot down the values for {{{n}}} and {{{sum}}}, do some loops, see how they evolve, look at the last iteration' and so on.  The functional version on the other hand is self-explanatory, it describes, it declares what it's doing, not how it's doing it.
 
 "Functional programming is like describing your problem to a mathematician. Imperative programming is like giving instructions to an idiot" (arcus, #scheme on Freenode).
 
@@ -434,7 +482,7 @@ A better understanding of the principles of Functional Programming will help us 
 
 = Presentations =
 
- * I was kindly invited to make a presentation+workshop in [http://conferenciarails.org/ Conferencia Rails 2011]: [http://public.arnau-sanchez.com/ruby-functional/ Functional Programming with Ruby].
+ * Workshop at [http://conferenciarails.org/ Conferencia Rails 2011]: [http://public.arnau-sanchez.com/ruby-functional/ Functional Programming with Ruby].
 
 = Further reading =
 
