@@ -495,3 +495,5 @@ http://www.cse.chalmers.se/~rjmh/Papers/whyfp.html
 http://www.khelll.com/blog/ruby/ruby-and-functional-programming/
 
 http://www.bestechvideos.com/2008/11/30/rubyconf-2008-better-ruby-through-functional-programming
+
+http://channel9.msdn.com/Blogs/pdc2008/TL11
