@@ -255,6 +255,18 @@ if __FILE__ == $0
 end
 }}}
 
+== Catch-all rescue's ==
+
+What do you think of this code?
+
+{{{
+author_name = Book.find(book_id).author.name rescue nil
+}}}
+
+IMO this is plain unacceptable. A silent and indiscriminate {{{rescue}}} catches errors of all natures (not only the ones you have in mind!), so it's a hard-to-debug source of bugs. Just don't use it. 
+
+Then, how to write this code without filling it with conditionals? check the section that covers the "maybe" pattern. 
+
 = Functional Ruby ==
 
 Ruby is not a functional language. In fact, being a classic OOP language it promotes changes in the state of objects. But, at the same time, Ruby comes with great functional capabilities.
