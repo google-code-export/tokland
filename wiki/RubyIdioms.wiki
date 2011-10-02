@@ -29,10 +29,10 @@ def fun(arg1, arg2, arg3); end
 But use spaces to let the blocks breathe:
 
 {{{
-[1, 2, 3].map { |x| 2 * x }
+[1, 2, 3].map { |x| 2*x }
 }}}
 
-Note that some programmers *do* put spaces after "[" {{{[ 1, 2, 3 ]}}} and "{" {{{{ :a => 1 }}}}. You'll see this style throughout Rails code, for example. Maybe it's my Python background, but I'd wish my eyes were gouged away every time I see it. 
+Note that some programmers *do* put spaces after "[" {{{[ 1, 2, 3 ]}}} and "{" {{{{ :a => 1 }}}}. You'll see this style throughout Rails code, for example. Maybe it's my Python background, but I'd wish my eyes were gouged away every time I have to see it. 
 
 === Naming ===
 
@@ -89,6 +89,8 @@ obj.method do |foo|
 end
 }}}
 
+Ruby's figure [http://weblog.raganwald.com/ raganwald] [http://weblog.raganwald.com/2007/11/programming-conventions-as-signals.html proposed] to use brackes for functional blocks and do/end for blocks with side-effects. While I find the idea interesting, brackes on multi-line blocks look very unidiomatic, so I wouldn't recommend this style.
+
 == Multi-line array/hashes ==
 
 There are many ways of writing multi-line array or hashes. I recommend this style:
@@ -117,17 +119,7 @@ hash = {
 
 == Use of parenthesis ==
 
-Parenthesis are (usually) optional in Ruby:
-
-{{{
-def fun arg1 arg2
-  arg1 + arg2
-end
-
-fun 1 2 #=> 3
-}}}
-
-But my personal advice is: put them. On the other hand, it's common (and looks really good) to ommit them when writing DSL-style code. The best known example are Rails class methods: 
+Parenthesis are (usually) optional in Ruby, both when defining and calling a method. But my personal advice is: write them. The only exception I think is valid it's when making DSL-style calls. The best known example are Rails class methods: 
 
 {{{
 class Post < ActiveRecord::Base
@@ -495,7 +487,29 @@ Of course, if you find {{{Object#or_else}}} useful you may probably want to writ
 result = expr1.or_else(:if => :blank?) { alternative }
 }}}
 
-== Object#as ==
+=== Object#presence ===
+
+This code is usually ok:
+
+{{{
+name = database_name || session_name || default_name
+}}}
+
+However, sometimes one of these values will be an empty string, which Ruby considers it to be true. Activerecord's [http://api.rubyonrails.org/classes/Object.html#method-i-presence presence] is a good solution, just "nilify" empty values:
+
+{{{
+name = database_name.presence || session_name.presence || default_name.presence
+}}}
+
+Of course you could have written:
+
+{{{
+name = [database_name, session_name, default_name].reject(&:empty?).first
+}}}
+
+But this is computes all values (|| does not), and the values may not be as cheap to get as in this example.
+
+=== Object#as ===
 
 Look at this code:
 
