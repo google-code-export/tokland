@@ -89,7 +89,7 @@ obj.method do |foo|
 end
 }}}
 
-Ruby's figure [http://weblog.raganwald.com/ raganwald] [http://weblog.raganwald.com/2007/11/programming-conventions-as-signals.html proposed] to use brackes for functional blocks and do/end for blocks with side-effects. While I find the idea interesting, brackes on multi-line blocks look very unidiomatic, so I wouldn't recommend this style.
+Ruby's figure [http://weblog.raganwald.com/ raganwald] [http://weblog.raganwald.com/2007/11/programming-conventions-as-signals.html proposed] to use brackets for functional blocks and do/end for blocks with side-effects. While I find the idea interesting, brackets on multi-line blocks look very unidiomatic, so I wouldn't recommend this style.
 
 == Multi-line array/hashes ==
 
