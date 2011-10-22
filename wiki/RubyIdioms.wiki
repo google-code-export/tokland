@@ -166,7 +166,7 @@ Ruby's objects are always _true_ (in boolean terms) except for {{{nil}}} and {{{
 No:
 
 {{{
-def method(arg1, arg2, arg3=nil, arg4=nil, arg5=nil)
+def method(arg1, arg2, arg3=1, arg4="hello", arg5="bye")
   ...
 end
 }}}
@@ -176,9 +176,9 @@ Yes:
 {{{
 def method(arg1, arg2, options = {})
   options.reverse_update(
-    :arg3 => default_value_for_arg3,
-    :arg4 => default_value_for_arg4,
-    :arg5 => default_value_for_arg5,
+    :arg3 => 1,
+    :arg4 => "hello",
+    :arg5 => "bye",
   })
   ...
 end
