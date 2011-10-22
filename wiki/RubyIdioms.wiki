@@ -504,7 +504,7 @@ name = database_name.presence || session_name.presence || default_name.presence
 Of course you could have written:
 
 {{{
-name = [database_name, session_name, default_name].reject(&:empty?).first
+name = [database_name, session_name, default_name].detect(&:present?)
 }}}
 
 But this is computes all values (|| does not), and the values may not be as cheap to get as in this example.
