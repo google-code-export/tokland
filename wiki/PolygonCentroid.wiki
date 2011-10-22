@@ -12,7 +12,9 @@ http://code.google.com/p/tokland/source/browse/trunk/centroid
 
 = Example: find the center of Catalonia =
 
-KML used: http://g.co/maps/qfa9e
+KML used: http://tokland.googlecode.com/files/catalunya.kml
+
+(see it in Google maps: http://g.co/maps/qfa9e)
 
 {{{
 $ wget http://tokland.googlecode.com/svn/trunk/centroid/center.rb
