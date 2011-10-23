@@ -1,6 +1,6 @@
 #summary Ruby conventions and idioms
 
-This document show some Ruby idioms, conventions and patterns (some of them accepted by the community, some of them personal). This is a work in progress, feel free to email me if you have any suggestion (tokland AT gmail.com).  
+This document show some Ruby idioms, conventions and patterns (most of them accepted by the community, some of them more personal). This is a work in progress, feel free to email me add a comment if you have any suggestion (tokland AT gmail.com).  
 
 <wiki:toc max_depth="2" />
 
@@ -8,9 +8,9 @@ This document show some Ruby idioms, conventions and patterns (some of them acce
 
 == General formatting ==
 
-Choose a sound formatting style (your first goal should be legibility) and stick with it, knowing when to break the rules (Waldo Emerson: "A foolish consistency is the hobgoblin of little minds"). 
+Choose a sound formatting style (first goal: legibility) and stick with it, but know when to break the rules (Waldo Emerson: "A foolish consistency is the hobgoblin of little minds"). 
 
-Novice programmers tend to overlook the importance of code looks, but as SICP's authors remarked, programs must be written for people to read, and only *incidentally* for machines to execute. Be *extremely* careful with the code you write.
+Novice programmers tend to overlook the importance of code looks, but as SICP's authors remarked, programs must be written for people to read, and only *incidentally* for machines to execute. Be careful with the code you write.
 
 === Indentation ===
 
@@ -18,7 +18,9 @@ Use 2 spaces, no tabs, and never ever mix spaces and tabs. Keep your code under 
 
 === Whitespaces ===
 
-Leave an space after commas. No spaces after or before a _(_, _[_ or _{_ (when used to build a hash, not in a block):
+ * Write an space after commas. 
+
+ * No spaces after or before a _(_, _[_ or _{_ (when it's a hash):
 
 {{{
 array = [1, 2, 3]
@@ -32,11 +34,11 @@ But use spaces to let the blocks breathe:
 [1, 2, 3].map { |x| 2*x }
 }}}
 
-Note that some programmers *do* put spaces after "[" {{{[ 1, 2, 3 ]}}} and "{" {{{{ :a => 1 }}}}. You'll see this style throughout Rails code, for example. Maybe it's my Python background, but I'd wish my eyes were gouged away every time I have to see it. 
+Note that some programmers *do* put spaces after "[" {{{[ 1, 2, 3 ]}}} and "{" {{{{ :a => 1 }}}}. You'll see this style throughout Rails code, for example. I don't recommend it, values seem to "float" due to that space.
 
 === Naming ===
 
- * {{{StudlyCaps}}} for classes and modules.
+ * {{{StudlyCaps}}} for modules and classes.
  * {{{ALL_UPPER_UNDERSCORED}}} for constants (but {{{StudlyCaps}}} are also accepted).
  * {{{lower_undercase}}} for everything else: methods, attributes, local variables, whatever.
 
@@ -89,7 +91,7 @@ obj.method do |foo|
 end
 }}}
 
-Ruby's figure [http://weblog.raganwald.com/ raganwald] [http://weblog.raganwald.com/2007/11/programming-conventions-as-signals.html proposed] to use brackets for functional blocks and do/end for blocks with side-effects. While I find the idea interesting, brackets on multi-line blocks look very unidiomatic, so I wouldn't recommend this style.
+Prominent Ruby's programmed [http://weblog.raganwald.com/ Reginald Braithwaite] [http://weblog.raganwald.com/2007/11/programming-conventions-as-signals.html proposed to use brackets for functional blocks] and _do/end_ for blocks with side-effects. While I find the idea interesting, brackets on multi-line blocks look very unidiomatic, so I wouldn't recommend it.
 
 == Multi-line array/hashes ==
 
@@ -103,7 +105,7 @@ array = [
 ]
 }}}
 
-Note the comma even in the last element. This is syntically correct and very handy because you have not to worry if you are writing the last line or no, they are all the same (and you can reorder without more editing). The same for hashes:
+Note that we insert a comma even after the last element. This is very handy because we have not to worry whether we are writing the last line or no (and you can reorder without further editing). The same idea applies for hashes or the combination of both:
 
 {{{
 hash = {
@@ -112,14 +114,17 @@ hash = {
     :b1 => "11",
     :b2 => "12",
   },
-  :c => 3,
+  :c => [
+    "hello",
+    "there",
+  ],
 }
 }}}
 
 
 == Use of parenthesis ==
 
-Parenthesis are (usually) optional in Ruby, both when defining and calling a method. But my personal advice is: write them. The only exception I think is valid it's when making DSL-style calls. The best known example are Rails class methods: 
+Parenthesis on method definitions/calls are (usually) optional in Ruby. But my personal advice is: just write them. The only valid exception  I can thinkk of are DSL-style calls. The best known example are Rails class methods, which look very good indeed: 
 
 {{{
 class Post < ActiveRecord::Base
@@ -159,7 +164,7 @@ Yes:
   end
 }}}
 
-Ruby's objects are always _true_ (in boolean terms) except for {{{nil}}} and {{{false}}}, so the only valid reason to write the verbose {{{object.nil?}}} is telling {{{nil}}} from {{{false}}} (something hardly needed).
+Ruby's objects are always _true_ (in boolean terms) except for {{{nil}}} and {{{false}}}, so the only valid reason to write the verbose {{{object.nil?}}} would be telling {{{nil}}} from {{{false}}}, something hardly needed.
 
 == Method arguments ==
 
@@ -255,15 +260,15 @@ What do you think of this code?
 author_name = Book.find(book_id).author.name rescue nil
 }}}
 
-IMO this is plain unacceptable. A silent and indiscriminate {{{rescue}}} catches errors of all natures (not only the ones you have in mind!), so it's a hard-to-debug source of bugs. Just don't use it. 
+IMO this is plain unacceptable. A silent and indiscriminate {{{rescue}}} catches errors of all kinds (not only the ones you have in mind!), so it becomes a hard-to-debug source of bugs. Just don't use it. 
 
-Then, how to write this code without filling it with conditionals? check the section that covers the "maybe" pattern. 
+Then how to write this code without filling it with conditionals? check the section that covers the "maybe" pattern. 
 
 = Functional Ruby ==
 
-Ruby is not a functional language. In fact, being a classic OOP language it promotes changes in the state of objects. But, at the same time, Ruby comes with great functional capabilities.
+Ruby is not a functional language. In fact, being a classic OOP language it tacitly promotes changes in the state of objects. But, at the same time, Ruby comes with great functional capabilities.
 
-This section was getting pretty long, so I moved it to its own page: [RubyFunctionalProgramming]
+This section was getting pretty long, so I moved it to its own page: [RubyFunctionalProgramming].
 
 = Build your own toolbox =
 
@@ -275,7 +280,7 @@ So you have a dog named Scooby and want to know if it's in your list of selected
 ["rantanplan", "milu"].include?("scooby") #=> false
 }}}
 
-Notice how the code reversed the phrasing. Why don't we create a construction that reflects how we think about the problem? 
+Notice how the code reversed the phrasing. Why don't we create an abstraction that reflects how we think about the problem? 
 
 {{{
 class Object
@@ -306,7 +311,7 @@ loop do
 end
 }}}
   
-There is nothing really wrong with this snippet, but look at the relevant code: it's literally buried in a jumble of infrastructure. Let's abstract the high-level construction so we achieve two goals: 1) we simplify the code, and 2) leave a method to be reused in other projects:
+There is nothing really wrong with this snippet, but look at the relevant code: it's literally buried in a jumble of infrastructure. Let's abstract the high-level construction so: 1) we simplify the code, and 2) we leave a method to be reused on other projects:
 
 {{{
 retry_on_exceptions([Exception1, Exception2], :max_retries => 5) do
@@ -314,7 +319,7 @@ retry_on_exceptions([Exception1, Exception2], :max_retries => 5) do
 end
 }}}
 
-In this second version you see right away what it's going on. This example presents an extremely useful pattern: use blocks as high-level wrappers. The more generic the pattern is, the more reason you should abstract it. This is nothing new, wrappers with callbacks are used in many languages, but the difference with Ruby is that blocks make it a easy and beautiful solution to a myriad of scenarios. 
+In this second version you see right away what's going on. This example presents a very useful pattern: use blocks as high-level wrappers. The more generic the pattern is, the more reason you should abstract it. This is nothing new, wrappers with callbacks are used in many languages, but the difference with Ruby is how easy is to send anonymous pieces of code as blocks.
 
 == Some abstractions ==
 
@@ -366,7 +371,7 @@ I'd recommend the second one, the {{{maybe}}} proxy approach without blocks:  co
   
 === Enumerable#map_select ===
 
-Haskell introduced a very cool construction called _list comprehension_ to build lists. For example, to find out the squares of the first odd natural numbers between 1 and 10:
+Haskell uses a very cool mathematical construction called _list comprehension_ to build lists. For example, to find out the squares of the first odd natural numbers between 1 and 10:
 
 {{{
 [x^2 | x <- [1..10], odd x]
@@ -378,7 +383,7 @@ Python smartly borrowed it:
 [x**2 for x in range(1, 10+1) if x % 2 == 1]
 }}}
 
-But, alas, Ruby has no such construction. However, we can build our poor man's list comprehension, as long as we define which value (usually nil) is to be filtered from the output. That's how it looks:
+But, alas, Ruby has no such construction. However, we can build our poor man's list comprehension, as long as we define which value (usually nil) is to be filtered out from the output. That's how it would look:
 
 {{{
 (1..10).map_select { |x| x**2 if x.odd? }
@@ -399,9 +404,9 @@ end
 
 === Enumerable#map_detect ===
 
-Simple exercise: find the first element in a list with a square greater than 10 and return this same value. How to do it:
+Simple exercise: find the first element in a list with a square greater than 10 and return this squared value. Options:
 
-1) Simple, detect + operation:
+1) Simple: detect + operation:
 
 {{{
 n = [1,2,3,4].detect { |x| x**2 > 10 }
@@ -410,7 +415,7 @@ result = n ? n**2 : nil # 16
 
 Booh, we needed to repeat the operation for the matching value and we also need to control that it's not nil. Ugly.
 
-2) It seems we want a map, but also a detect, don't we?
+2) map+first:
 
 {{{
 result = [1,2,3,4].map do |x| 
@@ -419,9 +424,9 @@ result = [1,2,3,4].map do |x|
 end.compact.first # 16
 }}} 
 
-Conceptually ok in a lazy language, but Ruby maps the whole input array, so bad performance.
+That'd be conceptually ok in a lazy language, but Ruby maps the whole array, so we'll get very bad performance.
 
-3) Our new abstracion Enumerable#map_detect:
+3) Our new abstraction Enumerable#map_detect:
 
 {{{
 result = [1,2,3,4].map_detect do |x| 
@@ -495,7 +500,7 @@ This code is usually ok:
 name = database_name || session_name || default_name
 }}}
 
-However, sometimes one of these values will be an empty string, which Ruby considers it to be true. Activerecord's [http://api.rubyonrails.org/classes/Object.html#method-i-presence presence] is a good solution, just "nilify" empty values:
+However, sometimes one of these values will be an empty string (which Ruby considers it to be true) but you don't want empty strings. Activerecord's [http://api.rubyonrails.org/classes/Object.html#method-i-presence presence] is a good solution, just "nilify" empty values:
 
 {{{
 name = database_name.presence || session_name.presence || default_name.presence
@@ -507,7 +512,7 @@ Of course you could have written:
 name = [database_name, session_name, default_name].detect(&:present?)
 }}}
 
-But this is computes all values (|| does not), and the values may not be as cheap to get as in this example.
+But this would compute all values (|| does not), and they may not be as cheap to calculate as the ones in this example.
 
 === Object#as ===
 
@@ -530,19 +535,7 @@ Now this is better, we are getting the area of a rectangle. It's really good to 
 area = info.as { |width, height| width * height }
 }}}
 
-It's a matter of taste, but I think this is also pretty clear. Note that you can use this construction to "name" things in a chain as documentation:
-
-{{{
-document.css("a")[3].href
-}}}
-
-But which is the third link in this document?
-
-{{{
-document.css("a")[3].as { |link_to_main_page| link_to_main_page.href }
-}}} 
-
-Oh, ok, the third link is the link to the main page. Also, see how to use it to build an expression that reuses multiple times an existing one:
+It's a matter of taste, but I think this is also pretty clear. Another example:
 
 {{{
 y = x**2
@@ -565,11 +558,19 @@ class Object
 end
 }}}
 
+= What is beautiful code? =
+
+Beautiful code looks visually good for us poor humans to read, beautiful code abstracts repeated patterns, beautiful code uses the right algorithms, beautiful code is generic and reusable, beautiful code is compact yet understandable. 
+
+Beautiful code has almost no destructive in-place updates, beautiful code divides instead of spreading complexity, Beautiful code uses basic types (array/hashes) whenever possible, beautiful code uses meaningful names to partial calculations. Beautiful code is (almost) self-documented. 
+
+Ugly code only breeds ugly code. Beautiful code breeds more beautiful code.
+
 = Conclusion =  
 
- * Write beautiful code. This is valid for any language, but while some of them just keep getting in your way no matter how hard you try, that's not the case with Ruby.
+ * Write beautiful code. This is valid for any language, but while some of them just keep getting in your way no matter how hard you try, that's not the case with Ruby. 
 
- * Don't worry about performance too soon: Maintenance of code is very, very important. Write simple code that works (caveat: this does not mean ill-conceived code with the wrong algorithms). Profile it to see where the bootle-necks are and refactor. You know, "premature optimization is the root of all evil".
+ * Don't worry about performance too soon: Maintenance of code is very, very important. Write simple code that works (caveat: this does not mean ill-conceived code with the wrong algorithms). Profile it to see where the bottlenecks are and refactor. You know, "premature optimization is the root of all evil".
  
  * Ruby is not a functional language, and that's fine, but don't use it imperatively unless there is a good reason. Keep state to a minimum. 
  
