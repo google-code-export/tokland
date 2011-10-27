@@ -562,7 +562,7 @@ end
 
 Beautiful code looks visually good for us poor humans to read, beautiful code abstracts repeated patterns, beautiful code uses the right algorithms, beautiful code is generic and reusable, beautiful code is compact yet understandable. 
 
-Beautiful code has almost no destructive in-place updates, beautiful code divides instead of spreading complexity, Beautiful code uses basic types (array/hashes) whenever possible, beautiful code uses meaningful names to partial calculations. Beautiful code is (almost) self-documented. 
+Beautiful code divides instead of spreading complexity, beautiful code uses basic types whenever possible, beautiful code does not sacrifice clarity for efficiency, beautiful code is (almost) self-documented. 
 
 Ugly code only breeds ugly code. Beautiful code breeds more beautiful code.
 
