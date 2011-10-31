@@ -2,7 +2,7 @@
 
 = Introduction =
 
-When I first learnt Haskell I was deeply impressed by the compact way abstract algebraic types can be defined. For example, a binary tree:
+When you first learn Haskell you can't help feeling deeply impressed by the compact way abstract algebraic types can be defined. For example, a binary tree may be written this way:
 
 {{{
 data Tree a = Empty | Leaf a | Node a (Tree a) (Tree a)
