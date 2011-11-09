@@ -482,7 +482,7 @@ A better understanding of the principles of Functional Programming will help us 
 
 = Presentations =
 
- * Workshop at [http://conferenciarails.org/ Conferencia Rails 2011]: [http://public.arnau-sanchez.com/ruby-functional/ Functional Programming with Ruby].
+ * Workshop at [http://conferenciarails.org/ Conferencia Rails 2011]: [http://public.arnau-sanchez.com/ruby-functional/ Functional Programming with Ruby] ([http://www.slideshare.net/tokland/functional-programming-with-ruby-9975242 slideshare])
 
 = Further reading =
 
