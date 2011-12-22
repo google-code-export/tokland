@@ -11,20 +11,21 @@ En este documento se hace un repaso de los scripts (bajo licencia GPL) necesario
 
 http://tokland.googlecode.com/files/drae-2009-1.tgz
 
-= Instalación de los fichero _dictd_ = 
+= Instalación = 
 
 Instrucciones para sistemas operativos UNIX:
 
 {{{
+$ wget http://tokland.googlecode.com/files/drae-2009-1.tgz
 $ tar xvzf drae-2009-1.tgz
 $ cp drae.index drae.dict.dz /usr/share/dictd/
-$ dictdconfig # según me comentan, esto es necesario en Debian (y quizá en otras distros)
-$ /etc/init.d/dictd restart (o /etc/rc.d/dictd restart)
+$ dictdconfig # según me comentan, esto es necesario en Debian (y quizá en otras distribuciones)
+$ /etc/init.d/dictd restart (ó /etc/rc.d/dictd restart)
 }}}
 
 = Fuentes =
 
-El código fuente (programados en _Bash_ y _Ruby_) están en el repositorio:
+El código (_Bash_ y _Ruby_) están en el repositorio:
 
 {{{
 svn co http://tokland.googlecode.com/svn/trunk/rae
