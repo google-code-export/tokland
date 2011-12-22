@@ -9,7 +9,7 @@ En este documento se hace un repaso de los scripts (bajo licencia GPL) necesario
 
 = Descarga =
 
-  * Lista de palabras (86042 entradas): [http://tokland.googlecode.com/svn/trunk/rae/words.txt words.txt]
+http://tokland.googlecode.com/files/drae-2009-1.tgz
 
 = Instalación de los fichero _dictd_ = 
 
@@ -29,3 +29,7 @@ El código fuente (programados en _Bash_ y _Ruby_) están en el repositorio:
 {{{
 svn co http://tokland.googlecode.com/svn/trunk/rae
 }}}
+
+= Miscelánea =
+
+  * Aquí tienes una lista de palabras (86042 entradas) del diccionario: [http://tokland.googlecode.com/svn/trunk/rae/words.txt words.txt]
