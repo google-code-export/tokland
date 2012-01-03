@@ -11,7 +11,7 @@ This script is free-software licensed under the [http://www.gnu.org/licenses/gpl
 You will need _bash_ (>= 3), _curl_, and _recode_ (optional). On a Debian-based distro this should suffice:
 
 {{{
-# apt-get install curl recode
+$ sudo apt-get install curl recode
 }}}
 
 = Download & Install ==
@@ -20,7 +20,7 @@ You will need _bash_ (>= 3), _curl_, and _recode_ (optional). On a Debian-based 
 
 {{{
 $ wget http://tokland.googlecode.com/svn/trunk/filesharing/megaupload-dl.sh
-$ install megaupload-dl.sh /usr/local/bin/megaupload-dl
+$ sudo install megaupload-dl.sh /usr/local/bin/megaupload-dl
 }}}
 
 = Usage examples =
