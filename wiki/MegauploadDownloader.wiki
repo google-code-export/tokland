@@ -83,8 +83,8 @@ If you only want to automatically download from file-sharing sites you should ch
 
 
 {{{
-revision: r775
-date: Tue, 03 Jan 2012 20:58:52 +0100
+revision: r777
+date: Sun, 08 Jan 2012 05:00:07 +0100
 
 packages:
   bash: 3.2.39(1)-release
