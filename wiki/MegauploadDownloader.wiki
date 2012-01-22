@@ -1,8 +1,8 @@
 #summary Bash script to download files from Megaupload
 
-_As you know Megaupload has been shut down on January 2012, but I'll leave the script anyway for those interested in Bash programming_
+_As you know Megaupload was shut down on January 2012, but I leave the script anyway for those interested in Bash programming._
 
-= Introduction
+= Introduction =
 
 {{{megaupload-dl}}} downloads files from Megaupload (free download, no account required). It is a shell script (Bash), so you will need a UNIX-like operating system (GNU/Linux, BSD, OSX, Cygwin, ...).
 
