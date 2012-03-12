@@ -80,27 +80,3 @@ If you only want to automatically download from file-sharing sites you should ch
 
  * Email: Arnau Sanchez <tokland AT gmail.com>
  * Report bugs/suggestions: http://code.google.com/p/tokland/issues/list
-
-= Status =
-
-
-{{{
-revision: r781
-date: Sun, 22 Jan 2012 05:00:09 +0100
-
-packages:
-  bash: 3.2.39(1)-release
-  curl: 7.18.2
-  recode: 3.6
-
-megaupload-dl:
-  test_dead_link: failed
-  test_download: ok
-  test_download_with_resume: ok
-  test_link_with_password: ok
-  test_link_with_password_but_no_password_provided: failed
-  test_link_with_password_but_wrong_password: failed
-
-megaupload-dl-batch:
-  test_batch_download: ok
-}}}
