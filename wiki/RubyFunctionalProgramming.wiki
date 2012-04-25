@@ -87,14 +87,14 @@ No:
 {{{
 string = "hello"
 string.gsub!(/l/, 'z')
-string # "lezzo"
+string # "hezzo"
 }}}
 
 Yes:
 
 {{{
 string = "hello"
-new_string =  string.gsub(/l/, 'z') # "lezzo"
+new_string =  string.gsub(/l/, 'z') # "hezzo"
 }}}
 
 === How to accumulate values ===
