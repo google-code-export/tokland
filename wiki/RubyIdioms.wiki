@@ -91,7 +91,7 @@ obj.method do |foo|
 end
 }}}
 
-Prominent Ruby's programmed [http://weblog.raganwald.com/ Reginald Braithwaite] [http://weblog.raganwald.com/2007/11/programming-conventions-as-signals.html proposed to use brackets for functional blocks] and _do/end_ for blocks with side-effects. While I find the idea interesting, brackets on multi-line blocks look very unidiomatic, so I wouldn't recommend it.
+Reginald Braithwaite [http://weblog.raganwald.com/2007/11/programming-conventions-as-signals.html proposed] to use brackets for functional blocks and _do/end_ for blocks with side-effects. While I find the idea interesting, brackets on multi-line blocks look weird, so I wouldn't recommend this style.
 
 == Multi-line array/hashes ==
 
