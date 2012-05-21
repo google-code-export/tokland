@@ -1,4 +1,4 @@
-#summary KML files for Spain (Spanish page)
+#summary KML files for Catalunya (Catalan page)
 
 = Catalunya =
 
