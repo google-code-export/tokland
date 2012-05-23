@@ -224,6 +224,24 @@ end
 }}}
 
 The details of the implementation are not important, what matters is that when we identify a interesting pattern to be abstracted, we wrote it in a separate library, we documented it, we tested it. And now simply let the real needs refine your extensions.
+
+=== initial assign + conditional assign + conditional assign + ... ===
+
+We see code like this all the time:
+
+{{{
+name = Database.give_me_the_name
+name = OtherDatabase.please_give_me_the_name if !name
+name = ask_user_the_name if !name
+}}}
+
+After discussing some of the advantages of functional programming you should uneasy when you find this kind of code (a variable has now this value, now this other one; the variable name being repeated everywhere, ...). A functional approach is shorter and clearer: 
+
+{{{
+name = Database.give_me_the_name ||
+       OtherDatabase.please_give_me_the_name ||
+       ask_user_the_name
+}}}
  
 === How to create a hash from an enumerable ===
 
