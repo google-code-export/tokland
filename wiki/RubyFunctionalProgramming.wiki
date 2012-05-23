@@ -230,17 +230,15 @@ The details of the implementation are not important, what matters is that when w
 We see code like this all the time:
 
 {{{
-name = Database.give_me_the_name
-name = OtherDatabase.please_give_me_the_name if !name
-name = ask_user_the_name if !name
+name = obj1.name
+name = obj2.name if !name
+name = ask_name if !name
 }}}
 
-After discussing some of the advantages of functional programming you should uneasy when you find this kind of code (a variable has now this value, now this other one; the variable name being repeated everywhere, ...). A functional approach is shorter and clearer: 
+At this point you should feel uneasy before a code like this (a variable has now this value, now this other one; the variable name being repeated everywhere, ...). A functional approach is shorter and clearer: 
 
 {{{
-name = Database.give_me_the_name ||
-       OtherDatabase.please_give_me_the_name ||
-       ask_user_the_name
+name = obj1.name || obj2.name || ask_name
 }}}
  
 === How to create a hash from an enumerable ===
