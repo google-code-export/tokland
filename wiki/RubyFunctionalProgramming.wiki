@@ -240,7 +240,27 @@ At this point you should feel uneasy before a code like this (a variable has now
 {{{
 name = obj1.name || obj2.name || ask_name
 }}}
- 
+
+Another example with more complex conditions:
+
+{{{
+def get_best_object(obj1, obj2, obj3)
+  return obj1 if obj1.price < 20
+  return obj2 if obj2.quality > 3
+  obj3
+end
+}}}
+
+Can be written as a real expression like this:
+
+{{{
+def get_best_object(obj1, obj2, obj3)
+  (obj1 if obj1.price < 20) ||
+    (obj2 if obj2.quality > 3) ||
+    obj3
+end
+}}}
+
 === How to create a hash from an enumerable ===
 
 Vanilla Ruby has no direct translation from Enumerable to Hash (a sad flaw, in my opinion). That's why novices keep writing this terrible pattern (and how can you blame them?):
