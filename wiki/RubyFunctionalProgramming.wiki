@@ -460,9 +460,15 @@ natural_numbers.map { |x| 2*x }.take(10)
 # [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 }}}
 
-This is just the basic of it, if you find this stuff interesting, you should take a look at Facets' [http://rdoc.info/github/rubyworks/facets/master/Denumerable denumerables] and see all the cool things you can do with Ruby enumerators.
+Enumerators are great as building blocks of lazy behaviors, but you can use libraries that implement all the enumerable methods in a lazy fashion: 
 
-Also, check [http://flori.github.com/lazylist/ Lazylist].
+https://github.com/yhara/enumerable-lazy
+
+{{{
+require 'enumerable/lazy'
+(1..1.0/0).lazy.map { |x| 2*x }.take(10).to_a
+# [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+}}}
 
 === Advantages of lazy evaluation ===
 
