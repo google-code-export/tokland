@@ -560,20 +560,27 @@ end
 
 = What is beautiful code? =
 
-Beautiful code looks visually good for us poor humans to read, beautiful code abstracts repeated patterns, beautiful code uses the right algorithms, beautiful code is generic and reusable, beautiful code is compact yet understandable. 
+Beautiful code is the code that:
 
-Beautiful code divides instead of spreading complexity, beautiful code uses basic types whenever possible, beautiful code does not sacrifice clarity for efficiency, beautiful code is (almost) self-documented. 
+- looks visually good for humans to read.
+- abstracts repeated pattern.
+- uses the right algorithms.
+- is generic and reusable.
+- is compact yet understandable. 
+- divides complexity instead of spreading it.
+- does not sacrifice clarity for efficiency.
+- is (almost) self-documented.
 
-Ugly code only breeds ugly code. Beautiful code breeds more beautiful code.
+Ugly code breeds ugly code. Beautiful code breeds more beautiful code.
 
 = Conclusion =  
 
  * Write beautiful code. This is valid for any language, but while some of them just keep getting in your way no matter how hard you try, that's not the case with Ruby. 
 
- * Don't worry about performance too soon: Maintenance of code is very, very important. Write simple code that works (caveat: this does not mean ill-conceived code with the wrong algorithms). Profile it to see where the bottlenecks are and refactor. You know, "premature optimization is the root of all evil".
+ * Don't worry about performance too soon: Maintenance of code is very, very important. Write simple code that works (caveat: this does not mean ill-conceived code with the wrong algorithms). Benchmark it to see where the bottlenecks are and refactor. You know, "premature optimization is the root of all evil".
  
  * Ruby is not a functional language, and that's fine, but don't use it imperatively unless there is a good reason. Keep state to a minimum. 
  
- * Ruby core developers can't forecast all your needs, but don't resign yourself to the existing toolbox. *Programming is about building abstractions*, your personal toolbox should be growing with each project you write. Reuse and progressively improve them.
+ * Ruby core developers can't forecast all your needs, don't resign yourself to the existing toolbox. *Programming is about building abstractions*, your personal toolbox should be growing with each project you write. Reuse and progressively improve them.
  
 In a nutshell: tweak the language to fit your needs and write maintainable, beautiful, compact, semantically meaningful code (incidentally, it would be great if it also works as expected... write tests!!).
