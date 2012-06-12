@@ -124,7 +124,7 @@ hash = {
 
 == Use of parenthesis ==
 
-Parenthesis on method definitions/calls are (usually) optional in Ruby. But my personal advice is: just write them. The only valid exception  I can thinkk of are DSL-style calls. The best known example are Rails class methods, which look very good indeed: 
+Parenthesis on method definitions/calls are (usually) optional in Ruby. But my personal advice is to write them. The only valid exception I can think of are DSL-style calls. The best known example are Rails class methods, which look very good indeed: 
 
 {{{
 class Post < ActiveRecord::Base
