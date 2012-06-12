@@ -8,7 +8,7 @@ This document show some Ruby idioms, conventions and patterns (most of them acce
 
 == General formatting ==
 
-Choose a sound formatting style (first goal: legibility) and stick with it, but know when to break the rules (Waldo Emerson: "A foolish consistency is the hobgoblin of little minds"). 
+Choose a sound formatting style (the first goal should be legibility) and stick with it. At the same time, know when to break the rules ("a foolish consistency is the hobgoblin of little minds"). 
 
 Novice programmers tend to overlook the importance of code looks, but as SICP's authors remarked, programs must be written for people to read, and only *incidentally* for machines to execute. Be careful with the code you write.
 
@@ -180,7 +180,7 @@ Yes:
 
 {{{
 def method(arg1, arg2, options = {})
-  options.reverse_update(
+  options.reverse_update({
     :arg3 => 1,
     :arg4 => "hello",
     :arg5 => "bye",
