@@ -562,14 +562,14 @@ end
 
 Beautiful code is the code that:
 
-- looks visually good for humans to read.
-- abstracts repeated pattern.
-- uses the right algorithms.
-- is generic and reusable.
-- is compact yet understandable. 
-- divides complexity instead of spreading it.
-- does not sacrifice clarity for efficiency.
-- is (almost) self-documented.
+ * looks visually good for humans to read.
+ * abstracts repeated pattern.
+ * uses the right algorithms.
+ * is generic and reusable.
+ * is compact yet understandable. 
+ * divides complexity instead of spreading it.
+ * does not sacrifice clarity for efficiency.
+ * is (almost) self-documented.
 
 Ugly code breeds ugly code. Beautiful code breeds more beautiful code.
 
