@@ -562,6 +562,7 @@ end
 
 Beautiful code is the code that:
 
+ * is simple.
  * looks visually good for humans to read.
  * abstracts repeated pattern.
  * uses the right algorithms.
