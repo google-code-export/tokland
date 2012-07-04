@@ -255,10 +255,20 @@ Can be written as a real expression like this:
 
 {{{
 def get_best_object(obj1, obj2, obj3)
-  (obj1 if obj1.price < 20) ||
-    (obj2 if obj2.quality > 3) ||
+  if obj1.price < 20
+    obj1
+  elsif obj2.quality > 3
+    obj2
+  else
     obj3
+  end
 end
+}}}
+
+Indeed, a bit more verbose, but the logic is much more clear than a bunch of inline if/unless. As a rule of thumb, use inline conditionals only and only if you are doing a real side-effect, not variable assignation nor returns:
+
+{{{
+invade(country) if country.has_oil?
 }}}
 
 === How to create a hash from an enumerable ===
