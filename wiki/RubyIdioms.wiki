@@ -560,7 +560,7 @@ end
 
 = What is beautiful code? =
 
-Beautiful code is the code that:
+Beautiful code:
 
  * is simple.
  * looks visually good for humans to read.
