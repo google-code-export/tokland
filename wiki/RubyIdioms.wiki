@@ -24,8 +24,12 @@ Use 2 spaces, no tabs, and never ever mix spaces and tabs. Keep your code under 
 
 {{{
 array = [1, 2, 3]
+
 hash = {:a => 1, :b => 2}
-def fun(arg1, arg2, arg3); end
+
+def method(arg1, arg2, arg3)
+  # method body
+end
 }}}
 
 But use spaces to let the blocks breathe:
@@ -198,9 +202,9 @@ Why:
 Downside:
  
   * Available options are explicit in code but not in documentation.
-  * {{{Hash#reverse_update}}} is, of course, non-functional. If you choose FP purity, use two different variables and call {{{reverse_merge}}}. Note: these two functions are found in Activesupport.
+  * {{{Hash#reverse_update}}} is, of course, non-functional. If you choose FP purity, use two different variables and call {{{reverse_merge}}}. Note: these two methods are found in Activesupport.
   
-== Calling functions with key arguments ==
+== Calling methods with key arguments ==
 
 It's not necessary to use explicit {} to indicate it's a hash:
 
@@ -272,7 +276,7 @@ This section was getting pretty long, so I moved it to its own page: [RubyFuncti
 
 = Build your own toolbox =
 
-== Extend with generic functions ==
+== Add your own extensions ==
 
 So you have a dog named Scooby and want to know if it's in your list of selected dogs. You would probably write:
 
@@ -564,7 +568,7 @@ Beautiful code:
 
  * is simple.
  * looks visually good for humans to read.
- * abstracts repeated pattern.
+ * abstracts repeated patterns (DRY).
  * uses the right algorithms.
  * is generic and reusable.
  * is compact yet understandable. 
