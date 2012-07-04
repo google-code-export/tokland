@@ -268,7 +268,9 @@ end
 Indeed, a bit more verbose, but the logic is much more clear than a bunch of inline if/unless. As a rule of thumb, use inline conditionals only and only if you are doing a real side-effect, not variable assignation nor returns:
 
 {{{
-invade(country) if country.has_oil?
+country = Country.find(1)
+country.invade if country.has_oil?
+# more code here
 }}}
 
 === How to create a hash from an enumerable ===
