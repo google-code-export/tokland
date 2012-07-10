@@ -301,7 +301,7 @@ input.inject({}) do |hash, item|
 end
 }}}
 
-We all agree this is verbose, so we better move it as a method in the module Enumerable, which is exactly what [https://github.com/rubyworks/facets Facets] does. They call it {{{Enumerable#mash}}}:
+We all agree this is still too verbose, so we better move it as a method in the module Enumerable, which is exactly what [https://github.com/rubyworks/facets Facets] does. They call it {{{Enumerable#mash}}}:
 
 {{{
 module Enumerable
