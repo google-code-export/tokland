@@ -339,7 +339,7 @@ To be fair, in my opinion it's not an intrinsic problems of OOP. You can write O
  * Typical OOP mixes the concepts of identity and state.
  * Mixture of data and code raises both conceptual and practical problems.
 
-Rich Hickey, the creator of Closure, a Lisp-dialect for the JVM, discusses state, values and identity in this [http://www.infoq.com/presentations/Value-Identity-State-Rich-Hickey excellent talk].
+Rich Hickey, the creator of Closure (a functional Lisp-dialect for the JVM), discusses state, values and identity in this [http://www.infoq.com/presentations/Value-Identity-State-Rich-Hickey excellent talk].
 
 == Everything is an expression ==
 
