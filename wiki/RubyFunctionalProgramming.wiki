@@ -28,9 +28,9 @@ Surprisingly, that's all there is to it. So what are the advantages?
 
 Referential transparency opens the gate to some nice things: 
 
- - Parallelization: If calls to functions are independent, they may be executed in different processes or even machines with no race-condition issues. All the nasty details of "normal" concurrency code (locks, semaphors, ...) just vanish on the functional paradigm. 
+ * Parallelization: If calls to functions are independent, they may be executed in different processes or even machines with no race-condition issues. All the nasty details of "normal" concurrency code (locks, semaphors, ...) just vanish on the functional paradigm. 
  
- - Memoization. Since a function call is equivalent to its return value, we may be cache them.  
+ * Memoization. Since a function call is equivalent to its return value, we may be cache them.  
  
  * Modularization: We have no state that pervades the whole code, so we build our project with small, black boxes that we tie together, so it promotes bottom-up programming.
 
