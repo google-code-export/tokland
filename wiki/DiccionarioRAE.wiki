@@ -19,7 +19,7 @@ Instrucciones para sistemas operativos UNIX:
 $ wget http://tokland.googlecode.com/files/drae-dictd-2012_05.tgz
 $ tar xvzf drae-dictd-2012_05.tgz
 $ sudo cp drae.index drae.dict.dz /usr/share/dictd/
-$ sudo dictdconfig # según me comentan, esto es necesario en Debian (y quizá en otras distribuciones)
+$ sudo dictdconfig --write # según me comentan, esto es necesario en Debian (y quizá en otras distribuciones)
 $ sudo /etc/init.d/dictd restart # sudo /etc/rc.d/dictd restart 
 }}}
 
