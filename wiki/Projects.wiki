@@ -13,6 +13,12 @@ Type-ahead-find is an extremely useful accessibility feature (a core functionali
 
 http://code.google.com/p/chrome-type-ahead/
 
+== Blynx ==
+
+Blynx is a functional statically-typed language that transcompiles to Javascript. State: in development (alpha ~ Jan/2013)
+
+https://github.com/tokland/blynx
+
 = Python =
 
 == !LangBots ==
