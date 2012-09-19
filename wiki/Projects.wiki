@@ -212,9 +212,7 @@ http://tokland.googlecode.com/svn/trunk/flac/ape2flac
 
 An email & SMS alarms Rails website for [http://www.bicing.com/ Bicing Barcelona].
 
-http://bicinginfo.no-ip.org/
-
-The Ruby module to get Bicing Barcelona occupations is hosted in github:
+The Ruby module used to get Bicing Barcelona occupations is hosted in github:
 
 http://github.com/tokland/bicingbcn
 
