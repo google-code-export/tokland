@@ -556,7 +556,7 @@ The implementation of Object#as is straighforward:
 
 {{{
 class Object
-  def as(&block)
+  def as
     yield self
   end
 end
