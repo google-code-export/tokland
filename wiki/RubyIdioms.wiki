@@ -306,6 +306,17 @@ end
 
 This may cause some confusion amongst novices because conditionals are statements in other languages (C, Python, Java, ...). The advantages are: 1) the variable name is not repeated, 2) The intent of the code is more clear, it returns a "greeting", you don't have to inspect the code to know that.
 
+== Trailing conditional statements ==
+
+Use them very sparingly, if the line is long the condition may be overlooked by the reader. An accepted usage is as guards for early returns:
+
+{{{
+def fun(arg1, arg2):
+  return unless arg1 && arg2
+  # body code
+end
+}}}
+
 = Functional Ruby ==
 
 Ruby is not a functional language. In fact, being a classic OOP language it tacitly promotes changes in the state of objects. But, at the same time, Ruby comes with great functional capabilities.
@@ -334,17 +345,6 @@ end
 
 {{{
 "scooby".in?(["rantanplan", "milu"]) #=> false
-}}}
-
-== Trailing conditional statements ==
-
-Use them very sparingly, if the line is long the condition may be overlooked by the reader. An accepted usage is as guards for early returns:
-
-{{{
-def fun(arg1, arg2):
-  return unless arg1 && arg2
-  # body code
-end
 }}}
 
 == Use blocks as wrappers ==
