@@ -10,11 +10,11 @@ This document show some Ruby idioms, conventions and patterns (most of them acce
 
 Choose a sound formatting style (the first goal should be legibility) and stick with it. At the same time, know when to break the rules ("a foolish consistency is the hobgoblin of little minds"). 
 
-Novice programmers tend to overlook the importance of code looks, but as SICP's authors remarked, programs must be written for people to read, and only *incidentally* for machines to execute. Be careful with the code you write.
+Novice programmers tend to overlook the importance of code looks, but as the SICP's authors remarked, programs must be written for people to read, and only *incidentally* for machines to execute. Be careful with the code you write.
 
 === Indentation ===
 
-Use 2 spaces, no tabs, and never ever mix spaces and tabs. Keep your code under 80-char width whenever possible.
+Use 2 spaces, no tabs, and never ever mix spaces and tabs. Keep your code under 80-100 char width whenever possible. The 80-char rule used to be important when terminals had severe limitations, but not it's still important for readability.
 
 === Whitespaces ===
 
@@ -43,16 +43,16 @@ Note that some programmers *do* put spaces after "[" {{{[ 1, 2, 3 ]}}} and "{" {
 === Naming ===
 
  * {{{StudlyCaps}}} for modules and classes.
- * {{{ALL_UPPER_UNDERSCORED}}} for constants (but {{{StudlyCaps}}} are also accepted).
- * {{{lower_undercase}}} for everything else: methods, attributes, local variables, whatever.
+ * {{{ALL_UPPER_UNDERSCORED}}} for constants ({{{StudlyCaps}}} are also ok).
+ * {{{lower_undercase}}} for everything else: methods, attributes, local variables.
 
 === Blank lines ===
 
-My personal rules are:
+This is often overlooked, but the indentation layout is extremly important. My personal rules are:
 
-  * Don't insert empty lines between different indentation levels, only *between* definitions ({{{module}}}, {{{class}}}, {{{def}}}, ...) on the same level. The indentation itself should serve as visual hint. 
+  * Don't put blank lines between different indentation levels, only *between* definitions ({{{module}}}, {{{class}}}, {{{def}}}, ...) on the same level. The indentation itself should serve as visual hint. 
   
-  * In a given level insert blank lines, sparingly, to separate logic blocks.  
+  * On a level insert blank lines, sparingly, to separate logic blocks.  
 
 Example:
 
@@ -73,7 +73,7 @@ module Animals
   end
   
   class Cat
-    ....
+    ...
   end
 end
 }}}
@@ -95,7 +95,7 @@ obj.method do |foo|
 end
 }}}
 
-Reginald Braithwaite [http://weblog.raganwald.com/2007/11/programming-conventions-as-signals.html proposed] to use brackets for functional blocks and _do/end_ for blocks with side-effects. While I find the idea interesting, brackets on multi-line blocks look weird, so I wouldn't recommend this style.
+Some programmers [http://weblog.raganwald.com/2007/11/programming-conventions-as-signals.html proposed] to use brackets for functional blocks and _do/end_ for side-blocks with side-effects. While I find the idea interesting, brackets on multi-line blocks look weird, so I wouldn't recommend this style. 
 
 == Multi-line array/hashes ==
 
@@ -125,16 +125,30 @@ hash = {
 }
 }}}
 
+== Implicit return value ==
 
-== Use of parenthesis ==
-
-Parenthesis on method definitions/calls are (usually) optional in Ruby. But my personal advice is to write them. The only valid exception I can think of are DSL-style calls. The best known example are Rails class methods, which look very good indeed: 
+Ruby, as Lisp and many functional languages, return implicitly the last expression of a body (block, method). You can write an explicit `return` but that's considered to be unidiomatic, so instead of:
 
 {{{
-class Post < ActiveRecord::Base
-  belongs_to :blog
-end
+  def add(x, y)
+    return x + y
+  end
 }}}
+
+Write always:
+
+{{{
+  def add(x, y)
+    x + y
+  end
+}}}
+
+== Parenthesis ==
+
+Parenthesis on method definitions/calls are (usually) optional in Ruby. But my personal advice is to write them. The only valid exception I can think of are:
+
+ * Calls without arguments: {{{"3".to_i}}}.
+ * DSL-style calls ({{{belongs_to :user}}}).
 
 == Method name qualifiers ==
 
@@ -297,7 +311,42 @@ end
 {{{
 "scooby".in?(["rantanplan", "milu"]) #=> false
 }}}
-  
+
+== Use expression instead of statements ==
+
+Instead of:
+
+{{{
+if hour > 10
+  greeting = "hello"
+else
+  greeting = "bye"
+end
+}}}
+
+You may write:
+
+{{{
+greeting = if hour > 10
+  "hello"
+else
+  "bye"
+end
+}}}
+
+This causes some confusion with novices because conditionals are statements in some languages (C, Python, Java, ...). The advantages are: 1) the variable name is not repeated, 2) The intent of the code is more clear, it returns a "greeting", you don't have to inspect the code to know that.
+
+== Trailing conditional statements ==
+
+Use them very sparingly, if the line is long the condition may be overlooked by the reader. An accepted usage is as guards for early returns:
+
+{{{
+def fun(arg1, arg2):
+  return unless arg1 && arg2
+  # body code
+end
+}}}
+
 == Use blocks as wrappers ==
 
 Never wrote something similar to this?
