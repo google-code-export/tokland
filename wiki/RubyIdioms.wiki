@@ -282,6 +282,30 @@ IMO this is plain unacceptable. A silent and indiscriminate {{{rescue}}} catches
 
 Then how to write this code without filling it with conditionals? check the section that covers the "maybe" pattern. 
 
+== Use expression instead of statements ==
+
+Instead of:
+
+{{{
+if hour > 10
+  greeting = "hello"
+else
+  greeting = "bye"
+end
+}}}
+
+You may write:
+
+{{{
+greeting = if hour > 10
+  "hello"
+else
+  "bye"
+end
+}}}
+
+This may cause some confusion amongst novices because conditionals are statements in other languages (C, Python, Java, ...). The advantages are: 1) the variable name is not repeated, 2) The intent of the code is more clear, it returns a "greeting", you don't have to inspect the code to know that.
+
 = Functional Ruby ==
 
 Ruby is not a functional language. In fact, being a classic OOP language it tacitly promotes changes in the state of objects. But, at the same time, Ruby comes with great functional capabilities.
@@ -311,30 +335,6 @@ end
 {{{
 "scooby".in?(["rantanplan", "milu"]) #=> false
 }}}
-
-== Use expression instead of statements ==
-
-Instead of:
-
-{{{
-if hour > 10
-  greeting = "hello"
-else
-  greeting = "bye"
-end
-}}}
-
-You may write:
-
-{{{
-greeting = if hour > 10
-  "hello"
-else
-  "bye"
-end
-}}}
-
-This causes some confusion with novices because conditionals are statements in some languages (C, Python, Java, ...). The advantages are: 1) the variable name is not repeated, 2) The intent of the code is more clear, it returns a "greeting", you don't have to inspect the code to know that.
 
 == Trailing conditional statements ==
 
