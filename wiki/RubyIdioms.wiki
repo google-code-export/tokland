@@ -503,48 +503,6 @@ module Enumerable
 end
 }}}
 
-=== Object#or_else ===
-
-First an intro: operators in other languages are usually methods in Ruby. When you write {{{2 + 3}}} this is nothing more than sintantic sugar for {{{2.+(3)}}}. This is cool, because you can override all these methods. But && and || are special in Ruby, you cannot override them because they deal with short-circuited evaluation (and Ruby has no such feature for methods).
-
-Ok, now consider this case where an expression in a short-circuit cannot be written in a single expression ({{{expr1 || expr2}}}), you need more:
-
-{{{
-result = expr1 || { expr2a; expr2b; ...; expr2final } # not valid Ruby
-}}}
-
-But this is valid:
-
-{{{
-result = expr1 || begin expr2a; expr2b; ...; expr2final end
-}}}
-
-But what if we want to use blocks for that? we've seen that {{{||}}} is not overridable so we cannot make it accept a block, we must write or own "or" method. Let's call it {{{or_else}}}:
-
-{{{
-result = expr1.or_else do 
-  expr2a
-  expr2b
-  expr2final
-end
-}}}
-
-And that's it, the same short-circuited expressions but now using blocks. The implementation is as simple as it gets:
-
-{{{
-class Object
-  def or_else(&block)
-    self || yield  
-  end
-end
-}}}
-
-Of course, if you find {{{Object#or_else}}} useful you may probably want to write {{{Object#and_also}}}. Now you can expand these methods with the options yous see fit. For example, it may be nice to decide what is a *false* value: 
-
-{{{
-result = expr1.or_else(:if => :blank?) { alternative }
-}}}
-
 === Object#presence ===
 
 This code is usually ok:
@@ -582,7 +540,7 @@ width, height = info
 area = width * height
 }}}
 
-Now this is better, we are getting the area of a rectangle. It's really good to name things before using. Well, there is nothing wrong now, but we needed an extra line to unpack the array. How about that?:
+Now this is better, we are getting the area of a rectangle. It's really good to name things before using them. Well, there is nothing wrong now, but we needed an extra line to unpack the array. What about?:
 
 {{{
 area = info.as { |width, height| width * height }
@@ -591,17 +549,17 @@ area = info.as { |width, height| width * height }
 It's a matter of taste, but I think this is also pretty clear. Another example:
 
 {{{
-y = x**2
-pair = [y, y+1]
+sq = x**2
+pair = [sq, sq+1]
 }}}
 
 Can be written as:
 
 {{{
-pair = (x**2).as { |y| [y, y+1] }
+pair = (x**2).as { |sq| [sq, sq+1] }
 }}}
 
-The implementation of Object#as is straighforward:
+The implementation of Object#as is straightforward:
 
 {{{
 class Object
@@ -613,17 +571,14 @@ end
 
 = What is beautiful code? =
 
-Beautiful code:
-
- * is simple.
- * looks visually good for humans to read.
- * abstracts repeated patterns (DRY).
- * uses the right algorithms.
- * is generic and reusable.
- * is compact yet understandable. 
- * divides complexity instead of spreading it.
- * does not sacrifice clarity for efficiency.
- * is (almost) self-documented.
+ * It's simple.
+ * It's easily readable by humans.
+ * It abstracts repeated patterns (DRY).
+ * It uses the right algorithms...
+ * ...but does not sacrifice clarity for efficiency.
+ * It's generic and reusable...
+ * ...compact yet understandable. 
+ * It divides complexity instead of spreading it.
 
 Ugly code breeds ugly code. Beautiful code breeds more beautiful code.
 
@@ -631,10 +586,10 @@ Ugly code breeds ugly code. Beautiful code breeds more beautiful code.
 
  * Write beautiful code. This is valid for any language, but while some of them just keep getting in your way no matter how hard you try, that's not the case with Ruby. 
 
- * Don't worry about performance too soon: Maintenance of code is very, very important. Write simple code that works (caveat: this does not mean ill-conceived code with the wrong algorithms). Benchmark it to see where the bottlenecks are and refactor. You know, "premature optimization is the root of all evil".
+ * Don't worry about performance too soon: maintenance of code is hard task, write simple code that works (caveat: this does not mean ill-conceived code with the wrong algorithms). Benchmark it to see where the bottlenecks are and refactor. You know, "premature optimization is the root of all evil".
  
- * Ruby is not a functional language, and that's fine, but don't use it imperatively unless there is a good reason. Keep state to a minimum. 
+ * Ruby is not a functional language, and that's fine, but don't use it imperatively unless there is a good reason. Keep state and side-effects to a minimum. 
  
- * Ruby core developers can't forecast all your needs, don't resign yourself to the existing toolbox. *Programming is about building abstractions*, your personal toolbox should be growing with each project you write. Reuse and progressively improve them.
+ * Ruby core developers can't forecast all your needs, don't resign yourself to the existing toolbox. *Programming is about building abstractions*, your personal toolbox containing reusable patterns should be growing and improving with each project you write. 
  
-In a nutshell: tweak the language to fit your needs and write maintainable, beautiful, compact, semantically meaningful code (incidentally, it would be great if it also works as expected... write tests!!).
+In a nutshell: tweak the language to fit your needs and write maintainable, beautiful, compact, semantically meaningful code (incidentally, it would be also great if it works as expected... write tests!).
