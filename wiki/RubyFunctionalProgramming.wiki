@@ -538,6 +538,12 @@ A better understanding of the principles of Functional Programming will help us 
 
  * Workshop at [http://conferenciarails.org/ Conferencia Rails 2011]: [http://public.arnau-sanchez.com/ruby-functional/ Functional Programming with Ruby] ([http://www.slideshare.net/tokland/functional-programming-with-ruby-9975242 slideshare])
 
+= Translations of this article =
+
+* [https://github.com/JuanitoFatas/Ruby-Functional-Programming Chinese] (by JuanitoFatas)
+
+* [http://www.h6.dion.ne.jp/~machan/misc/FPwithRuby.html Japanese] (by takomachan)
+
 = Further reading =
 
 http://en.wikipedia.org/wiki/Functional_programming
