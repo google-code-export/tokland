@@ -540,9 +540,9 @@ A better understanding of the principles of Functional Programming will help us 
 
 = Translations of this article =
 
-* [https://github.com/JuanitoFatas/Ruby-Functional-Programming Chinese] (by JuanitoFatas)
+ * [https://github.com/JuanitoFatas/Ruby-Functional-Programming Chinese] (by Juanito Fatas)
 
-* [http://www.h6.dion.ne.jp/~machan/misc/FPwithRuby.html Japanese] (by takomachan)
+ * [http://www.h6.dion.ne.jp/~machan/misc/FPwithRuby.html Japanese] (by takomachan)
 
 = Further reading =
 
