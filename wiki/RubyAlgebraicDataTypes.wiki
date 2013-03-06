@@ -2,7 +2,7 @@
 
 = Introduction =
 
-When you first learn Haskell you can't help feeling impressed how easily algebraic types can be defined. For example, a binary tree type may be defined this way:
+Algebraic data types (ADT) is a powerful abstraction commonly found in functional languages. A binary tree, for example, it may be defined this way in Haskell:
 
 {{{
 data Tree a = Empty | Leaf a | Node a (Tree a) (Tree a)
@@ -19,69 +19,28 @@ Node 2 (Node 7 (Leaf 2)
                        Empty))
 }}}
 
-Wouldn't it be nice to make something similar with (idiomatic) Ruby?
+Wouldn't it be nice to make something similar with Ruby?
 
-= A first approach =
+= A OOP with case classes =
 
-Let's use a multiple-constructor class to implement a {{{Tree}}} with an example {{{Tree#weight}}} method:
-
+Let's define a Tree class with its children ADT classes and a demonstration method ({{{Tree#to_s}}}):
 {{{
-class Tree
-  def initialize(type, value = nil, left_tree = nil, right_tree = nil)
-    @type = type
-    @value = value
-    @left_tree = left_tree
-    @right_tree = right_tree
+Tree = adt(:Empty => [], :Leaf => [:value], :Node => [:value, :left_tree, :right_tree]) do
+  def to_s
+    case self
+    when Tree::Empty then
+      "Empty"
+    when Tree::Leaf
+      "(Leaf #{value})"
+    when Tree::Node
+      "(Node #{value} #{left_tree} #{right_tree})"
+    end    
   end
-  
-  def self.empty
-    Tree.new(:empty)    
-  end
-
-  def self.leaf(value)
-    Tree.new(:leaf, value)
-  end 
-
-  def self.node(value, left_tree, right_tree)
-    Tree.new(:node, value, left_tree, right_tree)
-  end 
-
-  # Return weight of tree (total number of non-empty nodes)
-  def weight
-    case @type
-    when :empty then 0
-    when :leaf then 1
-    when :node then 1 + @left_tree.weight + @right_tree.weight
-    end  
-  end 
 end
+tree = Tree::Node.new(1, Tree::Leaf.new(2), 
+                      Tree::Node.new(3, Tree::Empty.new, 
+                                        Tree::Leaf.new(4)))
+#=> Node(1, (Leaf 2), (Node 3 Empty (Leaf 4)))
 }}}
 
-To be used this way:
-
-{{{
-tree = Tree.node(1, Tree.leaf(2), 
-                    Tree.node(3, Tree.empty, 
-                                 Tree.leaf(4)))
-
-p tree.weight #=> 4
-}}}
-
-Full code: [http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/manual.rb manual.rb]
-
-= Abstracting = 
-
-The previous code is too verbose, and there is clearly some boilerplate we could abstract. That's the best I was able to came up with:
-
-{{{
-class Tree
-  include ADT
-  constructor :empty
-  constructor :leaf => :value
-  constructor :node => [:value, :left_tree, :right_tree]  
-end
-}}}
-
-Granted, it has not the beauty of Haskell, but it looks pretty idiomatic and clear. As usual with Ruby, no type-checking is performed (though it could be easily added)
-
-Full code:  [http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/adt.rb adt.rb], [http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/adt_tree.rb adt_tree.rb], [http://code.google.com/p/tokland/source/browse/trunk/ruby/adt/adt_tree_test.rb adt_tree_test.rb]
+The code: https://gist.github.com/tokland/871431
