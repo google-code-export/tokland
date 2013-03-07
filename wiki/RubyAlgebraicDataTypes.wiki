@@ -23,7 +23,8 @@ Wouldn't it be nice to make something similar with Ruby?
 
 = A OOP with case classes =
 
-Let's define a Tree class with its children ADT classes and a demonstration method ({{{Tree#to_s}}}):
+The standard approach in Ruby would be creating a {{{Tree}}} parent class and its child classes where we'd write the specific implementation of each method. Let's use a different approach, let's write methods only in the parent class and use a {{{case}}} block to match the type. Granted, in a language without pattern-matching it will be a bit clunky, but anyway, let's try:
+
 {{{
 Tree = adt(:Empty => [], :Leaf => [:value], :Node => [:value, :left_tree, :right_tree]) do
   def to_s
@@ -37,6 +38,7 @@ Tree = adt(:Empty => [], :Leaf => [:value], :Node => [:value, :left_tree, :right
     end    
   end
 end
+
 tree = Tree::Node.new(1, Tree::Leaf.new(2), 
                       Tree::Node.new(3, Tree::Empty.new, 
                                         Tree::Leaf.new(4)))
