@@ -182,7 +182,7 @@ length = ["milu", "rantanplan"].inject(0) do |accumulator, dog_name|
 end # => 14
 }}}
 
-In this particular case, when there is a simple operation between accumulator and element, we don't need to write the block, just pass the operation symbol:
+In this particular case, when there is a simple operation between accumulator and element, we don't need to write the block, just pass the symbol of the binary operation and the initial value:
 
 {{{
 length = ["milu", "rantanplan"].map(&:length).inject(0, :+) # 14
