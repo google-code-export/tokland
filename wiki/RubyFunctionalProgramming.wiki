@@ -171,7 +171,7 @@ length = 0
 ["milu", "rantanplan"].each do |dog_name|
   length += dog_name.length
 end
-length # => 15
+length # => 14
 }}}
 
 Yes:
@@ -193,21 +193,21 @@ length = ["milu", "rantanplan"].map(&:length).inject(0, :+) # 15
 Imagine you don't want only the final result of a fold (the inject we saw before) but also the partial values. In imperative code you'd write:
 
 {{{
-lengths = []
+lengths = [0]
 total_length = 0
 ["milu", "rantanplan"].each do |dog_name|
-  lengths << total_length
   total_length += dog_name.length
+  lengths << total_length
 end
-lengths # [0, 4, 15]
+lengths # [0, 4, 14]
 }}}
 
 In the functional world, Haskell calls it [http://zvon.org/other/haskell/Outputprelude/scanl_f.html scan], C++ calls it [http://www.cplusplus.com/reference/std/numeric/partial_sum/ partial_sum], Clojure calls it [http://clojuredocs.org/clojure_core/clojure.core/reductions reductions]. Ruby, surprisingly, has no such function, let's write our own. How about that:
 
 {{{
-lengths = ["milu", "rantanplan"].partial_inject(0) do |dog_name|
-  dog_name.length
-end # [0, 4, 15]
+lengths = ["milu", "rantanplan"].partial_inject(0) do |acc, dog_name|
+  acc + dog_name.length
+end # [0, 4, 14]
 }}}
 
 {{{Enumerable#partial_inject}}} can be written:
@@ -215,7 +215,7 @@ end # [0, 4, 15]
 {{{
 module Enumerable
   def partial_inject(initial_value, &block)
-    self.inject([initial_value, [initial_value]]) do |(accumulated, output), element|
+    inject([initial_value, [initial_value]]) do |(accumulated, output), element|
       new_value = yield(accumulated, element)
       [new_value, output << new_value]
     end[1]
