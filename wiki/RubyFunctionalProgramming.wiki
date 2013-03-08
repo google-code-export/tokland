@@ -179,13 +179,13 @@ Yes:
 {{{
 length = ["milu", "rantanplan"].inject(0) do |accumulator, dog_name|
   accumulator + dog_name.length
-end # => 15
+end # => 14
 }}}
 
 In this particular case, when there is a simple operation between accumulator and element, we don't need to write the block, just pass the operation symbol:
 
 {{{
-length = ["milu", "rantanplan"].map(&:length).inject(0, :+) # 15
+length = ["milu", "rantanplan"].map(&:length).inject(0, :+) # 14
 }}}
 
 === empty + each + accumulate + push -> scan ===
