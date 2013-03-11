@@ -1,10 +1,10 @@
-= Introduction
+= Introduction =
 
 Text processing is usually tackled in languages like Python or Ruby with imperative techniques (see for example this [http://my.safaribooksonline.com/book/web-development/ruby/9780596157487/text-processing-and-file-management/i_sect14_d1e4607 chapter] in "Ruby best practices"). 
 
 In RubyFunctionalProgramming I tried to show that a functional approach yields higher, more realiable code. Let's see how would use it.   
 
-= The basics
+= The basics =
 
 Most kinds of text-processing are better described using a [http://en.wikipedia.org/wiki/Finite-state_machine Finite-state machine]. In a nuthshell: each step of the processing consist of the transition from one state to another state given a event/condition.   
 
@@ -19,7 +19,7 @@ end
 #=> Enumerator
 }}}
 
-= An example
+= An example: a compact log of git =
 
 Let's process the output of {{{git log}}} to display only the branch, commit and first line of the log. For this input:
 
@@ -111,7 +111,7 @@ class Git
 end
 }}}
 
-= Pattern-matching
+= Bonus: pattern-matching =
 
 Functional languages provide [http://en.wikipedia.org/wiki/Pattern_matching pattern-maching], an extremely useful construct in which you can, at the same time, write a conditional, deconstruct values and bind them to variables.
 
