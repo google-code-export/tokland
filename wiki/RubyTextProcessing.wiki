@@ -1,0 +1,149 @@
+= Introduction
+
+Text processing is usually tackled in languages like Python or Ruby with imperative techniques (see for example this [http://my.safaribooksonline.com/book/web-development/ruby/9780596157487/text-processing-and-file-management/i_sect14_d1e4607 chapter] in "Ruby best practices"). 
+
+In RubyFunctionalProgramming I tried to show that a functional approach yields higher, more realiable code. Let's see how would use it.   
+
+= The basics
+
+Most kinds of text-processing are better described using a [http://en.wikipedia.org/wiki/Finite-state_machine Finite-state machine]. In a nuthshell: each step of the processing consist of the transition from one state to another state given a event/condition.   
+
+So we want to write a loop where a {{{state}}} and a element of the input ({{{x}}}, a collection of {{{xs}}}) yields the {{{new_state}}} and a element of the output ({{{y}}}, of the final collection of {{{ys}}}). Written as code:   
+
+{{{ 
+ys = xs.reduce_map(initial_state) do |state, x|
+  next_state = f(state, x)
+  y = g(state, x)
+  [next_state, y]
+end
+#=> Enumerator
+}}}
+
+= An example
+
+Let's process the output of {{{git log}}} to display only the branch, commit and first line of the log. For this input:
+
+{{{
+commit 6ad25c2f3fdfdc373935d9dd00d5db8ab711bd08
+Author: Arnau Sanchez <pyarnau@gmail.com>
+Date:   Thu Mar 7 21:40:03 2013 +0100
+
+    second change
+
+commit 5bb2d7c3266785f25339bbc188a880ab072d102e
+Author: Arnau Sanchez <pyarnau@gmail.com>
+Date:   Thu Mar 7 21:32:45 2013 +0100
+
+    first upload
+}}}
+
+We want, being in the branch _master_, this output:
+
+{{{
+[master 6ad25c2f] second change
+[master 5bb2d7c3] first upload
+}}}
+
+A possible implementation:
+
+{{{
+module Enumerable
+  def reduce_map(initial_state, &block)
+    Enumerator.new do |enum|
+      reduce(initial_state) do |current_state, x|
+        new_state, y = yield([current_state, x])
+        enum.yield(y) unless y.nil?
+        new_state
+      end
+    end
+  end
+end
+
+class Git
+  def self.compact_log
+    branch = %x{git rev-parse --symbolic-full-name --abbrev-ref HEAD}.strip
+    log_lines = %x{git log}.lines
+
+    log_lines.reduce_map({:key => :find_commit}) do |state, line|
+      case state[:key]
+      when :find_commit
+        case line
+        when /^commit/
+          [{:key => :find_log, :commit => line.split[1][0, 8]}, nil]
+        else
+          [state, nil]
+        end
+      when :find_log
+        case line
+        when /^ /
+          output_line = "[#{branch} #{state[:commit]}] #{line.strip}"
+          [{:key => :find_commit}, output_line]
+        else
+          [state, nil]
+        end
+      end
+    end
+  end
+end
+
+Git.compact_log.each { |line| puts line }
+}}}
+
+Note how the use of cases splits very clearly the logic, we first check which state are we in and then what condition is satisfied to decide which is the next state and the output. One can argue this approach is very verbose, let's see a more direct way:
+
+{{{
+class Git
+  def self.compact_log
+    branch = %x{git rev-parse --symbolic-full-name --abbrev-ref HEAD}.strip
+    log_lines = %x{git log}.lines
+
+    log_lines.reduce_map({:key => :find_commit}) do |state, line|
+      if state[:key] == :find_commit && line.match(/^commit/)
+        [{:key => :find_log, :commit => line.split[1][0, 8]}, nil]
+      elsif state[:key] == :find_log && line.match(/^ /)
+        output_line = "[#{branch} #{state[:commit]}] #{line.strip}"
+        [{:key => :find_commit}, output_line]
+      else
+        [state, nil]
+      end
+    end
+  end
+end
+}}}
+
+= Pattern-matching
+
+Functional languages provide [http://en.wikipedia.org/wiki/Pattern_matching pattern-maching], an extremely useful construct in which you can, at the same time, write a conditional, deconstruct values and bind them to variables.
+
+Pattern-matching is specially useful when used with algebraic data types (see RubyAlgebraicDataTypes). Using that code and gem [https://github.com/k-tsj/pattern-match pattern-match] we can further our exploration of text processing. Let's rewrite the previous code using ADT and pattern matching and see how it looks:
+
+{{{
+require 'pattern-match'
+require 'adt'
+
+class Git
+  
+  def self.compact_log
+    branch = %x{git rev-parse --symbolic-full-name --abbrev-ref HEAD}.strip
+    log_lines = %x{git log}.lines
+
+    states = adt(:FindCommit => [], :FindLog => [:commit])
+    log_lines.reduce_map(states::FindCommit.new) do |state, line|
+      match([state, line]) do
+        with _[states::FindCommit, /^commit (\w+)/.(commit)] do
+          [states::FindLog.new(:commit => commit[0, 8]), nil]
+        end
+        with _[states::FindLog, /^ +(.*)$/.(message)] do 
+          output_line = "[%s %s] %s" % [branch, state.commit, message]
+          [states::FindCommit.new, output_line]
+        end
+        with _ do
+          [state, nil]
+        end
+      end
+    end
+  end
+end
+}}} 
+
+Well, I won't argue that's incredibly idiomatic, but let is show the expressivity capabilities of Ruby when used along with simple abstractions.
