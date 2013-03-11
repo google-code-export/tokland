@@ -1,8 +1,6 @@
 = Introduction =
 
-The ubiquitous necessity of *text-processing* is usually tackled in languages like Python or Ruby with imperative techniques (see for example this [http://my.safaribooksonline.com/book/web-development/ruby/9780596157487/text-processing-and-file-management/i_sect14_d1e4607 chapter] in "Ruby best practices"). 
-
-However, in RubyFunctionalProgramming I tried to show that functional programming yields higher, more realiable code. Let's see how we would use it to process text.   
+The ubiquitous necessity of *text-processing* is usually tackled in languages like Python or Ruby with imperative techniques (see for example this [http://my.safaribooksonline.com/book/web-development/ruby/9780596157487/text-processing-and-file-management/i_sect14_d1e4607 chapter] in "Ruby best practices"). However, in RubyFunctionalProgramming I tried to show that functional programming yields higher, more realiable code. Let's see how we would use it to process text.   
 
 = The basics =
 
@@ -122,7 +120,6 @@ require 'pattern-match'
 require 'adt'
 
 class Git
-  
   def self.compact_log
     branch = %x{git rev-parse --symbolic-full-name --abbrev-ref HEAD}.strip
     log_lines = %x{git log}.lines
