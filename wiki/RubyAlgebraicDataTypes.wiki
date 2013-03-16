@@ -29,7 +29,7 @@ In a standard OOP approach we would create a {{{Tree}}} parent class and a child
 Tree = adt(:Empty => [], :Leaf => [:value], :Node => [:value, :left_tree, :right_tree]) do
   def to_s
     case self
-    when Tree::Empty then
+    when Tree::Empty
       "Empty"
     when Tree::Leaf
       "(Leaf #{value})"
