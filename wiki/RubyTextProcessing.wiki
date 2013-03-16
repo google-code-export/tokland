@@ -1,12 +1,12 @@
 = Introduction =
 
-*Text processing* is usually tackled in languages like Python or Ruby with imperative techniques (see for example this [http://my.safaribooksonline.com/book/web-development/ruby/9780596157487/text-processing-and-file-management/i_sect14_d1e4607 chapter] in "Ruby best practices"). However, in RubyFunctionalProgramming I tried to show that functional programming yields higher quality, more realiable code. Let's see how we would use it to process text.
+*Text processing* in languages like Python or Ruby is usually tackled with imperative techniques (see for example this [http://my.safaribooksonline.com/book/web-development/ruby/9780596157487/text-processing-and-file-management/i_sect14_d1e4607 chapter] in "Ruby best practices"). However, in RubyFunctionalProgramming I tried to show why functional programming yields higher quality, more realiable code. Let's see how to apply FP in simple text processing.
 
 = The basics =
 
-Text processing is usually implemented using a [http://en.wikipedia.org/wiki/Finite-state_machine Finite-state machine]. In a nutshell: each step of the processing consists of a transition from one state to another state given a event/condition.   
+Text processing can be implemented with [http://en.wikipedia.org/wiki/Finite-state_machine Finite-state machines]. In a nutshell: each step of the processing consists of a transition from one state to another state depending on a event/condition.
 
-So we want to write a loop where a {{{state}}} and an element of the input ({{{x}}}, a collection of {{{xs}}}) yields the {{{new_state}}} and an element of the output ({{{y}}}, of the final collection of {{{ys}}}). Written as Ruby code, the functional abstraction we need might look like this:
+We want to write a loop where a {{{state}}} and an element of the input ({{{x}}}, a collection of {{{xs}}}) yields the {{{new_state}}} and an (optional) element of the output ({{{y}}}, of the final collection of {{{ys}}}). Written as Ruby code, the functional abstraction we need might look like this:
 
 {{{ 
 ys = xs.reduce_map(initial_state) do |state, x|
@@ -87,7 +87,7 @@ end
 Git.compact_log.each { |line| puts line }
 }}}
 
-Note how the use of cases splits the logic very clearly. We first check which state are we in and only then check the relevant conditions to decide the next state and the output. One could argue that this approach is a bit verbose; let's see a more compact approach using conditionals:
+Note how the use of cases splits the logic very clearly. We first check which state are we in and only then check the relevant conditions to decide the next state and the output. One could argue that this approach is a bit verbose; let's see a more compact checking state and line conditions all at once:
 
 {{{
 class Git
@@ -126,12 +126,12 @@ class Git
 
     states = adt(:FindCommit => [], :FindLog => [:commit])
     log_lines.reduce_map(states::FindCommit.new) do |state, line|
-      match([state, line]) do
-        with _[states::FindCommit, /^commit (\w+)/.(commit)] do
+      match([state, line.rstrip]) do
+        with _[states::FindCommit, /commit (\w+)/.(commit)] do
           [states::FindLog.new(:commit => commit[0, 8]), nil]
         end
-        with _[states::FindLog, /^ +(.*)$/.(message)] do 
-          output_line = "[%s %s] %s" % [branch, state.commit, message]
+        with _[states::FindLog.(:commit => commit), / +(.*)/.(message)] do
+          output_line = "[%s %s] %s" % [branch, commit, message]
           [states::FindCommit.new, output_line]
         end
         with _ do
@@ -141,6 +141,4 @@ class Git
     end
   end
 end
-}}} 
-
-Well, I won't argue that's the most idiomatic Ruby code, but it definitely shows the expressivity capabilities of the language.
+}}}
