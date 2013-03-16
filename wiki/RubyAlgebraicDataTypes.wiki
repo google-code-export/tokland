@@ -42,7 +42,7 @@ end
 tree = Tree::Node.new(1, Tree::Leaf.new(2), 
                       Tree::Node.new(3, Tree::Empty.new, 
                                         Tree::Leaf.new(4)))
-#=> Node(1 (Leaf 2) (Node 3 Empty (Leaf 4)))
+#=> (Node 1 (Leaf 2) (Node 3 Empty (Leaf 4)))
 }}}
 
 The code: https://gist.github.com/tokland/871431
