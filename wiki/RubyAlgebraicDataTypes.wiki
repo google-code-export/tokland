@@ -23,7 +23,7 @@ Wouldn't it be nice to make something similar with Ruby?
 
 = A OOP with case classes =
 
-In a standard approach we would creat a {{{Tree}}} parent class a child class for each type of Tree (where we'd write the specific implementation of each method). Let's use a different approach, let's write methods only in the parent class and use a {{{case}}} block to match the type. Granted, in a language without pattern-matching it's not as beautifu, but anyway, that's how it would look:
+In a standard approach we would creat a {{{Tree}}} parent class a child class for each type of Tree (where we'd write the specific implementation of each method). Let's use a different approach, let's write methods only in the parent class and use a {{{case}}} block to match the type. Granted, in a language without pattern-matching it's not as beautiful, but anyway, that's how it would look:
 
 {{{
 Tree = adt(:Empty => [], :Leaf => [:value], :Node => [:value, :left_tree, :right_tree]) do
@@ -42,7 +42,7 @@ end
 tree = Tree::Node.new(1, Tree::Leaf.new(2), 
                       Tree::Node.new(3, Tree::Empty.new, 
                                         Tree::Leaf.new(4)))
-#=> Node(1, (Leaf 2), (Node 3 Empty (Leaf 4)))
+#=> Node(1 (Leaf 2) (Node 3 Empty (Leaf 4)))
 }}}
 
 The code: https://gist.github.com/tokland/871431
