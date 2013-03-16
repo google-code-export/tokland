@@ -113,7 +113,7 @@ end
 
 Functional languages provide [http://en.wikipedia.org/wiki/Pattern_matching pattern-maching], an extremely useful construct in which one can, at the same time, perform a conditional, deconstruct values and bind them to variables.
 
-Pattern-matching is specially useful when used with Algebraic Data Types (see RubyAlgebraicDataTypes). Using that module and the gem [https://github.com/k-tsj/pattern-match pattern-match] we can rerwrite  the previous code with a more functional flavour:
+Pattern-matching is specially useful when used with Algebraic Data Types (see RubyAlgebraicDataTypes). Using that module and the gem [https://github.com/k-tsj/pattern-match pattern-match] we can rewrite the previous code with a more functional flavour:
 
 {{{
 require 'pattern-match'
@@ -126,7 +126,7 @@ class Git
 
     states = adt(:FindCommit => [], :FindLog => [:commit])
     log_lines.reduce_map(states::FindCommit.new) do |state, line|
-      match([state, line.rstrip]) do
+      match [state, line.rstrip] do
         with _[states::FindCommit, /commit (\w+)/.(commit)] do
           [states::FindLog.new(:commit => commit[0, 8]), nil]
         end
