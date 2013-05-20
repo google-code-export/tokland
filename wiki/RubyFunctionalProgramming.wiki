@@ -223,7 +223,7 @@ module Enumerable
 end
 }}}
 
-The details of the implementation are not important, what matters is that when we identify a interesting pattern to be abstracted, we wrote it in a separate library, we documented it, we tested it. And now simply let the real needs refine your extensions.
+The details of the implementation are not important (note that I used {{{<<}}} for efficiency), what matters is that when we identified a generic pattern to be abstracted, we wrote it in a separate library, we documented it, we tested it, and it's now available for any project we tackle in the future.
 
 === initial assign + conditional assign + conditional assign + ... ===
 
@@ -235,7 +235,7 @@ name = obj2.name if !name
 name = ask_name if !name
 }}}
 
-At this point you should feel uneasy before a code like this (a variable has now this value, now this other one; the variable name being repeated everywhere, ...). A functional approach is shorter and clearer: 
+At this point you should feel uneasy with code like this (a variable has now this value, now this other one; the variable name being repeated everywhere, ...). A functional approach is shorter and clearer: 
 
 {{{
 name = obj1.name || obj2.name || ask_name
@@ -251,7 +251,7 @@ def get_best_object(obj1, obj2, obj3)
 end
 }}}
 
-Can be written as a real expression like this:
+We are making the code harder to reader just to save some lines. Don't do that. This can be written as a more clear expression like this:
 
 {{{
 def get_best_object(obj1, obj2, obj3)
@@ -265,7 +265,7 @@ def get_best_object(obj1, obj2, obj3)
 end
 }}}
 
-Indeed, a bit more verbose, but the logic is much more clear than a bunch of inline if/unless. As a rule of thumb, use inline conditionals only and only if you are doing a real side-effect, not variable assignation nor returns:
+Indeed, a bit more verbose, but the logic (now indented) is much more clear than a bunch of inline if/unless. As a rule of thumb, use inline conditionals only and only if you are doing a real side-effect, not variable assignations nor returns:
 
 {{{
 country = Country.find(1)
