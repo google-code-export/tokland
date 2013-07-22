@@ -1,6 +1,6 @@
-f#summary Ruby conventions and idioms
+#summary Ruby conventions and idioms
 
-This document shows some Ruby idioms, conventions and patterns (most of them accepted by the community, some of them personal). This is a work in progress, feel free to email me add a comment if you have any suggestion (tokland AT gmail.com).  
+This document shows some Ruby idioms, conventions and patterns, most of them accepted by the community, some of them personal. This is a work in progress, so feel free to email me or add a comment if you have any suggestion (tokland AT gmail.com).  
 
 <wiki:toc max_depth="2" />
 
@@ -8,17 +8,17 @@ This document shows some Ruby idioms, conventions and patterns (most of them acc
 
 == General formatting ==
 
-Choose a sound formatting style (the first goal should be readability) and stick with it. At the same time, know when to break the rules ("a foolish consistency is the hobgoblin of little minds"). 
+Choose a formatting style with readability as first goal, and stick to it. At the same time, break the rules when necessary ("a foolish consistency is the hobgoblin of little minds"). 
 
-Novice programmers tend to overlook the importance of code looks, but as it's been extensively remarked, source code is meant for other people to read and understand, and incidentally for machines to execute. 
+Novice programmers tend to overlook the importance of how the code looks, but as it's been extensively remarked, source code is meant for other people to read and understand, and only incidentally for machines to execute. 
 
 === Indentation ===
 
-Use 2 spaces, no tabs, and never mix spaces and tabs. Keep your code under 80-100 char width whenever possible. The 80-char rule used to be important when terminals had severe size limitations, but it still hold on account of readability.
+Use 2 spaces, no tabs, and never mix spaces and tabs. Keep your code under 80-100 char width whenever possible. The 80-char rule used to be important when terminals had severe size limitations, but it still holds today on account of readability.
 
 === Whitespaces ===
 
- * Put a single space after a comma:
+ * Put an space after a comma:
 
 {{{
 def method(x, y)
@@ -49,16 +49,18 @@ Note that some programmers *do* put spaces after "[" {{{[ 1, 2, 3 ]}}} and "{" {
 === Naming ===
 
  * {{{StudlyCaps}}} for modules and classes.
- * {{{ALL_UPPER_UNDERSCORED}}} for constants ({{{StudlyCaps}}} are also ok).
+ * {{{ALL_UPPER_UNDERSCORED}}} for constants ({{{StudlyCaps}}} are also accepted).
  * {{{lower_undercase}}} for everything else: methods, attributes, local variables.
 
 === Blank lines ===
 
-This is often overlooked, but the indentation layout is very important. My personal rules are:
+This is often overlooked, but blank lines define a layout of the code and it's very important to be consistent. The style I favour is:
 
-  * Don't put blank lines between different indentation levels (the indentation itself should serve as visual hint), only *between* definitions ({{{module}}}, {{{class}}}, {{{def}}}, ...) on the same level.  
+  * Don't put blank lines between different indentation levels (the indentation itself should serve as visual hint).
+
+  * Insert a blank line between definitions ({{{module}}}, {{{class}}}, {{{def}}}, ...) on the same level.  
   
-  * On a level insert blank lines, sparingly, to separate logic blocks.  
+  * On a given level, insert blank lines only sparingly to separate logic blocks.
 
 Example:
 
@@ -101,7 +103,7 @@ obj.method do |foo|
 end
 }}}
 
-Some programmers [http://weblog.raganwald.com/2007/11/programming-conventions-as-signals.html proposed] to use brackets for functional blocks and _do/end_ for side-blocks with side-effects. While I find the idea interesting, brackets on multi-line blocks look weird, so I wouldn't recommend this style. 
+Some programmers [http://weblog.raganwald.com/2007/11/programming-conventions-as-signals.html have proposed] to use brackets for functional blocks and _do/end_ for blocks with side-effects. While I find the idea interesting, brackets on multi-line blocks look weird, so I wouldn't recommend this style. 
 
 == Multi-line array/hashes ==
 
@@ -115,7 +117,7 @@ array = [
 ]
 }}}
 
-Note that we insert a comma also after the last element. This is very handy because we have not to worry whether we are writing the last line or no (and you can reorder without further editing). The same idea applies for hashes or the combination of both:
+Note that we insert a comma also after the last element. This is very handy because we have not to worry if we are in the last line or no (and you can reorder without further editing). The same idea applies for hashes or the combination of both:
 
 {{{
 data = {
@@ -133,7 +135,7 @@ data = {
 
 == Implicit return value ==
 
-Ruby, as does Lisp and many functional languages, return implicitly the last expression of a body (block/method). You can write an explicit `return` but that's considered to be non-idiomatic, so instead of:
+Ruby, as does Lisp and many functional languages, return implicitly the last expression of a body (block/method). You can write an explicit `return` but that's considered to be non-idiomatic. So instead of:
 
 {{{
   def add(x, y)
@@ -153,7 +155,7 @@ Write always:
 
 Parentheses on method definitions/calls are (usually) optional in Ruby. But my personal advice is to write them. The only valid exception I can think of are:
 
- * Calls without arguments (it's idiomatic way, in fact): {{{"3".to_i}}}.
+ * Calls without arguments (in fact it's extremely unidiomatic if you write them): {{{"3".to_i}}}.
  * DSL-style calls ({{{belongs_to :user}}}).
 
 == Method name qualifiers ==
@@ -164,7 +166,7 @@ If your method returns a boolean, end it with _?_:
 dog.hungry?
 }}}
   
-If your method does does something "dangerous" (an in-place operation, or it may raise an exception on errors, or it's destructive, etc), you may end it with _!_:
+If your method does something "dangerous" (an in-place operation, or it may raise an exception on errors, or it's destructive, etc), you may end it with _!_:
 
 {{{
 database.destroy!
@@ -228,23 +230,25 @@ end
 
 Why:
 
-  * It separates clearly required from optional arguments.
+  * It clearly separates required from optional arguments.
   * You don't have to write intermediate arguments to reach the one you want. 
-  * You'll get a shorter (and cleaner) method signature. Long signatures are a nightmare. 
+  * You'll get a shorter (and cleaner) method signature. Long signatures are a nightmare to read. 
 
 Downside:
  
   * Available options are explicit in code but not in documentation.
+
+Fortunately this is not a problem anymore in Ruby 2.0, we have Python-style keyword arguments.
   
 == Calling methods with key arguments ==
 
-It's not necessary to use explicit {} to indicate it's a hash:
+It's not necessary to use explicit brackets to pass a hash as argument:
 
 {{{
 dog.bark(:volumen => 10, :duration => 5)
 }}}
 
-However, if there are lots of options and the line is too long, I recommend this multi-line style:
+However, if there are lots of options and the line is too long, I recommend this multi-line style with brackets:
 
 {{{
 dog.bark({
@@ -290,17 +294,15 @@ end
 
 == Catch-all rescue's ==
 
-What do you think of this code?
-
 {{{
 author_name = Book.find(book_id).author.name rescue nil
 }}}
 
-IMO this is plain unacceptable. A silent and indiscriminate {{{rescue}}} catches errors of all kinds (not only the ones you have in mind!), so it becomes a hard-to-debug source of bugs. Just don't do it. 
+While common to see, I think this is not acceptable. A silent and indiscriminate {{{rescue}}} catches errors of all kinds (not only the ones you have in mind!), so it becomes a hard-to-debug source of bugs. Just don't do it. 
 
-Then how to write this code without filling it with conditionals? check the section that covers the "maybe" pattern. 
+Then how should we write this code without filling it with conditionals? check the section that covers the "maybe" pattern. 
 
-== Use expression instead of statements ==
+== Use expressions instead of statements ==
 
 Instead of:
 
@@ -322,11 +324,11 @@ else
 end
 }}}
 
-This tend to cause some confusion amongst novices because conditionals are statements in mainstream languages (C, Python, Java, Javascript, ...). The advantages are: 1) the variable name is not repeated, 2) The intent of the code is more clear, it returns a "greeting" (hopefully with no side-effects), you don't have to inspect the code details to know that.
+This tend to cause some confusion amongst novices because conditionals are statements in mainstream languages (C, Python, Java, Javascript, ...). The advantages are: 1) the variable name is not repeated, 2) The intent of the code is more clear, it returns a "greeting" value (hopefully with no side-effects), you don't have to inspect the code details to know that.
 
 == Trailing conditional statements ==
 
-Use them very sparingly, if the line is long the condition may be overlooked by the reader. An accepted usage is as guards for early returns:
+Use them sparingly, if the line is long the condition may be overlooked by the reader. An accepted usage is as guards for early returns:
 
 {{{
 def fun(arg1, arg2):
@@ -351,7 +353,7 @@ So you have a dog named Scooby and want to know if it's in your list of selected
 ["rantanplan", "milu"].include?("scooby") #=> false
 }}}
 
-Notice how we the code reverse the phrasing of the problem. Why don't we create an abstraction that reflects how we think about it? 
+Notice how we the code reverse the phrasing of the problem. Why don't we create an abstraction that reflects how we think about the problem? 
 
 {{{
 class Object
@@ -364,6 +366,8 @@ end
 {{{
 "scooby".in?(["rantanplan", "milu"]) #=> false
 }}}
+
+If you can't read aloud a line or code, or it sound funny, chanced are you should abstract it somehow.
 
 == Use blocks as wrappers ==
 
@@ -380,7 +384,7 @@ loop do
 end
 }}}
   
-There is nothing really wrong with this snippet, but look at the relevant code: it's literally buried in a jumble of infrastructure. Let's abstract the high-level construction so: 1) we simplify the code, and 2) we leave a method that could be reused (in the same or other projects):
+There is nothing really wrong with this snippet, but look at the relevant code: {{{process}}} is buried in a jumble of infrastructure. Let's abstract the high-level construction so: 1) we simplify the code, and 2) we create a method that could be reused in this same or other projects:
 
 {{{
 retry_on_exceptions([Exception1, Exception2], :max_retries => 5) do
@@ -388,7 +392,7 @@ retry_on_exceptions([Exception1, Exception2], :max_retries => 5) do
 end
 }}}
 
-In this second version you see right away what's going on. This example presents a very useful pattern: use blocks as high-level wrappers. The more generic the pattern is, the more reason you should abstract it. This is nothing new, wrappers with callbacks are used in many languages, but the difference with Ruby is how easy is to send anonymous pieces of code as blocks.
+In this second version you see right away what's going on. This example introduces a very useful pattern: using blocks as high-level wrappers. The more generic the pattern, the more reason you should abstract it. This is nothing new, wrappers with callbacks are used in many languages, but the difference with Ruby is that is very easy to send anonymous pieces of code as blocks.
 
 == Some abstractions ==
 
@@ -400,7 +404,7 @@ You've find a lost dog and you want to know where he lives. You'll write:
 dog_address = dog.owner.address
 }}}
 
-But hey, there are street dogs with no owners. Then you should be careful and do this instead:
+But hey, there are street dogs with no owners, right? Then you should be careful and do this instead:
 
 {{{
 dog_address = dog.owner ? dog.owner.address : nil
@@ -413,7 +417,7 @@ dog_address = dog.owner ? dog.owner.address : nil
 dog_address_city = dog_address ? dog_address.city : nil
 }}}
 
-Wow, it gets worse on each step, we should identify a pattern to simplify the code. There are (at least) three approaches to solve this:
+Wow, this is getting worse, we should try to identify a pattern to simplify this code. There are two commonly proposed approaches to solve this:
 
  * Use a wrapper: Activesupport's Object#try.
 
@@ -430,23 +434,17 @@ Rails' {{{try}}} is not bad, but some programmers don't like seeing that their u
 dog_owner_street = dog.owner.maybe.address.maybe.street
 }}}
 
- * Use a block. Ick's Object#maybe also supports this pattern:
-
-{{{
-dog_owner_street = dog.owner.maybe { |owner| owner.address.street }
-}}}
-  
-I'd recommend the second one, the {{{maybe}}} proxy approach without blocks: compact yet explicit.
+I'd recommend the second one, compact yet explicit.
   
 === Enumerable#map_select ===
 
-Haskell popularized a very cool mathematical construction called _list comprehension_. For example, to find out the squares of the first odd natural numbers between 1 and 10 you may write:
+Haskell popularized a very cool mathematical construction called _list comprehensions_. For example, to find out the squares of the first odd natural numbers between 1 and 10 you may write:
 
 {{{
 [x^2 | x <- [1..10], odd x]
 }}}
 
-Python smartly borrowed it:
+Python borrowed it:
 
 {{{
 [x**2 for x in range(1, 10+1) if x % 2 == 1]
@@ -527,7 +525,7 @@ He have this code:
 name = database_name || session_name || default_name
 }}}
 
-Now let's say that those values may be an empty string (which Ruby considers it to be true) but you don't want empty strings as name. Activerecord's [http://api.rubyonrails.org/classes/Object.html#method-i-presence presence] is a good solution, just "nilify" empty values:
+Now let's say that those values may be an empty string (which Ruby considers it to be true) but you don't want empty strings as name. Activerecord's [http://api.rubyonrails.org/classes/Object.html#method-i-presence presence] is the best solution, just "nullify" empty values:
 
 {{{
 name = database_name.presence || session_name.presence || default_name.presence
@@ -556,7 +554,7 @@ width, height = info
 area = width * height
 }}}
 
-Now this is better, we are getting the area of a rectangle. It's really good to name things. There is nothing wrong now, only that we needed an extra line to unpack the array. What about?:
+Now this is better, we are getting the area of a rectangle. It's really good to give name to things. There is nothing wrong now, only that we needed an extra line to unpack the array. What about?:
 
 {{{
 area = info.as { |width, height| width * height }
@@ -589,23 +587,23 @@ end
 
  * It's simple.
  * It's readable.
- * It abstracts repeated patterns (DRY).
+ * It abstracts repeated patterns (Don't repeat yourself!).
  * It uses the right algorithms...
  * ...but does not sacrifice clarity for efficiency.
  * It's generic and reusable...
  * ...but compact and understandable. 
- * It divides complexity instead of spreading it.
+ * It contains complexity instead of spreading it.
 
 Ugly code breeds ugly code. Beautiful code breeds more beautiful code.
 
 = Conclusion =  
 
- * Write beautiful code. This is valid for any language, but while some of them just keep getting in your way no matter how hard you try, that's not the case with Ruby. 
+ * Write beautiful code. This is valid for any language, but while some just keep getting in your way no matter how hard you try, that's not the case (or at least not often) with Ruby. 
 
  * Don't worry about performance too soon: maintenance of code is a hard task, write simple code that works (caveat: this does not mean ill-conceived code with the wrong algorithms). Benchmark it to see where the bottlenecks are and refactor accordingly.
  
  * Ruby is not a functional language, and that's fine, but don't use it imperatively unless there is a good reason. Keep state and side-effects to a minimum. 
  
  * Core developers can't forecast all your needs, don't content yourself with the existing toolbox. *Programming is about building abstractions*, your personal toolbox containing reusable patterns should be growing and improving with each project you write. 
- 
-In a nutshell: tweak the language to fit your needs and write maintainable, beautiful, compact, semantically meaningful code (incidentally, it would be also great if it works as expected... write tests!).
+
+In a nutshell: tweak the language to fit your needs and write maintainable, beautiful, compact, semantically meaningful code (it might be great if it worked as expected... write tests!).
