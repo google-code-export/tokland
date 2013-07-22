@@ -48,8 +48,8 @@ Note that some programmers *do* put spaces after "[" {{{[ 1, 2, 3 ]}}} and "{" {
 
 === Naming ===
 
- * {{{PascalCaps}}} for modules and classes.
- * {{{ALL_UPPER_UNDERSCORED}}} for constants ({{{PascalCaps}}} are also accepted).
+ * {{{PascalCase}}} for modules and classes.
+ * {{{ALL_UPPER_UNDERSCORED}}} for constants ({{{PascalCase}}} are also accepted).
  * {{{lower_undercase}}} for everything else: methods, attributes, local variables.
 
 === Blank lines ===
