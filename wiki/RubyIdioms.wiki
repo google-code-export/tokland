@@ -204,6 +204,19 @@ Yes:
 
 {{{
 def method(arg1, arg2, options = {})
+  options = {
+    :arg3 => 1,
+    :arg4 => "hello",
+    :arg5 => "bye",
+  }.merge(options)
+  ...
+end
+}}}
+
+Or using Rails' [http://rubydoc.info/docs/rails/Hash:reverse_update reverse_update]:
+
+{{{
+def method(arg1, arg2, options = {})
   options.reverse_update({
     :arg3 => 1,
     :arg4 => "hello",
@@ -212,7 +225,7 @@ def method(arg1, arg2, options = {})
   ...
 end
 }}}
-  
+
 Why:
 
   * It separates clearly required from optional arguments.
