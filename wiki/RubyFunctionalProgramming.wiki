@@ -116,19 +116,21 @@ output = [1, (2 if i_have_to_add_two), 3].compact
 
 == Don't reuse variables ==
 
-This is commonly seen:
+That's a common patter we should avoid:
 
 {{{
 number = gets
 number = number.to_i
 }}}
 
-Here we're not updating "number", we're overriding the old variable and creating a new one. In the same way that updating variables is bad (from a FP perspective), so is overriding them. The principle is the same: Once you write "number = gets", that should be the value of the variable in all the scope. If we want to transform it then give them different names:
+Here we're not updating {{{number}}}, but overriding the old variable with a new one. In the same way that updating variables is bad (from a FP perspective), so is overriding them. The principle is the same: once you write {{{number = gets}}}, {{{number}}} should have the same value for all the scope. If you want to apply some transformation, just use different names:
 
 {{{
 number_string = gets
 number = number_string.to_i
 }}}
+
+Remember, as in math, {{{var = value}}}, should be a sacred contract between the coder are the future reader of the code: every time {{{var}}} is found in the scope, you can substitute it by {{{value}}}. 
 
 == Blocks as higher order functions ==
 
