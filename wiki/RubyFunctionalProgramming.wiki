@@ -114,6 +114,22 @@ Yes:
 output = [1, (2 if i_have_to_add_two), 3].compact
 }}}
 
+== Don't reuse variables ==
+
+This is commonly seen:
+
+{{{
+number = gets
+number = number.to_i
+}}}
+
+Here we're not updating "number", we're overriding the old variable and creating a new one. In the same way that updating variables is bad (from a FP perspective), so is overriding them. The principle is the same: Once you write "number = gets", that should be the value of the variable in all the scope. If we want to transform it then give them different names:
+
+{{{
+number_string = gets
+number = number_string.to_i
+}}}
+
 == Blocks as higher order functions ==
 
 If a language is to be used functionally we need higher-order functions. That's it, functions can take other functions as parameters, and can also return other functions. 
