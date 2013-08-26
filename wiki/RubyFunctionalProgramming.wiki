@@ -116,21 +116,21 @@ output = [1, (2 if i_have_to_add_two), 3].compact
 
 == Don't reuse variables ==
 
-That's a common patter we should avoid:
+That's a common pattern we should avoid:
 
 {{{
 number = gets
 number = number.to_i
 }}}
 
-Here we're not updating {{{number}}}, but overriding the old variable with a new one. In the same way that updating variables is bad (from a FP perspective), so is overriding them. The principle is the same: once you write {{{number = gets}}}, {{{number}}} should have the same value for all the scope. If you want to apply some transformation, just use different names:
+While here we're not updating {{{number}}} but overriding the old variable, if updating variables is bad (from a FP perspective), so is overriding them. The principle is the same: once you write {{{number = gets}}}, {{{number}}} should have the same value for all the scope. If you want to apply some transformation, just use different names:
 
 {{{
 number_string = gets
 number = number_string.to_i
 }}}
 
-Remember, as in math, {{{var = value}}}, should be a sacred contract between the coder are the future reader of the code: every time {{{var}}} is found in the scope, you can substitute it by {{{value}}}. 
+Remember, as in math, {{{var = value}}}, should be a sacred contract between the coder and the future reader of the code: every time {{{var}}} is found in the scope, you can substitute it by {{{value}}}. 
 
 == Blocks as higher order functions ==
 
@@ -311,7 +311,7 @@ Hash[input.map do |item|
 end]
 }}}
 
-Not bad, but it kind of breaks the natural writing directionality. In Ruby we expect to write from left to right, calling methods for objects. Whie the "good" functional way is to use inject:
+Not bad, but it kind of breaks the natural writing directionality. In Ruby we expect to write from left to right, calling methods for objects. While the "good" functional way is to use inject:
 
 {{{
 input.inject({}) do |hash, item|
@@ -326,7 +326,7 @@ module Enumerable
   def mash(&block)
     self.inject({}) do |output, item|
       key, value = block_given? ? yield(item) : item
-      output.merge(key => value)
+      output.merge(key => value) # use Hash#update for performance.
     end
   end
 end
