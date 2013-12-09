@@ -179,7 +179,7 @@ http://tokland.googlecode.com/svn/trunk/google-books/download_google_book.sh
 
 Bootstrap a base Arch Linux system where you can chroot to.
 
-http://tokland.googlecode.com/svn/trunk/archlinux/arch-bootstrap.sh
+https://github.com/tokland/arch-bootstrap
 
 == Convert anything to MP3 ==
 
