@@ -18,7 +18,7 @@ In the good old days in primary school we would have been puzzled by this line. 
 
 = The theory = 
 
-From the [http://en.wikipedia.org/wiki/Functional_programming Wikipedia]: "Functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutable data". In other words, functional programming promotes code with no side effects, no change of value in variables. It oposes to imperative programming, which enfatizes change of state.
+From the [http://en.wikipedia.org/wiki/Functional_programming Wikipedia]: "Functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutable data". In other words, functional programming promotes code with no side effects, no change of value in variables. It oposes to imperative programming, which emphasizes change of state.
 
 Surprisingly, that's all there is to it. So what are the advantages? 
 
