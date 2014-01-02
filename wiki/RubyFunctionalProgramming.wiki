@@ -14,11 +14,11 @@
 
 In the good old days in primary school we would have been puzzled by this line. Which magical *x* is this that can be added one and yet remain unchanged. Somehow, we started programming and we didn't mind anymore.
  
-'Well', we thought, 'that's not a serious issue, programming is about getting real business done and there's no need to quibble over mathematic purity' (let the loony bearded guys in universities deal with it). But it turns out we were wrong, we were paying a high price, only that we didn't know it. 
+'Well', we thought, 'that's not a serious issue, programming is about getting real business done and there's no need to quibble over mathematical purity' (let the loony bearded guys in universities deal with it). But it turns out we were wrong, we were paying a high price, only that we didn't know it. 
 
 = The theory = 
 
-From the [http://en.wikipedia.org/wiki/Functional_programming Wikipedia]: "Functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutable data". In other words, functional programming promotes code with no side effects, no change of value in variables. It oposes to imperative programming, which emphasizes change of state.
+From the [http://en.wikipedia.org/wiki/Functional_programming Wikipedia]: "Functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids state and mutable data". In other words, functional programming promotes code with no side effects, no change of value in variables. It opposes to imperative programming, which emphasizes change of state.
 
 Surprisingly, that's all there is to it. So what are the advantages? 
 
@@ -28,7 +28,7 @@ Surprisingly, that's all there is to it. So what are the advantages?
 
 Referential transparency opens the gate to some nice things: 
 
- * Parallelization: If calls to functions are independent, they may be executed in different processes or even machines with no race-condition issues. All the nasty details of "normal" concurrency code (locks, semaphors, ...) just vanish on the functional paradigm. 
+ * Parallelization: If calls to functions are independent, they may be executed in different processes or even machines with no race-condition issues. All the nasty details of "normal" concurrency code (locks, semaphores, ...) just vanish on the functional paradigm. 
  
  * Memoization. Since a function call is equivalent to its return value, we may be cache them.  
  
@@ -40,7 +40,7 @@ Referential transparency opens the gate to some nice things:
 
 This is all great, but how can we apply it to our daily-programming in Ruby (which is, indeed, not a functional language)? FP is, in its general sense, a style, it may be used in any language. Of course it will be the more natural way on languages specially designed for the paradigm, but to some extend, it can be applied to any language.
 
-Let's be clear about this: this guide does not pretend to promote bizarre style just to adhere to theoretical functional purity. On the contrary, the point that I am trying to make is that we should *use FP whenever it increases the quality of code*, otherwise it's just a bad solution. 
+Let's be clear about this: this guide does not pretend to promote bizarre style just to adhere to theoretical functional purity. On the contrary, the point that I am trying to make is that we should *use FP whenever it increases the quality of code*.
 
 == Don't update variables ==
 
@@ -241,7 +241,7 @@ module Enumerable
 end
 }}}
 
-The details of the implementation are not important (note that I used {{{<<}}} for efficiency), what matters is that when we identified a generic pattern to be abstracted, we wrote it in a separate library, we documented it, we tested it, and it's now available for any project we tackle in the future.
+The details of the implementation are unimportant (note that I used {{{<<}}} for efficiency), what matters is that when we identified a generic pattern to be abstracted, we wrote it in a separate library, we documented it, we tested it, and it's now available for any project we tackle in the future.
 
 === initial assign + conditional assign + conditional assign + ... ===
 
@@ -348,7 +348,7 @@ Or in a single step using mash using the optional block:
 
 Joe Armstrong (the creator of Erlang) discussed in "Coders At work" about the reusability of Object-Oriented Programming: 
 
-"I think the lack of reusability comes in object-oriented languages, not in functional languages. Because the problem with object-oriented languages is they’ve got all this implicit environment that they carry around with them. You wanted a banana but what you got was a gorilla holding the banana and the entire jungle."
+"I think the lack of reusability comes in object-oriented languages, not in functional languages. Because the problem with object-oriented languages is they've got all this implicit environment that they carry around with them. You wanted a banana but what you got was a gorilla holding the banana and the entire jungle."
 
 To be fair, in my opinion it's not an intrinsic problems of OOP. You can write OOP code which is also functional, but certainly:
 
@@ -357,7 +357,7 @@ To be fair, in my opinion it's not an intrinsic problems of OOP. You can write O
  * Typical OOP mixes the concepts of identity and state.
  * Mixture of data and code raises both conceptual and practical problems.
 
-Rich Hickey, the creator of Closure (a functional Lisp-dialect for the JVM), discusses state, values and identity in this [http://www.infoq.com/presentations/Value-Identity-State-Rich-Hickey excellent talk].
+Rich Hickey, the creator of Clojure (a functional Lisp-dialect for the JVM), discusses state, values and identity in this [http://www.infoq.com/presentations/Value-Identity-State-Rich-Hickey excellent talk].
 
 == Everything is an expression ==
 
