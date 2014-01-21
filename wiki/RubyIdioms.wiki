@@ -373,22 +373,20 @@ If you can't read aloud a line or code, or it sound funny, chanced are you shoul
 
 {{{
 tries = 0
-loop do 
-  begin
-    process
-  rescue Exception1, Exception2 => error
-    tries += 1
-    retry unless tries > 5
-    nil
-  end
+result = begin
+  get_result(1, 2)
+rescue Exception1, Exception2 => error
+  tries += 1
+  retry unless tries > 5
+  nil
 end
 }}}
   
 There is nothing really wrong with this snippet, but look at the relevant code: {{{process}}} is buried in a jumble of infrastructure. Let's abstract the high-level construction so: 1) we simplify the code, and 2) we create a method that could be reused in this same or other projects:
 
 {{{
-retry_on_exceptions([Exception1, Exception2], :max_retries => 5) do
-  process
+result = retry_on_exceptions([Exception1, Exception2], :max_retries => 5) do
+  get_result(1, 2)
 end
 }}}
 
