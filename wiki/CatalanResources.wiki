@@ -2,9 +2,10 @@
 
 = Download =
 
-Using as source http://www.diccionaris.cat/, get the tags and syllables/accent for each word. See the tags [http://www.diccionari.cat/abrev.jsp?ABRE=L here]. Example:
+Using as source http://www.diccionaris.cat/, get the tags and syllables/accent (automatic process, see section below) for each word. The tags are found [http://www.diccionari.cat/abrev.jsp?ABRE=L here]. Example:
 
 {{{
+# word: (syllables:accent): tags
 àbac: (à-bac:1) m, MAT, m, ARQUIT, CONSTR, MOBL
 abacà: (a-ba-cà:0) m, BOT, AGR, TÈXT
 abacallanar-se: (a-ba-ca-lla-nar-se:1) v, pron
@@ -19,7 +20,7 @@ Download TODO.
 
 = Syllable division =
 
-Using the rules found [http://www.aldeaglobal.net/cat5estrelles/Accentuacio.htm here] and defining the [https://github.com/tokland/grammy BNF parser] (see [https://code.google.com/p/tokland/source/browse/trunk/dicts/catala/metadata/dictionary.rb grammar]):
+Using the rules found [http://www.aldeaglobal.net/cat5estrelles/Accentuacio.htm here] we can define a [https://github.com/tokland/grammy BNF grammar] (see [https://code.google.com/p/tokland/source/browse/trunk/dicts/catala/metadata/dictionary.rb here]):
 
 {{{
 # letters
