@@ -50,7 +50,7 @@ rule vowel_group => ((consonantic_vowel? >> falling_diphthong) | vowel)
 rule consonant => dygraph | dygraph_dotl | /[bcçdfghjklmnpqrstvwxyz]/
 
 # special
-rule prefix => ("des" | "en" | "subs") >> lookahead(vowel) # mmm, no sempre seguit de vocal
+rule prefix => ("des" | "en" | "subs") >> lookahead(vowel)
 
 # syllable
 rule syllable_start =>
