@@ -1,0 +1,21 @@
+#summary Resources for catalan language.
+
+= Metatags =
+
+Using as source http://www.diccionaris.cat/, get the tags related to each word (noun masculine/femenine, adjective, verb, etc). See the tags [http://www.diccionari.cat/abrev.jsp?ABRE=L here].
+
+= Syllable division =
+
+Using the rules found [http://www.aldeaglobal.net/cat5estrelles/Accentuacio.htm here] and defining the [https://github.com/tokland/grammy BNF parser] (see [https://code.google.com/p/tokland/source/browse/trunk/dicts/catala/metadata/dictionary.rb grammar])
+
+= Source code =
+
+$ svn checkout https://tokland.googlecode.com/svn/trunk/dicts/catala/metadata
+
+$ ruby get_tags.rb
+$ ruby download-all.rb
+$ ruby dictionary.rb all 'output/*.html'
+
+= Download =
+
+TODO
