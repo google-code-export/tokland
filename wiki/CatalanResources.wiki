@@ -1,8 +1,8 @@
 #summary Resources for catalan language.
 
-= Download =
+= Introduction =
 
-Using as source http://www.diccionaris.cat/, get the tags and syllables/accent (automatic process, see section below) for each word. The tags are found [http://www.diccionari.cat/abrev.jsp?ABRE=L here]. Example:
+Using http://www.diccionaris.cat as source, get the tags and syllable division (automatic process, see section below) for each word. The tags can be found [http://www.diccionari.cat/abrev.jsp?ABRE=L here]. Example:
 
 {{{
 # word: (syllables:accent): tags
@@ -16,11 +16,13 @@ abacomtat: (a-ba-com-tat:0) m, HIST
 abacomte: (a-ba-com-te:1) m, HIST
 }}}
 
-Download TODO.
+= Download =
+
+TODO
 
 = Syllable division =
 
-Using the rules found [http://www.aldeaglobal.net/cat5estrelles/Accentuacio.htm here] we can define a [https://github.com/tokland/grammy BNF grammar] (see [https://code.google.com/p/tokland/source/browse/trunk/dicts/catala/metadata/dictionary.rb here]):
+Using the rules found [http://www.aldeaglobal.net/cat5estrelles/Accentuacio.htm here] we can define a [http://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form BNF grammar] using [https://github.com/tokland/grammy grammy]:
 
 {{{
 # letters
@@ -79,6 +81,8 @@ start word => ~syllable
 }}}
 
 = Source code =
+
+Get the code:
 
 {{{
 $ svn checkout https://tokland.googlecode.com/svn/trunk/dicts/catala/metadata
