@@ -9,75 +9,73 @@ Using as source http://www.diccionaris.cat/, get the tags related to each word (
 Using the rules found [http://www.aldeaglobal.net/cat5estrelles/Accentuacio.htm here] and defining the [https://github.com/tokland/grammy BNF parser] (see [https://code.google.com/p/tokland/source/browse/trunk/dicts/catala/metadata/dictionary.rb grammar]):
 
 {{{
-    grammar = Grammy.define do
-      # letters
-      rule a => 'a' | 'à'
-      rule e => 'e' | 'è' | 'é'
-      rule i => 'i' | 'í'
-      rule o => 'o' | 'ó' | 'ò'
-      rule u => 'u' | 'ú'
-      rule vowel => a | e | i | 'ï' | o | u | 'ü'
-      "gqhxrsn".chars.each { |k| rule(send(k) => k) }
+# letters
+rule a => 'a' | 'à'
+rule e => 'e' | 'è' | 'é'
+rule i => 'i' | 'í'
+rule o => 'o' | 'ó' | 'ò'
+rule u => 'u' | 'ú'
+rule vowel => a | e | i | 'ï' | o | u | 'ü'
+"gqhxrsn".chars.each { |k| rule(send(k) => k) }
 
-      # diphtongs
-      rule falling_diphthong =>
-        ((a >> i) | (e >> i) | (i >> i) | (o >> i) | (u >> i) |
-         (a >> u) | (e >> u) | (i >> u) | (o >> u) | (u >> u)) >> lookahead_negative(vowel)
-      rule raising_diphtong_unit =>
-        ('q' | 'g') >>
-          ('u' >> (falling_diphthong | a | o) |
-           'ü' >> (falling_diphthong | e | i))
-      
-      # dygraphs
-      rule non_separable_dygraph =>
-        "ny" | "ll" | "ch" | ((q | g) >> 'u' >> lookahead(e | i)) | ('ig' >> eos)
-      rule dygraph_ix => 'i' >> lookahead(x)
-      rule dygraph_dotl => '·l'
-      rule dygraph_l_geminate => 'l' >> lookahead(dygraph_dotl)
-      rule dygraph_rr => r >> lookahead(r)
-      rule dygraph_ss => s >> lookahead(s)
-      rule separable_dygraph => dygraph_ix | dygraph_l_geminate | dygraph_rr | dygraph_ss
-      rule dygraph => non_separable_dygraph | separable_dygraph
-      
-      # consonantic
-      rule consonantic_unit =>
-        'bl' | 'br' | 'cl'| 'cr'| 'dr' | 'fl' | 'gl' | 'gr' | 
-        'pl' | 'pr' | 'tr' | non_separable_dygraph
-      rule non_consonantic_vowel => a | e | o
-      rule consonantic_vowel => ('i' | 'u') >> lookahead(non_consonantic_vowel)
-      rule consonantic_vowel_unit => 
-        ((h? >> consonantic_vowel) >> ((vowel_group >> eos) | vowel))
-      rule vowel_group => ((consonantic_vowel? >> falling_diphthong) | vowel)
-      rule consonant => dygraph | dygraph_dotl | /[bcçdfghjklmnpqrstvwxyz]/
-      
-      # special
-      rule prefix => ("des" | "en" | "subs") >> lookahead(vowel) # mmm, no sempre seguit de vocal
-      
-      # syllable
-      rule syllable_start =>
-        prefix | raising_diphtong_unit | consonantic_vowel_unit | (~consonant >> vowel_group)
-      rule consonantic_syllable_end => 
-        (+consonant >> eos) |
-        lookahead(consonantic_unit) |
-        (consonant >> consonantic_syllable_end? >> lookahead(consonant))
-      
-      rule syllable => syllable_start >> consonantic_syllable_end?
-      start word => ~syllable
-      
-      # accents
-      rule raising_diphtong_start => 
-        ('q' | 'g') >>
-          ('u' >> lookahead(falling_diphthong | a | o) |
-           'ü' >> lookahead(falling_diphthong | e | i))
-      rule accent_exception_termination => (falling_diphthong >> [s | n]) >> eos
-      rule accent_termination => 
-        ((a >> s) | (e >> s) | (i >> s) | (o >> s) | (u >> s) |
-        (e >> n) | (i >> n) |
-        a | e | i | o | u) >> eos
-      rule accent => 
-        ~(raising_diphtong_start | consonant | consonantic_vowel) >> 
-        (accent_exception_termination | accent_termination)
-    end
+# diphtongs
+rule falling_diphthong =>
+  ((a >> i) | (e >> i) | (i >> i) | (o >> i) | (u >> i) |
+   (a >> u) | (e >> u) | (i >> u) | (o >> u) | (u >> u)) >> lookahead_negative(vowel)
+rule raising_diphtong_unit =>
+  ('q' | 'g') >>
+    ('u' >> (falling_diphthong | a | o) |
+     'ü' >> (falling_diphthong | e | i))
+
+# dygraphs
+rule non_separable_dygraph =>
+  "ny" | "ll" | "ch" | ((q | g) >> 'u' >> lookahead(e | i)) | ('ig' >> eos)
+rule dygraph_ix => 'i' >> lookahead(x)
+rule dygraph_dotl => '·l'
+rule dygraph_l_geminate => 'l' >> lookahead(dygraph_dotl)
+rule dygraph_rr => r >> lookahead(r)
+rule dygraph_ss => s >> lookahead(s)
+rule separable_dygraph => dygraph_ix | dygraph_l_geminate | dygraph_rr | dygraph_ss
+rule dygraph => non_separable_dygraph | separable_dygraph
+
+# consonantic
+rule consonantic_unit =>
+  'bl' | 'br' | 'cl'| 'cr'| 'dr' | 'fl' | 'gl' | 'gr' | 
+  'pl' | 'pr' | 'tr' | non_separable_dygraph
+rule non_consonantic_vowel => a | e | o
+rule consonantic_vowel => ('i' | 'u') >> lookahead(non_consonantic_vowel)
+rule consonantic_vowel_unit => 
+  ((h? >> consonantic_vowel) >> ((vowel_group >> eos) | vowel))
+rule vowel_group => ((consonantic_vowel? >> falling_diphthong) | vowel)
+rule consonant => dygraph | dygraph_dotl | /[bcçdfghjklmnpqrstvwxyz]/
+
+# special
+rule prefix => ("des" | "en" | "subs") >> lookahead(vowel) # mmm, no sempre seguit de vocal
+
+# syllable
+rule syllable_start =>
+  prefix | raising_diphtong_unit | consonantic_vowel_unit | (~consonant >> vowel_group)
+rule consonantic_syllable_end => 
+  (+consonant >> eos) |
+  lookahead(consonantic_unit) |
+  (consonant >> consonantic_syllable_end? >> lookahead(consonant))
+
+rule syllable => syllable_start >> consonantic_syllable_end?
+start word => ~syllable
+
+# accents
+rule raising_diphtong_start => 
+  ('q' | 'g') >>
+    ('u' >> lookahead(falling_diphthong | a | o) |
+     'ü' >> lookahead(falling_diphthong | e | i))
+rule accent_exception_termination => (falling_diphthong >> [s | n]) >> eos
+rule accent_termination => 
+  ((a >> s) | (e >> s) | (i >> s) | (o >> s) | (u >> s) |
+  (e >> n) | (i >> n) |
+  a | e | i | o | u) >> eos
+rule accent => 
+  ~(raising_diphtong_start | consonant | consonantic_vowel) >> 
+  (accent_exception_termination | accent_termination)
 }}}
 
 = Source code =
