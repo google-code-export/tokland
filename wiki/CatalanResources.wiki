@@ -80,11 +80,17 @@ rule accent =>
 
 = Source code =
 
+{{{
 $ svn checkout https://tokland.googlecode.com/svn/trunk/dicts/catala/metadata
+}}}
 
+Run:
+
+{{{
 $ ruby get_tags.rb
 $ ruby download-all.rb
 $ ruby dictionary.rb all 'output/*.html'
+}}}
 
 = Download =
 
