@@ -75,20 +75,6 @@ rule consonantic_syllable_end =>
 
 rule syllable => syllable_start >> consonantic_syllable_end?
 start word => ~syllable
-
-# accents
-rule raising_diphtong_start => 
-  ('q' | 'g') >>
-    ('u' >> lookahead(falling_diphthong | a | o) |
-     'ü' >> lookahead(falling_diphthong | e | i))
-rule accent_exception_termination => (falling_diphthong >> [s | n]) >> eos
-rule accent_termination => 
-  ((a >> s) | (e >> s) | (i >> s) | (o >> s) | (u >> s) |
-  (e >> n) | (i >> n) |
-  a | e | i | o | u) >> eos
-rule accent => 
-  ~(raising_diphtong_start | consonant | consonantic_vowel) >> 
-  (accent_exception_termination | accent_termination)
 }}}
 
 = Source code =
