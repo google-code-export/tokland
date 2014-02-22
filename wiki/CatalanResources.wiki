@@ -95,3 +95,5 @@ $ ruby get_tags.rb
 $ ruby download-all.rb
 $ ruby dictionary.rb all 'output/*.html'
 }}}
+
+[Tags: català, diccionari, divisió síl.labes, accent, rima, nom, adjectiu, verb, adverb, preposició, base de dades]
