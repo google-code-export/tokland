@@ -18,7 +18,7 @@ abacomte: (a-ba-com-te:1) m, HIST
 
 = Download =
 
-TODO
+Download [http://download.zaudera.com/public/catalan-words-tags-syllables.tgz TXT, JSON, CSV and SQLITE3 files].
 
 = Syllable division =
 
