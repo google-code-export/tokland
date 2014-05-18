@@ -4,7 +4,7 @@
 
 = The basics =
 
-Text processing can be implemented with [http://en.wikipedia.org/wiki/Finite-state_machine Finite-state machines]. In a nutshell: each step of the processing consists of a transition from one state to another state depending on a event/condition.
+Text processing can be implemented with [http://en.wikipedia.org/wiki/Finite-state_machine Finite-state machines] (FSM). In a nutshell: each step of the processing consists of a transition from one state to another state depending on a event/condition.
 
 We want to write a loop where a {{{state}}} and an element of the input ({{{x}}}, a collection of {{{xs}}}) yields the {{{new_state}}} and an (optional) element of the output ({{{y}}}, of the final collection of {{{ys}}}). In text processing, {{{xs}}} and {{{ys}}} are strings. Written as Ruby code, the functional abstraction we need might look like this:
 
