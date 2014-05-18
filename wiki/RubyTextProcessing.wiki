@@ -1,15 +1,15 @@
 = Introduction =
 
-*Text processing* in languages like Python or Ruby is usually tackled with imperative techniques (see for example this [http://my.safaribooksonline.com/book/web-development/ruby/9780596157487/text-processing-and-file-management/i_sect14_d1e4607 chapter] in "Ruby best practices"). However, in RubyFunctionalProgramming I tried to show why functional programming yields higher quality, more realiable code. Let's see how to apply FP in simple text processing.
+*Text processing* in languages like Python or Ruby is usually tackled with imperative techniques (see for example this [http://my.safaribooksonline.com/book/web-development/ruby/9780596157487/text-processing-and-file-management/i_sect14_d1e4607 chapter] in "Ruby best practices"). However, in RubyFunctionalProgramming I tried to show that the advantages of using the functional paradigm. Let's see how to apply FP in simple text processing.
 
 = The basics =
 
 Text processing can be implemented with [http://en.wikipedia.org/wiki/Finite-state_machine Finite-state machines]. In a nutshell: each step of the processing consists of a transition from one state to another state depending on a event/condition.
 
-We want to write a loop where a {{{state}}} and an element of the input ({{{x}}}, a collection of {{{xs}}}) yields the {{{new_state}}} and an (optional) element of the output ({{{y}}}, of the final collection of {{{ys}}}). Written as Ruby code, the functional abstraction we need might look like this:
+We want to write a loop where a {{{state}}} and an element of the input ({{{x}}}, a collection of {{{xs}}}) yields the {{{new_state}}} and an (optional) element of the output ({{{y}}}, of the final collection of {{{ys}}}). In text processing, {{{xs}}} and {{{ys}}} are strings. Written as Ruby code, the functional abstraction we need might look like this:
 
 {{{ 
-ys = xs.reduce_map(initial_state) do |state, x|
+ys = xs.state_map(initial_state) do |state, x|
   next_state = f(state, x)
   y = g(state, x)
   [next_state, y]
@@ -46,7 +46,7 @@ A possible implementation:
 
 {{{
 module Enumerable
-  def reduce_map(initial_state, &block)
+  def state_map(initial_state, &block)
     Enumerator.new do |enum|
       reduce(initial_state) do |current_state, x|
         new_state, y = yield([current_state, x])
@@ -62,7 +62,7 @@ class Git
     branch = %x{git rev-parse --symbolic-full-name --abbrev-ref HEAD}.strip
     log_lines = %x{git log}.lines
 
-    log_lines.reduce_map({:key => :find_commit}) do |state, line|
+    log_lines.state_map({:key => :find_commit}) do |state, line|
       case state[:key]
       when :find_commit
         case line
@@ -87,7 +87,7 @@ end
 Git.compact_log.each { |line| puts line }
 }}}
 
-Note how the use of cases splits the logic very clearly. We first check which state are we in and only then check the relevant conditions to decide the next state and the output. One could argue that this approach is a bit verbose; let's see a more compact checking state and line conditions all at once:
+Note how the use of {{{case}}} splits the logic clearly. We first check which state are we in, and only then check the relevant conditions to decide the next state and the output. One could argue that this approach is a bit verbose; let's see a how it would look if state and input conditions are done all at once:
 
 {{{
 class Git
@@ -95,7 +95,7 @@ class Git
     branch = %x{git rev-parse --symbolic-full-name --abbrev-ref HEAD}.strip
     log_lines = %x{git log}.lines
 
-    log_lines.reduce_map({:key => :find_commit}) do |state, line|
+    log_lines.state_map({:key => :find_commit}) do |state, line|
       if state[:key] == :find_commit && line.match(/^commit/)
         [{:key => :find_log, :commit => line.split[1][0, 8]}, nil]
       elsif state[:key] == :find_log && line.match(/^ /)
@@ -113,7 +113,7 @@ end
 
 Functional languages provide [http://en.wikipedia.org/wiki/Pattern_matching pattern-maching], an extremely useful construct in which one can, at the same time, perform a conditional, deconstruct values and bind them to variables.
 
-Pattern-matching is specially useful when used with Algebraic Data Types (see RubyAlgebraicDataTypes). Using that module and the gem [https://github.com/k-tsj/pattern-match pattern-match] we can rewrite the previous code with a more functional flavour:
+Pattern-matching is specially useful when used with Algebraic Data Types (see RubyAlgebraicDataTypes). Using that module and the gem [https://github.com/k-tsj/pattern-match pattern-match] we can rewrite the previous code like this:
 
 {{{
 require 'pattern-match'
@@ -125,7 +125,7 @@ class Git
     log_lines = %x{git log}.lines
 
     states = adt(:FindCommit => [], :FindLog => [:commit])
-    log_lines.reduce_map(states::FindCommit.new) do |state, line|
+    log_lines.state_map(states::FindCommit.new) do |state, line|
       match [state, line.rstrip] do
         with _[states::FindCommit, /commit (\w+)/.(commit)] do
           [states::FindLog.new(:commit => commit[0, 8]), nil]
